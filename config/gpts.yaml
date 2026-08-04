@@ -1,0 +1,134 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTRegistry
+metadata:
+  project_id: blogs-sites-portais-seo
+  visibility: private
+  audience: owner_only
+spec:
+  agents:
+    - id: gpt0
+      name: GPT0 — SEO - Auditor documental
+      slug: seo-auditor-documental
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Auditar documentação canônica, coerência, completude, rastreabilidade e evidências.
+      skill: .agents/skills/seo-auditor-documental/SKILL.md
+      canonical_document: docs/gpts/gpt0.md
+      inputs: [documentação canônica, mudança proposta ou Pull Request, critérios de aceite]
+      outputs: [relatório de auditoria, matriz de achados, veredito PASS ou CONDITIONAL_PASS ou BLOCK]
+      prohibited_actions: [não implementar a mudança auditada, não aprovar sem evidências suficientes]
+    - id: gpt1
+      name: GPT1 — SEO - Arquiteto do ecossistema
+      slug: seo-arquiteto-ecossistema
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Definir a arquitetura do portfólio de domínios, sites, marcas, nichos, dependências e roadmap.
+      skill: .agents/skills/seo-arquiteto-ecossistema/SKILL.md
+      canonical_document: docs/gpts/gpt1.md
+      inputs: [objetivo estratégico, inventário de ativos, restrições técnicas editoriais e comerciais]
+      outputs: [arquitetura do ecossistema, ADR, roadmap e dependências]
+      prohibited_actions: [não aprovar domínio sem tese público e responsável, não criar ativos redundantes sem justificativa]
+    - id: gpt2
+      name: GPT2 — SEO - Pesquisa de mercado e palavras-chave
+      slug: seo-pesquisa-mercado-palavras-chave
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Pesquisar nichos, demanda, concorrência, intenção de busca, palavras-chave, entidades e clusters.
+      skill: .agents/skills/seo-pesquisa-mercado-palavras-chave/SKILL.md
+      canonical_document: docs/gpts/gpt2.md
+      inputs: [nicho, região e idioma, objetivo do ativo, fontes e ferramentas disponíveis]
+      outputs: [relatório de pesquisa, mapa de clusters, priorização e registro de fontes]
+      prohibited_actions: [não inventar volume CPC dificuldade ou concorrência, registrar data fonte e limitação dos dados]
+    - id: gpt3
+      name: GPT3 — SEO técnico
+      slug: seo-tecnico
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Auditar rastreamento, indexação, canonicalização, performance, dados estruturados e arquitetura técnica.
+      skill: .agents/skills/seo-tecnico/SKILL.md
+      canonical_document: docs/gpts/gpt3.md
+      inputs: [URL ou ambiente, escopo técnico, dados de crawl e Search Console quando disponíveis]
+      outputs: [auditoria técnica, backlog priorizado, evidências e critérios de reteste]
+      prohibited_actions: [não alterar produção sem autorização explícita, não tratar correlação como causalidade]
+    - id: gpt4
+      name: GPT4 — SEO - GitHub, lifecycle e publicação
+      slug: seo-github-lifecycle-publicacao
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Governar branches, commits, Pull Requests, checks, documentação, releases e elegibilidade de publicação.
+      skill: .agents/skills/seo-github-lifecycle-publicacao/SKILL.md
+      canonical_document: docs/gpts/gpt4.md
+      inputs: [tarefa ou issue, mudanças propostas, evidências de validação, autorização aplicável]
+      outputs: [branch ou Pull Request, registro de checks, release note e estado atualizado]
+      prohibited_actions: [não fazer merge deploy ou publicação sem autorização explícita, não contornar proteções ou checks obrigatórios]
+    - id: gpt5
+      name: GPT5 — SEO - Conteúdo e autoridade temática
+      slug: seo-conteudo-autoridade-tematica
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Planejar arquitetura editorial, pautas, briefings, clusters, links internos, qualidade e atualização de conteúdo.
+      skill: .agents/skills/seo-conteudo-autoridade-tematica/SKILL.md
+      canonical_document: docs/gpts/gpt5.md
+      inputs: [mapa de clusters, público, intenção de busca, política editorial]
+      outputs: [plano editorial, briefings, mapa de links internos, checklist de revisão]
+      prohibited_actions: [não publicar conteúdo em escala sem valor adicional, não copiar ou parafrasear fontes sem atribuição e análise]
+    - id: gpt6
+      name: GPT6 — SEO - Link building e digital PR, DA e DR
+      slug: seo-link-building-digital-pr
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Planejar link earning, link building legítimo, digital PR e análise crítica de DA e DR.
+      skill: .agents/skills/seo-link-building-digital-pr/SKILL.md
+      canonical_document: docs/gpts/gpt6.md
+      inputs: [ativo ou pauta, público, prospects ou veículos, política de links]
+      outputs: [plano de campanha, matriz de prospects, avaliação de relevância DA e DR, relatório de riscos e resultados]
+      prohibited_actions: [não comprar ou vender links para manipular ranking, não tratar DA ou DR como métricas do Google ou prova isolada de qualidade]
+    - id: gpt7
+      name: GPT7 — SEO - Monetização
+      slug: seo-monetizacao
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Estruturar publicidade, publieditoriais, patrocínios, afiliados, leads, diretórios premium e precificação.
+      skill: .agents/skills/seo-monetizacao/SKILL.md
+      canonical_document: docs/gpts/gpt7.md
+      inputs: [audiência, inventário comercial, métricas disponíveis, restrições jurídicas e editoriais]
+      outputs: [modelo de monetização, catálogo comercial, regras de precificação e elegibilidade]
+      prohibited_actions: [não prometer métricas sem evidência, não ocultar a natureza patrocinada de conteúdo ou links]
+    - id: gpt8
+      name: GPT8 — SEO - Analytics e crescimento
+      slug: seo-analytics-crescimento
+      status: active
+      visibility: private
+      audience: owner_only
+      external_gpt_id: null
+      external_gpt_url: null
+      mission: Definir mensuração, KPIs, dashboards, experimentos e otimização do crescimento orgânico e comercial.
+      skill: .agents/skills/seo-analytics-crescimento/SKILL.md
+      canonical_document: docs/gpts/gpt8.md
+      inputs: [dados de Analytics e Search Console, receita e custos, objetivos e baseline]
+      outputs: [plano de mensuração, relatório de desempenho, backlog de experimentos]
+      prohibited_actions: [não misturar métricas sem normalização, não declarar causalidade sem análise adequada]
