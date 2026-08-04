@@ -13,14 +13,29 @@ Permitir que GPT0 a GPT8 consultem o repositório privado `wagnerjfjunior/Blogs-
 - token fine-grained com permissões mínimas;
 - nenhum token versionado.
 
+## Compatibilidade com o GPT Builder
+
+O schema canônico usa parâmetros e respostas inline.
+
+Não utilizar:
+
+- `$ref` em parâmetros;
+- `$ref` em respostas;
+- `components.parameters`;
+- `components.responses`;
+- `components` sem `schemas` definido como objeto.
+
+Essa restrição evita que o parser do Builder descarte funções por não resolver referências reutilizáveis.
+
 ## Configuração no Builder
 
 1. Remover schemas de demonstração.
-2. Colar `config/actions/github-read-only.openapi.yaml`.
-3. Configurar autenticação por Bearer token.
-4. Testar `/user`.
-5. Testar repositório, arquivo por SHA, PR, checks e workflow.
-6. Confirmar compartilhamento `Apenas para mim`.
+2. Colar integralmente `config/actions/github-read-only.openapi.yaml`.
+3. Confirmar que o Builder não apresenta erros de parsing.
+4. Configurar autenticação por Bearer token.
+5. Testar `/user`.
+6. Testar repositório, arquivo por SHA, PR, checks e workflow.
+7. Confirmar compartilhamento `Apenas para mim`.
 
 ## Limitações
 
