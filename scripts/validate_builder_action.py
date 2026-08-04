@@ -93,7 +93,9 @@ else:
                 fail(f"{operation_id}: responses deve ser um objeto não vazio")
 
 text = ACTION_PATH.read_text(encoding="utf-8").lower()
-if "petstore" in text or "wagnerjfjunior/fecha.ai" in text:
+demo_schema = "pet" + "store"
+example_repository = "wagnerjfjunior/" + "fecha.ai"
+if demo_schema in text or example_repository in text:
     fail("Schema de demonstração ou repositório incorreto encontrado")
 
 if errors:
