@@ -1,359 +1,226 @@
 openapi: 3.1.0
 info:
   title: Ecossistema de Blogs, Sites, Portais e SEO — GitHub Read-Only
-  description: Acesso somente leitura ao repositório privado wagnerjfjunior/Blogs-sites-portais-seo.
-  version: 1.0.0
+  description: Read-only access to the private repository wagnerjfjunior/Blogs-sites-portais-seo.
+  version: 1.0.1
 servers:
   - url: https://api.github.com
     description: GitHub REST API
-components:
-  parameters:
-    PullNumber:
-      name: pull_number
-      in: path
-      required: true
-      schema: {type: integer, minimum: 1}
-    Ref:
-      name: ref
-      in: path
-      required: true
-      schema: {type: string, minLength: 1}
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      schema: {type: integer, minimum: 1, maximum: 100, default: 100}
-    Page:
-      name: page
-      in: query
-      required: false
-      schema: {type: integer, minimum: 1, default: 1}
-  responses:
-    Ok:
-      description: Resposta bem-sucedida
-    Unauthorized:
-      description: Token ausente, inválido ou expirado
-    Forbidden:
-      description: Token sem permissão
-    NotFound:
-      description: Recurso não encontrado
 paths:
   /user:
     get:
       operationId: getAuthenticatedGitHubUser
-      summary: Verificar usuário autenticado
+      summary: Verify authenticated GitHub user
       x-openai-isConsequential: false
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "401": {$ref: "#/components/responses/Unauthorized"}
-        "403": {$ref: "#/components/responses/Forbidden"}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo:
     get:
       operationId: getSeoEcosystemRepository
-      summary: Obter metadados do repositório
+      summary: Get repository metadata
       x-openai-isConsequential: false
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "401": {$ref: "#/components/responses/Unauthorized"}
-        "403": {$ref: "#/components/responses/Forbidden"}
-        "404": {$ref: "#/components/responses/NotFound"}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/branches:
     get:
       operationId: listSeoEcosystemBranches
-      summary: Listar branches
+      summary: List repository branches
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "401": {$ref: "#/components/responses/Unauthorized"}
-        "403": {$ref: "#/components/responses/Forbidden"}
+        - {"name": "protected", "in": "query", "required": false, "schema": {"type": "boolean"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 30}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/branches/{branch}:
     get:
       operationId: getSeoEcosystemBranch
-      summary: Resolver branch e head SHA
+      summary: Resolve branch and head SHA
       x-openai-isConsequential: false
       parameters:
-        - name: branch
-          in: path
-          required: true
-          schema: {type: string, minLength: 1}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "branch", "in": "path", "required": true, "schema": {"type": "string", "minLength": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/commits/{commit_sha}:
     get:
       operationId: getSeoEcosystemGitCommit
-      summary: Obter commit Git e tree SHA
+      summary: Get Git commit and root tree SHA
       x-openai-isConsequential: false
       parameters:
-        - name: commit_sha
-          in: path
-          required: true
-          schema: {type: string, minLength: 7}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "commit_sha", "in": "path", "required": true, "schema": {"type": "string", "minLength": 7}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/trees/{tree_sha}:
     get:
       operationId: getSeoEcosystemGitTree
-      summary: Listar árvore Git
-      description: Se truncated for true, a resposta não comprova a árvore completa.
+      summary: Get Git tree
+      description: "If truncated is true, the response does not prove a complete tree."
       x-openai-isConsequential: false
       parameters:
-        - name: tree_sha
-          in: path
-          required: true
-          schema: {type: string, minLength: 7}
-        - name: recursive
-          in: query
-          required: false
-          schema: {type: string, enum: ["1"]}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "tree_sha", "in": "path", "required": true, "schema": {"type": "string", "minLength": 7}}
+        - {"name": "recursive", "in": "query", "required": false, "schema": {"type": "string", "enum": ["1"]}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/contents/{path}:
     get:
       operationId: getSeoEcosystemFileRawByPath
-      summary: Ler arquivo bruto por caminho e referência
-      description: Resposta incompleta não comprova leitura integral.
+      summary: Read raw file by path and exact ref
+      description: "An incomplete response does not prove full-file reading."
       x-openai-isConsequential: false
       parameters:
-        - name: path
-          in: path
-          required: true
-          schema: {type: string, minLength: 1}
-        - name: ref
-          in: query
-          required: true
-          schema: {type: string, minLength: 1}
-        - name: Accept
-          in: header
-          required: false
-          schema:
-            type: string
-            enum: [application/vnd.github.raw+json]
-            default: application/vnd.github.raw+json
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "path", "in": "path", "required": true, "schema": {"type": "string", "minLength": 1}}
+        - {"name": "ref", "in": "query", "required": true, "schema": {"type": "string", "minLength": 1}}
+        - {"name": "Accept", "in": "header", "required": false, "schema": {"type": "string", "enum": ["application/vnd.github.raw+json"], "default": "application/vnd.github.raw+json"}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/blobs/{blob_sha}:
     get:
       operationId: getSeoEcosystemGitBlobRaw
-      summary: Ler blob bruto
+      summary: Read raw Git blob
+      description: "An empty or truncated response does not prove full-blob reading."
       x-openai-isConsequential: false
       parameters:
-        - name: blob_sha
-          in: path
-          required: true
-          schema: {type: string, minLength: 7}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "blob_sha", "in": "path", "required": true, "schema": {"type": "string", "minLength": 7}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits:
     get:
       operationId: listSeoEcosystemCommits
-      summary: Listar commits
+      summary: List repository commits
       x-openai-isConsequential: false
       parameters:
-        - name: sha
-          in: query
-          required: false
-          schema: {type: string}
-        - name: path
-          in: query
-          required: false
-          schema: {type: string}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "sha", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "path", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 30}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits/{ref}:
     get:
       operationId: getSeoEcosystemRepositoryCommit
-      summary: Obter commit e arquivos alterados
-      description: Patches não substituem leitura dos arquivos finais.
+      summary: Get repository commit and changed files
+      description: "Patches do not replace reading final files at the audited ref."
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/Ref"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "ref", "in": "path", "required": true, "schema": {"type": "string", "minLength": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls:
     get:
       operationId: listSeoEcosystemPullRequests
-      summary: Listar pull requests
+      summary: List pull requests
       x-openai-isConsequential: false
       parameters:
-        - name: state
-          in: query
-          required: false
-          schema: {type: string, enum: [open, closed, all], default: open}
-        - name: head
-          in: query
-          required: false
-          schema: {type: string}
-        - name: base
-          in: query
-          required: false
-          schema: {type: string}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "state", "in": "query", "required": false, "schema": {"type": "string", "enum": ["open", "closed", "all"], "default": "open"}}
+        - {"name": "head", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "base", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 30}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}:
     get:
       operationId: getSeoEcosystemPullRequest
-      summary: Obter metadados da PR
+      summary: Get pull request metadata
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PullNumber"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
-        "404": {$ref: "#/components/responses/NotFound"}
+        - {"name": "pull_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/files:
     get:
       operationId: listSeoEcosystemPullRequestFiles
-      summary: Listar arquivos alterados da PR
-      description: Patches não substituem leitura dos arquivos finais no head.
+      summary: List pull request changed files
+      description: "Patches do not replace reading final files at the pull request head."
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PullNumber"}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "pull_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/commits:
     get:
       operationId: listSeoEcosystemPullRequestCommits
-      summary: Listar commits da PR
+      summary: List pull request commits
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PullNumber"}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "pull_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/reviews:
     get:
       operationId: listSeoEcosystemPullRequestReviews
-      summary: Listar reviews da PR
+      summary: List pull request reviews
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PullNumber"}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "pull_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/comments:
     get:
       operationId: listSeoEcosystemPullRequestReviewComments
-      summary: Listar comentários inline da PR
-      description: A API REST não comprova integralmente isResolved de threads GraphQL.
+      summary: List pull request inline review comments
+      description: "REST review comments do not fully prove GraphQL thread resolution state."
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/PullNumber"}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "pull_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/issues/{issue_number}/comments:
     get:
       operationId: listSeoEcosystemPullRequestConversationComments
-      summary: Listar comentários gerais da PR
+      summary: List pull request conversation comments
       x-openai-isConsequential: false
       parameters:
-        - name: issue_number
-          in: path
-          required: true
-          schema: {type: integer, minimum: 1}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "issue_number", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits/{ref}/check-runs:
     get:
       operationId: listSeoEcosystemCommitCheckRuns
-      summary: Consultar checks do commit
+      summary: List check runs for a commit
       x-openai-isConsequential: false
       parameters:
-        - {$ref: "#/components/parameters/Ref"}
-        - name: filter
-          in: query
-          required: false
-          schema: {type: string, enum: [latest, all], default: latest}
-        - {$ref: "#/components/parameters/PerPage"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "ref", "in": "path", "required": true, "schema": {"type": "string", "minLength": 1}}
+        - {"name": "filter", "in": "query", "required": false, "schema": {"type": "string", "enum": ["latest", "all"], "default": "latest"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs:
     get:
       operationId: listSeoEcosystemWorkflowRuns
-      summary: Listar workflow runs
+      summary: List workflow runs
       x-openai-isConsequential: false
       parameters:
-        - name: branch
-          in: query
-          required: false
-          schema: {type: string}
-        - name: event
-          in: query
-          required: false
-          schema: {type: string}
-        - name: status
-          in: query
-          required: false
-          schema: {type: string}
-        - {$ref: "#/components/parameters/PerPage"}
-        - {$ref: "#/components/parameters/Page"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "branch", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "event", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "status", "in": "query", "required": false, "schema": {"type": "string"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 30}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs/{run_id}:
     get:
       operationId: getSeoEcosystemWorkflowRun
-      summary: Obter workflow run
+      summary: Get a workflow run
       x-openai-isConsequential: false
       parameters:
-        - name: run_id
-          in: path
-          required: true
-          schema: {type: integer, minimum: 1}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "run_id", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs/{run_id}/jobs:
     get:
       operationId: listSeoEcosystemWorkflowRunJobs
-      summary: Listar jobs do workflow run
+      summary: List jobs for a workflow run
       x-openai-isConsequential: false
       parameters:
-        - name: run_id
-          in: path
-          required: true
-          schema: {type: integer, minimum: 1}
-        - {$ref: "#/components/parameters/PerPage"}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "run_id", "in": "path", "required": true, "schema": {"type": "integer", "minimum": 1}}
+        - {"name": "filter", "in": "query", "required": false, "schema": {"type": "string", "enum": ["latest", "all"], "default": "latest"}}
+        - {"name": "per_page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 100}}
+        - {"name": "page", "in": "query", "required": false, "schema": {"type": "integer", "minimum": 1, "default": 1}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/compare/{basehead}:
     get:
       operationId: compareSeoEcosystemRefs
-      summary: Comparar duas referências
+      summary: Compare two refs
       x-openai-isConsequential: false
       parameters:
-        - name: basehead
-          in: path
-          required: true
-          schema: {type: string, minLength: 3}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "basehead", "in": "path", "required": true, "schema": {"type": "string", "minLength": 3}}
+      responses: {"200": {"description": "Successful response"}}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/rulesets:
     get:
       operationId: listSeoEcosystemRepositoryRulesets
-      summary: Listar rulesets do repositório
+      summary: List repository rulesets
       x-openai-isConsequential: false
       parameters:
-        - name: includes_parents
-          in: query
-          required: false
-          schema: {type: boolean, default: true}
-      responses:
-        "200": {$ref: "#/components/responses/Ok"}
+        - {"name": "includes_parents", "in": "query", "required": false, "schema": {"type": "boolean", "default": true}}
+      responses: {"200": {"description": "Successful response"}}
