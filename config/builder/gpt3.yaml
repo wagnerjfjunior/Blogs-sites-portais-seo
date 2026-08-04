@@ -1,0 +1,24 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt3
+  public_name: GPT3 — SEO técnico
+  external_gpt_id: g-6a71dfc57be881918cf75a9fdb15c252
+  external_gpt_url: https://chatgpt.com/g/g-6a71dfc57be881918cf75a9fdb15c252-gpt3-seo-tecnico
+spec:
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt3-builder-instructions.md
+  instructions_sha256: d7cc3bc35412b9afd6cbf96e1895a25d85ad564a99abf09bc272926c2294f647
+  canonical_contract: docs/gpts/gpt3.md
+  knowledge_files:
+  - config/project.yaml
+  - config/gpts.yaml
+  - docs/gpts/gpt3.md
+  - .agents/skills/seo-tecnico/SKILL.md
+  action_profile: github-read-only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities: []
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt3/acceptance-cases.yaml
+  sharing_verified: false
+  last_verified_version: null

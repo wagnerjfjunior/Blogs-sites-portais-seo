@@ -2,23 +2,22 @@ api_version: blogs-sites-portais-seo/v1
 kind: Project
 metadata:
   id: blogs-sites-portais-seo
-  name: Ecossistema de Blogs, Sites, Portais e SEO
+  public_name: Ecossistema de Blogs, Sites, Portais e SEO
+  repository: wagnerjfjunior/Blogs-sites-portais-seo
   visibility: private
-  audience: owner_only
-  status: bootstrap
 spec:
-  canonical_repository: wagnerjfjunior/Blogs-sites-portais-seo
-  default_branch: main
-  write_mode: pull_request
-  gpt_registry: config/gpts.yaml
-  documentation_root: docs
-  skills_root: .agents/skills
+  canonical_branch: main
+  gpt_audience: owner_only
+  source_of_truth: github
+  verdicts:
+  - PASS
+  - PASS_WITH_RESIDUAL_RISK
+  - BLOCK
+  - INCONCLUSIVE
+  ready_approver: Wagner
+  merge_approver: Wagner
+  builder_editor: Wagner ou executor explicitamente autorizado
+  github_action_profile: github-read-only
   sfjm:
-    status: deferred
-    authorized: false
-    instruction: Do not create or modify SFJM in this phase.
-  policies:
-    canonical_source: github
-    direct_main_writes: false
-    merge_requires_explicit_authorization: true
-    external_mutation_requires_explicit_authorization: true
+    status: out_of_scope
+    creation_allowed: false

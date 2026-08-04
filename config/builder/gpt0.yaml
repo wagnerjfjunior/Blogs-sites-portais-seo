@@ -1,0 +1,24 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt0
+  public_name: GPT0 — SEO - Auditor documental
+  external_gpt_id: g-6a71de286da481919ddd357950222c9b
+  external_gpt_url: https://chatgpt.com/g/g-6a71de286da481919ddd357950222c9b-gpt0-seo-auditor-documental
+spec:
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt0-builder-instructions.md
+  instructions_sha256: 698382ecad8089e10d582e34fe9edfa0f5fb469ae564ec9a2c171e1cc5a09650
+  canonical_contract: docs/gpts/gpt0.md
+  knowledge_files:
+  - config/project.yaml
+  - config/gpts.yaml
+  - docs/gpts/gpt0.md
+  - .agents/skills/seo-auditor-documental/SKILL.md
+  action_profile: github-read-only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities: []
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt0/acceptance-cases.yaml
+  sharing_verified: false
+  last_verified_version: null

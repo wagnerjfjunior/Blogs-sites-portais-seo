@@ -1,16 +1,21 @@
 # Governança canônica
 
 ## Fonte de verdade
-A branch principal aprovada de `wagnerjfjunior/Blogs-sites-portais-seo` é a fonte canônica.
+GitHub é a fonte canônica. Builder, prompts e testes apontam para arquivos versionados neste repositório.
 
-## Mudanças
-Configurações, skills e documentos devem ser alterados por branch e Pull Request. O PR deve registrar objetivo, escopo, evidências, riscos e rollback.
+## Cadeia de mudança
+`branch → PR Draft → validação local → head congelado → GPT0 → GPT4 → autorização Ready → Ready → conferência final → autorização merge → merge`.
 
-## Privacidade
-Todos os GPTs são privados e destinados apenas ao proprietário.
+A conferência final não repete auditorias quando o head permanece idêntico.
 
-## Separação de funções
-O especialista que implementa não deve ser o único responsável pela auditoria final de sua própria mudança.
+## Independência
+O autor não audita a própria alteração. GPT0 audita documentação; GPT4 valida lifecycle. Nenhum deles autoriza Ready ou merge.
+
+## Evidência
+Toda conclusão deve indicar objeto, referência exata, data e limitação. Conteúdo truncado ou inacessível não comprova leitura integral.
+
+## Builder
+Manifests e Instructions são projeções dos contratos canônicos. A configuração real deve ser validada no Builder sem registrar segredos.
 
 ## SFJM
-O SFJM está fora do escopo atual. Sua criação depende de autorização posterior, explícita e separada.
+SFJM está fora de escopo. A ausência é uma restrição obrigatória deste bootstrap.

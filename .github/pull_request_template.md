@@ -1,20 +1,23 @@
 ## Objetivo
 
-## Escopo
+## Escopo e fora de escopo
 
-## GPTs ou skills afetados
+## Base, branch e head esperado
 
-## Evidências
+## Arquivos e GPTs afetados
+
+## Evidências e leitura integral
 
 ## Validação
-
 ```text
 python scripts/validate_repository.py
 ```
 
 ## Riscos e rollback
 
-## Autorização
-
-- [ ] Nenhum SFJM foi criado ou alterado
-- [ ] Merge ou publicação possui autorização explícita
+## Autorizações
+- [ ] A implementação está autorizada
+- [ ] O head foi congelado para auditoria
+- [ ] Ready possui autorização separada
+- [ ] Merge possui autorização separada
+- [ ] SFJM permanece fora de escopo

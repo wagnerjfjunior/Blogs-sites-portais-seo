@@ -1,0 +1,24 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt2
+  public_name: GPT2 — SEO - Pesquisa de mercado e palavras-chave
+  external_gpt_id: g-6a71df70c7d48191861cf6b2a0f7354b
+  external_gpt_url: https://chatgpt.com/g/g-6a71df70c7d48191861cf6b2a0f7354b-gpt2-seo-pesquisa-de-mercado-e-palavras-chave
+spec:
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt2-builder-instructions.md
+  instructions_sha256: 598aee5cc4ec932e1894705c5d225a5bbcf8a0a152384c722f38e176543783d7
+  canonical_contract: docs/gpts/gpt2.md
+  knowledge_files:
+  - config/project.yaml
+  - config/gpts.yaml
+  - docs/gpts/gpt2.md
+  - .agents/skills/seo-pesquisa-mercado-palavras-chave/SKILL.md
+  action_profile: github-read-only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities: []
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt2/acceptance-cases.yaml
+  sharing_verified: false
+  last_verified_version: null
