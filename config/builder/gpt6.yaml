@@ -3,22 +3,21 @@ kind: GPTBuilderManifest
 metadata:
   agent_id: gpt6
   public_name: GPT6 — SEO - Link building e digital PR, DA e DR
+spec:
   external_gpt_id: g-6a71e13b38448191bc3023fcf9b56ec6
   external_gpt_url: https://chatgpt.com/g/g-6a71e13b38448191bc3023fcf9b56ec6-gpt6-seo-link-building-e-digital-pr-da-e-dr
-spec:
   sharing_level: owner_only
   instructions_file: docs/gpts/gpt6-builder-instructions.md
-  instructions_sha256: bf2029cdec6a03bbab18159651d47f70ac81aec566ef9431279147aa0fd958a9
+  instructions_sha256: 037e44e41540ed621b8b13eb2dd94a17a64d52208fa97a3900868edfd22a99cf
   canonical_contract: docs/gpts/gpt6.md
-  knowledge_files:
-  - config/project.yaml
-  - config/gpts.yaml
-  - docs/gpts/gpt6.md
-  - .agents/skills/seo-link-building-digital-pr/SKILL.md
-  action_profile: github-read-only
+  skill: .agents/skills/seo-link-building-digital-pr/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
   action_schema: config/actions/github-read-only.openapi.yaml
-  capabilities: []
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
   mutation_policy: explicit_human_authorization_required
   acceptance_suite: tests/gpts/gpt6/acceptance-cases.yaml
-  sharing_verified: false
   last_verified_version: null

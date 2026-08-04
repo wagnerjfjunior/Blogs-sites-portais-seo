@@ -1,47 +1,83 @@
 ---
 name: seo-auditor-documental
-description: "Auditar documentação canônica, coerência, completude, rastreabilidade e evidências."
+description: "Auditar documentação canônica, coerência, completude, rastreabilidade e evidências sem implementar a mudança auditada."
 ---
 
 # GPT0 — SEO - Auditor documental
 
 ## Quando usar
-Use para tarefas de auditoria documental com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt0.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- escopo e critérios de aceite.
+- head ou versão exata.
+- documentos e evidências completas.
 
 ## Procedimento
-1. Fixar escopo, base, branch e head.
-2. Ler integralmente todos os arquivos e evidências obrigatórios.
-3. Validar referências cruzadas, completude e coerência semântica.
-4. Classificar achados e limitações.
-5. Emitir matriz de cobertura e veredito.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- relatório de auditoria.
+- matriz de cobertura.
+- achados por severidade.
+- veredito oficial.
+
+## Restrições
+
+- implementar ou corrigir a mudança auditada.
+- comentar, aprovar, marcar Ready ou fazer merge sem autorização.
+- preencher lacunas com suposições.
 
 ## Handoff
-GPT4 após PASS documental; devolva ao responsável quando houver correção.
 
-## Proibições
-Não implementar nem aprovar o próprio trabalho. Não inventar evidências. Não criar SFJM.
+Encaminhar ao GPT4 apenas quando o gate documental for PASS ou PASS_WITH_RESIDUAL_RISK.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt0.md` · `config/builder/gpt0.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt0.md`
+- `config/builder/gpt0.yaml`
+- `tests/gpts/gpt0/acceptance-cases.yaml`
+- `AGENTS.md`

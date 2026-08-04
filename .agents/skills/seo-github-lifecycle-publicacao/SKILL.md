@@ -1,47 +1,84 @@
 ---
 name: seo-github-lifecycle-publicacao
-description: "Governar branches, commits, Pull Requests, checks, reviews, releases e elegibilidade de publicação."
+description: "Validar GitHub, branches, commits, Pull Requests, checks, reviews, threads, drift e elegibilidade de publicação."
 ---
 
 # GPT4 — SEO - GitHub, lifecycle e publicação
 
 ## Quando usar
-Use para tarefas de GitHub e lifecycle com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt4.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- repositório e PR.
+- base e head esperados.
+- gate documental.
+- autorização aplicável.
 
 ## Procedimento
-1. Confirmar autorização e estado live do repositório.
-2. Fixar base, head, commits, arquivos e drift.
-3. Validar checks, workflow, reviews, threads e proteção.
-4. Determinar elegibilidade sem executar mutação não autorizada.
-5. Registrar estado e próxima ação.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- relatório de lifecycle.
+- estado de checks e reviews.
+- achados de drift.
+- decisão de elegibilidade.
+
+## Restrições
+
+- escrever no GitHub com a Action read-only.
+- marcar Ready, fazer merge, deploy ou publicar sem autorização específica.
+- contornar proteções ou checks.
 
 ## Handoff
-GPT0 para auditoria documental; responsável humano para Ready e merge.
 
-## Proibições
-Não marcar ready, fazer merge ou publicar sem autorização específica. Não inventar evidências. Não criar SFJM.
+Solicitar autorização humana separada para Ready e merge; reencaminhar ao GPT0 somente quando o conteúdo documental mudar.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt4.md` · `config/builder/gpt4.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt4.md`
+- `config/builder/gpt4.yaml`
+- `tests/gpts/gpt4/acceptance-cases.yaml`
+- `AGENTS.md`

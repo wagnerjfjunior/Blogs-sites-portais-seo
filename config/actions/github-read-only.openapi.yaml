@@ -1,602 +1,359 @@
 openapi: 3.1.0
 info:
-  title: Ecossistema SEO GitHub Read-Only
-  description: Acesso somente leitura e fixo ao repositório canônico para auditoria e lifecycle.
+  title: Ecossistema de Blogs, Sites, Portais e SEO — GitHub Read-Only
+  description: Acesso somente leitura ao repositório privado wagnerjfjunior/Blogs-sites-portais-seo.
   version: 1.0.0
 servers:
-- url: https://api.github.com
-  description: GitHub REST API
+  - url: https://api.github.com
+    description: GitHub REST API
+components:
+  parameters:
+    PullNumber:
+      name: pull_number
+      in: path
+      required: true
+      schema: {type: integer, minimum: 1}
+    Ref:
+      name: ref
+      in: path
+      required: true
+      schema: {type: string, minLength: 1}
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      schema: {type: integer, minimum: 1, maximum: 100, default: 100}
+    Page:
+      name: page
+      in: query
+      required: false
+      schema: {type: integer, minimum: 1, default: 1}
+  responses:
+    Ok:
+      description: Resposta bem-sucedida
+    Unauthorized:
+      description: Token ausente, inválido ou expirado
+    Forbidden:
+      description: Token sem permissão
+    NotFound:
+      description: Recurso não encontrado
 paths:
   /user:
     get:
       operationId: getAuthenticatedGitHubUser
-      summary: Verificar identidade autenticada
+      summary: Verificar usuário autenticado
       x-openai-isConsequential: false
       responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
+        "200": {$ref: "#/components/responses/Ok"}
+        "401": {$ref: "#/components/responses/Unauthorized"}
+        "403": {$ref: "#/components/responses/Forbidden"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo:
     get:
       operationId: getSeoEcosystemRepository
       summary: Obter metadados do repositório
       x-openai-isConsequential: false
       responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
+        "200": {$ref: "#/components/responses/Ok"}
+        "401": {$ref: "#/components/responses/Unauthorized"}
+        "403": {$ref: "#/components/responses/Forbidden"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/branches:
     get:
       operationId: listSeoEcosystemBranches
       summary: Listar branches
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "401": {$ref: "#/components/responses/Unauthorized"}
+        "403": {$ref: "#/components/responses/Forbidden"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/branches/{branch}:
     get:
       operationId: getSeoEcosystemBranch
-      summary: Resolver branch e head
+      summary: Resolver branch e head SHA
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: branch
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: branch
+          in: path
+          required: true
+          schema: {type: string, minLength: 1}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/commits/{commit_sha}:
     get:
       operationId: getSeoEcosystemGitCommit
       summary: Obter commit Git e tree SHA
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: commit_sha
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: commit_sha
+          in: path
+          required: true
+          schema: {type: string, minLength: 7}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/trees/{tree_sha}:
     get:
       operationId: getSeoEcosystemGitTree
-      summary: Ler árvore Git; não considerar completa se truncated=true
+      summary: Listar árvore Git
+      description: Se truncated for true, a resposta não comprova a árvore completa.
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: tree_sha
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: recursive
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: tree_sha
+          in: path
+          required: true
+          schema: {type: string, minLength: 7}
+        - name: recursive
+          in: query
+          required: false
+          schema: {type: string, enum: ["1"]}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/contents/{path}:
     get:
-      operationId: getSeoEcosystemFileRaw
+      operationId: getSeoEcosystemFileRawByPath
       summary: Ler arquivo bruto por caminho e referência
+      description: Resposta incompleta não comprova leitura integral.
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: path
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: ref
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: path
+          in: path
+          required: true
+          schema: {type: string, minLength: 1}
+        - name: ref
+          in: query
+          required: true
+          schema: {type: string, minLength: 1}
+        - name: Accept
+          in: header
+          required: false
+          schema:
+            type: string
+            enum: [application/vnd.github.raw+json]
+            default: application/vnd.github.raw+json
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/git/blobs/{blob_sha}:
     get:
-      operationId: getSeoEcosystemBlob
-      summary: Ler blob exato
+      operationId: getSeoEcosystemGitBlobRaw
+      summary: Ler blob bruto
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: blob_sha
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: blob_sha
+          in: path
+          required: true
+          schema: {type: string, minLength: 7}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits:
     get:
       operationId: listSeoEcosystemCommits
       summary: Listar commits
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: sha
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: path
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - name: sha
+          in: query
+          required: false
+          schema: {type: string}
+        - name: path
+          in: query
+          required: false
+          schema: {type: string}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits/{ref}:
     get:
-      operationId: getSeoEcosystemCommit
+      operationId: getSeoEcosystemRepositoryCommit
       summary: Obter commit e arquivos alterados
+      description: Patches não substituem leitura dos arquivos finais.
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: ref
-        in: path
-        required: true
-        schema:
-          type: string
+        - {$ref: "#/components/parameters/Ref"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls:
     get:
       operationId: listSeoEcosystemPullRequests
       summary: Listar pull requests
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: state
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: head
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: base
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - name: state
+          in: query
+          required: false
+          schema: {type: string, enum: [open, closed, all], default: open}
+        - name: head
+          in: query
+          required: false
+          schema: {type: string}
+        - name: base
+          in: query
+          required: false
+          schema: {type: string}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}:
     get:
       operationId: getSeoEcosystemPullRequest
       summary: Obter metadados da PR
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/PullNumber"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+        "404": {$ref: "#/components/responses/NotFound"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/files:
     get:
       operationId: listSeoEcosystemPullRequestFiles
-      summary: Listar arquivos da PR
+      summary: Listar arquivos alterados da PR
+      description: Patches não substituem leitura dos arquivos finais no head.
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/PullNumber"}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/commits:
     get:
       operationId: listSeoEcosystemPullRequestCommits
       summary: Listar commits da PR
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/PullNumber"}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/reviews:
     get:
       operationId: listSeoEcosystemPullRequestReviews
       summary: Listar reviews da PR
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/PullNumber"}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/pulls/{pull_number}/comments:
     get:
       operationId: listSeoEcosystemPullRequestReviewComments
       summary: Listar comentários inline da PR
+      description: A API REST não comprova integralmente isResolved de threads GraphQL.
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
-  /repos/wagnerjfjunior/Blogs-sites-portais-seo/issues/{pull_number}/comments:
+        - {$ref: "#/components/parameters/PullNumber"}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
+  /repos/wagnerjfjunior/Blogs-sites-portais-seo/issues/{issue_number}/comments:
     get:
       operationId: listSeoEcosystemPullRequestConversationComments
       summary: Listar comentários gerais da PR
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: pull_number
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - name: issue_number
+          in: path
+          required: true
+          schema: {type: integer, minimum: 1}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/commits/{ref}/check-runs:
     get:
-      operationId: listSeoEcosystemCheckRuns
+      operationId: listSeoEcosystemCommitCheckRuns
       summary: Consultar checks do commit
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: ref
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: filter
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - {$ref: "#/components/parameters/Ref"}
+        - name: filter
+          in: query
+          required: false
+          schema: {type: string, enum: [latest, all], default: latest}
+        - {$ref: "#/components/parameters/PerPage"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs:
     get:
       operationId: listSeoEcosystemWorkflowRuns
       summary: Listar workflow runs
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: branch
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: event
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: status
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - name: branch
+          in: query
+          required: false
+          schema: {type: string}
+        - name: event
+          in: query
+          required: false
+          schema: {type: string}
+        - name: status
+          in: query
+          required: false
+          schema: {type: string}
+        - {$ref: "#/components/parameters/PerPage"}
+        - {$ref: "#/components/parameters/Page"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs/{run_id}:
     get:
       operationId: getSeoEcosystemWorkflowRun
-      summary: Obter workflow run específico
+      summary: Obter workflow run
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: run_id
-        in: path
-        required: true
-        schema:
-          type: integer
+        - name: run_id
+          in: path
+          required: true
+          schema: {type: integer, minimum: 1}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/actions/runs/{run_id}/jobs:
     get:
       operationId: listSeoEcosystemWorkflowRunJobs
-      summary: Listar jobs e steps
+      summary: Listar jobs do workflow run
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: run_id
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: integer
-      - name: page
-        in: query
-        required: false
-        schema:
-          type: integer
+        - name: run_id
+          in: path
+          required: true
+          schema: {type: integer, minimum: 1}
+        - {$ref: "#/components/parameters/PerPage"}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/compare/{basehead}:
     get:
       operationId: compareSeoEcosystemRefs
-      summary: Comparar referências
+      summary: Comparar duas referências
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: basehead
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: basehead
+          in: path
+          required: true
+          schema: {type: string, minLength: 3}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}
   /repos/wagnerjfjunior/Blogs-sites-portais-seo/rulesets:
     get:
-      operationId: listSeoEcosystemRulesets
-      summary: Listar rulesets
+      operationId: listSeoEcosystemRepositoryRulesets
+      summary: Listar rulesets do repositório
       x-openai-isConsequential: false
-      responses:
-        '200':
-          description: Resposta bem-sucedida
-        '401':
-          description: Token inválido ou ausente
-        '403':
-          description: Permissão insuficiente
-        '404':
-          description: Objeto não encontrado
       parameters:
-      - name: includes_parents
-        in: query
-        required: false
-        schema:
-          type: boolean
-      - name: targets
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: includes_parents
+          in: query
+          required: false
+          schema: {type: boolean, default: true}
+      responses:
+        "200": {$ref: "#/components/responses/Ok"}

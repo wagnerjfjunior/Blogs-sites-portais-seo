@@ -1,7 +1,32 @@
 # Política de provisioning do Builder
 
-Para cada GPT, configure nome, descrição, Instructions, Knowledge necessário, Action, compartilhamento e recursos conforme o manifest versionado.
+## Fonte
 
-A Action deve usar `config/actions/github-read-only.openapi.yaml`. O compartilhamento deve permanecer “Apenas para mim”. Não registrar tokens, screenshots sensíveis ou segredos.
+As Instructions do Builder são projeções dos contratos canônicos. Não podem introduzir regras novas ou contraditórias.
 
-Antes de concluir, execute a suíte de aceitação do GPT e registre resultado, versão das Instructions e data. Divergência entre Builder e repositório é drift de configuração.
+## Ordem por GPT
+
+1. Confirmar ID e URL externos.
+2. Confirmar compartilhamento `Apenas para mim`.
+3. Remover schemas de demonstração.
+4. Inserir as Instructions canônicas.
+5. Configurar a Action `github_read_only`.
+6. Configurar autenticação sem registrar o token.
+7. Salvar a versão.
+8. Executar a suíte de aceitação.
+9. Registrar data, fonte e resultado.
+
+## Evidência mínima
+
+- GPT e URL;
+- commit-fonte;
+- hash das Instructions;
+- Action configurada;
+- compartilhamento observado;
+- testes executados;
+- resultado;
+- limitações.
+
+## Rollback
+
+Restaurar a versão anterior do Builder e registrar a divergência. O GitHub continua sendo a fonte de reconstrução.

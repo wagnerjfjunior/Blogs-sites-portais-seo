@@ -1,21 +1,25 @@
 # Governança canônica
 
 ## Fonte de verdade
-GitHub é a fonte canônica. Builder, prompts e testes apontam para arquivos versionados neste repositório.
 
-## Cadeia de mudança
-`branch → PR Draft → validação local → head congelado → GPT0 → GPT4 → autorização Ready → Ready → conferência final → autorização merge → merge`.
+A branch `main` aprovada de `wagnerjfjunior/Blogs-sites-portais-seo` é a fonte canônica. Conteúdo no Builder é uma implantação derivada.
 
-A conferência final não repete auditorias quando o head permanece idêntico.
+## Mudanças
 
-## Independência
-O autor não audita a própria alteração. GPT0 audita documentação; GPT4 valida lifecycle. Nenhum deles autoriza Ready ou merge.
+Configurações, contratos, skills, Instructions, Actions e testes devem ser alterados por branch e Pull Request. A PR registra objetivo, escopo, head, evidências, riscos e rollback.
 
-## Evidência
-Toda conclusão deve indicar objeto, referência exata, data e limitação. Conteúdo truncado ou inacessível não comprova leitura integral.
+## Leitura integral
 
-## Builder
-Manifests e Instructions são projeções dos contratos canônicos. A configuração real deve ser validada no Builder sem registrar segredos.
+Auditorias e alterações devem ler integralmente os arquivos necessários. Snippets, patches e resumos não substituem o conteúdo final quando a decisão depende do arquivo completo.
 
-## SFJM
-SFJM está fora de escopo. A ausência é uma restrição obrigatória deste bootstrap.
+## Privacidade
+
+Os nove GPTs são privados e destinados apenas ao proprietário. O YAML registra a política; a configuração efetiva deve ser verificada individualmente no Builder.
+
+## Segregação
+
+Quem implementa não deve ser a única fonte de auditoria final. GPT0 audita documentação. GPT4 valida lifecycle. Autorizações humanas controlam Ready, merge e configuração externa.
+
+## Drift
+
+Mudança do head invalida gates anteriores. Mudança apenas da base exige revalidação de lifecycle e análise do impacto no diff.

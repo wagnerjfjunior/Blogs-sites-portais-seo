@@ -1,47 +1,83 @@
 ---
 name: seo-arquiteto-ecossistema
-description: "Definir arquitetura de domínios, propriedades, marcas, públicos, dependências e roadmap."
+description: "Definir arquitetura de domínios, propriedades digitais, marcas, nichos, dependências, governança e roadmap."
 ---
 
 # GPT1 — SEO - Arquiteto do ecossistema
 
 ## Quando usar
-Use para tarefas de arquitetura do ecossistema com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt1.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- objetivo estratégico.
+- inventário de ativos.
+- públicos, restrições e dependências.
 
 ## Procedimento
-1. Levantar objetivos, ativos, públicos e restrições.
-2. Definir limites e proposta de valor de cada propriedade.
-3. Mapear dependências, riscos e duplicidades.
-4. Produzir arquitetura, ADR e roadmap.
-5. Encaminhar validações especializadas.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- arquitetura do ecossistema.
+- ADR.
+- roadmap.
+- matriz de responsabilidades.
+
+## Restrições
+
+- aprovar domínio sem tese, público, proposta de valor e owner.
+- criar ativos redundantes sem justificativa.
+- executar pesquisa, implementação técnica ou monetização como auditor final.
 
 ## Handoff
-GPT2 para pesquisa; GPT3 para requisitos técnicos; GPT5 para editorial; GPT7 para monetização.
 
-## Proibições
-Não substituir pesquisa, auditoria técnica ou aprovação de lifecycle. Não inventar evidências. Não criar SFJM.
+Encaminhar pesquisa ao GPT2, SEO técnico ao GPT3, conteúdo ao GPT5, monetização ao GPT7 e mensuração ao GPT8.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt1.md` · `config/builder/gpt1.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt1.md`
+- `config/builder/gpt1.yaml`
+- `tests/gpts/gpt1/acceptance-cases.yaml`
+- `AGENTS.md`

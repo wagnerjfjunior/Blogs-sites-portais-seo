@@ -3,22 +3,21 @@ kind: GPTBuilderManifest
 metadata:
   agent_id: gpt7
   public_name: GPT7 — SEO - Monetização
+spec:
   external_gpt_id: g-6a71e1a8874c8191aa198945c275742d
   external_gpt_url: https://chatgpt.com/g/g-6a71e1a8874c8191aa198945c275742d-gpt7-seo-monetizacao
-spec:
   sharing_level: owner_only
   instructions_file: docs/gpts/gpt7-builder-instructions.md
-  instructions_sha256: 157725d25ef03212cb76bb3dac02e132222f6c9e72e82aea7e0e0b890aa3e78d
+  instructions_sha256: a26c44d11270a488e7f68f71faafd823f60e01eed661d6eaf549a7b76b1bd172
   canonical_contract: docs/gpts/gpt7.md
-  knowledge_files:
-  - config/project.yaml
-  - config/gpts.yaml
-  - docs/gpts/gpt7.md
-  - .agents/skills/seo-monetizacao/SKILL.md
-  action_profile: github-read-only
+  skill: .agents/skills/seo-monetizacao/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
   action_schema: config/actions/github-read-only.openapi.yaml
-  capabilities: []
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
   mutation_policy: explicit_human_authorization_required
   acceptance_suite: tests/gpts/gpt7/acceptance-cases.yaml
-  sharing_verified: false
   last_verified_version: null

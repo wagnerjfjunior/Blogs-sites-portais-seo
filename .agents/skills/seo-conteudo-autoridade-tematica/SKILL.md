@@ -1,47 +1,84 @@
 ---
 name: seo-conteudo-autoridade-tematica
-description: "Planejar arquitetura editorial, briefings, clusters, links internos, qualidade e atualização."
+description: "Planejar arquitetura editorial, clusters, pautas, briefings, links internos, revisão e manutenção de conteúdo."
 ---
 
 # GPT5 — SEO - Conteúdo e autoridade temática
 
 ## Quando usar
-Use para tarefas de conteúdo e autoridade temática com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt5.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- mapa de clusters.
+- público e intenção.
+- política editorial.
+- fontes disponíveis.
 
 ## Procedimento
-1. Fixar público, intenção, cluster e objetivo.
-2. Definir diferencial, fontes e entidades.
-3. Criar arquitetura, briefing e links internos.
-4. Aplicar revisão factual, editorial e SEO.
-5. Definir atualização e mensuração.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- plano editorial.
+- briefings.
+- mapa de links internos.
+- checklist de revisão e atualização.
+
+## Restrições
+
+- publicar conteúdo em escala sem valor adicional.
+- copiar ou parafrasear sem atribuição.
+- inventar fatos ou fontes.
 
 ## Handoff
-GPT2 para pesquisa; GPT6 para promoção legítima; GPT8 para desempenho.
 
-## Proibições
-Não produzir conteúdo em escala sem valor original e revisão. Não inventar evidências. Não criar SFJM.
+Solicitar dados ao GPT2, requisitos técnicos ao GPT3, autoridade externa ao GPT6 e medição ao GPT8.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt5.md` · `config/builder/gpt5.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt5.md`
+- `config/builder/gpt5.yaml`
+- `tests/gpts/gpt5/acceptance-cases.yaml`
+- `AGENTS.md`

@@ -2,20 +2,37 @@
 
 - **ID técnico:** `blogs-sites-portais-seo`
 - **Repositório canônico:** `wagnerjfjunior/Blogs-sites-portais-seo`
-- **Visibilidade:** privado
-- **Audiência dos GPTs:** `owner_only`
+- **Visibilidade do repositório:** privado
+- **Compartilhamento dos GPTs:** `Apenas para mim` / `owner_only`
+- **Integração GitHub:** Action OpenAPI somente leitura
+- **Branch principal:** `main`
 
-Este repositório é a fonte canônica dos contratos, skills, configurações do Builder, schemas de Actions, testes e decisões do projeto.
+Este repositório é a fonte canônica de identidade, contratos, skills, instruções do Builder, testes, governança, Actions e evidências do projeto.
 
-## Bootstrap
-Cobre GPT0 a GPT8, documentação canônica, Action GitHub somente leitura, configuração declarativa do Builder e testes de aceitação.
+## Estrutura canônica
+
+- `config/project.yaml`: identidade e políticas do projeto.
+- `config/gpts.yaml`: registro dos nove GPTs.
+- `docs/gpts/`: contratos e instruções do Builder.
+- `.agents/skills/`: skills operacionais.
+- `config/builder/`: manifestos de provisioning.
+- `config/actions/`: schemas OpenAPI.
+- `tests/gpts/`: casos de aceitação.
+- `docs/governance/`: políticas de lifecycle, autorização, ferramentas e Builder.
+- `scripts/validate_repository.py`: validação determinística.
 
 ## Regras essenciais
-1. Mudanças canônicas ocorrem por branch e Pull Request.
-2. O head auditado permanece congelado durante os gates.
-3. Ready e merge exigem autorizações humanas distintas.
-4. A configuração real do Builder deve corresponder aos manifests e às instruções versionadas.
-5. Nenhum segredo é armazenado no repositório.
-6. SFJM permanece fora de escopo e não pode ser criado nesta etapa.
 
-Execute `python scripts/validate_repository.py` antes de solicitar auditoria ou lifecycle.
+1. Toda mudança canônica ocorre por branch e Pull Request.
+2. O head auditado deve permanecer congelado entre os gates.
+3. Ready e merge exigem autorizações humanas separadas.
+4. A Action inicial dos nove GPTs é estritamente `READ_ONLY`.
+5. Nenhum token, segredo ou credencial é versionado.
+6. Conteúdo patrocinado e links pagos devem ser identificados adequadamente.
+7. Métricas como DA e DR são auxiliares de terceiros, não métricas do Google.
+
+## Validação
+
+```bash
+python scripts/validate_repository.py
+```

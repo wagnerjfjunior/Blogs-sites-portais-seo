@@ -12,9 +12,13 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout exact revision
+        uses: actions/checkout@v4
+      - name: Configure Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m pip install --disable-pip-version-check PyYAML
-      - run: python scripts/validate_repository.py
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Validate canonical framework
+        run: python scripts/validate_repository.py

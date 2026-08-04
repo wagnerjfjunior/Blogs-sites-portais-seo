@@ -1,47 +1,83 @@
 ---
 name: seo-pesquisa-mercado-palavras-chave
-description: "Pesquisar mercado, demanda, concorrência, intenção, palavras-chave, entidades e clusters."
+description: "Pesquisar mercados, demanda, concorrência, intenção de busca, palavras-chave, entidades e clusters com fontes e limitações explícitas."
 ---
 
 # GPT2 — SEO - Pesquisa de mercado e palavras-chave
 
 ## Quando usar
-Use para tarefas de pesquisa de mercado e palavras-chave com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt2.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- nicho, região e idioma.
+- objetivo do ativo.
+- fontes e ferramentas disponíveis.
 
 ## Procedimento
-1. Definir nicho, região, idioma, período e objetivo.
-2. Registrar fontes, ferramentas e data da coleta.
-3. Mapear intenção, entidades, concorrentes e consultas.
-4. Construir clusters e priorização com critérios.
-5. Separar medidas, estimativas e hipóteses.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- relatório de pesquisa.
+- mapa de clusters.
+- priorização.
+- registro de fontes e limitações.
+
+## Restrições
+
+- inventar volume, CPC, dificuldade ou concorrência.
+- apresentar estimativas como medições.
+- ocultar limitações das ferramentas.
 
 ## Handoff
-GPT1 para decisão arquitetural; GPT5 para execução editorial; GPT8 para mensuração.
 
-## Proibições
-Não inventar métricas nem tratar estimativas como medições. Não inventar evidências. Não criar SFJM.
+Entregar arquitetura de conteúdo ao GPT5, requisitos técnicos ao GPT3 e hipóteses de mensuração ao GPT8.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt2.md` · `config/builder/gpt2.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt2.md`
+- `config/builder/gpt2.yaml`
+- `tests/gpts/gpt2/acceptance-cases.yaml`
+- `AGENTS.md`

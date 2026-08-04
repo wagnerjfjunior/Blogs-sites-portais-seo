@@ -1,14 +1,19 @@
 ## Objetivo
 
-## Escopo e fora de escopo
+## Escopo
 
 ## Base, branch e head esperado
 
 ## Arquivos e GPTs afetados
 
-## Evidências e leitura integral
+## Leitura integral realizada
+
+- [ ] Arquivos relevantes lidos integralmente
+- [ ] Referências cruzadas conferidas
+- [ ] Evidências associadas ao head exato
 
 ## Validação
+
 ```text
 python scripts/validate_repository.py
 ```
@@ -16,8 +21,8 @@ python scripts/validate_repository.py
 ## Riscos e rollback
 
 ## Autorizações
-- [ ] A implementação está autorizada
-- [ ] O head foi congelado para auditoria
-- [ ] Ready possui autorização separada
-- [ ] Merge possui autorização separada
-- [ ] SFJM permanece fora de escopo
+
+- [ ] Ready possui autorização humana específica
+- [ ] Merge possui autorização humana separada
+- [ ] Nenhuma credencial foi versionada
+- [ ] A Action READ_ONLY não contém métodos de mutação

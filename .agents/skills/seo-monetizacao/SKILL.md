@@ -1,47 +1,84 @@
 ---
 name: seo-monetizacao
-description: "Estruturar publicidade, patrocínios, publieditoriais, afiliados, leads, diretórios e precificação."
+description: "Estruturar publicidade, publieditoriais, patrocínios, afiliados, leads, diretórios premium, newsletters e precificação."
 ---
 
 # GPT7 — SEO - Monetização
 
 ## Quando usar
-Use para tarefas de monetização com escopo, objeto e critérios definidos.
+
+Use esta skill para tarefas diretamente relacionadas à missão do GPT e com escopo, fontes e versão identificados.
 
 ## Quando não usar
-Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando o objeto necessário não estiver acessível.
+
+Não use para tarefas pertencentes a outro especialista, para mutações não autorizadas ou quando faltarem evidências essenciais.
 
 ## Pré-condições
-- Ler `config/project.yaml`, `config/gpts.yaml` e `docs/gpts/gpt7.md`.
-- Fixar referência exata e confirmar acesso.
-- Identificar se a execução é READ_ONLY ou autorizada para mutação.
+
+- Pedido e objetivo claros.
+- Fonte canônica identificada.
+- Acesso disponível.
+- Arquivos relevantes lidos integralmente.
+- Restrições e autorizações conhecidas.
+
+## Entradas
+
+- audiência e inventário.
+- métricas disponíveis.
+- custos e objetivos.
+- restrições jurídicas e editoriais.
 
 ## Procedimento
-1. Fixar audiência, inventário, métricas e restrições.
-2. Definir produtos e proposta de valor.
-3. Modelar preço, custos, margem e riscos.
-4. Separar publicidade de editorial.
-5. Definir aprovação e mensuração.
+
+1. Fixar escopo, versão e critérios de sucesso.
+2. Verificar acesso e integridade das fontes.
+3. Ler integralmente os artefatos necessários.
+4. Executar a análise da especialidade.
+5. Conferir inconsistências, riscos e referências cruzadas.
+6. Separar fatos, inferências e lacunas.
+7. Emitir saída estruturada.
+8. Realizar handoff quando o tema sair do escopo.
 
 ## Validações
-- Conferir referências cruzadas e cobertura.
-- Separar fatos, inferências, estimativas e limitações.
-- Não declarar leitura integral diante de truncamento.
-- Aplicar os vereditos oficiais quando houver gate.
+
+- Não há dados inventados.
+- Evidências estão associadas à fonte correta.
+- Restrições foram respeitadas.
+- A Action GitHub foi usada apenas para leitura.
+- O veredito segue a taxonomia oficial.
 
 ## Condições de parada
-- Head ou objeto divergente.
-- Acesso insuficiente a evidência obrigatória.
-- Pedido fora do escopo ou mutação sem autorização.
+
+- Head ou versão divergente.
+- Arquivo obrigatório inacessível.
+- Evidência essencial ausente.
+- Pedido requer mutação não autorizada.
+- Conflito material entre fontes não resolvido.
+
+Nessas condições, emitir `INCONCLUSIVE` ou `BLOCK` conforme a evidência.
 
 ## Saída
-Escopo, evidências, análise, achados, limitações, veredito/recomendação e próxima ação segura.
+
+- modelo de monetização.
+- catálogo comercial.
+- precificação.
+- critérios de aprovação e mensuração.
+
+## Restrições
+
+- prometer métricas sem evidência.
+- ocultar natureza patrocinada.
+- misturar decisão editorial com pagamento sem transparência.
 
 ## Handoff
-GPT5 para conteúdo patrocinado; GPT6 para política de links; GPT8 para receita.
 
-## Proibições
-Não ocultar publicidade nem prometer resultado sem evidência. Não inventar evidências. Não criar SFJM.
+Encaminhar conteúdo patrocinado ao GPT5, links e PR ao GPT6, dados ao GPT8 e lifecycle ao GPT4.
 
-## Referências
-`config/project.yaml` · `config/gpts.yaml` · `docs/gpts/gpt7.md` · `config/builder/gpt7.yaml` · `AGENTS.md`
+## Referências canônicas
+
+- `config/project.yaml`
+- `config/gpts.yaml`
+- `docs/gpts/gpt7.md`
+- `config/builder/gpt7.yaml`
+- `tests/gpts/gpt7/acceptance-cases.yaml`
+- `AGENTS.md`
