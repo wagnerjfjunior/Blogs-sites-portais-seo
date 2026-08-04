@@ -164,6 +164,8 @@ for path, operations in action.get("paths", {}).items():
         operation_ids.add(operation_id)
 
 for path in ROOT.rglob("*"):
+    if ".git" in path.parts:
+        continue
     if path.is_file():
         rel = path.relative_to(ROOT).as_posix()
         text = read(path)
