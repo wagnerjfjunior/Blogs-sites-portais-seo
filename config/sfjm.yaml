@@ -1,0 +1,57 @@
+api_version: blogs-sites-portais-seo/v1
+kind: SFJMContinuity
+metadata:
+  project_id: blogs-sites-portais-seo
+  name: SFJM Operational Continuity
+  status: bootstrap
+  mode: operational
+spec:
+  upstream:
+    repository: wagnerjfjunior/StopJuniorMode
+    ref: d03d477c3b329aa973a38ec4e949c249fa017929
+    protocol_path: docs/CANONICAL_BOOTSTRAP_PROTOCOL.md
+    protocol_blob_sha: 7befd02533aad6c2df5544c7307e4a66dce28844
+  canonical_source:
+    repository: wagnerjfjunior/Blogs-sites-portais-seo
+    branch: main
+    precedence: main_over_conversations_and_derived_summaries
+    revision_resolution: resolve_live_before_action
+  documents:
+    bootstrap: bootstrap/BOOTSTRAP_CANONICO.md
+    current_handoff: handoffs/CURRENT.md
+    project_status: docs/PROJECT_STATUS.md
+    next_safe_action: docs/NEXT_SAFE_ACTION.md
+    blocked_actions: docs/BLOCKED_ACTIONS.md
+    continuity_policy: docs/governance/sfjm-continuity-policy.md
+  read_order:
+    - bootstrap/BOOTSTRAP_CANONICO.md
+    - handoffs/CURRENT.md
+    - docs/PROJECT_STATUS.md
+    - docs/NEXT_SAFE_ACTION.md
+    - docs/BLOCKED_ACTIONS.md
+    - config/project.yaml
+    - config/gpts.yaml
+  invariants:
+    exactly_one_authoritative_next_safe_action: true
+    next_safe_action_authority: docs/NEXT_SAFE_ACTION.md
+    summaries_are_derived: true
+    material_divergence_requires_stop: true
+    missing_information_must_not_be_inferred: true
+    authorization_does_not_propagate: true
+    direct_main_writes_forbidden: true
+    ready_and_merge_require_separate_authorizations: true
+    head_drift_invalidates_gates: true
+    evidence_must_identify_source_and_revision: true
+  roles:
+    product_authority: Wagner
+    documentary_gate: gpt0
+    lifecycle_gate: gpt4
+    specialist_registry: config/gpts.yaml
+  excluded_capabilities:
+    - experimental_scoring
+    - benchmark_adjudication
+    - synthetic_scenarios
+    - autonomous_external_mutation
+    - automatic_ready
+    - automatic_merge
+    - automatic_builder_update
