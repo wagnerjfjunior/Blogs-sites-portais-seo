@@ -5,6 +5,7 @@
 - Definida em: 2026-08-05
 - Fonte canônica verificada: `wagnerjfjunior/Blogs-sites-portais-seo`
 - Baseline: `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
+- Pull Request: #2 — `docs: add canonical SFJM operational bootstrap`
 - Branch de trabalho: `docs/sfjm-operational-bootstrap`
 - Responsável: GPT0 — SEO - Auditor documental
 - Estado: pronta
@@ -13,13 +14,13 @@ Resumos no bootstrap, handoff e status são derivados. Se divergirem materialmen
 
 ## 1. Ação
 
-Executar a auditoria documental integral da Pull Request que adiciona o bootstrap operacional SFJM, fixando o head exato e sem implementar correções durante o gate.
+Executar a auditoria documental integral e estritamente `READ_ONLY` da PR #2, fixando o head exato observado no início do gate e sem implementar correções durante a auditoria.
 
 ## 2. Resultado verificável
 
 Relatório GPT0 contendo:
 
-- repositório, base, branch e head exatos;
+- repositório, PR, base, branch e head exatos;
 - arquivos auditados;
 - cobertura dos critérios SFJM;
 - achados com severidade;
@@ -33,10 +34,12 @@ A estrutura só pode avançar para validação de lifecycle depois que sua coer�
 ## 4. Pré-condições
 
 - [x] `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857` foi observado como baseline.
-- [x] A mudança está isolada em branch dedicada.
+- [x] A mudança está isolada em `docs/sfjm-operational-bootstrap`.
+- [x] A PR #2 está aberta em Draft.
+- [x] Os arquivos estão disponíveis para leitura pela PR.
 - [x] O escopo não inclui Builder, produção, Ready ou merge.
-- [ ] A Pull Request deve estar aberta em Draft e o head deve ser resolvido live antes do gate.
-- [ ] Os arquivos e checks do head devem estar disponíveis ao auditor.
+
+O auditor deve resolver novamente base, head, changed files e checks live antes de concluir.
 
 ## 5. Escopo permitido
 
@@ -65,7 +68,7 @@ Não inclui:
 
 ## 8. Plano mínimo
 
-1. Confirmar PR, base, branch, head e changed files.
+1. Confirmar PR #2, base, branch, head, changed files e checks live.
 2. Ler integralmente os arquivos do escopo e as referências necessárias.
 3. Validar canonicalidade, próxima ação única, bloqueios, conflito, autorização e atualização.
 4. Emitir veredito sem mutação.
