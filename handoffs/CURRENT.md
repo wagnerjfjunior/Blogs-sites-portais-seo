@@ -3,75 +3,74 @@
 - Status: atual
 - Atualizado em: 2026-08-05
 - Fonte canônica: `wagnerjfjunior/Blogs-sites-portais-seo`
-- Branch canônica: `main`
-- Baseline verificada: `65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
-- Branch desta mudança: `docs/sfjm-operational-bootstrap`
-- Escopo: adoção da camada operacional de continuidade SFJM
+- Baseline: `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
+- Pull Request: #2 — Draft
+- Branch: `docs/sfjm-operational-bootstrap`
 
 ## Objetivo operacional
 
-Permitir que uma nova conversa ou especialista retome o projeto com fonte, estado, bloqueios, autorização e próxima ação explícitos, sem reconstrução manual do histórico.
+Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bloqueios, autorização e próxima ação explícitos.
 
 ## Estado confirmado
 
-1. A PR #1 foi mergeada e `main` passou a `65dc3a7e60a3a8a1bddefc912380f5ce24c11857`.
-2. O framework canônico contém nove GPTs, de GPT0 a GPT8.
-3. O workflow pós-merge `validate-agent-framework`, run #28, terminou com `success` nesse SHA.
-4. A Action GitHub dos GPTs permanece somente leitura.
-5. A PR #1 não implantou SFJM; o validador anterior rejeitava artefatos SFJM de forma explícita.
-6. Esta branch adiciona o kit operacional e altera o validador para exigir suas invariantes.
-7. O estado efetivo do Builder não é comprovado apenas pelo repositório.
+1. A PR #1 foi mergeada em `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`.
+2. O framework contém GPT0 a GPT8, totalizando nove GPTs.
+3. O workflow pós-merge run #28 terminou com `success`.
+4. A Action GitHub dos GPTs permanece `READ_ONLY`.
+5. A PR #1 excluiu SFJM; o validador anterior rejeitava seus artefatos.
+6. A PR #2 está aberta em Draft para adicionar o SFJM operacional.
+7. O run #29 passou em um head anterior; commits posteriores exigem validar o run mais recente.
+8. O repositório não prova sozinho o estado efetivo do Builder.
 
 ## Decisões vigentes
 
-| Decisão | Estado | Fonte | Impacto |
-|---|---|---|---|
-| GitHub `main` é a fonte canônica | aprovada | `docs/governance/canonical-governance.md` | conversas e Builder são derivados |
-| Adotar o bootstrap operacional do SFJM | aprovada para esta branch | solicitação da Product Authority | continuidade passa a ter registros próprios |
-| `docs/NEXT_SAFE_ACTION.md` é autoritativo | aprovada | `config/sfjm.yaml` | resumos não autorizam execução |
-| Ready e merge são atos separados | aprovada | `docs/governance/lifecycle-policy.md` | cada transição exige autorização própria |
+| Decisão | Estado | Fonte |
+|---|---|---|
+| `main` é a fonte canônica | aprovada | `docs/governance/canonical-governance.md` |
+| Adotar SFJM operacional | aprovada para a PR #2 | Product Authority |
+| `docs/NEXT_SAFE_ACTION.md` é autoritativo | aprovada | `config/sfjm.yaml` |
+| Ready e merge são separados | aprovada | `docs/governance/lifecycle-policy.md` |
 
 ## Entregas concluídas
 
-| Entrega | Evidência |
-|---|---|
-| Framework canônico GPT0–GPT8 | PR #1 e `main@65dc3a7e...` |
-| Validação pós-merge | workflow run #28, `success` |
-| Identidade e governança inicial | `README.md`, `AGENTS.md`, `config/project.yaml`, `docs/governance/` |
+- Framework GPT0–GPT8: PR #1.
+- Validação pós-merge: run #28, `success`.
+- Estrutura SFJM preparada: PR #2 em Draft.
 
 ## Trabalho em andamento
 
-| Item | Estado | Condição de conclusão |
+| Item | Estado | Conclusão |
 |---|---|---|
-| Bootstrap SFJM operacional | em branch | arquivos completos e validação determinística verde |
-| Gate documental | pendente | veredito GPT0 no head exato |
-| Gate de lifecycle | pendente | veredito GPT4 após gate documental elegível |
+| SFJM operacional | PR #2 Draft | head final validado e gates concluídos |
+| CI | revalidar | run mais recente do head atual com sucesso |
+| Gate GPT0 | pendente | veredito no head exato |
+| Gate GPT4 | pendente | gate GPT0 elegível |
 
 ## Lacunas
 
-- Estado efetivo e sincronismo dos nove GPTs no Builder não foram revalidados nesta etapa.
-- Não há inventário canônico de domínios, sites, ambientes, métricas ou produção.
-- A proteção efetiva da branch deve ser verificada live quando influenciar uma decisão de lifecycle.
+- Builder não foi revalidado nesta etapa.
+- Não há inventário canônico de domínios, ambientes, métricas ou produção.
+- Proteção de branch deve ser consultada live quando afetar lifecycle.
 
 ## Riscos ativos
 
 | Risco | Impacto | Controle |
 |---|---|---|
-| Resumos divergirem da próxima ação autoritativa | execução incorreta | parar e reconciliar |
-| Builder divergir do GitHub | comportamento não rastreável | verificar GPT por GPT antes de configurar |
-| Próxima ação ficar obsoleta após mudança de estado | regressão de continuidade | atualizar os registros no mesmo fluxo |
-| Escrita direta em `main` | perda de gates | usar branch e PR |
+| Divergência entre registros | execução incorreta | parar e reconciliar |
+| GitHub divergir do Builder | comportamento não rastreável | verificar GPT por GPT |
+| Check pertencer a head anterior | gate inválido | consultar o run do head atual |
+| Escrita direta em `main` | perda de gates | branch e PR |
 
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
-- Resumo derivado: executar a auditoria documental GPT0 da PR SFJM no head exato, sem corrigir ou mutar durante o gate.
+- Resumo derivado: auditar documentalmente a PR #2 no head exato, em modo `READ_ONLY`.
 
 ## Ações bloqueadas
 
-- Ready, merge e configuração do Builder sem autorização específica.
-- Deploy, publicação, domínio, DNS, hospedagem, campanha ou produção.
-- Execução de scoring, benchmark, cenário sintético ou adjudicação experimental do SFJM.
+- Ready, merge e Builder sem autorização específica.
+- Deploy, publicação, domínio, DNS, hospedagem, campanha e produção.
+- Scoring, benchmark, cenário sintético ou adjudicação experimental do SFJM.
 
 ## Ordem de continuidade
 
@@ -84,4 +83,4 @@ Permitir que uma nova conversa ou especialista retome o projeto com fonte, estad
 
 ## Prompt curto de retomada
 
-> Resolva a revisão live do repositório, leia integralmente a ordem de continuidade, apresente até oito fatos confirmados, declare lacunas e identifique a única próxima ação em `docs/NEXT_SAFE_ACTION.md`. Não infira estado ausente nem execute ações bloqueadas.
+> Resolva a revisão live de `main` e da PR #2, leia a ordem de continuidade, apresente até oito fatos confirmados, declare lacunas e identifique a única próxima ação autoritativa. Não infira estado ausente nem execute ações bloqueadas.
