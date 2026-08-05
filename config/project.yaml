@@ -15,6 +15,14 @@ spec:
   skills_root: .agents/skills
   builder_root: config/builder
   tests_root: tests/gpts
+  sfjm:
+    manifest: config/sfjm.yaml
+    bootstrap: bootstrap/BOOTSTRAP_CANONICO.md
+    current_handoff: handoffs/CURRENT.md
+    project_status: docs/PROJECT_STATUS.md
+    next_safe_action: docs/NEXT_SAFE_ACTION.md
+    blocked_actions: docs/BLOCKED_ACTIONS.md
+    continuity_policy: docs/governance/sfjm-continuity-policy.md
   actions:
     github_read_only: config/actions/github-read-only.openapi.yaml
     mutation_actions_enabled: false
@@ -25,3 +33,6 @@ spec:
     merge_requires_separate_explicit_authorization: true
     external_mutation_requires_explicit_authorization: true
     head_drift_invalidates_gates: true
+    missing_information_must_not_be_inferred: true
+    exactly_one_authoritative_next_safe_action: true
+    next_safe_action_path: docs/NEXT_SAFE_ACTION.md
