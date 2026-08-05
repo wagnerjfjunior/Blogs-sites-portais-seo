@@ -1,0 +1,23 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt4
+  public_name: GPT4 — SEO - GitHub, lifecycle e publicação
+spec:
+  external_gpt_id: g-6a71e00da800819185359023cd11c7cb
+  external_gpt_url: https://chatgpt.com/g/g-6a71e00da800819185359023cd11c7cb-gpt4-seo-github-lifecycle-e-publicacao
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt4-builder-instructions.md
+  instructions_sha256: 9309cdc77ce83114fd6dc17d2a58f8e587703acb68d16db1cd6409571169a88a
+  canonical_contract: docs/gpts/gpt4.md
+  skill: .agents/skills/seo-github-lifecycle-publicacao/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt4/acceptance-cases.yaml
+  last_verified_version: null

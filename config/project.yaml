@@ -1,0 +1,27 @@
+api_version: blogs-sites-portais-seo/v1
+kind: Project
+metadata:
+  id: blogs-sites-portais-seo
+  name: Ecossistema de Blogs, Sites, Portais e SEO
+  visibility: private
+  audience: owner_only
+  status: bootstrap
+spec:
+  canonical_repository: wagnerjfjunior/Blogs-sites-portais-seo
+  default_branch: main
+  write_mode: pull_request
+  gpt_registry: config/gpts.yaml
+  documentation_root: docs
+  skills_root: .agents/skills
+  builder_root: config/builder
+  tests_root: tests/gpts
+  actions:
+    github_read_only: config/actions/github-read-only.openapi.yaml
+    mutation_actions_enabled: false
+  policies:
+    canonical_source: github
+    direct_main_writes: false
+    ready_requires_explicit_authorization: true
+    merge_requires_separate_explicit_authorization: true
+    external_mutation_requires_explicit_authorization: true
+    head_drift_invalidates_gates: true

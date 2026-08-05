@@ -1,0 +1,23 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt8
+  public_name: GPT8 — SEO - Analytics e crescimento
+spec:
+  external_gpt_id: g-6a71e1e4c25c8191a69fd69ecade669a
+  external_gpt_url: https://chatgpt.com/g/g-6a71e1e4c25c8191a69fd69ecade669a-gpt8-seo-analytics-e-crescimento
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt8-builder-instructions.md
+  instructions_sha256: 2f97ef4fc8a6f9c50b80cbb35ef1c98ae29f075ac1d58d110e1e53fffcd04dc0
+  canonical_contract: docs/gpts/gpt8.md
+  skill: .agents/skills/seo-analytics-crescimento/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt8/acceptance-cases.yaml
+  last_verified_version: null

@@ -1,0 +1,274 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTRegistry
+metadata:
+  project_id: blogs-sites-portais-seo
+  visibility: private
+  audience: owner_only
+spec:
+  verdicts:
+  - PASS
+  - PASS_WITH_RESIDUAL_RISK
+  - BLOCK
+  - INCONCLUSIVE
+  agents:
+  - id: gpt0
+    name: GPT0 — SEO - Auditor documental
+    slug: seo-auditor-documental
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71de286da481919ddd357950222c9b
+    external_gpt_url: https://chatgpt.com/g/g-6a71de286da481919ddd357950222c9b-gpt0-seo-auditor-documental
+    mission: Auditar documentação canônica, coerência, completude, rastreabilidade e evidências sem implementar a mudança
+      auditada.
+    skill: .agents/skills/seo-auditor-documental/SKILL.md
+    canonical_document: docs/gpts/gpt0.md
+    builder_manifest: config/builder/gpt0.yaml
+    builder_instructions: docs/gpts/gpt0-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt0/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - escopo e critérios de aceite
+    - head ou versão exata
+    - documentos e evidências completas
+    outputs:
+    - relatório de auditoria
+    - matriz de cobertura
+    - achados por severidade
+    - veredito oficial
+    prohibited_actions:
+    - implementar ou corrigir a mudança auditada
+    - comentar, aprovar, marcar Ready ou fazer merge sem autorização
+    - preencher lacunas com suposições
+  - id: gpt1
+    name: GPT1 — SEO - Arquiteto do ecossistema
+    slug: seo-arquiteto-ecossistema
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71df126fd081919d7e6382eb8f1c49
+    external_gpt_url: https://chatgpt.com/g/g-6a71df126fd081919d7e6382eb8f1c49-gpt1-seo-arquiteto-do-ecossistema
+    mission: Definir arquitetura de domínios, propriedades digitais, marcas, nichos, dependências, governança e roadmap.
+    skill: .agents/skills/seo-arquiteto-ecossistema/SKILL.md
+    canonical_document: docs/gpts/gpt1.md
+    builder_manifest: config/builder/gpt1.yaml
+    builder_instructions: docs/gpts/gpt1-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt1/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - objetivo estratégico
+    - inventário de ativos
+    - públicos, restrições e dependências
+    outputs:
+    - arquitetura do ecossistema
+    - ADR
+    - roadmap
+    - matriz de responsabilidades
+    prohibited_actions:
+    - aprovar domínio sem tese, público, proposta de valor e owner
+    - criar ativos redundantes sem justificativa
+    - executar pesquisa, implementação técnica ou monetização como auditor final
+  - id: gpt2
+    name: GPT2 — SEO - Pesquisa de mercado e palavras-chave
+    slug: seo-pesquisa-mercado-palavras-chave
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71df70c7d48191861cf6b2a0f7354b
+    external_gpt_url: https://chatgpt.com/g/g-6a71df70c7d48191861cf6b2a0f7354b-gpt2-seo-pesquisa-de-mercado-e-palavras-chave
+    mission: Pesquisar mercados, demanda, concorrência, intenção de busca, palavras-chave, entidades e clusters com fontes
+      e limitações explícitas.
+    skill: .agents/skills/seo-pesquisa-mercado-palavras-chave/SKILL.md
+    canonical_document: docs/gpts/gpt2.md
+    builder_manifest: config/builder/gpt2.yaml
+    builder_instructions: docs/gpts/gpt2-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt2/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - nicho, região e idioma
+    - objetivo do ativo
+    - fontes e ferramentas disponíveis
+    outputs:
+    - relatório de pesquisa
+    - mapa de clusters
+    - priorização
+    - registro de fontes e limitações
+    prohibited_actions:
+    - inventar volume, CPC, dificuldade ou concorrência
+    - apresentar estimativas como medições
+    - ocultar limitações das ferramentas
+  - id: gpt3
+    name: GPT3 — SEO técnico
+    slug: seo-tecnico
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71dfc57be881918cf75a9fdb15c252
+    external_gpt_url: https://chatgpt.com/g/g-6a71dfc57be881918cf75a9fdb15c252-gpt3-seo-tecnico
+    mission: Auditar rastreamento, indexação, canonicalização, performance, dados estruturados, arquitetura e qualidade técnica.
+    skill: .agents/skills/seo-tecnico/SKILL.md
+    canonical_document: docs/gpts/gpt3.md
+    builder_manifest: config/builder/gpt3.yaml
+    builder_instructions: docs/gpts/gpt3-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt3/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - URL ou ambiente
+    - escopo técnico
+    - crawl, logs e Search Console quando disponíveis
+    outputs:
+    - auditoria técnica
+    - backlog priorizado
+    - evidências
+    - critérios de reteste
+    prohibited_actions:
+    - alterar produção sem autorização
+    - declarar causalidade sem evidência
+    - confundir ausência de acesso com conformidade
+  - id: gpt4
+    name: GPT4 — SEO - GitHub, lifecycle e publicação
+    slug: seo-github-lifecycle-publicacao
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71e00da800819185359023cd11c7cb
+    external_gpt_url: https://chatgpt.com/g/g-6a71e00da800819185359023cd11c7cb-gpt4-seo-github-lifecycle-e-publicacao
+    mission: Validar GitHub, branches, commits, Pull Requests, checks, reviews, threads, drift e elegibilidade de publicação.
+    skill: .agents/skills/seo-github-lifecycle-publicacao/SKILL.md
+    canonical_document: docs/gpts/gpt4.md
+    builder_manifest: config/builder/gpt4.yaml
+    builder_instructions: docs/gpts/gpt4-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt4/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - repositório e PR
+    - base e head esperados
+    - gate documental
+    - autorização aplicável
+    outputs:
+    - relatório de lifecycle
+    - estado de checks e reviews
+    - achados de drift
+    - decisão de elegibilidade
+    prohibited_actions:
+    - escrever no GitHub com a Action read-only
+    - marcar Ready, fazer merge, deploy ou publicar sem autorização específica
+    - contornar proteções ou checks
+  - id: gpt5
+    name: GPT5 — SEO - Conteúdo e autoridade temática
+    slug: seo-conteudo-autoridade-tematica
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71e0109cb881918fdf129ebcede87f
+    external_gpt_url: https://chatgpt.com/g/g-6a71e0109cb881918fdf129ebcede87f-gpt5-seo-conteudo-e-autoridade-tematica
+    mission: Planejar arquitetura editorial, clusters, pautas, briefings, links internos, revisão e manutenção de conteúdo.
+    skill: .agents/skills/seo-conteudo-autoridade-tematica/SKILL.md
+    canonical_document: docs/gpts/gpt5.md
+    builder_manifest: config/builder/gpt5.yaml
+    builder_instructions: docs/gpts/gpt5-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt5/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - mapa de clusters
+    - público e intenção
+    - política editorial
+    - fontes disponíveis
+    outputs:
+    - plano editorial
+    - briefings
+    - mapa de links internos
+    - checklist de revisão e atualização
+    prohibited_actions:
+    - publicar conteúdo em escala sem valor adicional
+    - copiar ou parafrasear sem atribuição
+    - inventar fatos ou fontes
+  - id: gpt6
+    name: GPT6 — SEO - Link building e digital PR, DA e DR
+    slug: seo-link-building-digital-pr
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71e13b38448191bc3023fcf9b56ec6
+    external_gpt_url: https://chatgpt.com/g/g-6a71e13b38448191bc3023fcf9b56ec6-gpt6-seo-link-building-e-digital-pr-da-e-dr
+    mission: Planejar link earning, relacionamento editorial, digital PR e análise crítica de métricas de terceiros como DA
+      e DR.
+    skill: .agents/skills/seo-link-building-digital-pr/SKILL.md
+    canonical_document: docs/gpts/gpt6.md
+    builder_manifest: config/builder/gpt6.yaml
+    builder_instructions: docs/gpts/gpt6-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt6/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - ativo ou pauta
+    - público
+    - prospects ou veículos
+    - política de links
+    outputs:
+    - plano de campanha
+    - matriz de prospects
+    - avaliação de relevância e risco
+    - relatório de resultados
+    prohibited_actions:
+    - comprar ou vender links para manipular ranking
+    - tratar DA ou DR como métricas do Google
+    - ocultar links pagos ou patrocinados
+  - id: gpt7
+    name: GPT7 — SEO - Monetização
+    slug: seo-monetizacao
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71e1a8874c8191aa198945c275742d
+    external_gpt_url: https://chatgpt.com/g/g-6a71e1a8874c8191aa198945c275742d-gpt7-seo-monetizacao
+    mission: Estruturar publicidade, publieditoriais, patrocínios, afiliados, leads, diretórios premium, newsletters e precificação.
+    skill: .agents/skills/seo-monetizacao/SKILL.md
+    canonical_document: docs/gpts/gpt7.md
+    builder_manifest: config/builder/gpt7.yaml
+    builder_instructions: docs/gpts/gpt7-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt7/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - audiência e inventário
+    - métricas disponíveis
+    - custos e objetivos
+    - restrições jurídicas e editoriais
+    outputs:
+    - modelo de monetização
+    - catálogo comercial
+    - precificação
+    - critérios de aprovação e mensuração
+    prohibited_actions:
+    - prometer métricas sem evidência
+    - ocultar natureza patrocinada
+    - misturar decisão editorial com pagamento sem transparência
+  - id: gpt8
+    name: GPT8 — SEO - Analytics e crescimento
+    slug: seo-analytics-crescimento
+    status: active
+    visibility: private
+    audience: owner_only
+    external_gpt_id: g-6a71e1e4c25c8191a69fd69ecade669a
+    external_gpt_url: https://chatgpt.com/g/g-6a71e1e4c25c8191a69fd69ecade669a-gpt8-seo-analytics-e-crescimento
+    mission: Definir mensuração, KPIs, dashboards, qualidade de dados, experimentos e otimização do crescimento orgânico e
+      comercial.
+    skill: .agents/skills/seo-analytics-crescimento/SKILL.md
+    canonical_document: docs/gpts/gpt8.md
+    builder_manifest: config/builder/gpt8.yaml
+    builder_instructions: docs/gpts/gpt8-builder-instructions.md
+    acceptance_tests: tests/gpts/gpt8/acceptance-cases.yaml
+    action_profile: github_read_only
+    inputs:
+    - Analytics e Search Console
+    - receita e custos
+    - objetivos e baseline
+    - definições de eventos
+    outputs:
+    - plano de mensuração
+    - relatório de desempenho
+    - dashboard specification
+    - backlog de experimentos
+    prohibited_actions:
+    - misturar métricas sem normalização
+    - declarar causalidade sem desenho adequado
+    - inventar dados ausentes

@@ -1,0 +1,23 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt5
+  public_name: GPT5 — SEO - Conteúdo e autoridade temática
+spec:
+  external_gpt_id: g-6a71e0109cb881918fdf129ebcede87f
+  external_gpt_url: https://chatgpt.com/g/g-6a71e0109cb881918fdf129ebcede87f-gpt5-seo-conteudo-e-autoridade-tematica
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt5-builder-instructions.md
+  instructions_sha256: e827b46e7b7186479a3030ed68f20f72847acc742543fe25c9948e6caf440f82
+  canonical_contract: docs/gpts/gpt5.md
+  skill: .agents/skills/seo-conteudo-autoridade-tematica/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt5/acceptance-cases.yaml
+  last_verified_version: null

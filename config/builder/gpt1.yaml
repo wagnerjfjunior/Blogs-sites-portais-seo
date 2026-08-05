@@ -1,0 +1,23 @@
+api_version: blogs-sites-portais-seo/v1
+kind: GPTBuilderManifest
+metadata:
+  agent_id: gpt1
+  public_name: GPT1 — SEO - Arquiteto do ecossistema
+spec:
+  external_gpt_id: g-6a71df126fd081919d7e6382eb8f1c49
+  external_gpt_url: https://chatgpt.com/g/g-6a71df126fd081919d7e6382eb8f1c49-gpt1-seo-arquiteto-do-ecossistema
+  sharing_level: owner_only
+  instructions_file: docs/gpts/gpt1-builder-instructions.md
+  instructions_sha256: 5b82299419175906353ec6c9104872c6087e89bd1a96932f101677b97b0d093c
+  canonical_contract: docs/gpts/gpt1.md
+  skill: .agents/skills/seo-arquiteto-ecossistema/SKILL.md
+  knowledge_files: []
+  action_profile: github_read_only
+  action_schema: config/actions/github-read-only.openapi.yaml
+  capabilities:
+    web_search: as_needed
+    image_generation: false
+    code_interpreter: as_needed
+  mutation_policy: explicit_human_authorization_required
+  acceptance_suite: tests/gpts/gpt1/acceptance-cases.yaml
+  last_verified_version: null
