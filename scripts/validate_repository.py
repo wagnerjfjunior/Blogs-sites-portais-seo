@@ -10,43 +10,31 @@ import sys
 
 import yaml
 
-
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "scripts/_validate_repository_core.py"
-EXPECTED_READ_ORDER = [
-    "bootstrap/BOOTSTRAP_CANONICO.md",
-    "handoffs/CURRENT.md",
-    "docs/PROJECT_STATUS.md",
-    "docs/NEXT_SAFE_ACTION.md",
-    "docs/BLOCKED_ACTIONS.md",
-    "config/project.yaml",
-    "config/gpts.yaml",
-]
+EXPECTED_READ_ORDER = ["bootstrap/BOOTSTRAP_CANONICO.md", "handoffs/CURRENT.md", "docs/PROJECT_STATUS.md", "docs/NEXT_SAFE_ACTION.md", "docs/BLOCKED_ACTIONS.md", "config/project.yaml", "config/gpts.yaml"]
 EXPECTED_TRANSITIONS = [
-    {"id": "stop_on_drift_or_material_finding", "when": "head_or_base_drift_or_material_unresolved_finding", "action": "stop_and_reconcile_under_explicit_authorization"},
-    {"id": "require_successful_workflow", "when": "exact_head_has_no_completed_successful_canonical_workflow", "action": "wait_or_rerun_only_if_authorized"},
-    {"id": "run_gpt0_read_only", "when": "exact_head_has_successful_workflow_and_no_eligible_gpt0_gate", "action": "execute_documentary_gate_without_mutation"},
-    {"id": "run_gpt4_read_only", "when": "exact_head_has_eligible_gpt0_pass_and_no_eligible_gpt4_gate", "action": "execute_lifecycle_gate_without_mutation"},
-    {"id": "require_ready_authorization", "when": "gates_are_current_and_pull_request_is_draft_and_exact_head_ready_authorization_is_absent", "action": "require_explicit_ready_authorization_for_exact_head"},
-    {"id": "execute_ready_transition", "when": "gates_are_current_and_pull_request_is_draft_and_exact_head_ready_authorization_is_present", "action": "mark_pull_request_ready_only"},
-    {"id": "recheck_ready_reviews", "when": "pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck", "action": "adjudicate_material_findings_before_merge"},
-    {"id": "require_merge_authorization", "when": "pull_request_is_ready_gates_are_current_no_material_threads_remain_and_exact_head_merge_authorization_is_absent", "action": "require_explicit_merge_authorization_for_exact_head"},
-    {"id": "execute_merge_and_verify_main", "when": "pull_request_is_ready_gates_are_current_no_material_threads_remain_and_exact_head_merge_authorization_is_present", "action": "merge_exact_head_then_verify_main_without_propagating_authority"},
+    {"id": "verify_merged_main", "when": "pull_request_is_merged_and_main_verification_is_absent", "action": "verify_merge_commit_and_main_then_record_external_evidence"},
+    {"id": "report_completed_lifecycle", "when": "pull_request_is_merged_and_main_verification_is_present", "action": "report_lifecycle_complete_without_mutation"},
+    {"id": "report_closed_unmerged", "when": "pull_request_is_closed_and_not_merged", "action": "report_closed_unmerged_and_require_explicit_reopen_or_abandon_decision"},
+    {"id": "stop_on_drift_or_material_finding", "when": "open_pull_request_has_head_or_base_drift_or_material_unresolved_finding", "action": "stop_and_reconcile_under_explicit_authorization"},
+    {"id": "require_successful_workflow", "when": "open_pull_request_exact_head_has_no_completed_successful_canonical_workflow", "action": "wait_or_rerun_only_if_authorized"},
+    {"id": "run_gpt0_read_only", "when": "open_pull_request_exact_head_has_successful_workflow_and_no_current_gpt0_gate", "action": "execute_documentary_gate_without_mutation"},
+    {"id": "stop_on_gpt0_block", "when": "current_gpt0_gate_verdict_is_block", "action": "stop_and_require_material_remediation_authorization"},
+    {"id": "stop_on_gpt0_inconclusive", "when": "current_gpt0_gate_verdict_is_inconclusive", "action": "stop_and_require_missing_evidence_or_access"},
+    {"id": "run_gpt4_read_only", "when": "current_gpt0_gate_verdict_is_passing_and_no_current_gpt4_gate", "action": "execute_lifecycle_gate_without_mutation"},
+    {"id": "stop_on_gpt4_block", "when": "current_gpt4_gate_verdict_is_block", "action": "stop_and_require_material_remediation_authorization"},
+    {"id": "stop_on_gpt4_inconclusive", "when": "current_gpt4_gate_verdict_is_inconclusive", "action": "stop_and_require_missing_evidence_or_access"},
+    {"id": "require_ready_authorization", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent", "action": "require_explicit_ready_authorization_for_exact_head_and_base"},
+    {"id": "execute_ready_transition", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present", "action": "mark_pull_request_ready_only"},
+    {"id": "recheck_ready_reviews", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck", "action": "adjudicate_material_findings_before_merge"},
+    {"id": "require_merge_authorization", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_absent", "action": "require_explicit_merge_authorization_for_exact_head_and_base"},
+    {"id": "execute_merge_and_verify_main", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_present", "action": "merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority"},
 ]
 NEXT_ACTION_ID = "resolve-live-lifecycle-transition-v1"
 DERIVED_SUMMARY = "resolver o estado live e executar somente a primeira transição aplicável da máquina de lifecycle."
-NEXT_ACTION_DOCUMENTS = [
-    "bootstrap/BOOTSTRAP_CANONICO.md",
-    "handoffs/CURRENT.md",
-    "docs/PROJECT_STATUS.md",
-    "docs/NEXT_SAFE_ACTION.md",
-    "docs/BLOCKED_ACTIONS.md",
-]
-DERIVED_SUMMARY_DOCUMENTS = [
-    "bootstrap/BOOTSTRAP_CANONICO.md",
-    "handoffs/CURRENT.md",
-    "docs/PROJECT_STATUS.md",
-]
+NEXT_ACTION_DOCUMENTS = ["bootstrap/BOOTSTRAP_CANONICO.md", "handoffs/CURRENT.md", "docs/PROJECT_STATUS.md", "docs/NEXT_SAFE_ACTION.md", "docs/BLOCKED_ACTIONS.md"]
+DERIVED_SUMMARY_DOCUMENTS = ["bootstrap/BOOTSTRAP_CANONICO.md", "handoffs/CURRENT.md", "docs/PROJECT_STATUS.md"]
 UPSTREAM_REPOSITORY = "wagnerjfjunior/StopJuniorMode"
 UPSTREAM_REF = "d03d477c3b329aa973a38ec4e949c249fa017929"
 UPSTREAM_PATH = "docs/CANONICAL_BOOTSTRAP_PROTOCOL.md"
@@ -54,216 +42,115 @@ UPSTREAM_BLOB = "7befd02533aad6c2df5544c7307e4a66dce28844"
 UPSTREAM_SIZE = 7960
 UPSTREAM_LOCAL_COPY = "docs/references/sfjm/CANONICAL_BOOTSTRAP_PROTOCOL.md.gz.b64"
 UPSTREAM_EVIDENCE = "docs/evidence/sfjm-upstream-anchor.md"
-EXPECTED_EVIDENCE_FIELDS = {
-    "Repositório upstream": UPSTREAM_REPOSITORY,
-    "Revisão congelada": UPSTREAM_REF,
-    "Caminho upstream": UPSTREAM_PATH,
-    "Git blob SHA observado": UPSTREAM_BLOB,
-    "Cópia local imutável": UPSTREAM_LOCAL_COPY,
-}
+EXPECTED_EVIDENCE_FIELDS = {"Repositório upstream": UPSTREAM_REPOSITORY, "Revisão congelada": UPSTREAM_REF, "Caminho upstream": UPSTREAM_PATH, "Git blob SHA observado": UPSTREAM_BLOB, "Cópia local imutável": UPSTREAM_LOCAL_COPY}
 TEST_COMMAND = 'python -m unittest discover -s tests -p "test_*.py"'
 errors = []
 
+def fail(message): errors.append(message)
+def read(path):
+    try: return (ROOT / path).read_text(encoding="utf-8")
+    except Exception as exc: fail(f"{path}: leitura falhou: {exc}"); return ""
 
-def fail(message):
-    errors.append(message)
-
-
-def read(relative_path):
-    path = ROOT / relative_path
-    try:
-        return path.read_text(encoding="utf-8")
-    except Exception as exc:
-        fail(f"{relative_path}: leitura falhou: {exc}")
-        return ""
-
-
-def extract_numbered_paths(text, heading, relative_path):
+def extract_numbered_paths(text, heading, path):
     match = re.search(rf"(?ms)^{re.escape(heading)}\s*$\n(?P<body>.*?)(?=^##\s|\Z)", text)
-    if not match:
-        fail(f"{relative_path}: seção de ordem ausente: {heading}")
-        return []
+    if not match: fail(f"{path}: seção de ordem ausente: {heading}"); return []
     numbers, paths = [], []
     for line in match.group("body").splitlines():
-        numbered = re.match(r"^\s*(\d+)\.\s+(.*?)\s*$", line)
-        if not numbered:
-            continue
-        number, payload = int(numbered.group(1)), numbered.group(2)
-        exact_path = re.fullmatch(r"`([^`]+)`", payload)
-        if not exact_path:
-            fail(f"{relative_path}: item numerado malformado em {heading}: {line.strip()}")
-            continue
-        numbers.append(number)
-        paths.append(exact_path.group(1))
-    if not paths:
-        fail(f"{relative_path}: nenhuma entrada numerada encontrada em {heading}")
-    if numbers and numbers != list(range(1, len(numbers) + 1)):
-        fail(f"{relative_path}: numeração inválida em {heading}; encontrada={numbers}")
-    if len(paths) != len(set(paths)):
-        fail(f"{relative_path}: ordem contém entradas duplicadas")
+        item = re.match(r"^\s*(\d+)\.\s+(.*?)\s*$", line)
+        if not item: continue
+        exact = re.fullmatch(r"`([^`]+)`", item.group(2))
+        if not exact: fail(f"{path}: item numerado malformado em {heading}: {line.strip()}"); continue
+        numbers.append(int(item.group(1))); paths.append(exact.group(1))
+    if not paths: fail(f"{path}: nenhuma entrada numerada encontrada em {heading}")
+    if numbers and numbers != list(range(1, len(numbers) + 1)): fail(f"{path}: numeração inválida em {heading}; encontrada={numbers}")
+    if len(paths) != len(set(paths)): fail(f"{path}: ordem contém entradas duplicadas")
     return paths
 
+def extract_transition_table(text):
+    match = re.search(r"(?ms)^## 2\. Máquina de transição\s*$\n(?P<body>.*?)(?=^##\s|\Z)", text)
+    if not match: fail("docs/NEXT_SAFE_ACTION.md: tabela de transição ausente"); return []
+    rows, priorities = [], []
+    for line in match.group("body").splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"): continue
+        if stripped.startswith("| Prioridade") or re.fullmatch(r"\|[\s:|\-]+\|", stripped): continue
+        row = re.fullmatch(r"\|\s*(\d+)\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|", stripped)
+        if not row: fail(f"docs/NEXT_SAFE_ACTION.md: linha de transição malformada: {stripped}"); continue
+        priorities.append(int(row.group(1)))
+        rows.append({"id": row.group(2), "when": row.group(3), "action": row.group(4)})
+    if priorities != list(range(len(priorities))): fail(f"docs/NEXT_SAFE_ACTION.md: prioridades inválidas: {priorities}")
+    return rows
 
-def extract_next_action_id(text, relative_path):
+def extract_next_action_id(text, path):
     matches = re.findall(r"(?m)^- Next action ID: `([^`]+)`\s*$", text)
-    if len(matches) != 1:
-        fail(f"{relative_path}: deve conter exatamente um marcador '- Next action ID: `...`'")
-        return None
+    if len(matches) != 1: fail(f"{path}: marcador Next action ID ausente ou duplicado"); return None
     return matches[0]
-
 
 def extract_evidence_field(text, label):
     payloads = re.findall(rf"(?m)^- {re.escape(label)}: (.+?)\s*$", text)
-    if len(payloads) != 1:
-        fail(f"{UPSTREAM_EVIDENCE}: campo canônico ausente ou duplicado: {label}")
-        return None
+    if len(payloads) != 1: fail(f"{UPSTREAM_EVIDENCE}: campo ausente ou duplicado: {label}"); return None
     exact = re.fullmatch(r"`([^`]+)`", payloads[0])
-    if not exact:
-        fail(f"{UPSTREAM_EVIDENCE}: campo canônico malformado: {label}")
-        return None
+    if not exact: fail(f"{UPSTREAM_EVIDENCE}: campo malformado: {label}"); return None
     return exact.group(1)
 
+def git_blob_sha(data): return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
 
-def git_blob_sha(data):
-    header = f"blob {len(data)}\0".encode("ascii")
-    return hashlib.sha1(header + data).hexdigest()
-
-
-def run_core_validator():
-    if not CORE.is_file():
-        print("VALIDATION FAILED")
-        print("- scripts/_validate_repository_core.py: validador-base ausente")
-        sys.exit(1)
+def run_core():
+    if not CORE.is_file(): print("VALIDATION FAILED\n- scripts/_validate_repository_core.py: ausente"); sys.exit(1)
     output = io.StringIO()
     try:
-        with contextlib.redirect_stdout(output):
-            runpy.run_path(str(CORE), run_name="__main__")
+        with contextlib.redirect_stdout(output): runpy.run_path(str(CORE), run_name="__main__")
     except SystemExit as exc:
-        diagnostics = output.getvalue()
-        if diagnostics:
-            print(diagnostics, end="")
-        code = exc.code if isinstance(exc.code, int) else 1
-        sys.exit(code or 1)
+        if output.getvalue(): print(output.getvalue(), end="")
+        sys.exit(exc.code if isinstance(exc.code, int) and exc.code else 1)
 
-
-run_core_validator()
-
-try:
-    sfjm = yaml.safe_load((ROOT / "config/sfjm.yaml").read_text(encoding="utf-8")) or {}
-except Exception as exc:
-    fail(f"config/sfjm.yaml: YAML inválido: {exc}")
-    sfjm = {}
-
-spec = sfjm.get("spec", {})
-upstream = spec.get("upstream", {})
-expected_upstream = {
-    "repository": UPSTREAM_REPOSITORY,
-    "ref": UPSTREAM_REF,
-    "protocol_path": UPSTREAM_PATH,
-    "protocol_blob_sha": UPSTREAM_BLOB,
-    "local_copy": UPSTREAM_LOCAL_COPY,
-    "evidence": UPSTREAM_EVIDENCE,
-    "local_copy_encoding": "gzip_base64",
-}
+run_core()
+try: sfjm = yaml.safe_load((ROOT / "config/sfjm.yaml").read_text(encoding="utf-8")) or {}
+except Exception as exc: fail(f"config/sfjm.yaml: YAML inválido: {exc}"); sfjm = {}
+spec, model = sfjm.get("spec", {}), sfjm.get("spec", {}).get("transition_model", {})
+expected_upstream = {"repository": UPSTREAM_REPOSITORY, "ref": UPSTREAM_REF, "protocol_path": UPSTREAM_PATH, "protocol_blob_sha": UPSTREAM_BLOB, "local_copy": UPSTREAM_LOCAL_COPY, "evidence": UPSTREAM_EVIDENCE, "local_copy_encoding": "gzip_base64"}
 for key, expected in expected_upstream.items():
-    if upstream.get(key) != expected:
-        fail(f"config/sfjm.yaml: âncora upstream incorreta para {key}")
-
-if spec.get("read_order") != EXPECTED_READ_ORDER:
-    fail(f"config/sfjm.yaml: ordem mínima divergente; esperada={EXPECTED_READ_ORDER}; encontrada={spec.get('read_order')}")
-
-transition_model = spec.get("transition_model", {})
-for key, expected in {
-    "next_action_id": NEXT_ACTION_ID,
-    "state_source": "github_live",
-    "versioned_state": "policy_not_volatile_snapshot",
-    "gate_evidence": "head_bound_external_evidence",
-    "authorization_evidence": "exact_head_bound_external_evidence",
-    "execute_only_first_applicable_transition": True,
-}.items():
-    if transition_model.get(key) != expected:
-        fail(f"config/sfjm.yaml: transition_model incorreto para {key}")
-if transition_model.get("transitions") != EXPECTED_TRANSITIONS:
-    fail(f"config/sfjm.yaml: máquina de transição divergente; esperada={EXPECTED_TRANSITIONS}; encontrada={transition_model.get('transitions')}")
-
-for invariant in (
-    "live_state_must_be_resolved_not_versioned_as_snapshot",
-    "same_head_gate_progression_requires_no_intermediate_commit",
-    "metadata_only_ready_transition_does_not_invalidate_head_bound_gates",
-    "authorization_presence_advances_transition",
-    "durable_records_not_rewritten_for_same_head_lifecycle",
-):
-    if spec.get("invariants", {}).get(invariant) is not True:
-        fail(f"config/sfjm.yaml: invariante de lifecycle ausente: {invariant}")
-
-for relative_path in NEXT_ACTION_DOCUMENTS:
-    observed = extract_next_action_id(read(relative_path), relative_path)
-    if observed and observed != NEXT_ACTION_ID:
-        fail(f"{relative_path}: Next action ID divergente; esperado={NEXT_ACTION_ID}; encontrado={observed}")
-
-for relative_path in DERIVED_SUMMARY_DOCUMENTS:
-    summaries = re.findall(r"(?m)^- Resumo derivado: (.+?)\s*$", read(relative_path))
-    if summaries != [DERIVED_SUMMARY]:
-        fail(f"{relative_path}: resumo derivado divergente; esperado={DERIVED_SUMMARY}; encontrado={summaries}")
-
-blocked_text = read("docs/BLOCKED_ACTIONS.md")
-if "não atualizar os registros versionados apenas por conclusão de gate" not in blocked_text.lower():
-    fail("docs/BLOCKED_ACTIONS.md: regra antíloop de desbloqueio ausente")
-if "Atualizar este documento e `docs/NEXT_SAFE_ACTION.md`" in blocked_text:
-    fail("docs/BLOCKED_ACTIONS.md: reescrita incondicional de lifecycle ainda presente")
-
-agents_text = read("AGENTS.md")
-if "Não atualize registros versionados por simples conclusão de gate" not in agents_text:
-    fail("AGENTS.md: regra antíloop persistente ausente")
-if "Atualize handoff, status, próxima ação e bloqueios quando uma mudança verificável afetar o estado" in agents_text:
-    fail("AGENTS.md: instrução ampla de reescrita ainda presente")
-
-for relative_path in ("README.md", ".github/pull_request_template.md", ".github/workflows/validate-agent-framework.yml"):
-    if TEST_COMMAND not in read(relative_path):
-        fail(f"{relative_path}: comando de testes adversariais ausente")
-
-bootstrap_order = extract_numbered_paths(read("bootstrap/BOOTSTRAP_CANONICO.md"), "## Ordem mínima de leitura", "bootstrap/BOOTSTRAP_CANONICO.md")
-if bootstrap_order != EXPECTED_READ_ORDER[1:]:
-    fail(f"bootstrap/BOOTSTRAP_CANONICO.md: ordem publicada diverge do manifesto; esperada={EXPECTED_READ_ORDER[1:]}; encontrada={bootstrap_order}")
-handoff_order = extract_numbered_paths(read("handoffs/CURRENT.md"), "## Ordem de continuidade", "handoffs/CURRENT.md")
-if handoff_order != EXPECTED_READ_ORDER:
-    fail(f"handoffs/CURRENT.md: ordem publicada diverge do manifesto; esperada={EXPECTED_READ_ORDER}; encontrada={handoff_order}")
-
+    if spec.get("upstream", {}).get(key) != expected: fail(f"config/sfjm.yaml: âncora upstream incorreta para {key}")
+if spec.get("read_order") != EXPECTED_READ_ORDER: fail("config/sfjm.yaml: ordem mínima divergente")
+for key, expected in {"next_action_id": NEXT_ACTION_ID, "state_source": "github_live", "versioned_state": "policy_not_volatile_snapshot", "documentary_gate_evidence": "exact_head_bound_external_evidence", "lifecycle_gate_evidence": "exact_head_and_base_bound_external_evidence", "authorization_evidence": "exact_head_and_base_bound_external_evidence", "post_merge_verification_evidence": "exact_merge_commit_and_main_external_evidence", "execute_only_first_applicable_transition": True}.items():
+    if model.get(key) != expected: fail(f"config/sfjm.yaml: transition_model incorreto para {key}")
+if model.get("transitions") != EXPECTED_TRANSITIONS: fail("config/sfjm.yaml: máquina de transição divergente")
+for invariant in ("published_transition_table_matches_manifest", "head_drift_invalidates_all_gates_and_authorizations", "base_drift_invalidates_lifecycle_gate_and_transition_authorizations", "only_passing_gates_allow_ready_or_merge", "terminal_pull_request_states_are_calculable", "workflow_checks_out_exact_pull_request_head", "live_state_must_be_resolved_not_versioned_as_snapshot", "same_head_gate_progression_requires_no_intermediate_commit", "durable_records_not_rewritten_for_same_head_lifecycle"):
+    if spec.get("invariants", {}).get(invariant) is not True: fail(f"config/sfjm.yaml: invariante ausente: {invariant}")
+for path in NEXT_ACTION_DOCUMENTS:
+    observed = extract_next_action_id(read(path), path)
+    if observed and observed != NEXT_ACTION_ID: fail(f"{path}: Next action ID divergente")
+for path in DERIVED_SUMMARY_DOCUMENTS:
+    summaries = re.findall(r"(?m)^- Resumo derivado: (.+?)\s*$", read(path))
+    if summaries != [DERIVED_SUMMARY]: fail(f"{path}: resumo derivado divergente")
+if extract_transition_table(read("docs/NEXT_SAFE_ACTION.md")) != EXPECTED_TRANSITIONS: fail("docs/NEXT_SAFE_ACTION.md: tabela publicada diverge do manifesto")
+blocked, agents, workflow = read("docs/BLOCKED_ACTIONS.md"), read("AGENTS.md"), read(".github/workflows/validate-agent-framework.yml")
+if "não atualizar os registros versionados apenas por conclusão de gate" not in blocked.lower(): fail("docs/BLOCKED_ACTIONS.md: regra antíloop ausente")
+if "Não atualize registros versionados por simples conclusão de gate" not in agents: fail("AGENTS.md: regra antíloop ausente")
+for required in ("github.event.pull_request.head.sha", "Checkout exact pull request head", "Checkout exact non-PR revision"):
+    if required not in workflow: fail(f"workflow: checkout exato incompleto: {required}")
+for path in ("README.md", ".github/pull_request_template.md", ".github/workflows/validate-agent-framework.yml"):
+    if TEST_COMMAND not in read(path): fail(f"{path}: testes adversariais ausentes")
+if extract_numbered_paths(read("bootstrap/BOOTSTRAP_CANONICO.md"), "## Ordem mínima de leitura", "bootstrap/BOOTSTRAP_CANONICO.md") != EXPECTED_READ_ORDER[1:]: fail("bootstrap: ordem divergente")
+if extract_numbered_paths(read("handoffs/CURRENT.md"), "## Ordem de continuidade", "handoffs/CURRENT.md") != EXPECTED_READ_ORDER: fail("handoff: ordem divergente")
 copy_path, evidence_path = ROOT / UPSTREAM_LOCAL_COPY, ROOT / UPSTREAM_EVIDENCE
-if not copy_path.is_file():
-    fail(f"{UPSTREAM_LOCAL_COPY}: cópia upstream ausente")
-if not evidence_path.is_file():
-    fail(f"{UPSTREAM_EVIDENCE}: evidência upstream ausente")
+if not copy_path.is_file(): fail(f"{UPSTREAM_LOCAL_COPY}: ausente")
+if not evidence_path.is_file(): fail(f"{UPSTREAM_EVIDENCE}: ausente")
 if copy_path.is_file():
     try:
-        encoded = "".join(copy_path.read_text(encoding="utf-8").split())
-        protocol_bytes = gzip.decompress(base64.b64decode(encoded, validate=True))
-        observed_blob = git_blob_sha(protocol_bytes)
-        if observed_blob != UPSTREAM_BLOB:
-            fail(f"{UPSTREAM_LOCAL_COPY}: Git blob SHA divergente; esperado={UPSTREAM_BLOB}; encontrado={observed_blob}")
-        if len(protocol_bytes) != UPSTREAM_SIZE:
-            fail(f"{UPSTREAM_LOCAL_COPY}: tamanho divergente; esperado={UPSTREAM_SIZE}; encontrado={len(protocol_bytes)}")
-    except Exception as exc:
-        fail(f"{UPSTREAM_LOCAL_COPY}: cópia upstream inválida: {exc}")
+        data = gzip.decompress(base64.b64decode("".join(copy_path.read_text(encoding="utf-8").split()), validate=True))
+        if git_blob_sha(data) != UPSTREAM_BLOB: fail(f"{UPSTREAM_LOCAL_COPY}: blob divergente")
+        if len(data) != UPSTREAM_SIZE: fail(f"{UPSTREAM_LOCAL_COPY}: tamanho divergente")
+    except Exception as exc: fail(f"{UPSTREAM_LOCAL_COPY}: inválida: {exc}")
 if evidence_path.is_file():
     evidence = evidence_path.read_text(encoding="utf-8")
     for label, expected in EXPECTED_EVIDENCE_FIELDS.items():
         observed = extract_evidence_field(evidence, label)
-        if observed is not None and observed != expected:
-            fail(f"{UPSTREAM_EVIDENCE}: campo {label} divergente; esperado={expected}; encontrado={observed}")
-    size_payloads = re.findall(r"(?m)^- Tamanho do conteúdo decodificado: (.+?)\s*$", evidence)
-    if len(size_payloads) != 1:
-        fail(f"{UPSTREAM_EVIDENCE}: campo canônico de tamanho ausente ou duplicado")
-    else:
-        size_match = re.fullmatch(r"`(\d+)` bytes UTF-8", size_payloads[0])
-        if not size_match:
-            fail(f"{UPSTREAM_EVIDENCE}: campo canônico de tamanho malformado")
-        elif int(size_match.group(1)) != UPSTREAM_SIZE:
-            fail(f"{UPSTREAM_EVIDENCE}: tamanho declarado divergente; esperado={UPSTREAM_SIZE}; encontrado={size_match.group(1)}")
-
+        if observed is not None and observed != expected: fail(f"{UPSTREAM_EVIDENCE}: campo {label} divergente")
+    sizes = re.findall(r"(?m)^- Tamanho do conteúdo decodificado: (.+?)\s*$", evidence)
+    if len(sizes) != 1 or not re.fullmatch(r"`7960` bytes UTF-8", sizes[0]): fail(f"{UPSTREAM_EVIDENCE}: tamanho declarado inválido")
 if errors:
     print("VALIDATION FAILED")
-    for item in errors:
-        print(f"- {item}")
+    for item in errors: print(f"- {item}")
     sys.exit(1)
-print("VALIDATION PASSED: framework canônico preservado; SFJM com transições sem looping, resumos exatos, diagnósticos preservados e evidência upstream por campos canônicos.")
+print("VALIDATION PASSED: máquina, tabela, gates, workflow, estados terminais, evidência e registros SFJM estão sincronizados.")

@@ -4,66 +4,49 @@
 - Regra: ausência nesta lista não constitui autorização.
 - Next action ID: `resolve-live-lifecycle-transition-v1`
 
-Este registro contém bloqueios estruturais. Estado de PR, gates, checks e autorizações deve ser resolvido live.
+Este registro contém bloqueios estruturais. Estado de PR, gates, checks, autorizações e verificações deve ser resolvido live.
 
 ## 1. Bloqueios ativos
 
-| Ação bloqueada | Motivo estrutural | Condição de liberação | Autoridade | Evidência exigida |
+| Ação bloqueada | Motivo | Condição de liberação | Autoridade | Evidência |
 |---|---|---|---|---|
-| Marcar uma PR como Ready sem autorização válida | Ready é mutação independente | autorização explícita para o head exato | Wagner | autorização live vinculada ao head |
-| Fazer merge sem autorização posterior e separada | Ready não implica merge | autorização de merge para o head exato, gates atuais e threads materiais resolvidas | Wagner | autorização live e estado GitHub |
-| Corrigir arquivos sem escopo material autorizado | review não autoriza implementação | autorização corretiva delimitada | Wagner | escopo autorizado e diff |
-| Configurar qualquer GPT no Builder | estado externo exige escopo próprio | autorização por GPT, fonte e evidência atual | Wagner | registro da configuração e privacidade |
-| Criar Action GitHub mutável | perfil atual é READ_ONLY | PR separada e revisão específica | Wagner | schema, riscos e autorização |
-| Alterar domínio, DNS ou hospedagem | ativos e ambientes não registrados | inventário, plano, rollback e autorização | Wagner | registro canônico e evidência técnica |
-| Publicar, fazer deploy ou iniciar produção | arquitetura e ambiente não aprovados | gates técnicos e autorização | Wagner | checks, plano e rollback |
-| Executar campanha ou contato externo | compromisso com terceiros | escopo, público, conteúdo e autorização | Wagner | aprovação registrada |
-| Executar scoring ou cenário experimental SFJM | fora do bootstrap operacional | protocolo experimental separado | Wagner | escopo e controles próprios |
+| Ready com gate `BLOCK` ou `INCONCLUSIVE` | somente vereditos de passagem permitem avanço | GPT0 e GPT4 atuais com `PASS` ou `PASS_WITH_RESIDUAL_RISK` | Wagner | gates do head/base aplicáveis |
+| Ready sem autorização válida | Ready é mutação independente | autorização para head e base exatos | Wagner | autorização live |
+| Merge sem autorização posterior | Ready não implica merge | autorização de merge para head/base, gates passando e review atual | Wagner | autorização e estado GitHub |
+| Corrigir arquivos sem escopo | review não autoriza implementação | autorização corretiva delimitada | Wagner | escopo e diff |
+| Configurar Builder | estado externo exige escopo próprio | autorização por GPT | Wagner | configuração e privacidade |
+| Criar Action mutável | perfil é READ_ONLY | PR separada e revisão específica | Wagner | schema e riscos |
+| Alterar domínio, DNS ou hospedagem | ativos não registrados | inventário, rollback e autorização | Wagner | evidência técnica |
+| Deploy, publicação ou produção | ambiente não aprovado | gates técnicos e autorização | Wagner | checks e rollback |
+| Campanha ou contato externo | compromisso com terceiros | escopo e autorização | Wagner | aprovação |
+| Scoring ou cenário experimental | fora do bootstrap | protocolo separado | Wagner | controles próprios |
 
 ## 2. Ações que sempre exigem autorização explícita
 
-- modificar ou substituir a fonte canônica;
-- corrigir arquivos, marcar Ready, fazer merge, deploy, release ou publicação;
-- configurar Builder ou alterar compartilhamento;
-- enviar dados ou comunicação a terceiros;
-- criar compromisso financeiro;
-- executar ação destrutiva, irreversível ou de difícil reversão;
-- acessar, transferir ou divulgar dados sensíveis;
-- ampliar materialmente o escopo;
-- declarar conclusão ou aprovação em nome da Product Authority.
+Correção, Ready, merge, Builder, deploy, release, publicação, comunicação externa, compromisso financeiro, ação destrutiva, dados sensíveis e expansão material.
 
-## 3. Limites de interpretação
+## 3. Limites
 
-- Preparar não autoriza executar.
-- Revisar não autoriza corrigir, aprovar ou alterar.
-- Criar PR não autoriza Ready ou merge.
-- Workflow verde não prova Builder, produção ou conformidade ampla.
-- Uma autorização vale somente para a transição e o head declarados.
-- Autorização de Ready não autoriza merge.
-- Silêncio, expectativa ou sequência lógica não substituem autorização.
+Preparar não autoriza executar. Review não autoriza corrigir. Workflow verde não prova Builder ou produção. Autorização vale apenas para transição, head e base declarados. Ready não autoriza merge.
 
-## 4. Bloqueios por evidência ausente
+## 4. Evidência ausente
 
-| Evidência ausente | Ação afetada | Fonte esperada | Tratamento |
-|---|---|---|---|
-| estado efetivo dos GPTs no Builder | qualquer update no Builder | inspeção individual do Builder | parar e verificar |
-| inventário de domínios e sites | arquitetura e publicação | registro canônico futuro | não presumir |
-| ambiente, DNS, hospedagem e rollback | deploy e produção | documentação técnica futura | manter bloqueado |
-| métricas de tráfego, SEO e receita | decisões quantitativas | fontes datadas e identificadas | não inventar |
+Builder, inventário de ativos, ambientes, rollback e métricas permanecem bloqueados até fonte datada e identificada.
 
-## 5. Exceções e autorizações live
+## 5. Autorizações live
 
-Não há exceção estrutural ativa. Autorizações concedidas são evidência externa vinculada ao head e são consumidas pela máquina de transição sem se tornarem snapshot neste arquivo.
+Autorizações são evidência externa vinculada ao head e à base. Não se tornam snapshot neste arquivo.
 
 ## 6. Procedimento para desbloqueio
 
-1. Resolver live a condição objetiva, o head e a autorização aplicável.
-2. Quando a autorização estiver ausente, solicitar somente o escopo mínimo necessário.
-3. Quando a autorização válida estiver presente, executar somente a transição autorizada.
-4. Não atualizar os registros versionados apenas por conclusão de gate, mudança Draft/Ready ou consumo de autorização no mesmo head.
-5. Atualizar este documento somente se mudar política, bloqueio estrutural, autoridade ou evidência canônica durável.
-6. Preservar evidência externa e não iniciar automaticamente a etapa seguinte.
+1. Resolver condição, head, base, gates e autorização live.
+2. Ausência de autorização: solicitar somente o escopo mínimo.
+3. Autorização válida e gates passando: executar somente a transição autorizada.
+4. `BLOCK`, `INCONCLUSIVE` ou drift: parar.
+5. Não atualizar os registros versionados apenas por conclusão de gate, metadata, autorização ou estado terminal.
+6. Atualizar somente política, bloqueio, autoridade ou evidência durável.
+7. Não iniciar automaticamente etapa posterior.
 
 ## 7. Dúvida
 
-Quando o enquadramento não estiver claro, tratar a ação como bloqueada, declarar a lacuna e solicitar a menor decisão necessária.
+Tratar como bloqueado, declarar a lacuna e solicitar a menor decisão necessária.

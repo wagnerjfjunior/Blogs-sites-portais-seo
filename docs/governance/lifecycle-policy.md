@@ -4,83 +4,58 @@
 
 1. Implementação consolidada em branch.
 2. Validação local e testes adversariais.
-3. Workflow canônico no head corretivo.
-4. Revisão automática ou humana do head corretivo.
-5. Adjudicação e correção de todos os findings materiais válidos.
+3. Workflow no head exato da PR.
+4. Revisão automática ou humana do head.
+5. Adjudicação e correção de findings materiais.
 6. Resolução das threads corrigidas.
-7. Congelamento do head final somente quando não houver correção previsível pendente.
-8. Gate GPT0 documental no head congelado.
-9. Gate GPT4 de lifecycle no mesmo head, sem commit intermediário.
-10. Se a PR estiver Draft e não houver autorização de Ready, solicitar autorização para o head exato.
-11. Se a autorização de Ready existir, executar somente Draft → Ready.
-12. Conferir head, checks, reviews e threads após Ready.
-13. Se não houver autorização de merge, solicitar autorização posterior e separada.
-14. Se a autorização de merge existir e o estado continuar elegível, fazer merge do head exato.
-15. Verificar `main` pós-merge.
+7. Congelamento do head final.
+8. GPT0 documental no head congelado.
+9. GPT4 no mesmo head e na base atual.
+10. `BLOCK` ou `INCONCLUSIVE`: parar e remediar evidência ou conteúdo.
+11. Gates passando e PR Draft: solicitar ou executar Ready conforme autorização.
+12. PR Ready: revalidar reviews e threads.
+13. Solicitar ou executar merge conforme autorização posterior.
+14. Verificar merge commit e `main`.
+15. Em retomadas posteriores, reportar estado terminal sem mutação.
 
 ## Estado live e registros versionados
 
-O lifecycle corrente é resolvido no GitHub. Documentos versionados definem a máquina e as regras, mas não devem congelar como fatos atuais:
-
-- head ou base corrente;
-- Draft ou Ready;
-- check mais recente;
-- gate que acabou de terminar;
-- autorização concedida ou consumida;
-- quantidade atual de reviews ou threads.
-
-A passagem GPT0 → GPT4 → Ready no mesmo head é mudança de estado externo, não mudança documental.
+Lifecycle é resolvido no GitHub. Documentos não congelam head, base, Draft/Ready, check, gate, autorização, review ou thread atuais.
 
 ## Regras de revalidação
 
-- Head mudou: repetir workflow, GPT0 e GPT4; autorizações de outro head não se aplicam.
-- Arquivos mudaram: repetir workflow, GPT0 e GPT4.
-- Apenas a base mudou: repetir GPT4 e avaliar impacto no diff.
-- Check reexecutado no mesmo head: validar a execução mais recente.
-- Metadata da PR mudou sem alteração de head: gates do mesmo head permanecem válidos.
-- Review ficou stale: obter nova decisão aplicável.
-- Finding material após Ready: corrigir em novo head e repetir os gates.
-- Finding não material: registrar risco residual ou backlog sem reiniciar a PR.
+- Head mudou: repetir workflow, GPT0, GPT4 e obter novas autorizações.
+- Apenas a base mudou: repetir GPT4, avaliar o diff e obter novas autorizações de Ready/merge; GPT0 pode ser reutilizado se o head não mudou.
+- Check reexecutado no mesmo head: usar a execução mais recente.
+- Metadata mudou sem alterar head/base: evidências permanecem válidas.
+- Review ficou stale ou mudou após Ready: reavaliar antes do merge.
+- Finding material: corrigir em novo head e repetir gates invalidados.
+- Finding não material: risco residual ou backlog.
 
-## Elegibilidade de gates e autorizações
+## Elegibilidade
 
-Um gate é elegível quando identifica:
+GPT0 identifica repositório, PR, head, escopo, evidências e veredito.
 
-- repositório e PR;
-- base e head exatos;
-- escopo analisado;
-- evidências consultadas;
-- veredito oficial;
-- ausência de mutação não autorizada.
+GPT4 identifica repositório, PR, head, base, checks, reviews, threads, mergeabilidade e veredito.
 
-Uma autorização é elegível quando identifica:
+Autorização identifica transição, repositório, PR, head, base, exclusões e autoridade concedente.
 
-- transição permitida;
-- repositório e PR;
-- head exato;
-- exclusões materiais;
-- autoridade concedente.
+Somente `PASS` e `PASS_WITH_RESIDUAL_RISK` são vereditos de passagem. `BLOCK` e `INCONCLUSIVE` nunca permitem Ready ou merge.
 
-GPT0 e GPT4 podem ser executados sequencialmente no mesmo head. Não se deve alterar `NEXT_SAFE_ACTION`, handoff, status ou bloqueios apenas para autorizar o gate ou a transição seguinte.
+## Workflow
 
-## Estados de decisão
+Em evento `pull_request`, `actions/checkout` usa explicitamente `github.event.pull_request.head.sha`. O merge ref sintético não é evidência do head exato.
 
-- `PASS`: escopo integralmente atendido.
-- `PASS_WITH_RESIDUAL_RISK`: sem bloqueio, com limitação explicitada.
-- `BLOCK`: evidência disponível demonstra não conformidade.
-- `INCONCLUSIVE`: acesso ou evidência insuficiente.
+## Estados terminais
 
-Não usar resultado condicional para encobrir correção obrigatória.
+- PR merged sem verificação: verificar merge commit e `main`.
+- PR merged com verificação: reportar lifecycle concluído sem mutação.
+- PR closed sem merge: reportar o estado e exigir decisão explícita para reabrir ou abandonar.
 
 ## Critério antíloop
 
-Antes de alterar novamente o head, confirmar que o finding é simultaneamente válido, material, aplicável e bloqueador. Consolidar todos os findings conhecidos em uma única rodada antes de recongelar o head.
+Antes de alterar o head, confirmar finding válido, material, aplicável e bloqueador. Consolidar findings conhecidos antes de recongelar.
 
 ## Autorizações
 
-- Leitura e gates `READ_ONLY` não autorizam mutação.
-- Autorização ausente seleciona a etapa de solicitação.
-- Autorização válida presente seleciona a execução daquela transição.
-- Ready exige autorização específica para o head exato.
-- Merge exige autorização posterior e separada.
-- Merge não autoriza Builder, deploy, publicação ou produção.
+Leitura e gates `READ_ONLY` não autorizam mutação. Ready e merge são separados. Merge não autoriza Builder, deploy, publicação ou produção.

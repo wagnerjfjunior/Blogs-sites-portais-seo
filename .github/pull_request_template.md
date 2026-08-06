@@ -6,20 +6,22 @@
 
 ## Arquivos e GPTs afetados
 
-## Leitura integral realizada
+## Leitura integral
 
 - [ ] Arquivos relevantes lidos integralmente
 - [ ] Referências cruzadas conferidas
-- [ ] Evidências associadas ao head exato
+- [ ] Evidências associadas às revisões exatas
 
 ## Continuidade SFJM
 
-- [ ] Estado volátil foi resolvido live e não copiado como snapshot documental
-- [ ] `Next action ID` e resumo derivado permanecem sincronizados
-- [ ] Existe exatamente uma máquina autoritativa em `docs/NEXT_SAFE_ACTION.md` e `config/sfjm.yaml`
-- [ ] `docs/BLOCKED_ACTIONS.md` contém apenas bloqueios estruturais afetados
-- [ ] Conclusão de gate ou mudança Draft/Ready não gerou reescrita documental intermediária
-- [ ] Divergências materiais foram reconciliadas antes do congelamento do head
+- [ ] Estado volátil foi resolvido live
+- [ ] `Next action ID`, resumo, tabela e manifesto estão sincronizados
+- [ ] Workflow de PR faz checkout do head exato
+- [ ] GPT0 está vinculado ao head; GPT4 ao head e à base
+- [ ] `BLOCK` e `INCONCLUSIVE` impedem Ready e merge
+- [ ] Estados closed e merged têm transições explícitas
+- [ ] Registros não foram reescritos por mero avanço de lifecycle
+- [ ] Divergências materiais foram reconciliadas antes do congelamento
 
 ## Validação
 
@@ -33,7 +35,7 @@ python scripts/validate_builder_action.py
 
 ## Autorizações
 
-- [ ] Autorização de Ready, quando aplicável, identifica o head exato
-- [ ] Autorização de merge é posterior, separada e identifica o head exato
+- [ ] Ready, quando aplicável, identifica head e base exatos
+- [ ] Merge é posterior, separado e identifica head e base exatos
 - [ ] Nenhuma credencial foi versionada
-- [ ] A Action READ_ONLY não contém métodos de mutação
+- [ ] A Action READ_ONLY não contém mutações

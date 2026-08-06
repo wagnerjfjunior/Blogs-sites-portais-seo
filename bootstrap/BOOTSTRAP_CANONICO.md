@@ -6,22 +6,15 @@
 - ID: `blogs-sites-portais-seo`
 - Fonte canônica: `wagnerjfjunior/Blogs-sites-portais-seo`
 - Branch canônica: `main`
-- Revisão: resolver o SHA live antes de agir
+- Revisão: resolver head e base live antes de agir
 - Autoridade: Wagner
 - Next action ID: `resolve-live-lifecycle-transition-v1`
 
 ## Regra de canonicalidade
 
-A branch `main` aprovada é a fonte de verdade. Conversas, memória, Builder, arquivos locais e resumos são derivados.
+`main` aprovada é a fonte de verdade. Estado de PR, head, base, workflow, gates, autorizações, reviews, threads e pós-merge é resolvido live.
 
-Em caso de divergência:
-
-1. prevalece `main` na revisão live observada;
-2. `docs/NEXT_SAFE_ACTION.md` e `config/sfjm.yaml` definem a máquina autoritativa;
-3. divergência material exige parada e reconciliação;
-4. informação ausente não pode ser inferida.
-
-Estado volátil de PR, head, checks, gates, autorizações, reviews e threads deve ser resolvido live, não copiado para este documento como snapshot.
+Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ausente não é inferida.
 
 ## Ordem mínima de leitura
 
@@ -32,54 +25,44 @@ Estado volátil de PR, head, checks, gates, autorizações, reviews e threads de
 5. `config/project.yaml`
 6. `config/gpts.yaml`
 
-Para trabalho de um GPT específico, leia também seu contrato, skill, Instructions, manifesto e testes aplicáveis.
+Para um GPT específico, leia também contrato, skill, Instructions, manifesto e testes.
 
 ## Estado confirmado
 
 1. O projeto possui GPT0 a GPT8, totalizando nove GPTs privados.
 2. A Action GitHub inicial é `READ_ONLY`.
-3. Escrita direta em `main` é proibida pelo contrato.
-4. Ready e merge exigem autorizações humanas separadas e vinculadas ao head exato.
-5. O SFJM local trata continuidade operacional; não inclui scoring, benchmark ou avaliação experimental.
-6. O YAML não prova, isoladamente, o estado efetivo do Builder.
-7. A adoção do SFJM é rastreada pela PR #2; seu estado deve ser resolvido live.
+3. Escrita direta em `main` é proibida.
+4. GPT0 é vinculado ao head; GPT4 ao head e à base.
+5. Ready e merge exigem autorizações separadas para head e base.
+6. O SFJM é operacional, sem scoring ou benchmark experimental.
+7. Adoção do SFJM é rastreada pela PR #2, cujo estado deve ser resolvido live.
 
 ## Lacunas
 
-- O estado efetivo de cada GPT no Builder exige verificação externa específica.
-- Ativos, domínios, métricas, tráfego, receita e produção exigem registros canônicos antes de serem tratados como fatos.
-- Estado atual de lifecycle nunca deve ser inferido deste arquivo.
+Builder, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica.
 
 ## Autorizações
 
-Leitura, síntese, auditoria GPT0 e validação GPT4 em modo `READ_ONLY` são permitidas quando forem a primeira transição aplicável.
-
-Alteração canônica, Ready, merge, Builder, deploy, publicação, domínio, DNS, hospedagem, campanha, compromisso financeiro e expansão material exigem autorização explícita.
-
-Preparar não autoriza executar. Uma etapa concluída não autoriza a seguinte.
+Leitura, GPT0 e GPT4 `READ_ONLY` são permitidos quando forem a primeira transição. Correção, Ready, merge, Builder, deploy, publicação, domínio, DNS, campanha e compromissos exigem autorização explícita.
 
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
 - Resumo derivado: resolver o estado live e executar somente a primeira transição aplicável da máquina de lifecycle.
 
-A progressão GPT0 → GPT4 → Ready no mesmo head não exige atualização deste arquivo.
-
 ## Ações bloqueadas
 
-Consulte `docs/BLOCKED_ACTIONS.md`. Ausência na lista não constitui autorização.
+Consulte `docs/BLOCKED_ACTIONS.md`. Ausência na lista não autoriza.
 
 ## Retomada
 
-Antes de agir:
-
-1. resolva os SHAs e o estado live aplicáveis;
-2. leia a ordem mínima;
-3. apresente até oito fatos confirmados;
-4. separe fatos, decisões, propostas, hipóteses e lacunas;
-5. confirme o `Next action ID`, a primeira transição e os bloqueios;
-6. pare diante de drift, finding material, evidência insuficiente ou falta de autoridade.
+1. Resolver PR, head e base live.
+2. Ler a ordem mínima.
+3. Confirmar workflow no head exato.
+4. Separar fatos e lacunas.
+5. Calcular a primeira transição.
+6. Parar diante de drift, gate não passante, review pendente ou falta de autoridade.
 
 ## Atualização
 
-Atualize este arquivo apenas quando mudar fonte, política, ordem de leitura, `Next action ID`, autorização estrutural ou bloqueio material. Não atualizar por simples avanço de gate, autorização ou metadata da PR.
+Atualizar somente por mudança durável de fonte, política, ordem, máquina, autoridade ou bloqueio material; nunca por mero avanço de lifecycle.

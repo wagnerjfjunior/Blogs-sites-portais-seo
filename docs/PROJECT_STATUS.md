@@ -1,79 +1,63 @@
 # Status do Projeto — Ecossistema de Blogs, Sites, Portais e SEO
 
 - Fonte canônica: `wagnerjfjunior/Blogs-sites-portais-seo`
-- Política de estado: resolver lifecycle live; não manter snapshot volátil neste arquivo
-- Adoção SFJM: rastreada pela PR #2
+- Política: lifecycle resolvido live, sem snapshot volátil
+- Adoção SFJM: PR #2
 - Next action ID: `resolve-live-lifecycle-transition-v1`
 
 ## Resultado pretendido
 
-Operar um ecossistema de ativos digitais com nove GPTs especializados, governança versionada e continuidade entre conversas baseada em estado verificável, bloqueios explícitos e uma máquina segura de transição.
+Ecossistema com nove GPTs, governança versionada e continuidade baseada em revisões verificáveis, bloqueios e máquina segura.
 
 ## Estado por frente
 
-| Frente | Estado durável | Evidência | Próximo marco calculado live | Bloqueio estrutural |
+| Frente | Estado durável | Evidência | Próximo marco live | Bloqueio |
 |---|---|---|---|---|
-| Framework GPT0–GPT8 | concluído | PR #1 e `main` | manter sincronismo | Builder não revalidado |
-| Action GitHub READ_ONLY | concluída | `config/actions/github-read-only.openapi.yaml` | preservar perfil | mutações desabilitadas |
-| Governança de lifecycle | definida | `docs/governance/` | aplicar máquina live | autorizações não se propagam |
-| Adoção SFJM | em lifecycle pela PR #2 | PR e branch | resolver primeira transição | merge ainda exige autorização própria |
-| Inventário de ativos | não iniciado | registro ausente | definir modelo e responsáveis | dados ausentes |
-| Produção e monetização | bloqueada | restrições vigentes | planejamento e autorizações | ambientes não aprovados |
+| Framework GPT0–GPT8 | concluído | PR #1 | manter sincronismo | Builder não revalidado |
+| Action READ_ONLY | concluída | schema OpenAPI | preservar | mutações desabilitadas |
+| Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
+| Adoção SFJM | PR #2 | PR e branch | calcular transição | merge exige autorização |
+| Ativos | não iniciado | registro ausente | definir inventário | dados ausentes |
+| Produção | bloqueada | restrições | planejar | ambiente não aprovado |
 
 ## Marcos
 
-| Marco | Situação durável | Evidência |
-|---|---|---|
-| Framework GPT | atingido | PR #1 |
-| Kit SFJM inicial | preparado | PR #2 |
-| Âncora upstream | versionada | evidência e cópia local |
-| Máquina de lifecycle | definida | manifesto e próxima ação |
-| Validação adversarial | exigida pela CI | workflow canônico |
-| Merge SFJM | estado live | requer gates, reviews e autorização exata |
+Framework, kit SFJM, âncora upstream, máquina de lifecycle e testes adversariais são duráveis. Gate, Ready, merge e pós-merge são estado live.
 
 ## Decisões necessárias
 
-| Decisão | Autoridade | Condição live |
+| Decisão | Autoridade | Condição |
 |---|---|---|
-| Veredito documental | GPT0 | workflow verde e head congelado |
-| Elegibilidade de lifecycle | GPT4 | GPT0 elegível no mesmo head |
-| Ready | Wagner | gates atuais e autorização vinculada ao head |
-| Merge | Wagner | Ready, reviews reconciliadas e autorização posterior |
-| Builder | Wagner | escopo e evidência por GPT |
+| GPT0 | GPT0 | workflow verde no head |
+| GPT4 | GPT4 | GPT0 passando, head/base atuais |
+| Ready | Wagner | gates passando e autorização head/base |
+| Merge | Wagner | review atual, gates passando e autorização posterior head/base |
+| Builder | Wagner | escopo por GPT |
 
 ## Dependências e bloqueios
 
-- O SFJM só se torna canônico após merge aprovado.
-- Mudança de head invalida workflow decisório, gates e autorizações de outro head.
-- Mudança apenas de metadata da PR não invalida gates do mesmo head.
-- Builder, produção e ativos externos permanecem fora desta etapa.
-- Domínios, ambientes e métricas não podem ser presumidos.
+Mudança de head invalida todos os gates/autorizações. Mudança só da base invalida GPT4 e autorizações de transição. `BLOCK` e `INCONCLUSIVE` impedem Ready/merge.
 
 ## Riscos
 
-| Risco | Probabilidade | Impacto | Mitigação |
-|---|---|---|---|
-| Snapshot documental obsoleto | média | alto | resolver estado live |
-| Reutilizar gate ou autorização de outro head | média | alto | exigir evidência head-bound |
-| Ordem, resumo ou ação divergente | baixa | alto | validação determinística |
-| Review material após Ready | média | alto | rechecagem antes de merge |
-| Divergência GitHub–Builder | média | alto | verificar individualmente |
-| Avançar sem autorização | média | alto | primeira transição e autorização específica |
+| Risco | Mitigação |
+|---|---|
+| Snapshot obsoleto | resolver live |
+| Merge ref validado como head | checkout explícito |
+| Tabela divergente | comparação determinística |
+| Estado terminal sem ação | transições terminal |
+| Review material | rechecagem antes do merge |
+| GitHub–Builder divergente | verificar individualmente |
 
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
 - Resumo derivado: resolver o estado live e executar somente a primeira transição aplicável da máquina de lifecycle.
 
-A passagem GPT0 → GPT4 → Ready no mesmo head não altera este status versionado.
+## Fora do escopo
 
-## Fora do escopo atual
+Builder, domínios, DNS, hospedagem, deploy, produção, SEO operacional e avaliação experimental.
 
-- Builder e publicação dos GPTs.
-- Domínios, DNS, hospedagem, deploy e produção.
-- Pesquisa, conteúdo, link building, monetização e analytics.
-- Scoring, benchmark, cenários e avaliação experimental do SFJM.
+## Atualização
 
-## Critério de atualização
-
-Atualizar quando mudar política, estrutura, decisão durável, risco estrutural, bloqueio material, `Next action ID` ou escopo. Não atualizar por simples conclusão de gate, check, autorização ou mudança Draft/Ready no mesmo head.
+Somente por mudança durável de política, estrutura, máquina, risco, bloqueio ou escopo; não por gate, metadata, autorização ou estado terminal.
