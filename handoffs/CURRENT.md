@@ -1,11 +1,13 @@
 # Handoff Atual — Ecossistema de Blogs, Sites, Portais e SEO
 
-- Status: atual
-- Atualizado em: 2026-08-05
+- Status: correção documental aplicada; novo gate GPT0 pendente
+- Atualizado em: 2026-08-06
 - Fonte canônica: `wagnerjfjunior/Blogs-sites-portais-seo`
 - Baseline: `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
 - Pull Request: #2 — Draft
 - Branch: `docs/sfjm-operational-bootstrap`
+- Head bloqueado pelo gate anterior: `dad7870fa81b2e530485b823b6d190fc78975b19`
+- Head corretivo: resolver live antes do novo gate
 
 ## Objetivo operacional
 
@@ -15,12 +17,12 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 
 1. A PR #1 foi mergeada em `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`.
 2. O framework contém GPT0 a GPT8, totalizando nove GPTs.
-3. O workflow pós-merge run #28 terminou com `success`.
-4. A Action GitHub dos GPTs permanece `READ_ONLY`.
-5. A PR #1 excluiu SFJM; o validador anterior rejeitava seus artefatos.
-6. A PR #2 está aberta em Draft para adicionar o SFJM operacional.
-7. O run #29 passou em um head anterior; commits posteriores exigem validar o run mais recente.
-8. O repositório não prova sozinho o estado efetivo do Builder.
+3. A Action GitHub dos GPTs permanece `READ_ONLY`.
+4. A PR #2 continua aberta em Draft e não está mergeada.
+5. O gate GPT0 do head `dad7870fa81b2e530485b823b6d190fc78975b19` terminou em `BLOCK`.
+6. O bloqueio decorreu da ordem divergente publicada neste handoff e da cobertura insuficiente do validador.
+7. A ordem foi reconciliada com `config/sfjm.yaml` e `bootstrap/BOOTSTRAP_CANONICO.md`.
+8. A âncora upstream passou a possuir evidência local versionada e verificável.
 
 ## Decisões vigentes
 
@@ -30,21 +32,25 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 | Adotar SFJM operacional | aprovada para a PR #2 | Product Authority |
 | `docs/NEXT_SAFE_ACTION.md` é autoritativo | aprovada | `config/sfjm.yaml` |
 | Ready e merge são separados | aprovada | `docs/governance/lifecycle-policy.md` |
+| Gate GPT4 permanece bloqueado | vigente | gate GPT0 anterior `BLOCK` |
 
 ## Entregas concluídas
 
 - Framework GPT0–GPT8: PR #1.
-- Validação pós-merge: run #28, `success`.
 - Estrutura SFJM preparada: PR #2 em Draft.
+- Ordem de continuidade reconciliada.
+- Evidência upstream registrada em `docs/evidence/sfjm-upstream-anchor.md`.
+- Cópia imutável registrada em `docs/references/sfjm/CANONICAL_BOOTSTRAP_PROTOCOL.md.gz.b64`.
+- Validador ampliado para comparar ordens e verificar o Git blob SHA upstream.
 
 ## Trabalho em andamento
 
 | Item | Estado | Conclusão |
 |---|---|---|
-| SFJM operacional | PR #2 Draft | head final validado e gates concluídos |
-| CI | revalidar | run mais recente do head atual com sucesso |
-| Gate GPT0 | pendente | veredito no head exato |
-| Gate GPT4 | pendente | gate GPT0 elegível |
+| Revisão corretiva | aplicada na branch | workflow verde no head final |
+| Gate GPT0 anterior | `BLOCK` | substituído somente por novo gate em novo head |
+| Novo gate GPT0 | pendente | veredito no head corretivo exato |
+| Gate GPT4 | bloqueado | exige novo gate GPT0 elegível |
 
 ## Lacunas
 
@@ -56,18 +62,19 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 
 | Risco | Impacto | Controle |
 |---|---|---|
-| Divergência entre registros | execução incorreta | parar e reconciliar |
+| Usar o gate do head anterior | decisão inválida | repetir GPT0 no novo head |
+| Divergência entre ordens | retomada inconsistente | comparação determinística no validador |
 | GitHub divergir do Builder | comportamento não rastreável | verificar GPT por GPT |
-| Check pertencer a head anterior | gate inválido | consultar o run do head atual |
 | Escrita direta em `main` | perda de gates | branch e PR |
 
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
-- Resumo derivado: auditar documentalmente a PR #2 no head exato, em modo `READ_ONLY`.
+- Resumo derivado: executar uma nova auditoria documental GPT0 no head corretivo exato, em modo `READ_ONLY`.
 
 ## Ações bloqueadas
 
+- Gate GPT4 antes de novo gate GPT0 elegível.
 - Ready, merge e Builder sem autorização específica.
 - Deploy, publicação, domínio, DNS, hospedagem, campanha e produção.
 - Scoring, benchmark, cenário sintético ou adjudicação experimental do SFJM.
@@ -79,8 +86,9 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 3. `docs/PROJECT_STATUS.md`
 4. `docs/NEXT_SAFE_ACTION.md`
 5. `docs/BLOCKED_ACTIONS.md`
-6. `config/sfjm.yaml`
+6. `config/project.yaml`
+7. `config/gpts.yaml`
 
 ## Prompt curto de retomada
 
-> Resolva a revisão live de `main` e da PR #2, leia a ordem de continuidade, apresente até oito fatos confirmados, declare lacunas e identifique a única próxima ação autoritativa. Não infira estado ausente nem execute ações bloqueadas.
+> Resolva a revisão live de `main` e da PR #2, leia a ordem de continuidade, apresente até oito fatos confirmados, declare lacunas e identifique a única próxima ação autoritativa. Não reutilize gates do head anterior, não infira estado ausente e não execute ações bloqueadas.
