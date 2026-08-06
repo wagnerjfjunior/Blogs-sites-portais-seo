@@ -11,6 +11,9 @@ spec:
     ref: d03d477c3b329aa973a38ec4e949c249fa017929
     protocol_path: docs/CANONICAL_BOOTSTRAP_PROTOCOL.md
     protocol_blob_sha: 7befd02533aad6c2df5544c7307e4a66dce28844
+    local_copy: docs/references/sfjm/CANONICAL_BOOTSTRAP_PROTOCOL.md.gz.b64
+    evidence: docs/evidence/sfjm-upstream-anchor.md
+    local_copy_encoding: gzip_base64
   canonical_source:
     repository: wagnerjfjunior/Blogs-sites-portais-seo
     branch: main
