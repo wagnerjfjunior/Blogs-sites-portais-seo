@@ -38,6 +38,7 @@ spec:
     next_action_id: resolve-live-lifecycle-transition-v1
     state_source: github_live
     versioned_state: policy_not_volatile_snapshot
+    workflow_attempt_selection: latest_attempt_for_exact_head
     documentary_gate_evidence: exact_head_bound_external_evidence
     lifecycle_gate_evidence: exact_head_and_base_bound_external_evidence
     authorization_evidence: exact_head_and_base_bound_external_evidence
@@ -58,10 +59,10 @@ spec:
         when: open_pull_request_has_head_or_base_drift_or_material_unresolved_finding
         action: stop_and_reconcile_under_explicit_authorization
       - id: require_successful_workflow
-        when: open_pull_request_exact_head_has_no_completed_successful_canonical_workflow
+        when: latest_canonical_workflow_attempt_for_exact_head_is_not_completed_success
         action: wait_or_rerun_only_if_authorized
       - id: run_gpt0_read_only
-        when: open_pull_request_exact_head_has_successful_workflow_and_no_current_gpt0_gate
+        when: latest_canonical_workflow_attempt_for_exact_head_is_completed_success_and_no_current_gpt0_gate
         action: execute_documentary_gate_without_mutation
       - id: stop_on_gpt0_block
         when: current_gpt0_gate_verdict_is_block
@@ -109,7 +110,9 @@ spec:
     base_drift_invalidates_lifecycle_gate_and_transition_authorizations: true
     only_passing_gates_allow_ready_or_merge: true
     terminal_pull_request_states_are_calculable: true
+    latest_canonical_workflow_attempt_is_authoritative: true
     workflow_checks_out_exact_pull_request_head: true
+    workflow_semantics_are_structurally_validated: true
     repeated_validation_ignores_generated_bytecode: true
     evidence_must_identify_source_and_revision: true
     live_state_must_be_resolved_not_versioned_as_snapshot: true

@@ -24,7 +24,7 @@ Registros versionados não são snapshot de head, base, Draft/Ready, checks, gat
 ## 3. Invariantes
 
 1. `main` aprovada é a fonte canônica.
-2. PR, head, base, workflow, gates, autorizações, reviews e threads são resolvidos live.
+2. PR, head, base, tentativa mais recente do workflow, gates, autorizações, reviews e threads são resolvidos live.
 3. Fato, decisão, proposta, hipótese e lacuna permanecem separados.
 4. Informação ausente não é preenchida por plausibilidade.
 5. Existe uma única máquina autoritativa.
@@ -35,10 +35,12 @@ Registros versionados não são snapshot de head, base, Draft/Ready, checks, gat
 10. Mudança de head invalida todos os gates e autorizações anteriores.
 11. Mudança somente de base invalida GPT4 e autorizações de Ready/merge.
 12. Autorização de merge precisa ser concedida depois da transição Ready.
-13. GPT0 → GPT4 → Ready no mesmo head não exige commit intermediário.
-14. Estados merged e closed permanecem calculáveis.
-15. Workflow de PR valida o head da PR, não o merge ref sintético.
-16. Validações repetidas ignoram caches e bytecode Python gerados.
+13. A tentativa mais recente do workflow para o head exato é a única autoridade de CI.
+14. GPT0 → GPT4 → Ready no mesmo head não exige commit intermediário.
+15. Estados merged e closed permanecem calculáveis.
+16. Workflow de PR valida o head da PR, não o merge ref sintético.
+17. A semântica dos passos do workflow é validada estruturalmente.
+18. Validações repetidas ignoram caches e bytecode Python gerados.
 
 ## 4. Ordem de retomada
 
@@ -46,17 +48,17 @@ Registros versionados não são snapshot de head, base, Draft/Ready, checks, gat
 2. Ler o bootstrap e seguir sua ordem.
 3. Declarar fatos e lacunas.
 4. Confirmar tabela e manifesto.
-5. Resolver workflow, gates, autorizações, sequência Ready/merge e review.
+5. Resolver a tentativa mais recente do workflow, gates, autorizações, sequência Ready/merge e review.
 6. Executar somente a primeira transição aplicável.
 
 ## 5. Evidência de execução
 
+- CI elegível identifica ID, número, head, status e conclusion da tentativa mais recente.
 - GPT0 permanece elegível apenas enquanto o head auditado não mudar.
 - GPT4 permanece elegível apenas enquanto head e base avaliados não mudarem.
 - Autorização de Ready permanece elegível apenas para head e base declarados.
 - Autorização de merge permanece elegível apenas para head/base declarados e quando concedida depois do Ready.
 - Verificação pós-merge identifica merge commit e novo `main`.
-- Metadata da PR pode mudar sem invalidar evidência vinculada às mesmas revisões.
 
 Não criar commit apenas para registrar a passagem a uma etapa seguinte.
 
@@ -68,7 +70,7 @@ Não atualizar apenas porque gate, check, autorização, Draft/Ready ou estado t
 
 ## 7. Conflitos
 
-Divergência de ordem, resumo, tabela, manifesto ou regra material exige parada, reconciliação por branch/PR e repetição apenas dos gates invalidados pela revisão alterada.
+Divergência de ordem, resumo, tabela, manifesto, tentativa de workflow ou regra material exige parada, reconciliação por branch/PR e repetição apenas dos gates invalidados.
 
 ## 8. Critério antíloop
 

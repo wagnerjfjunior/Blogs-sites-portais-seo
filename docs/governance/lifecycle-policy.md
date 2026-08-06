@@ -27,7 +27,7 @@ Lifecycle é resolvido no GitHub. Documentos não congelam head, base, Draft/Rea
 
 - Head mudou: repetir workflow, GPT0, GPT4 e obter novas autorizações.
 - Apenas a base mudou: repetir GPT4, avaliar o diff e obter novas autorizações de Ready/merge; GPT0 pode ser reutilizado se o head não mudou.
-- Check reexecutado no mesmo head: usar a execução mais recente.
+- Workflow reexecutado no mesmo head: somente a tentativa mais recente é aplicável; falha, cancelamento, pendência ou execução em andamento invalida sucesso anterior para avanço.
 - Metadata mudou sem alterar head/base: evidências permanecem válidas.
 - Review ficou stale ou mudou após Ready: reavaliar antes do merge.
 - Finding material: corrigir em novo head e repetir gates invalidados.
@@ -37,7 +37,7 @@ Lifecycle é resolvido no GitHub. Documentos não congelam head, base, Draft/Rea
 
 GPT0 identifica repositório, PR, head, escopo, evidências e veredito.
 
-GPT4 identifica repositório, PR, head, base, checks, reviews, threads, mergeabilidade e veredito.
+GPT4 identifica repositório, PR, head, base, tentativa mais recente de CI, reviews, threads, mergeabilidade e veredito.
 
 Autorização de Ready identifica transição, repositório, PR, head, base, exclusões e autoridade concedente.
 
@@ -47,9 +47,11 @@ Somente `PASS` e `PASS_WITH_RESIDUAL_RISK` são vereditos de passagem. `BLOCK` e
 
 ## Workflow
 
-Em evento `pull_request`, `actions/checkout` usa explicitamente `github.event.pull_request.head.sha`. O merge ref sintético não é evidência do head exato.
+A autoridade de CI é a tentativa mais recente do workflow canônico para o head exato. Ela precisa estar `completed/success`.
 
-A validação é executada antes e depois dos testes adversariais. Bytecode e caches gerados não podem alterar o resultado.
+Em evento `pull_request`, o passo `Checkout exact pull request head` possui condição exata `github.event_name == 'pull_request'`, usa `actions/checkout@v4` e define `ref: github.event.pull_request.head.sha`. O passo não-PR possui condição inversa e não substitui o checkout de PR.
+
+O validador carrega o YAML e confere estruturalmente condições, `uses`, `ref`, comandos e ordem dos passos. A validação é executada antes e depois dos testes adversariais. Bytecode e caches gerados não podem alterar o resultado.
 
 ## Estados terminais
 

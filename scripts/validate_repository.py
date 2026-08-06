@@ -19,8 +19,8 @@ EXPECTED_TRANSITIONS = [
     {"id": "report_completed_lifecycle", "when": "pull_request_is_merged_and_main_verification_is_present", "action": "report_lifecycle_complete_without_mutation"},
     {"id": "report_closed_unmerged", "when": "pull_request_is_closed_and_not_merged", "action": "report_closed_unmerged_and_require_explicit_reopen_or_abandon_decision"},
     {"id": "stop_on_drift_or_material_finding", "when": "open_pull_request_has_head_or_base_drift_or_material_unresolved_finding", "action": "stop_and_reconcile_under_explicit_authorization"},
-    {"id": "require_successful_workflow", "when": "open_pull_request_exact_head_has_no_completed_successful_canonical_workflow", "action": "wait_or_rerun_only_if_authorized"},
-    {"id": "run_gpt0_read_only", "when": "open_pull_request_exact_head_has_successful_workflow_and_no_current_gpt0_gate", "action": "execute_documentary_gate_without_mutation"},
+    {"id": "require_successful_workflow", "when": "latest_canonical_workflow_attempt_for_exact_head_is_not_completed_success", "action": "wait_or_rerun_only_if_authorized"},
+    {"id": "run_gpt0_read_only", "when": "latest_canonical_workflow_attempt_for_exact_head_is_completed_success_and_no_current_gpt0_gate", "action": "execute_documentary_gate_without_mutation"},
     {"id": "stop_on_gpt0_block", "when": "current_gpt0_gate_verdict_is_block", "action": "stop_and_require_material_remediation_authorization"},
     {"id": "stop_on_gpt0_inconclusive", "when": "current_gpt0_gate_verdict_is_inconclusive", "action": "stop_and_require_missing_evidence_or_access"},
     {"id": "run_gpt4_read_only", "when": "current_gpt0_gate_verdict_is_passing_and_no_current_gpt4_gate", "action": "execute_lifecycle_gate_without_mutation"},
@@ -54,8 +54,7 @@ def read(path):
 
 def _cache_filtered_rglob(path_object, pattern):
     for candidate in _ORIGINAL_PATH_RGLOB(path_object, pattern):
-        if "__pycache__" in candidate.parts or candidate.suffix.lower() in {".pyc", ".pyo"}:
-            continue
+        if "__pycache__" in candidate.parts or candidate.suffix.lower() in {".pyc", ".pyo"}: continue
         yield candidate
 
 def extract_numbered_paths(text, heading, path):
@@ -99,19 +98,50 @@ def extract_evidence_field(text, label):
     if not exact: fail(f"{UPSTREAM_EVIDENCE}: campo malformado: {label}"); return None
     return exact.group(1)
 
+def workflow_step(steps, name):
+    matches = [step for step in steps if step.get("name") == name]
+    if len(matches) != 1:
+        fail(f"workflow: passo ausente ou duplicado: {name}")
+        return {}
+    return matches[0]
+
+def validate_workflow_semantics(text):
+    try: data = yaml.safe_load(text) or {}
+    except Exception as exc: fail(f"workflow: YAML inválido: {exc}"); return
+    steps = data.get("jobs", {}).get("validate", {}).get("steps", [])
+    if not isinstance(steps, list): fail("workflow: jobs.validate.steps inválido"); return
+    pr = workflow_step(steps, "Checkout exact pull request head")
+    non_pr = workflow_step(steps, "Checkout exact non-PR revision")
+    before = workflow_step(steps, "Validate canonical framework")
+    tests = workflow_step(steps, "Run SFJM adversarial tests")
+    after = workflow_step(steps, "Revalidate canonical framework after tests")
+    builder = workflow_step(steps, "Validate GPT Builder Action compatibility")
+    if pr.get("if") != "${{ github.event_name == 'pull_request' }}": fail("workflow: condição do checkout PR incorreta")
+    if pr.get("uses") != "actions/checkout@v4": fail("workflow: action de checkout PR incorreta")
+    if pr.get("with", {}).get("ref") != "${{ github.event.pull_request.head.sha }}": fail("workflow: ref do checkout PR incorreto")
+    if non_pr.get("if") != "${{ github.event_name != 'pull_request' }}": fail("workflow: condição do checkout não-PR incorreta")
+    if non_pr.get("uses") != "actions/checkout@v4": fail("workflow: action de checkout não-PR incorreta")
+    if non_pr.get("with", {}).get("ref") is not None: fail("workflow: checkout não-PR não deve sobrescrever ref")
+    if before.get("run") != "python scripts/validate_repository.py": fail("workflow: validação inicial incorreta")
+    if tests.get("run") != TEST_COMMAND: fail("workflow: comando de testes adversariais incorreto")
+    if after.get("run") != "python scripts/validate_repository.py": fail("workflow: revalidação incorreta")
+    if builder.get("run") != "python scripts/validate_builder_action.py": fail("workflow: validação Builder incorreta")
+    names = [step.get("name") for step in steps]
+    required_order = ["Checkout exact pull request head", "Checkout exact non-PR revision", "Validate canonical framework", "Run SFJM adversarial tests", "Revalidate canonical framework after tests", "Validate GPT Builder Action compatibility"]
+    indices = [names.index(name) for name in required_order if name in names]
+    if len(indices) != len(required_order) or indices != sorted(indices): fail("workflow: ordem dos passos canônicos incorreta")
+
 def git_blob_sha(data): return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
 
 def run_core():
     if not CORE.is_file(): print("VALIDATION FAILED\n- scripts/_validate_repository_core.py: ausente"); sys.exit(1)
-    output = io.StringIO()
-    Path.rglob = _cache_filtered_rglob
+    output = io.StringIO(); Path.rglob = _cache_filtered_rglob
     try:
         with contextlib.redirect_stdout(output): runpy.run_path(str(CORE), run_name="__main__")
     except SystemExit as exc:
         if output.getvalue(): print(output.getvalue(), end="")
         sys.exit(exc.code if isinstance(exc.code, int) and exc.code else 1)
-    finally:
-        Path.rglob = _ORIGINAL_PATH_RGLOB
+    finally: Path.rglob = _ORIGINAL_PATH_RGLOB
 
 run_core()
 try: sfjm = yaml.safe_load((ROOT / "config/sfjm.yaml").read_text(encoding="utf-8")) or {}
@@ -121,10 +151,10 @@ expected_upstream = {"repository": UPSTREAM_REPOSITORY, "ref": UPSTREAM_REF, "pr
 for key, expected in expected_upstream.items():
     if spec.get("upstream", {}).get(key) != expected: fail(f"config/sfjm.yaml: âncora upstream incorreta para {key}")
 if spec.get("read_order") != EXPECTED_READ_ORDER: fail("config/sfjm.yaml: ordem mínima divergente")
-for key, expected in {"next_action_id": NEXT_ACTION_ID, "state_source": "github_live", "versioned_state": "policy_not_volatile_snapshot", "documentary_gate_evidence": "exact_head_bound_external_evidence", "lifecycle_gate_evidence": "exact_head_and_base_bound_external_evidence", "authorization_evidence": "exact_head_and_base_bound_external_evidence", "merge_authorization_ordering": "granted_after_ready_transition", "post_merge_verification_evidence": "exact_merge_commit_and_main_external_evidence", "execute_only_first_applicable_transition": True}.items():
+for key, expected in {"next_action_id": NEXT_ACTION_ID, "state_source": "github_live", "versioned_state": "policy_not_volatile_snapshot", "workflow_attempt_selection": "latest_attempt_for_exact_head", "documentary_gate_evidence": "exact_head_bound_external_evidence", "lifecycle_gate_evidence": "exact_head_and_base_bound_external_evidence", "authorization_evidence": "exact_head_and_base_bound_external_evidence", "merge_authorization_ordering": "granted_after_ready_transition", "post_merge_verification_evidence": "exact_merge_commit_and_main_external_evidence", "execute_only_first_applicable_transition": True}.items():
     if model.get(key) != expected: fail(f"config/sfjm.yaml: transition_model incorreto para {key}")
 if model.get("transitions") != EXPECTED_TRANSITIONS: fail("config/sfjm.yaml: máquina de transição divergente")
-for invariant in ("published_transition_table_matches_manifest", "merge_authorization_must_postdate_ready_transition", "head_drift_invalidates_all_gates_and_authorizations", "base_drift_invalidates_lifecycle_gate_and_transition_authorizations", "only_passing_gates_allow_ready_or_merge", "terminal_pull_request_states_are_calculable", "workflow_checks_out_exact_pull_request_head", "repeated_validation_ignores_generated_bytecode", "live_state_must_be_resolved_not_versioned_as_snapshot", "same_head_gate_progression_requires_no_intermediate_commit", "durable_records_not_rewritten_for_same_head_lifecycle"):
+for invariant in ("published_transition_table_matches_manifest", "merge_authorization_must_postdate_ready_transition", "head_drift_invalidates_all_gates_and_authorizations", "base_drift_invalidates_lifecycle_gate_and_transition_authorizations", "only_passing_gates_allow_ready_or_merge", "terminal_pull_request_states_are_calculable", "latest_canonical_workflow_attempt_is_authoritative", "workflow_checks_out_exact_pull_request_head", "workflow_semantics_are_structurally_validated", "repeated_validation_ignores_generated_bytecode", "live_state_must_be_resolved_not_versioned_as_snapshot", "same_head_gate_progression_requires_no_intermediate_commit", "durable_records_not_rewritten_for_same_head_lifecycle"):
     if spec.get("invariants", {}).get(invariant) is not True: fail(f"config/sfjm.yaml: invariante ausente: {invariant}")
 for path in NEXT_ACTION_DOCUMENTS:
     observed = extract_next_action_id(read(path), path)
@@ -133,12 +163,11 @@ for path in DERIVED_SUMMARY_DOCUMENTS:
     summaries = re.findall(r"(?m)^- Resumo derivado: (.+?)\s*$", read(path))
     if summaries != [DERIVED_SUMMARY]: fail(f"{path}: resumo derivado divergente")
 if extract_transition_table(read("docs/NEXT_SAFE_ACTION.md")) != EXPECTED_TRANSITIONS: fail("docs/NEXT_SAFE_ACTION.md: tabela publicada diverge do manifesto")
-blocked, agents, workflow, adr = read("docs/BLOCKED_ACTIONS.md"), read("AGENTS.md"), read(".github/workflows/validate-agent-framework.yml"), read("docs/decisions/ADR-0002-adopt-sfjm-operational-bootstrap.md")
+blocked, agents, adr = read("docs/BLOCKED_ACTIONS.md"), read("AGENTS.md"), read("docs/decisions/ADR-0002-adopt-sfjm-operational-bootstrap.md")
 if "não atualizar os registros versionados apenas por conclusão de gate" not in blocked.lower(): fail("docs/BLOCKED_ACTIONS.md: regra antíloop ausente")
 if "merge só aceita autorização concedida depois de Ready" not in agents: fail("AGENTS.md: ordem Ready/merge ausente")
 if "Mudanças de estado exigem atualização dos registros aplicáveis" in adr: fail("ADR-0002: obrigação volátil de reescrita ainda presente")
-for required in ("github.event.pull_request.head.sha", "Checkout exact pull request head", "Checkout exact non-PR revision", "Revalidate canonical framework after tests"):
-    if required not in workflow: fail(f"workflow: validação exata ou repetida incompleta: {required}")
+workflow_text = read(".github/workflows/validate-agent-framework.yml"); validate_workflow_semantics(workflow_text)
 for path in ("README.md", ".github/pull_request_template.md", ".github/workflows/validate-agent-framework.yml"):
     if TEST_COMMAND not in read(path): fail(f"{path}: testes adversariais ausentes")
 if extract_numbered_paths(read("bootstrap/BOOTSTRAP_CANONICO.md"), "## Ordem mínima de leitura", "bootstrap/BOOTSTRAP_CANONICO.md") != EXPECTED_READ_ORDER[1:]: fail("bootstrap: ordem divergente")
@@ -163,4 +192,4 @@ if errors:
     print("VALIDATION FAILED")
     for item in errors: print(f"- {item}")
     sys.exit(1)
-print("VALIDATION PASSED: máquina, autorizações sequenciais, workflow idempotente, evidência e registros SFJM estão sincronizados.")
+print("VALIDATION PASSED: máquina, última tentativa de CI, workflow estrutural, autorizações, evidência e registros SFJM estão sincronizados.")

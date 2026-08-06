@@ -25,6 +25,7 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         self.assertIn("Não atualize registros por conclusão de gate", text)
         self.assertIn("merge só aceita autorização concedida depois de Ready", text)
+        self.assertIn("tentativa mais recente do workflow canônico", text)
     def test_rejects_malformed_numbered_item(self):
         result = self.mutate("bootstrap/BOOTSTRAP_CANONICO.md", "6. `config/gpts.yaml`\n", "6. `config/gpts.yaml`\n7. README.md\n")
         self.assertNotEqual(result.returncode, 0); self.assertIn("item numerado malformado", result.stdout)
@@ -43,6 +44,15 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
     def test_rejects_published_table_drift(self):
         result = self.mutate("docs/NEXT_SAFE_ACTION.md", "`report_lifecycle_complete_without_mutation`", "`perform_unversioned_extra_action`")
         self.assertNotEqual(result.returncode, 0); self.assertIn("tabela publicada diverge", result.stdout)
+    def test_requires_latest_workflow_attempt(self):
+        result = self.mutate("config/sfjm.yaml", "latest_canonical_workflow_attempt_for_exact_head_is_completed_success", "exact_head_has_any_completed_successful_workflow")
+        self.assertNotEqual(result.returncode, 0); self.assertIn("máquina de transição divergente", result.stdout)
+    def test_rejects_inverted_pr_checkout_condition(self):
+        result = self.mutate(".github/workflows/validate-agent-framework.yml", "if: ${{ github.event_name == 'pull_request' }}", "if: ${{ github.event_name != 'pull_request' }}")
+        self.assertNotEqual(result.returncode, 0); self.assertIn("condição do checkout PR incorreta", result.stdout)
+    def test_rejects_wrong_pr_checkout_ref(self):
+        result = self.mutate(".github/workflows/validate-agent-framework.yml", "ref: ${{ github.event.pull_request.head.sha }}", "ref: ${{ github.sha }}")
+        self.assertNotEqual(result.returncode, 0); self.assertIn("ref do checkout PR incorreto", result.stdout)
     def test_requires_terminal_transition(self):
         result = self.mutate("config/sfjm.yaml", "pull_request_is_closed_and_not_merged", "pull_request_is_closed")
         self.assertNotEqual(result.returncode, 0); self.assertIn("máquina de transição divergente", result.stdout)
@@ -62,9 +72,6 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
     def test_requires_base_bound_lifecycle_evidence(self):
         result = self.mutate("config/sfjm.yaml", "exact_head_and_base_bound_external_evidence", "exact_head_bound_external_evidence")
         self.assertNotEqual(result.returncode, 0); self.assertIn("transition_model incorreto", result.stdout)
-    def test_requires_exact_pr_head_checkout(self):
-        result = self.mutate(".github/workflows/validate-agent-framework.yml", "ref: ${{ github.event.pull_request.head.sha }}", "ref: ${{ github.sha }}")
-        self.assertNotEqual(result.returncode, 0); self.assertIn("validação exata ou repetida incompleta", result.stdout)
     def test_rejects_contradictory_evidence_field(self):
         result = self.mutate("docs/evidence/sfjm-upstream-anchor.md", "- Git blob SHA observado: `7befd02533aad6c2df5544c7307e4a66dce28844`", "- Git blob SHA observado: `0000000000000000000000000000000000000000`")
         self.assertNotEqual(result.returncode, 0); self.assertIn("campo Git blob SHA observado divergente", result.stdout)
