@@ -21,6 +21,10 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
         return self.run_validator(repo)
     def test_canonical_repository_passes(self):
         result = self.run_validator(self.copy_repository()); self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    def test_persistent_agent_rules_present(self):
+        text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("Não atualize registros por conclusão de gate", text)
+        self.assertIn("merge só aceita autorização concedida depois de Ready", text)
     def test_rejects_malformed_numbered_item(self):
         result = self.mutate("bootstrap/BOOTSTRAP_CANONICO.md", "6. `config/gpts.yaml`\n", "6. `config/gpts.yaml`\n7. README.md\n")
         self.assertNotEqual(result.returncode, 0); self.assertIn("item numerado malformado", result.stdout)
@@ -45,12 +49,22 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
     def test_requires_passing_gate_condition(self):
         result = self.mutate("config/sfjm.yaml", "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft", "gates_are_current_pull_request_is_draft")
         self.assertNotEqual(result.returncode, 0); self.assertIn("máquina de transição divergente", result.stdout)
+    def test_requires_post_ready_merge_authorization(self):
+        result = self.mutate("config/sfjm.yaml", "post_ready_exact_head_and_base_merge_authorization_is_present", "exact_head_and_base_merge_authorization_is_present")
+        self.assertNotEqual(result.returncode, 0); self.assertIn("máquina de transição divergente", result.stdout)
+    def test_rejects_volatile_adr_rewrite_rule(self):
+        result = self.mutate("docs/decisions/ADR-0002-adopt-sfjm-operational-bootstrap.md", "Gates, autorizações, Draft/Ready, reviews, merge e pós-merge são evidências externas", "Mudanças de estado exigem atualização dos registros aplicáveis")
+        self.assertNotEqual(result.returncode, 0); self.assertIn("ADR-0002", result.stdout)
+    def test_ignores_generated_python_bytecode(self):
+        repo = self.copy_repository(); cache = repo / "tests/__pycache__"; cache.mkdir(parents=True)
+        (cache / "synthetic.cpython-312.pyc").write_bytes(b"\x00\xff\x00generated-bytecode")
+        result = self.run_validator(repo); self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
     def test_requires_base_bound_lifecycle_evidence(self):
         result = self.mutate("config/sfjm.yaml", "exact_head_and_base_bound_external_evidence", "exact_head_bound_external_evidence")
         self.assertNotEqual(result.returncode, 0); self.assertIn("transition_model incorreto", result.stdout)
     def test_requires_exact_pr_head_checkout(self):
         result = self.mutate(".github/workflows/validate-agent-framework.yml", "ref: ${{ github.event.pull_request.head.sha }}", "ref: ${{ github.sha }}")
-        self.assertNotEqual(result.returncode, 0); self.assertIn("checkout exato incompleto", result.stdout)
+        self.assertNotEqual(result.returncode, 0); self.assertIn("validação exata ou repetida incompleta", result.stdout)
     def test_rejects_contradictory_evidence_field(self):
         result = self.mutate("docs/evidence/sfjm-upstream-anchor.md", "- Git blob SHA observado: `7befd02533aad6c2df5544c7307e4a66dce28844`", "- Git blob SHA observado: `0000000000000000000000000000000000000000`")
         self.assertNotEqual(result.returncode, 0); self.assertIn("campo Git blob SHA observado divergente", result.stdout)
@@ -58,8 +72,5 @@ class SFJMValidationAdversarialTests(unittest.TestCase):
         repo = self.copy_repository(); path = repo / "docs/evidence/sfjm-upstream-anchor.md"
         path.write_text(path.read_text(encoding="utf-8") + "\n- Git blob SHA observado: incorrect\n", encoding="utf-8")
         result = self.run_validator(repo); self.assertNotEqual(result.returncode, 0); self.assertIn("campo ausente ou duplicado", result.stdout)
-    def test_rejects_agent_rewrite_instruction(self):
-        result = self.mutate("AGENTS.md", "Não atualize registros versionados por simples conclusão de gate", "Atualize registros depois de todo gate")
-        self.assertNotEqual(result.returncode, 0); self.assertIn("AGENTS.md: regra antíloop ausente", result.stdout)
 
 if __name__ == "__main__": unittest.main()

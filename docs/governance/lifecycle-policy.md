@@ -14,9 +14,10 @@
 10. `BLOCK` ou `INCONCLUSIVE`: parar e remediar evidência ou conteúdo.
 11. Gates passando e PR Draft: solicitar ou executar Ready conforme autorização.
 12. PR Ready: revalidar reviews e threads.
-13. Solicitar ou executar merge conforme autorização posterior.
-14. Verificar merge commit e `main`.
-15. Em retomadas posteriores, reportar estado terminal sem mutação.
+13. Solicitar autorização de merge somente depois de Ready.
+14. Executar merge apenas com autorização posterior e separada.
+15. Verificar merge commit e `main`.
+16. Em retomadas posteriores, reportar estado terminal sem mutação.
 
 ## Estado live e registros versionados
 
@@ -38,13 +39,17 @@ GPT0 identifica repositório, PR, head, escopo, evidências e veredito.
 
 GPT4 identifica repositório, PR, head, base, checks, reviews, threads, mergeabilidade e veredito.
 
-Autorização identifica transição, repositório, PR, head, base, exclusões e autoridade concedente.
+Autorização de Ready identifica transição, repositório, PR, head, base, exclusões e autoridade concedente.
+
+Autorização de merge contém os mesmos campos e evidência de que foi concedida depois da transição Ready. Autorização antecipada ou conjunta é inelegível.
 
 Somente `PASS` e `PASS_WITH_RESIDUAL_RISK` são vereditos de passagem. `BLOCK` e `INCONCLUSIVE` nunca permitem Ready ou merge.
 
 ## Workflow
 
 Em evento `pull_request`, `actions/checkout` usa explicitamente `github.event.pull_request.head.sha`. O merge ref sintético não é evidência do head exato.
+
+A validação é executada antes e depois dos testes adversariais. Bytecode e caches gerados não podem alterar o resultado.
 
 ## Estados terminais
 
@@ -58,4 +63,4 @@ Antes de alterar o head, confirmar finding válido, material, aplicável e bloqu
 
 ## Autorizações
 
-Leitura e gates `READ_ONLY` não autorizam mutação. Ready e merge são separados. Merge não autoriza Builder, deploy, publicação ou produção.
+Leitura e gates `READ_ONLY` não autorizam mutação. Ready e merge são separados e sequenciais. Merge não autoriza Builder, deploy, publicação ou produção.

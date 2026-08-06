@@ -12,6 +12,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "scripts/_validate_repository_core.py"
+_ORIGINAL_PATH_RGLOB = Path.rglob
 EXPECTED_READ_ORDER = ["bootstrap/BOOTSTRAP_CANONICO.md", "handoffs/CURRENT.md", "docs/PROJECT_STATUS.md", "docs/NEXT_SAFE_ACTION.md", "docs/BLOCKED_ACTIONS.md", "config/project.yaml", "config/gpts.yaml"]
 EXPECTED_TRANSITIONS = [
     {"id": "verify_merged_main", "when": "pull_request_is_merged_and_main_verification_is_absent", "action": "verify_merge_commit_and_main_then_record_external_evidence"},
@@ -28,8 +29,8 @@ EXPECTED_TRANSITIONS = [
     {"id": "require_ready_authorization", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent", "action": "require_explicit_ready_authorization_for_exact_head_and_base"},
     {"id": "execute_ready_transition", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present", "action": "mark_pull_request_ready_only"},
     {"id": "recheck_ready_reviews", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck", "action": "adjudicate_material_findings_before_merge"},
-    {"id": "require_merge_authorization", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_absent", "action": "require_explicit_merge_authorization_for_exact_head_and_base"},
-    {"id": "execute_merge_and_verify_main", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_present", "action": "merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority"},
+    {"id": "require_merge_authorization", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_absent", "action": "require_explicit_post_ready_merge_authorization_for_exact_head_and_base"},
+    {"id": "execute_merge_and_verify_main", "when": "current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_present", "action": "merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority"},
 ]
 NEXT_ACTION_ID = "resolve-live-lifecycle-transition-v1"
 DERIVED_SUMMARY = "resolver o estado live e executar somente a primeira transição aplicável da máquina de lifecycle."
@@ -50,6 +51,12 @@ def fail(message): errors.append(message)
 def read(path):
     try: return (ROOT / path).read_text(encoding="utf-8")
     except Exception as exc: fail(f"{path}: leitura falhou: {exc}"); return ""
+
+def _cache_filtered_rglob(path_object, pattern):
+    for candidate in _ORIGINAL_PATH_RGLOB(path_object, pattern):
+        if "__pycache__" in candidate.parts or candidate.suffix.lower() in {".pyc", ".pyo"}:
+            continue
+        yield candidate
 
 def extract_numbered_paths(text, heading, path):
     match = re.search(rf"(?ms)^{re.escape(heading)}\s*$\n(?P<body>.*?)(?=^##\s|\Z)", text)
@@ -76,8 +83,7 @@ def extract_transition_table(text):
         if stripped.startswith("| Prioridade") or re.fullmatch(r"\|[\s:|\-]+\|", stripped): continue
         row = re.fullmatch(r"\|\s*(\d+)\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|", stripped)
         if not row: fail(f"docs/NEXT_SAFE_ACTION.md: linha de transição malformada: {stripped}"); continue
-        priorities.append(int(row.group(1)))
-        rows.append({"id": row.group(2), "when": row.group(3), "action": row.group(4)})
+        priorities.append(int(row.group(1))); rows.append({"id": row.group(2), "when": row.group(3), "action": row.group(4)})
     if priorities != list(range(len(priorities))): fail(f"docs/NEXT_SAFE_ACTION.md: prioridades inválidas: {priorities}")
     return rows
 
@@ -98,11 +104,14 @@ def git_blob_sha(data): return hashlib.sha1(f"blob {len(data)}\0".encode("ascii"
 def run_core():
     if not CORE.is_file(): print("VALIDATION FAILED\n- scripts/_validate_repository_core.py: ausente"); sys.exit(1)
     output = io.StringIO()
+    Path.rglob = _cache_filtered_rglob
     try:
         with contextlib.redirect_stdout(output): runpy.run_path(str(CORE), run_name="__main__")
     except SystemExit as exc:
         if output.getvalue(): print(output.getvalue(), end="")
         sys.exit(exc.code if isinstance(exc.code, int) and exc.code else 1)
+    finally:
+        Path.rglob = _ORIGINAL_PATH_RGLOB
 
 run_core()
 try: sfjm = yaml.safe_load((ROOT / "config/sfjm.yaml").read_text(encoding="utf-8")) or {}
@@ -112,10 +121,10 @@ expected_upstream = {"repository": UPSTREAM_REPOSITORY, "ref": UPSTREAM_REF, "pr
 for key, expected in expected_upstream.items():
     if spec.get("upstream", {}).get(key) != expected: fail(f"config/sfjm.yaml: âncora upstream incorreta para {key}")
 if spec.get("read_order") != EXPECTED_READ_ORDER: fail("config/sfjm.yaml: ordem mínima divergente")
-for key, expected in {"next_action_id": NEXT_ACTION_ID, "state_source": "github_live", "versioned_state": "policy_not_volatile_snapshot", "documentary_gate_evidence": "exact_head_bound_external_evidence", "lifecycle_gate_evidence": "exact_head_and_base_bound_external_evidence", "authorization_evidence": "exact_head_and_base_bound_external_evidence", "post_merge_verification_evidence": "exact_merge_commit_and_main_external_evidence", "execute_only_first_applicable_transition": True}.items():
+for key, expected in {"next_action_id": NEXT_ACTION_ID, "state_source": "github_live", "versioned_state": "policy_not_volatile_snapshot", "documentary_gate_evidence": "exact_head_bound_external_evidence", "lifecycle_gate_evidence": "exact_head_and_base_bound_external_evidence", "authorization_evidence": "exact_head_and_base_bound_external_evidence", "merge_authorization_ordering": "granted_after_ready_transition", "post_merge_verification_evidence": "exact_merge_commit_and_main_external_evidence", "execute_only_first_applicable_transition": True}.items():
     if model.get(key) != expected: fail(f"config/sfjm.yaml: transition_model incorreto para {key}")
 if model.get("transitions") != EXPECTED_TRANSITIONS: fail("config/sfjm.yaml: máquina de transição divergente")
-for invariant in ("published_transition_table_matches_manifest", "head_drift_invalidates_all_gates_and_authorizations", "base_drift_invalidates_lifecycle_gate_and_transition_authorizations", "only_passing_gates_allow_ready_or_merge", "terminal_pull_request_states_are_calculable", "workflow_checks_out_exact_pull_request_head", "live_state_must_be_resolved_not_versioned_as_snapshot", "same_head_gate_progression_requires_no_intermediate_commit", "durable_records_not_rewritten_for_same_head_lifecycle"):
+for invariant in ("published_transition_table_matches_manifest", "merge_authorization_must_postdate_ready_transition", "head_drift_invalidates_all_gates_and_authorizations", "base_drift_invalidates_lifecycle_gate_and_transition_authorizations", "only_passing_gates_allow_ready_or_merge", "terminal_pull_request_states_are_calculable", "workflow_checks_out_exact_pull_request_head", "repeated_validation_ignores_generated_bytecode", "live_state_must_be_resolved_not_versioned_as_snapshot", "same_head_gate_progression_requires_no_intermediate_commit", "durable_records_not_rewritten_for_same_head_lifecycle"):
     if spec.get("invariants", {}).get(invariant) is not True: fail(f"config/sfjm.yaml: invariante ausente: {invariant}")
 for path in NEXT_ACTION_DOCUMENTS:
     observed = extract_next_action_id(read(path), path)
@@ -124,11 +133,12 @@ for path in DERIVED_SUMMARY_DOCUMENTS:
     summaries = re.findall(r"(?m)^- Resumo derivado: (.+?)\s*$", read(path))
     if summaries != [DERIVED_SUMMARY]: fail(f"{path}: resumo derivado divergente")
 if extract_transition_table(read("docs/NEXT_SAFE_ACTION.md")) != EXPECTED_TRANSITIONS: fail("docs/NEXT_SAFE_ACTION.md: tabela publicada diverge do manifesto")
-blocked, agents, workflow = read("docs/BLOCKED_ACTIONS.md"), read("AGENTS.md"), read(".github/workflows/validate-agent-framework.yml")
+blocked, agents, workflow, adr = read("docs/BLOCKED_ACTIONS.md"), read("AGENTS.md"), read(".github/workflows/validate-agent-framework.yml"), read("docs/decisions/ADR-0002-adopt-sfjm-operational-bootstrap.md")
 if "não atualizar os registros versionados apenas por conclusão de gate" not in blocked.lower(): fail("docs/BLOCKED_ACTIONS.md: regra antíloop ausente")
-if "Não atualize registros versionados por simples conclusão de gate" not in agents: fail("AGENTS.md: regra antíloop ausente")
-for required in ("github.event.pull_request.head.sha", "Checkout exact pull request head", "Checkout exact non-PR revision"):
-    if required not in workflow: fail(f"workflow: checkout exato incompleto: {required}")
+if "merge só aceita autorização concedida depois de Ready" not in agents: fail("AGENTS.md: ordem Ready/merge ausente")
+if "Mudanças de estado exigem atualização dos registros aplicáveis" in adr: fail("ADR-0002: obrigação volátil de reescrita ainda presente")
+for required in ("github.event.pull_request.head.sha", "Checkout exact pull request head", "Checkout exact non-PR revision", "Revalidate canonical framework after tests"):
+    if required not in workflow: fail(f"workflow: validação exata ou repetida incompleta: {required}")
 for path in ("README.md", ".github/pull_request_template.md", ".github/workflows/validate-agent-framework.yml"):
     if TEST_COMMAND not in read(path): fail(f"{path}: testes adversariais ausentes")
 if extract_numbered_paths(read("bootstrap/BOOTSTRAP_CANONICO.md"), "## Ordem mínima de leitura", "bootstrap/BOOTSTRAP_CANONICO.md") != EXPECTED_READ_ORDER[1:]: fail("bootstrap: ordem divergente")
@@ -153,4 +163,4 @@ if errors:
     print("VALIDATION FAILED")
     for item in errors: print(f"- {item}")
     sys.exit(1)
-print("VALIDATION PASSED: máquina, tabela, gates, workflow, estados terminais, evidência e registros SFJM estão sincronizados.")
+print("VALIDATION PASSED: máquina, autorizações sequenciais, workflow idempotente, evidência e registros SFJM estão sincronizados.")

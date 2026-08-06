@@ -11,9 +11,9 @@ Resumos no bootstrap, handoff, status e bloqueios são derivados. A tabela abaix
 
 ## 1. Ação
 
-Resolver o estado live do repositório, da PR, do head, da base, do workflow, dos gates, das autorizações, das reviews, das threads e de eventual verificação pós-merge; em seguida, executar somente a primeira transição aplicável.
+Resolver o estado live do repositório, da PR, do head, da base, do workflow, dos gates, das autorizações, da ordem temporal Ready/merge, das reviews, das threads e de eventual verificação pós-merge; em seguida, executar somente a primeira transição aplicável.
 
-Não editar documentos apenas para registrar avanço de gate, Draft/Ready, autorização ou merge. Esses fatos são evidência externa vinculada às revisões exatas aplicáveis.
+Não editar documentos apenas para registrar avanço de gate, Draft/Ready, autorização ou merge. Esses fatos são evidência externa vinculada às revisões e à sequência temporal aplicáveis.
 
 ## 2. Máquina de transição
 
@@ -33,8 +33,8 @@ Não editar documentos apenas para registrar avanço de gate, Draft/Ready, autor
 | 11 | `require_ready_authorization` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent` | `require_explicit_ready_authorization_for_exact_head_and_base` |
 | 12 | `execute_ready_transition` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present` | `mark_pull_request_ready_only` |
 | 13 | `recheck_ready_reviews` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck` | `adjudicate_material_findings_before_merge` |
-| 14 | `require_merge_authorization` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_absent` | `require_explicit_merge_authorization_for_exact_head_and_base` |
-| 15 | `execute_merge_and_verify_main` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_exact_head_and_base_merge_authorization_is_present` | `merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority` |
+| 14 | `require_merge_authorization` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_absent` | `require_explicit_post_ready_merge_authorization_for_exact_head_and_base` |
+| 15 | `execute_merge_and_verify_main` | `current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_present` | `merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority` |
 
 `passing` significa exclusivamente `PASS` ou `PASS_WITH_RESIDUAL_RISK`. `BLOCK` e `INCONCLUSIVE` selecionam transições de parada e nunca autorizam Ready ou merge.
 
@@ -43,8 +43,9 @@ Não editar documentos apenas para registrar avanço de gate, Draft/Ready, autor
 - GPT0 permanece elegível enquanto o head não mudar.
 - GPT4 permanece elegível enquanto head e base não mudarem.
 - Ready e merge exigem autorizações separadas vinculadas ao head e à base observados.
+- A autorização de merge somente é elegível quando concedida depois da transição Ready.
+- Autorização antecipada ou conjunta de merge não pode ser reutilizada após Ready.
 - A progressão GPT0 → GPT4 → Ready não exige commit intermediário.
-- A presença de autorização válida avança da solicitação para a execução correspondente.
 - Mudança apenas de metadata da PR não invalida gates vinculados às mesmas revisões.
 - Somente correção material que altere arquivos ou head reinicia workflow e GPT0.
 - Mudança somente da base exige nova avaliação GPT4 e invalida autorizações de transição anteriores.
@@ -56,44 +57,37 @@ Não editar documentos apenas para registrar avanço de gate, Draft/Ready, autor
 - confirmar que o workflow fez checkout do head exato da PR;
 - usar apenas GPT0 vinculado ao head atual;
 - usar apenas GPT4 vinculado ao head e à base atuais;
-- resolver autorizações live e exigir correspondência com head e base;
+- resolver autorizações live e exigir correspondência com head, base e ordem temporal;
 - verificar review completa, threads e mergeabilidade;
 - confirmar autorização específica antes de qualquer mutação.
 
 ## 5. Resultado verificável
 
-Cada transição deve produzir evidência contendo:
-
-- repositório, PR, base, branch e head exatos;
-- estado live relevante;
-- workflow, gates e vereditos aplicáveis;
-- autorização ausente ou presente e seu escopo;
-- findings materiais e sua situação;
-- merge commit e `main`, quando aplicável;
-- mutações executadas, se autorizadas;
-- próxima transição calculada sem reescrita por mero avanço de lifecycle.
+Cada transição deve produzir evidência contendo repositório, PR, base, branch, head, workflow, gates, vereditos, autorizações, timestamps ou ordem verificável, findings, mutações e, quando aplicável, merge commit e novo `main`.
 
 ## 6. Limites explícitos
 
 Resolução live e gates `READ_ONLY` não autorizam correção, Ready, merge, Builder, deploy, publicação, produção, atividade SEO ou propagação de autoridade.
 
-## 7. Autorizações
+## 7. Autorização
 
 - GPT0 e GPT4 `READ_ONLY`: permitidos quando forem a primeira transição aplicável.
 - Correção material: exige escopo explícito.
 - Ready ausente: solicitar autorização para head e base exatos.
 - Ready autorizada: executar somente Draft → Ready.
-- Merge ausente: solicitar autorização posterior e separada para head e base exatos.
-- Merge autorizado: executar somente o merge do head exato e verificar merge commit e `main`.
+- Merge ausente: solicitar autorização posterior e separada depois de Ready para head e base exatos.
+- Merge autorizado antes ou junto de Ready: inelegível para merge.
+- Merge autorizado depois de Ready: executar somente o merge do head exato e verificar merge commit e `main`.
 - Builder, deploy e produção permanecem fora de escopo.
 
 ## 8. Evidência dos gates e autorizações
 
 - GPT0 é vinculado ao head auditado.
 - GPT4 é vinculado ao head e à base avaliados.
-- Autorizações de Ready e merge são vinculadas ao head e à base observados.
+- Autorização de Ready é vinculada ao head e à base observados.
+- Autorização de merge é vinculada ao head e à base e deve ser posterior ao Ready.
 - Mudança de head invalida gates e autorizações anteriores.
-- Mudança somente de base invalida GPT4 e autorizações de transição, mas não exige repetir GPT0 se o conteúdo do head não mudou.
+- Mudança somente de base invalida GPT4 e autorizações de transição, mas não exige repetir GPT0 se o head não mudou.
 - Verificação pós-merge é vinculada ao merge commit e ao novo `main`.
 
 ## 9. Verificação de conclusão
@@ -102,7 +96,7 @@ A etapa está concluída quando a primeira transição foi executada, não houve
 
 ## 10. Condições de parada
 
-Pare diante de drift, workflow que não valide o head exato, gate ou autorização de outra revisão, `BLOCK`, `INCONCLUSIVE`, finding material, review incompleta, thread material, falta de autoridade ou divergência entre tabela e manifesto.
+Pare diante de drift, workflow que não valide o head exato, gate ou autorização de outra revisão, autorização de merge não posterior ao Ready, `BLOCK`, `INCONCLUSIVE`, finding material, review incompleta, thread material, falta de autoridade ou divergência entre tabela e manifesto.
 
 ## 11. Atualização deste registro
 
