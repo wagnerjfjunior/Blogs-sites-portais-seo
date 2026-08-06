@@ -11,76 +11,90 @@ Esta política aplica ao projeto o Protocolo Operacional de Bootstrap Canônico 
 - documento: `docs/CANONICAL_BOOTSTRAP_PROTOCOL.md`
 - blob: `7befd02533aad6c2df5544c7307e4a66dce28844`
 
-A adoção é operacional e universal. Não inclui avaliação experimental, scoring, benchmark, cenário sintético ou adjudicação.
+A adoção é operacional. Não inclui scoring, benchmark, cenário sintético ou avaliação experimental.
 
 ## 2. Registros obrigatórios
 
 | Registro | Caminho | Função |
 |---|---|---|
 | Bootstrap | `bootstrap/BOOTSTRAP_CANONICO.md` | ponto de entrada e ordem mínima de leitura |
-| Handoff atual | `handoffs/CURRENT.md` | estado necessário para continuidade |
-| Status | `docs/PROJECT_STATUS.md` | visão consolidada de frentes, riscos e decisões |
-| Próxima ação | `docs/NEXT_SAFE_ACTION.md` | única próxima ação segura autoritativa |
-| Bloqueios | `docs/BLOCKED_ACTIONS.md` | restrições, dependências e autorizações |
-| Manifesto | `config/sfjm.yaml` | caminhos e invariantes legíveis por máquina |
+| Handoff atual | `handoffs/CURRENT.md` | contexto operacional estável para continuidade |
+| Status | `docs/PROJECT_STATUS.md` | frentes, riscos e decisões estáveis |
+| Próxima ação | `docs/NEXT_SAFE_ACTION.md` | máquina autoritativa para calcular a próxima transição live |
+| Bloqueios | `docs/BLOCKED_ACTIONS.md` | restrições e autorizações |
+| Manifesto | `config/sfjm.yaml` | caminhos, invariantes e transições legíveis por máquina |
+
+Os registros versionados armazenam política, estrutura, fatos canônicos duráveis e regras de transição. Eles não devem funcionar como snapshot de head, Draft/Ready, checks, reviews ou gate corrente.
 
 ## 3. Invariantes
 
 1. A branch `main` aprovada é a fonte canônica.
-2. A revisão live deve ser resolvida antes de qualquer ação material.
-3. Fato, decisão, proposta, hipótese e lacuna devem permanecer separados.
+2. Revisão, head, base, checks, reviews e threads devem ser resolvidos live antes de agir.
+3. Fato, decisão, proposta, hipótese e lacuna permanecem separados.
 4. Informação ausente não pode ser preenchida por plausibilidade.
 5. Deve existir exatamente uma próxima ação segura autoritativa.
-6. Resumos da próxima ação são derivados e não autorizam execução.
+6. Bootstrap, handoff, status e próxima ação devem compartilhar o mesmo `Next action ID`.
 7. Divergência material exige parada e reconciliação.
 8. Autorização não se propaga entre preparação, revisão, Ready, merge, Builder, deploy e publicação.
 9. Mudança de head invalida gates anteriores.
-10. Bloqueios devem ser visíveis no repositório, não apenas em conversas.
+10. Progressão GPT0 → GPT4 → Ready no mesmo head não exige commit intermediário.
+11. Alteração apenas de metadata da PR não invalida gates vinculados ao mesmo head.
+12. Bloqueios devem ser visíveis no repositório; resultados de execução podem permanecer como evidência externa vinculada ao head.
 
 ## 4. Ordem de retomada
 
-1. Confirmar repositório, branch e revisão live.
+1. Confirmar repositório, branch, PR, base e revisão live.
 2. Ler `bootstrap/BOOTSTRAP_CANONICO.md`.
 3. Seguir a ordem mínima definida no bootstrap.
 4. Apresentar no máximo oito fatos confirmados.
 5. Declarar lacunas e limitações de acesso.
-6. Identificar a ação autoritativa em `docs/NEXT_SAFE_ACTION.md`.
-7. Comparar a ação com `docs/BLOCKED_ACTIONS.md` e a autorização vigente.
-8. Executar somente o menor escopo seguro autorizado.
+6. Ler o `Next action ID` e a máquina em `docs/NEXT_SAFE_ACTION.md`.
+7. Comparar a primeira transição aplicável com `docs/BLOCKED_ACTIONS.md` e a autorização vigente.
+8. Executar somente essa transição.
 
-## 5. Responsabilidades
+## 5. Evidência de execução
 
-| Papel | Responsabilidade |
-|---|---|
-| Wagner | Product Authority e autorizações materiais |
-| GPT0 | gate documental independente e sem implementação |
-| GPT4 | gate de lifecycle, drift, checks, reviews e elegibilidade |
-| GPT1–GPT8 | trabalho dentro da especialidade e handoff explícito |
-| Orquestrador | resolver contexto, direcionar especialista e preservar separação de funções |
+Gates, checks, reviews, Ready e merge são fatos de execução externos. A evidência válida deve registrar:
+
+- fonte consultada;
+- timestamp ou estado live;
+- base e head exatos;
+- veredito ou transição;
+- findings materiais;
+- mutações autorizadas.
+
+A evidência permanece elegível enquanto o head não mudar. Não é necessário criar commit apenas para registrar a passagem de um gate ao seguinte.
 
 ## 6. Atualização dos registros
 
-Atualizar os registros quando mudar:
+Atualizar os registros versionados quando mudar:
 
-- revisão ou fonte canônica;
-- fase, marco, decisão, risco ou bloqueio;
-- autorização vigente;
-- evidência relevante;
-- próxima ação segura;
-- escopo de um especialista;
-- estado externo que tenha sido verificado.
+- fonte canônica ou protocolo upstream;
+- política, máquina de transição ou `Next action ID`;
+- escopo, autoridade ou fronteira de um especialista;
+- decisão durável, risco estrutural ou bloqueio material;
+- estrutura obrigatória dos registros.
 
-Preferir substituir estado obsoleto a acumular narrativas indefinidas. O histórico Git preserva auditoria.
+Não atualizar apenas porque:
+
+- GPT0 ou GPT4 terminou no mesmo head;
+- a PR mudou de Draft para Ready;
+- um check ou review atualizou sem alterar arquivos;
+- a etapa calculada pela máquina avançou.
 
 ## 7. Conflitos
 
-Se `docs/NEXT_SAFE_ACTION.md` divergir de bootstrap, handoff ou status:
+Se o `Next action ID`, a ordem de leitura ou uma regra material divergir entre manifesto, próxima ação, bootstrap, handoff ou status:
 
-1. o registro autoritativo identifica a ação pretendida;
-2. a execução permanece interrompida;
-3. os documentos devem ser reconciliados no fluxo normal de branch e PR;
-4. nenhum resumo substitui silenciosamente o registro autoritativo.
+1. interromper a execução;
+2. usar `docs/NEXT_SAFE_ACTION.md` e `config/sfjm.yaml` para identificar a intenção autoritativa;
+3. reconciliar no fluxo normal de branch e PR;
+4. repetir gates somente se a correção alterar arquivos ou head.
 
-## 8. Limites
+## 8. Critério antíloop
 
-Esta política não garante reprodução de raciocínio oculto ou memória integral. Ela reduz regressão de contexto ao tornar explícitos fonte, estado, restrições, evidências e próximo passo.
+Novo ciclo corretivo só é obrigatório quando o finding for válido, material, aplicável ao head atual e exigir mudança de arquivo. Sugestões cosméticas, melhorias futuras e riscos não bloqueadores devem ser registrados como risco residual ou backlog.
+
+## 9. Limites
+
+Esta política não garante reprodução de raciocínio oculto ou memória integral. Ela reduz regressão de contexto ao tornar explícitos fonte, estado resolvido live, restrições, evidências e transições.

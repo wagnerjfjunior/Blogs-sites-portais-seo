@@ -1,28 +1,24 @@
 # Handoff Atual — Ecossistema de Blogs, Sites, Portais e SEO
 
-- Status: correção documental aplicada; novo gate GPT0 pendente
-- Atualizado em: 2026-08-06
+- Status: continuidade operacional baseada em estado live
 - Fonte canônica: `wagnerjfjunior/Blogs-sites-portais-seo`
-- Baseline: `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
-- Pull Request: #2 — Draft
-- Branch: `docs/sfjm-operational-bootstrap`
-- Head bloqueado pelo gate anterior: `dad7870fa81b2e530485b823b6d190fc78975b19`
-- Head corretivo: resolver live antes do novo gate
+- Branch canônica: `main`
+- Adoção SFJM: rastreada pela PR #2; resolver estado live
+- Next action ID: `resolve-live-lifecycle-transition-v1`
 
 ## Objetivo operacional
 
-Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bloqueios, autorização e próxima ação explícitos.
+Permitir retomada entre conversas e especialistas com fonte, estado resolvido live, lacunas, bloqueios, autorização e máquina de transição explícitos.
 
 ## Estado confirmado
 
-1. A PR #1 foi mergeada em `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`.
-2. O framework contém GPT0 a GPT8, totalizando nove GPTs.
+1. O framework GPT0–GPT8 foi introduzido pela PR #1.
+2. O projeto contém nove GPTs especializados e privados.
 3. A Action GitHub dos GPTs permanece `READ_ONLY`.
-4. A PR #2 continua aberta em Draft e não está mergeada.
-5. O gate GPT0 do head `dad7870fa81b2e530485b823b6d190fc78975b19` terminou em `BLOCK`.
-6. O bloqueio decorreu da ordem divergente publicada neste handoff e da cobertura insuficiente do validador.
-7. A ordem foi reconciliada com `config/sfjm.yaml` e `bootstrap/BOOTSTRAP_CANONICO.md`.
-8. A âncora upstream passou a possuir evidência local versionada e verificável.
+4. A PR #2 é o registro de adoção do SFJM operacional; Draft/Ready, base, head e checks devem ser consultados live.
+5. `docs/NEXT_SAFE_ACTION.md` é a autoridade para calcular a próxima transição.
+6. GPT0, GPT4, Ready e merge são etapas separadas.
+7. GPT0 e GPT4 podem avançar no mesmo head sem commit intermediário.
 
 ## Decisões vigentes
 
@@ -30,54 +26,53 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 |---|---|---|
 | `main` é a fonte canônica | aprovada | `docs/governance/canonical-governance.md` |
 | Adotar SFJM operacional | aprovada para a PR #2 | Product Authority |
-| `docs/NEXT_SAFE_ACTION.md` é autoritativo | aprovada | `config/sfjm.yaml` |
+| Máquina live é autoritativa | aprovada | `config/sfjm.yaml` e `docs/NEXT_SAFE_ACTION.md` |
 | Ready e merge são separados | aprovada | `docs/governance/lifecycle-policy.md` |
-| Gate GPT4 permanece bloqueado | vigente | gate GPT0 anterior `BLOCK` |
+| Estado volátil não é snapshot versionado | aprovada | `docs/governance/sfjm-continuity-policy.md` |
 
-## Entregas concluídas
+## Entregas duráveis
 
-- Framework GPT0–GPT8: PR #1.
-- Estrutura SFJM preparada: PR #2 em Draft.
-- Ordem de continuidade reconciliada.
-- Evidência upstream registrada em `docs/evidence/sfjm-upstream-anchor.md`.
-- Cópia imutável registrada em `docs/references/sfjm/CANONICAL_BOOTSTRAP_PROTOCOL.md.gz.b64`.
-- Validador ampliado para comparar ordens e verificar o Git blob SHA upstream.
+- Framework GPT0–GPT8 e governança base.
+- Estrutura operacional SFJM na PR #2.
+- Evidência upstream e cópia imutável do protocolo.
+- Validador de ordem, blob, máquina de transição e `Next action ID`.
+- Testes adversariais para malformed list, diagnóstico do core e resumo divergente.
 
 ## Trabalho em andamento
 
-| Item | Estado | Conclusão |
-|---|---|---|
-| Revisão corretiva | aplicada na branch | workflow verde no head final |
-| Gate GPT0 anterior | `BLOCK` | substituído somente por novo gate em novo head |
-| Novo gate GPT0 | pendente | veredito no head corretivo exato |
-| Gate GPT4 | bloqueado | exige novo gate GPT0 elegível |
+O estágio atual não é declarado neste arquivo. Deve ser calculado pela máquina com base no estado live da PR, do head, do workflow, dos gates, das reviews e das threads.
 
 ## Lacunas
 
 - Builder não foi revalidado nesta etapa.
 - Não há inventário canônico de domínios, ambientes, métricas ou produção.
 - Proteção de branch deve ser consultada live quando afetar lifecycle.
+- Evidência de gates depende do head exato observado.
 
 ## Riscos ativos
 
 | Risco | Impacto | Controle |
 |---|---|---|
-| Usar o gate do head anterior | decisão inválida | repetir GPT0 no novo head |
-| Divergência entre ordens | retomada inconsistente | comparação determinística no validador |
-| GitHub divergir do Builder | comportamento não rastreável | verificar GPT por GPT |
+| Reutilizar gate de outro head | decisão inválida | exigir head exato na evidência |
+| Estado versionado ficar obsoleto | retomada incorreta | resolver estado live |
+| Divergência entre resumos | ação conflitante | validar `Next action ID` |
+| Finding material após Ready | merge inseguro | rechecagem obrigatória de reviews |
 | Escrita direta em `main` | perda de gates | branch e PR |
 
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
-- Resumo derivado: executar uma nova auditoria documental GPT0 no head corretivo exato, em modo `READ_ONLY`.
+- Resumo derivado: resolver o estado live e executar somente a primeira transição aplicável.
+
+Não alterar este handoff apenas para registrar GPT0, GPT4 ou Ready no mesmo head.
 
 ## Ações bloqueadas
 
-- Gate GPT4 antes de novo gate GPT0 elegível.
-- Ready, merge e Builder sem autorização específica.
-- Deploy, publicação, domínio, DNS, hospedagem, campanha e produção.
-- Scoring, benchmark, cenário sintético ou adjudicação experimental do SFJM.
+- qualquer mutação sem autorização específica;
+- Ready sem autorização vinculada ao head;
+- merge sem autorização posterior e separada;
+- Builder, deploy, publicação e produção sem escopo próprio;
+- scoring, benchmark, cenário sintético ou avaliação experimental do SFJM.
 
 ## Ordem de continuidade
 
@@ -91,4 +86,4 @@ Permitir retomada entre conversas e especialistas com fonte, estado, lacunas, bl
 
 ## Prompt curto de retomada
 
-> Resolva a revisão live de `main` e da PR #2, leia a ordem de continuidade, apresente até oito fatos confirmados, declare lacunas e identifique a única próxima ação autoritativa. Não reutilize gates do head anterior, não infira estado ausente e não execute ações bloqueadas.
+> Resolva `main`, PR, base e head live; leia a ordem de continuidade; confirme o `Next action ID`; identifique a primeira transição aplicável; não infira estado ausente nem execute transição mutável sem autorização específica.

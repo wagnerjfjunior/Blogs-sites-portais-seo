@@ -2,102 +2,110 @@
 
 > Este é o registro atual autoritativo da única próxima ação segura do projeto.
 
-- Definida em: 2026-08-06
-- Fonte canônica verificada: `wagnerjfjunior/Blogs-sites-portais-seo`
-- Baseline: `main@65dc3a7e60a3a8a1bddefc912380f5ce24c11857`
-- Pull Request: #2 — `docs: add canonical SFJM operational bootstrap`
-- Branch de trabalho: `docs/sfjm-operational-bootstrap`
-- Gate anterior: `BLOCK` no head `dad7870fa81b2e530485b823b6d190fc78975b19`
-- Responsável: GPT0 — SEO - Auditor documental
-- Estado: pendente após validação do head corretivo
+- Next action ID: `resolve-live-lifecycle-transition-v1`
+- Fonte de estado: GitHub live, resolvido no início de cada execução
+- Função versionada: política e máquina de transição, não snapshot volátil da PR
+- Autoridade material: Wagner
 
-Resumos no bootstrap, handoff e status são derivados. Se divergirem materialmente deste registro, a execução deve parar até a reconciliação.
+Resumos no bootstrap, handoff e status são derivados. A sincronização é validada pelo mesmo `Next action ID`.
 
 ## 1. Ação
 
-Executar uma nova auditoria documental integral e estritamente `READ_ONLY` da PR #2 no head corretivo exato, depois de confirmar que o workflow mais recente desse head terminou com sucesso.
+Resolver o estado live do repositório, da PR aplicável, do head, da base, dos checks, dos gates, das reviews e das threads; em seguida, executar somente a primeira transição aplicável da máquina abaixo.
 
-## 2. Resultado verificável
+Não editar documentos apenas para registrar a passagem de GPT0 para GPT4, Draft para Ready ou Ready para merge. Essas transições não alteram o head e são comprovadas por evidência externa vinculada ao head exato.
 
-Relatório GPT0 contendo:
+## 2. Máquina de transição
 
-- repositório, PR, base, branch e novo head exatos;
-- arquivos alterados e referências lidas;
-- confirmação da reconciliação da ordem de leitura;
-- confirmação da verificação local da âncora upstream;
-- avaliação da cobertura semântica do validador;
-- achados com severidade;
-- veredito oficial: `PASS`, `PASS_WITH_RESIDUAL_RISK`, `BLOCK` ou `INCONCLUSIVE`.
+| Prioridade | Condição live | Única ação permitida |
+|---:|---|---|
+| 0 | head/base drift ou finding material não resolvido | parar e reconciliar somente sob autorização explícita |
+| 1 | workflow canônico do head exato ausente, incompleto ou sem sucesso | aguardar ou reexecutar somente se autorizado |
+| 2 | workflow verde e nenhum gate GPT0 elegível no head | executar GPT0 `READ_ONLY` |
+| 3 | GPT0 elegível com `PASS` ou `PASS_WITH_RESIDUAL_RISK` e nenhum GPT4 elegível | executar GPT4 `READ_ONLY` |
+| 4 | gates atuais e PR em Draft | exigir autorização explícita de Ready para o head exato |
+| 5 | PR Ready e estado de review mudou | adjudicar findings materiais antes do merge |
+| 6 | PR Ready, gates atuais e nenhuma thread material pendente | exigir autorização explícita de merge para o head exato |
+| 7 | autorização de merge corresponde ao head exato | fazer merge e verificar `main` sem propagar autoridade |
 
-## 3. Justificativa
+## 3. Regra antíloop
 
-O gate anterior terminou em `BLOCK`. As correções alteram o head e invalidam o gate anterior. A PR só pode seguir ao GPT4 depois de uma nova auditoria GPT0 elegível no novo head.
+- GPT0 e GPT4 devem usar o mesmo head congelado.
+- A progressão GPT0 → GPT4 → Ready não exige commit intermediário.
+- Mudança de metadata da PR não invalida gates vinculados ao mesmo head.
+- Somente correção material que altere arquivos ou head reinicia workflow, GPT0 e GPT4.
+- Finding não material deve ser classificado como risco residual ou backlog, sem nova rodada corretiva nesta PR.
 
 ## 4. Pré-condições
 
-- [x] O gate GPT0 anterior foi registrado como `BLOCK`.
-- [x] A ordem do handoff foi reconciliada com o manifesto e o bootstrap.
-- [x] O validador foi ampliado para comparar deterministicamente as ordens publicadas.
-- [x] A âncora upstream possui evidência local versionada.
-- [ ] O novo head deve ser resolvido live.
-- [ ] O workflow mais recente do novo head deve estar `completed/success`.
-- [ ] Os arquivos do novo head devem estar disponíveis integralmente ao auditor.
+- resolver `main`, PR, base e head live;
+- confirmar que o head permaneceu estável durante a etapa;
+- usar somente gates que identifiquem o mesmo head exato;
+- verificar workflow, reviews e threads mais recentes;
+- confirmar autorização específica antes de qualquer mutação.
 
-## 5. Escopo permitido
+## 5. Resultado verificável
 
-- leitura integral dos arquivos alterados e das referências canônicas necessárias;
-- conferência do manifesto SFJM e dos registros operacionais;
-- conferência da evidência upstream e da cópia local;
-- conferência do validador corrigido;
-- emissão do veredito e da próxima ação recomendada.
+Cada transição deve produzir evidência contendo:
+
+- repositório, PR, base, branch e head exatos;
+- estado live relevante;
+- checks ou gates aplicáveis;
+- findings materiais e sua situação;
+- mutações executadas, se autorizadas;
+- próxima transição calculada sem atualizar documentos por mero avanço de lifecycle.
 
 ## 6. Limites explícitos
 
-Não inclui:
+A resolução live e os gates `READ_ONLY` não autorizam:
 
-- corrigir arquivos;
-- criar novo commit;
-- comentar, aprovar ou alterar a PR;
-- iniciar GPT4;
-- marcar Ready;
-- fazer merge;
-- configurar Builder;
-- executar deploy, produção ou atividade SEO.
+- correção de arquivos;
+- Ready;
+- merge;
+- Builder;
+- deploy, publicação ou produção;
+- atividade SEO;
+- propagação de uma autorização para etapa posterior.
 
 ## 7. Autorização
 
-- Autorização necessária para o gate `READ_ONLY`: não
-- Autoridade para transições posteriores: Wagner
-- GPT4: bloqueado até gate GPT0 elegível
-- Ready e merge: exigem autorizações posteriores, explícitas e separadas
+- GPT0 e GPT4 `READ_ONLY`: permitidos quando forem a primeira transição aplicável.
+- Correção material: exige escopo explícito.
+- Ready: exige autorização humana separada e vinculada ao head.
+- Merge: exige autorização humana posterior, separada e vinculada ao head.
+- Builder, deploy e produção: permanecem fora de escopo até autorização própria.
 
-## 8. Plano mínimo
+## 8. Evidência dos gates
 
-1. Confirmar PR #2, base, branch, novo head, changed files e checks live.
-2. Ler integralmente os arquivos corretivos e as referências necessárias.
-3. Validar ordem única, sincronização, evidência upstream, bloqueios e autorização.
-4. Emitir veredito sem mutação.
+O resultado de GPT0 ou GPT4 é estado de execução externo e deve:
+
+- identificar o head exato;
+- registrar o veredito e as evidências;
+- permanecer reutilizável enquanto o head não mudar;
+- não exigir commit apenas para avançar ao gate seguinte.
 
 ## 9. Verificação de conclusão
 
-- relatório ancorado no novo head exato;
-- nenhuma mutação executada;
-- veredito oficial emitido;
-- riscos e evidências ausentes explicitados;
-- gate anterior não reutilizado.
+A etapa está concluída quando:
+
+- a primeira transição aplicável foi executada integralmente;
+- não houve ação posterior automática;
+- o head não mudou sem revalidação;
+- qualquer mutação respeitou autorização específica;
+- o próximo estado pode ser novamente calculado por esta mesma máquina.
 
 ## 10. Condições de parada
 
-Pare e emita `INCONCLUSIVE` ou `BLOCK`, conforme a evidência, se:
+Pare se:
 
-- o head mudar durante o gate;
-- o workflow aplicável não pertencer ao novo head;
-- a PR ou arquivos não puderem ser lidos integralmente;
-- houver ordem divergente ou mais de uma próxima ação autoritativa;
-- a cópia local não produzir o blob esperado;
-- faltar evidência indispensável;
-- surgir alteração fora do escopo autorizado.
+- o head ou a base mudar de forma material;
+- o workflow não pertencer ao head exato;
+- um gate estiver vinculado a outro head;
+- surgir finding material não resolvido;
+- reviews ou threads não puderem ser lidas;
+- faltar autorização para a transição mutável aplicável;
+- houver divergência de `Next action ID` entre os documentos.
 
-## 11. Próximo estado
+## 11. Atualização deste registro
 
-Somente após gate GPT0 elegível, a nova única próxima ação poderá ser a validação GPT4 de lifecycle. Não iniciar automaticamente essa etapa.
+Atualizar somente quando mudar a política, a máquina de transição, a autoridade, o escopo ou um bloqueio material. Não atualizar por simples mudança de status da PR ou conclusão de um gate no mesmo head.

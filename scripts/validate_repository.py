@@ -22,6 +22,23 @@ EXPECTED_READ_ORDER = [
     "config/project.yaml",
     "config/gpts.yaml",
 ]
+EXPECTED_TRANSITIONS = [
+    "stop_on_drift_or_material_finding",
+    "require_successful_workflow",
+    "run_gpt0_read_only",
+    "run_gpt4_read_only",
+    "require_ready_authorization",
+    "recheck_ready_reviews",
+    "require_merge_authorization",
+    "merge_and_verify_main",
+]
+NEXT_ACTION_ID = "resolve-live-lifecycle-transition-v1"
+NEXT_ACTION_DOCUMENTS = [
+    "bootstrap/BOOTSTRAP_CANONICO.md",
+    "handoffs/CURRENT.md",
+    "docs/PROJECT_STATUS.md",
+    "docs/NEXT_SAFE_ACTION.md",
+]
 UPSTREAM_REPOSITORY = "wagnerjfjunior/StopJuniorMode"
 UPSTREAM_REF = "d03d477c3b329aa973a38ec4e949c249fa017929"
 UPSTREAM_PATH = "docs/CANONICAL_BOOTSTRAP_PROTOCOL.md"
@@ -53,17 +70,45 @@ def extract_numbered_paths(text, heading, relative_path):
         fail(f"{relative_path}: seção de ordem ausente: {heading}")
         return []
 
+    numbers = []
     paths = []
     for line in match.group("body").splitlines():
-        item = re.match(r"^\s*\d+\.\s+`([^`]+)`\s*$", line)
-        if item:
-            paths.append(item.group(1))
+        numbered = re.match(r"^\s*(\d+)\.\s+(.*?)\s*$", line)
+        if not numbered:
+            continue
+        number = int(numbered.group(1))
+        payload = numbered.group(2)
+        exact_path = re.fullmatch(r"`([^`]+)`", payload)
+        if not exact_path:
+            fail(
+                f"{relative_path}: item numerado malformado em {heading}: "
+                f"{line.strip()}"
+            )
+            continue
+        numbers.append(number)
+        paths.append(exact_path.group(1))
 
     if not paths:
         fail(f"{relative_path}: nenhuma entrada numerada encontrada em {heading}")
+    if numbers and numbers != list(range(1, len(numbers) + 1)):
+        fail(
+            f"{relative_path}: numeração inválida em {heading}; "
+            f"encontrada={numbers}"
+        )
     if len(paths) != len(set(paths)):
         fail(f"{relative_path}: ordem contém entradas duplicadas")
     return paths
+
+
+def extract_next_action_id(text, relative_path):
+    matches = re.findall(r"(?m)^- Next action ID: `([^`]+)`\s*$", text)
+    if len(matches) != 1:
+        fail(
+            f"{relative_path}: deve conter exatamente um marcador "
+            "'- Next action ID: `...`'"
+        )
+        return None
+    return matches[0]
 
 
 def git_blob_sha(data):
@@ -71,13 +116,25 @@ def git_blob_sha(data):
     return hashlib.sha1(header + data).hexdigest()
 
 
-if not CORE.is_file():
-    print("VALIDATION FAILED")
-    print("- scripts/_validate_repository_core.py: validador-base ausente")
-    sys.exit(1)
+def run_core_validator():
+    if not CORE.is_file():
+        print("VALIDATION FAILED")
+        print("- scripts/_validate_repository_core.py: validador-base ausente")
+        sys.exit(1)
 
-with contextlib.redirect_stdout(io.StringIO()):
-    runpy.run_path(str(CORE), run_name="__main__")
+    output = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(output):
+            runpy.run_path(str(CORE), run_name="__main__")
+    except SystemExit as exc:
+        diagnostics = output.getvalue()
+        if diagnostics:
+            print(diagnostics, end="")
+        code = exc.code if isinstance(exc.code, int) else 1
+        sys.exit(code or 1)
+
+
+run_core_validator()
 
 sfjm_path = ROOT / "config/sfjm.yaml"
 try:
@@ -107,6 +164,40 @@ if manifest_order != EXPECTED_READ_ORDER:
         "config/sfjm.yaml: ordem mínima divergente; "
         f"esperada={EXPECTED_READ_ORDER}; encontrada={manifest_order}"
     )
+
+transition_model = spec.get("transition_model", {})
+if transition_model.get("next_action_id") != NEXT_ACTION_ID:
+    fail("config/sfjm.yaml: next_action_id incorreto")
+if transition_model.get("state_source") != "github_live":
+    fail("config/sfjm.yaml: estado de lifecycle deve ser resolvido live")
+if transition_model.get("versioned_state") != "policy_not_volatile_snapshot":
+    fail("config/sfjm.yaml: documentos versionados não devem armazenar snapshot volátil")
+if transition_model.get("gate_evidence") != "head_bound_external_evidence":
+    fail("config/sfjm.yaml: evidência dos gates deve ser vinculada ao head")
+if transition_model.get("execute_only_first_applicable_transition") is not True:
+    fail("config/sfjm.yaml: apenas a primeira transição aplicável pode ser executada")
+observed_transitions = [item.get("id") for item in transition_model.get("transitions", [])]
+if observed_transitions != EXPECTED_TRANSITIONS:
+    fail(
+        "config/sfjm.yaml: máquina de transição divergente; "
+        f"esperada={EXPECTED_TRANSITIONS}; encontrada={observed_transitions}"
+    )
+
+for invariant in (
+    "live_state_must_be_resolved_not_versioned_as_snapshot",
+    "same_head_gate_progression_requires_no_intermediate_commit",
+    "metadata_only_ready_transition_does_not_invalidate_head_bound_gates",
+):
+    if spec.get("invariants", {}).get(invariant) is not True:
+        fail(f"config/sfjm.yaml: invariante de lifecycle ausente: {invariant}")
+
+for relative_path in NEXT_ACTION_DOCUMENTS:
+    observed_action_id = extract_next_action_id(read(relative_path), relative_path)
+    if observed_action_id and observed_action_id != NEXT_ACTION_ID:
+        fail(
+            f"{relative_path}: Next action ID divergente; "
+            f"esperado={NEXT_ACTION_ID}; encontrado={observed_action_id}"
+        )
 
 bootstrap_order = extract_numbered_paths(
     read("bootstrap/BOOTSTRAP_CANONICO.md"),
@@ -171,6 +262,6 @@ if errors:
 
 print(
     "VALIDATION PASSED: framework canônico preservado; "
-    "SFJM operacional com ordem sincronizada, próxima ação única "
-    "e âncora upstream localmente verificável."
+    "SFJM operacional com ordem estrita, diagnósticos preservados, "
+    "próxima ação sincronizada e lifecycle resolvido por estado live."
 )
