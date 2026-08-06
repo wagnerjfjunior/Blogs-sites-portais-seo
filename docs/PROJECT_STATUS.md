@@ -44,7 +44,7 @@ Operar um ecossistema de ativos digitais com nove GPTs especializados, governan�
 ## Dependências e bloqueios
 
 - O SFJM só se torna canônico após merge aprovado.
-- Mudança de head invalida workflow decisório e gates anteriores.
+- Mudança de head invalida workflow decisório, gates e autorizações de outro head.
 - Mudança apenas de metadata da PR não invalida gates do mesmo head.
 - Builder, produção e ativos externos permanecem fora desta etapa.
 - Domínios, ambientes e métricas não podem ser presumidos.
@@ -54,8 +54,8 @@ Operar um ecossistema de ativos digitais com nove GPTs especializados, governan�
 | Risco | Probabilidade | Impacto | Mitigação |
 |---|---|---|---|
 | Snapshot documental obsoleto | média | alto | resolver estado live |
-| Reutilizar gate de outro head | média | alto | exigir evidência head-bound |
-| Ordem ou ação divergente | baixa | alto | validação determinística |
+| Reutilizar gate ou autorização de outro head | média | alto | exigir evidência head-bound |
+| Ordem, resumo ou ação divergente | baixa | alto | validação determinística |
 | Review material após Ready | média | alto | rechecagem antes de merge |
 | Divergência GitHub–Builder | média | alto | verificar individualmente |
 | Avançar sem autorização | média | alto | primeira transição e autorização específica |
@@ -63,7 +63,7 @@ Operar um ecossistema de ativos digitais com nove GPTs especializados, governan�
 ## Próxima ação segura
 
 - Registro autoritativo: `docs/NEXT_SAFE_ACTION.md`
-- Resumo derivado: resolver o estado live e executar somente a primeira transição aplicável da máquina.
+- Resumo derivado: resolver o estado live e executar somente a primeira transição aplicável da máquina de lifecycle.
 
 A passagem GPT0 → GPT4 → Ready no mesmo head não altera este status versionado.
 
@@ -76,4 +76,4 @@ A passagem GPT0 → GPT4 → Ready no mesmo head não altera este status version
 
 ## Critério de atualização
 
-Atualizar quando mudar política, estrutura, decisão durável, risco estrutural, bloqueio material, `Next action ID` ou escopo. Não atualizar por simples conclusão de gate, check ou mudança Draft/Ready no mesmo head.
+Atualizar quando mudar política, estrutura, decisão durável, risco estrutural, bloqueio material, `Next action ID` ou escopo. Não atualizar por simples conclusão de gate, check, autorização ou mudança Draft/Ready no mesmo head.

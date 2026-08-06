@@ -21,7 +21,7 @@ Em caso de divergência:
 3. divergência material exige parada e reconciliação;
 4. informação ausente não pode ser inferida.
 
-Estado volátil de PR, head, checks, gates, reviews e threads deve ser resolvido live, não copiado para este documento como snapshot.
+Estado volátil de PR, head, checks, gates, autorizações, reviews e threads deve ser resolvido live, não copiado para este documento como snapshot.
 
 ## Ordem mínima de leitura
 
@@ -82,4 +82,4 @@ Antes de agir:
 
 ## Atualização
 
-Atualize este arquivo apenas quando mudar fonte, política, ordem de leitura, `Next action ID`, autorização estrutural ou bloqueio material. Não atualizar por simples avanço de gate ou metadata da PR.
+Atualize este arquivo apenas quando mudar fonte, política, ordem de leitura, `Next action ID`, autorização estrutural ou bloqueio material. Não atualizar por simples avanço de gate, autorização ou metadata da PR.
