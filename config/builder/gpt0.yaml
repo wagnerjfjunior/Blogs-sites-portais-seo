@@ -8,7 +8,7 @@ spec:
   external_gpt_url: https://chatgpt.com/g/g-6a71de286da481919ddd357950222c9b-gpt0-seo-auditor-documental
   sharing_level: owner_only
   instructions_file: docs/gpts/gpt0-builder-instructions.md
-  instructions_sha256: c54ad391b80df9f495e41cc8b1ddd8707d957918cead3f635be65d69e7d96ea1
+  instructions_sha256: 2797c12924b7919dc2fe1548909ef2ba7828f921f05734d85cf29b3b0a47aa91
   canonical_contract: docs/gpts/gpt0.md
   skill: .agents/skills/seo-auditor-documental/SKILL.md
   knowledge_files: []
