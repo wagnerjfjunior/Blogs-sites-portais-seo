@@ -45,7 +45,7 @@ Autorizações são evidência externa vinculada ao head e à base. A autorizaç
 3. Autorização de merge anterior ou conjunta ao Ready: considerar inelegível e solicitar nova autorização posterior.
 4. Autorização válida e gates passando: executar somente a transição autorizada.
 5. `BLOCK`, `INCONCLUSIVE` ou drift: parar.
-6. Não atualizar registros por conclusão de gate, metadata, autorização ou estado terminal.
+6. Não atualizar os registros versionados apenas por conclusão de gate, metadata, autorização ou estado terminal.
 7. Atualizar somente política, bloqueio, autoridade ou evidência durável.
 8. Não iniciar automaticamente etapa posterior.
 
