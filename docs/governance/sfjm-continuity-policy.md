@@ -70,7 +70,7 @@ Não atualizar apenas porque gate, check, autorização, Draft/Ready ou estado t
 
 ## 7. Conflitos
 
-Divergência de ordem, resumo, tabela, manifesto, tentativa de workflow ou regra material exige parada, reconciliação por branch/PR e repetição apenas dos gates invalidados.
+Qualquer divergência material de ordem, resumo, tabela, manifesto, tentativa de workflow ou regra exige parada, reconciliação por branch/PR e repetição apenas dos gates invalidados.
 
 ## 8. Critério antíloop
 
