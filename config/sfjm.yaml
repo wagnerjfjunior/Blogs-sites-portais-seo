@@ -1,0 +1,135 @@
+api_version: blogs-sites-portais-seo/v1
+kind: SFJMContinuity
+metadata:
+  project_id: blogs-sites-portais-seo
+  name: SFJM Operational Continuity
+  status: operational_bootstrap
+  mode: operational
+spec:
+  upstream:
+    repository: wagnerjfjunior/StopJuniorMode
+    ref: d03d477c3b329aa973a38ec4e949c249fa017929
+    protocol_path: docs/CANONICAL_BOOTSTRAP_PROTOCOL.md
+    protocol_blob_sha: 7befd02533aad6c2df5544c7307e4a66dce28844
+    local_copy: docs/references/sfjm/CANONICAL_BOOTSTRAP_PROTOCOL.md.gz.b64
+    evidence: docs/evidence/sfjm-upstream-anchor.md
+    local_copy_encoding: gzip_base64
+  canonical_source:
+    repository: wagnerjfjunior/Blogs-sites-portais-seo
+    branch: main
+    precedence: main_over_conversations_and_derived_summaries
+    revision_resolution: resolve_live_before_action
+  documents:
+    bootstrap: bootstrap/BOOTSTRAP_CANONICO.md
+    current_handoff: handoffs/CURRENT.md
+    project_status: docs/PROJECT_STATUS.md
+    next_safe_action: docs/NEXT_SAFE_ACTION.md
+    blocked_actions: docs/BLOCKED_ACTIONS.md
+    continuity_policy: docs/governance/sfjm-continuity-policy.md
+  read_order:
+    - bootstrap/BOOTSTRAP_CANONICO.md
+    - handoffs/CURRENT.md
+    - docs/PROJECT_STATUS.md
+    - docs/NEXT_SAFE_ACTION.md
+    - docs/BLOCKED_ACTIONS.md
+    - config/project.yaml
+    - config/gpts.yaml
+  transition_model:
+    next_action_id: resolve-live-lifecycle-transition-v1
+    state_source: github_live
+    versioned_state: policy_not_volatile_snapshot
+    workflow_attempt_selection: latest_attempt_for_exact_head
+    documentary_gate_evidence: exact_head_bound_external_evidence
+    lifecycle_gate_evidence: exact_head_and_base_bound_external_evidence
+    authorization_evidence: exact_head_and_base_bound_external_evidence
+    merge_authorization_ordering: granted_after_ready_transition
+    post_merge_verification_evidence: exact_merge_commit_and_main_external_evidence
+    execute_only_first_applicable_transition: true
+    transitions:
+      - id: verify_merged_main
+        when: pull_request_is_merged_and_main_verification_is_absent
+        action: verify_merge_commit_and_main_then_record_external_evidence
+      - id: report_completed_lifecycle
+        when: pull_request_is_merged_and_main_verification_is_present
+        action: report_lifecycle_complete_without_mutation
+      - id: report_closed_unmerged
+        when: pull_request_is_closed_and_not_merged
+        action: report_closed_unmerged_and_require_explicit_reopen_or_abandon_decision
+      - id: stop_on_drift_or_material_finding
+        when: open_pull_request_has_head_or_base_drift_or_material_unresolved_finding
+        action: stop_and_reconcile_under_explicit_authorization
+      - id: require_successful_workflow
+        when: latest_canonical_workflow_attempt_for_exact_head_is_not_completed_success
+        action: wait_or_rerun_only_if_authorized
+      - id: run_gpt0_read_only
+        when: latest_canonical_workflow_attempt_for_exact_head_is_completed_success_and_no_current_gpt0_gate
+        action: execute_documentary_gate_without_mutation
+      - id: stop_on_gpt0_block
+        when: current_gpt0_gate_verdict_is_block
+        action: stop_and_require_material_remediation_authorization
+      - id: stop_on_gpt0_inconclusive
+        when: current_gpt0_gate_verdict_is_inconclusive
+        action: stop_and_require_missing_evidence_or_access
+      - id: run_gpt4_read_only
+        when: current_gpt0_gate_verdict_is_passing_and_no_current_gpt4_gate
+        action: execute_lifecycle_gate_without_mutation
+      - id: stop_on_gpt4_block
+        when: current_gpt4_gate_verdict_is_block
+        action: stop_and_require_material_remediation_authorization
+      - id: stop_on_gpt4_inconclusive
+        when: current_gpt4_gate_verdict_is_inconclusive
+        action: stop_and_require_missing_evidence_or_access
+      - id: require_ready_authorization
+        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent
+        action: require_explicit_ready_authorization_for_exact_head_and_base
+      - id: execute_ready_transition
+        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present
+        action: mark_pull_request_ready_only
+      - id: recheck_ready_reviews
+        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck
+        action: adjudicate_material_findings_before_merge
+      - id: require_merge_authorization
+        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_absent
+        action: require_explicit_post_ready_merge_authorization_for_exact_head_and_base
+      - id: execute_merge_and_verify_main
+        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_present
+        action: merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority
+  invariants:
+    exactly_one_authoritative_next_safe_action: true
+    next_safe_action_authority: docs/NEXT_SAFE_ACTION.md
+    summaries_are_derived: true
+    published_transition_table_matches_manifest: true
+    material_divergence_requires_stop: true
+    missing_information_must_not_be_inferred: true
+    authorization_does_not_propagate: true
+    direct_main_writes_forbidden: true
+    ready_and_merge_require_separate_authorizations: true
+    merge_authorization_must_postdate_ready_transition: true
+    head_drift_invalidates_gates: true
+    head_drift_invalidates_all_gates_and_authorizations: true
+    base_drift_invalidates_lifecycle_gate_and_transition_authorizations: true
+    only_passing_gates_allow_ready_or_merge: true
+    terminal_pull_request_states_are_calculable: true
+    latest_canonical_workflow_attempt_is_authoritative: true
+    workflow_checks_out_exact_pull_request_head: true
+    workflow_semantics_are_structurally_validated: true
+    repeated_validation_ignores_generated_bytecode: true
+    evidence_must_identify_source_and_revision: true
+    live_state_must_be_resolved_not_versioned_as_snapshot: true
+    same_head_gate_progression_requires_no_intermediate_commit: true
+    metadata_only_ready_transition_does_not_invalidate_head_bound_gates: true
+    authorization_presence_advances_transition: true
+    durable_records_not_rewritten_for_same_head_lifecycle: true
+  roles:
+    product_authority: Wagner
+    documentary_gate: gpt0
+    lifecycle_gate: gpt4
+    specialist_registry: config/gpts.yaml
+  excluded_capabilities:
+    - experimental_scoring
+    - benchmark_adjudication
+    - synthetic_scenarios
+    - autonomous_external_mutation
+    - automatic_ready
+    - automatic_merge
+    - automatic_builder_update
