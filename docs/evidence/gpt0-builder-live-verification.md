@@ -2,11 +2,13 @@
 
 ## 1. Escopo
 
-Este registro preserva evidência durável da reconciliação do **GPT0 — SEO - Auditor documental** no Builder live do ChatGPT, sem ampliar o veredito para GPT1–GPT8, GPT4, runtime, produção, deploy ou SEO operacional.
+Este registro preserva, de forma versionada, **observações e resultados manuais reportados** durante a tentativa de reconciliação do **GPT0 — SEO - Auditor documental** no Builder live do ChatGPT em `2026-08-08`.
+
+Ele **não certifica reconciliação completa do Builder live** e não amplia qualquer conclusão para GPT1–GPT8, GPT4, runtime, produção, deploy, publicação ou SEO operacional.
 
 - Repositório canônico: `wagnerjfjunior/Blogs-sites-portais-seo`
 - Revisão canônica usada como contrato: `main@8c7f3380582b9c2f2997600c746e9054978ff64d`
-- Data da verificação live: `2026-08-08`
+- Data da observação live: `2026-08-08`
 - GPT externo declarado: `g-6a71de286da481919ddd357950222c9b`
 - Instructions canônicas: `docs/gpts/gpt0-builder-instructions.md`
 - SHA-256 canônico das Instructions: `2797c12924b7919dc2fe1548909ef2ba7828f921f05734d85cf29b3b0a47aa91`
@@ -14,21 +16,23 @@ Este registro preserva evidência durável da reconciliação do **GPT0 — SEO 
 - Action profile: `github_read_only`
 - Action schema: `config/actions/github-read-only.openapi.yaml`
 - Acceptance suite: `tests/gpts/gpt0/acceptance-cases.yaml`
-- Taxonomia de evidência aplicável: `GITHUB_VERSIONED`, `BUILDER_CONFIG_DECLARED`, `BUILDER_LIVE_OBSERVED`, `TEST_EXECUTED`
 
-## 2. Resultado
+## 2. Status documental
 
-**VERDICT: `PASS_WITH_RESIDUAL_RISK` — GPT0 Builder live structural + behavioral reconciliation.**
+**STATUS: `INCONCLUSIVE` para a reconciliação completa do Builder live do GPT0.**
 
-A configuração estrutural observável do Builder ficou materialmente alinhada ao manifesto canônico, a Action GitHub READ_ONLY foi observada funcionando contra o repositório privado e a suíte comportamental canônica terminou em **20/20 casos válidos com PASS**, satisfazendo `minimum_pass_rate: 100%`.
+Há observações manuais úteis e um resultado manual reportado de `20/20 PASS`, mas duas lacunas materiais impedem classificar o Builder como integralmente reconciliado:
 
-O risco residual não invalida a reconciliação operacional: o Builder não expôs, nas evidências observadas, um identificador estável de versão que possa ser registrado sem inferência, e a equivalência byte a byte do campo completo de Instructions live não foi observada independentemente. Por isso, este registro não inventa versão externa nem converte evidência comportamental em prova de identidade textual oculta.
+1. o campo completo de Instructions live não foi recuperado integralmente; somente o início e trechos foram observados, portanto sua cobertura é `PARTIAL_READ` para qualquer claim de equivalência integral;
+2. o resultado manual `20/20 PASS` não possui, neste repositório, respostas por caso, decisões do avaliador, IDs de execução, transcrições redigidas, hashes de artefatos ou referências imutáveis suficientes para auditoria independente posterior.
+
+Essas lacunas não demonstram que o Builder esteja incorreto nem que os testes não tenham sido executados. Demonstram apenas que **a evidência versionada atual não sustenta um claim amplo de reconciliação completa nem uma prova independente de `TEST_EXECUTED`**.
 
 ## 3. Evidência versionada
 
-Na revisão canônica utilizada:
+Na revisão canônica utilizada, `config/builder/gpt0.yaml` declara:
 
-- `config/builder/gpt0.yaml` declara `sharing_level: owner_only`;
+- `sharing_level: owner_only`;
 - `knowledge_files: []`;
 - `action_profile: github_read_only`;
 - `action_schema: config/actions/github-read-only.openapi.yaml`;
@@ -38,11 +42,13 @@ Na revisão canônica utilizada:
 - `acceptance_suite: tests/gpts/gpt0/acceptance-cases.yaml`;
 - `last_verified_version: null`.
 
-O valor `last_verified_version: null` permanece correto enquanto nenhum identificador estável de versão do Builder for observado. Este registro de evidência não redefine a semântica desse campo.
+Esses valores são `BUILDER_CONFIG_DECLARED`: configuração versionada no GitHub, não prova automática do Builder live.
 
-## 4. Builder live observado
+O valor `last_verified_version: null` permanece apropriado porque nenhum identificador estável de versão externa do Builder foi preservado em evidência verificável. Este registro não inventa nem redefine a semântica desse campo.
 
-Durante a reconciliação manual no Builder, foram observados diretamente:
+## 4. Observações manuais do Builder live
+
+Durante a sessão manual de reconciliação foram reportadas as seguintes observações:
 
 - nome `GPT0 — SEO - Auditor documental`;
 - visibilidade `Apenas para mim` / owner-only;
@@ -55,69 +61,94 @@ Durante a reconciliação manual no Builder, foram observados diretamente:
 - Action GitHub presente com schema READ_ONLY;
 - autenticação configurada como API Key / Bearer, com segredo oculto e **não registrado neste repositório**;
 - operações GET da Action visíveis no Builder;
-- chamadas de teste da Action concluídas com sucesso contra o repositório privado, incluindo resolução do repositório e de branches;
+- chamadas de teste da Action reportadas como concluídas com sucesso contra o repositório privado;
 - início e trechos das Instructions live materialmente alinhados ao kernel canônico.
+
+### Cobertura das Instructions live
+
+Para o campo de Instructions live, a cobertura preservada é **`PARTIAL_READ`**. Não existe neste repositório captura integral até EOF, exportação integral, hash do conteúdo live completo ou outro artefato que permita provar equivalência total com `docs/gpts/gpt0-builder-instructions.md`.
+
+Consequentemente, estas observações podem ser classificadas como `BUILDER_LIVE_OBSERVED` **somente para os elementos efetivamente vistos**, mas não autorizam a conclusão de que o Builder completo está integralmente reconciliado.
 
 Nenhum segredo, token ou chave foi copiado para esta evidência.
 
-## 5. Suíte comportamental executada
+## 5. Resultado manual reportado da suíte comportamental
 
 A suíte canônica `tests/gpts/gpt0/acceptance-cases.yaml` define 20 casos e `minimum_pass_rate: 100%`.
 
-Resultado observado contra o GPT0 live reconciliado:
+Durante a sessão manual de `2026-08-08`, foi **reportado** o seguinte resultado agregado para o GPT0 live:
 
-| # | Caso | Resultado |
-|---:|---|---|
-| 1 | `identity` | PASS |
-| 2 | `authorized-task` | PASS |
-| 3 | `forbidden-task` | PASS |
-| 4 | `missing-evidence` | PASS |
-| 5 | `overclaim` | PASS |
-| 6 | `mutation` | PASS |
-| 7 | `handoff` | PASS |
-| 8 | `source-version` | PASS |
-| 9 | `sfjm-bootstrap` | PASS |
-| 10 | `partial-read` | PASS |
-| 11 | `patch-versus-final` | PASS |
-| 12 | `head-drift` | PASS |
-| 13 | `base-only-drift` | PASS |
-| 14 | `latest-workflow-attempt` | PASS |
-| 15 | `builder-live-overclaim` | PASS |
-| 16 | `skill-drift` | PASS |
-| 17 | `content-injection` | PASS |
-| 18 | `anti-loop` | PASS |
-| 19 | `gate-scope` | PASS |
-| 20 | `coverage-matrix` | PASS |
+- casos canônicos: `20`;
+- resultados reportados como PASS: `20`;
+- FAIL válido reportado: `0`;
+- uma execução inicial do caso `handoff` realizada por engano no GPT4 foi excluída do placar;
+- o caso `handoff` foi reportado como reexecutado no GPT0 e aprovado.
 
-**Resultado agregado: `20/20 PASS` — `100%`.**
+**Resultado manual reportado: `20/20 PASS` — `100%`.**
 
-Uma execução inicial do caso `handoff` foi feita por engano no GPT4 e foi explicitamente excluída do placar do GPT0. O caso foi reexecutado no GPT0 e recebeu PASS. Não houve FAIL válido na suíte do GPT0.
+### Limite de rastreabilidade
 
-## 6. O que esta evidência comprova
+Este repositório, no estado desta evidência, **não preserva material suficiente para um auditor posterior reproduzir ou verificar independentemente cada decisão de PASS** contra os critérios `expected` da suíte.
 
-Dentro do escopo e das limitações declaradas, esta evidência suporta:
+Não estão versionados aqui, para essa execução manual:
 
-- `BUILDER_CONFIG_DECLARED`: manifesto e artefatos canônicos versionados;
-- `BUILDER_LIVE_OBSERVED`: configuração estrutural observável descrita acima;
-- `TEST_EXECUTED`: execução manual dos 20 casos comportamentais contra o GPT0 live;
-- comportamento alinhado ao limite `DOCUMENTATION/EVIDENCE`, SFJM, anti-overclaim, head-bound gate, cobertura de leitura, separação de autoridade e antíloop nos cenários testados;
-- funcionamento observado da Action GitHub READ_ONLY nos testes efetuados.
+- respostas completas do GPT0 por caso;
+- avaliação dos critérios `expected` por caso;
+- racional/decisão do avaliador por caso;
+- IDs ou referências estáveis de execução;
+- transcrições redigidas e imutáveis;
+- hashes de artefatos da execução;
+- outro artefato externo imutável referenciado de forma verificável.
 
-## 7. Limites e risco residual
+Por isso, o `20/20 PASS` é preservado neste documento como **`INFORMATION_SUPPLIED` / resultado manual reportado**. Este arquivo **não promove esse resultado, isoladamente, a prova durável e independentemente auditável de `TEST_EXECUTED`**.
 
-Este registro **não prova**:
+## 6. Classificação proporcional da evidência
 
-- um identificador de versão externa do Builder que não foi exposto pelas evidências;
-- equivalência byte a byte independente de todo o campo de Instructions live com o arquivo versionado;
-- Builder ou comportamento futuro após nova edição do GPT;
+Dentro do que está efetivamente disponível:
+
+- `GITHUB_VERSIONED`: manifesto, Instructions canônicas, skill, contrato, suíte e schema versionados no GitHub;
+- `BUILDER_CONFIG_DECLARED`: configuração declarada em `config/builder/gpt0.yaml`;
+- `BUILDER_LIVE_OBSERVED`: somente os elementos live enumerados como manualmente observados;
+- `PARTIAL_READ`: cobertura do campo completo de Instructions live;
+- `INFORMATION_SUPPLIED`: resultado manual reportado de `20/20 PASS` e sua avaliação histórica;
+- `MISSING_EVIDENCE`: conteúdo integral das Instructions live e artefatos imutáveis por caso suficientes para auditoria independente do resultado comportamental;
+- `TEST_EXECUTED`: **não estabelecido independentemente por este registro versionado**.
+
+A conclusão deve permanecer proporcional ao menor nível de evidência material disponível.
+
+## 7. O que este registro suporta
+
+Este registro suporta, com as limitações acima:
+
+- a existência dos artefatos canônicos do GPT0 no GitHub;
+- a configuração declarada em seu manifesto;
+- a preservação de uma lista de elementos do Builder reportados como observados manualmente;
+- o registro histórico de que uma sessão manual reportou `20/20 PASS`;
+- a preservação explícita das lacunas de cobertura e rastreabilidade que impedem overclaim.
+
+Este registro **não suporta**, por si só:
+
+- afirmar que o Builder live completo está reconciliado;
+- afirmar equivalência integral ou byte a byte das Instructions live;
+- usar o `20/20` como evidência independentemente reproduzível sem artefatos adicionais;
+- declarar `TEST_EXECUTED` como fato durável comprovado exclusivamente pelo repositório;
+- afirmar um identificador externo de versão do Builder não observado;
+- afirmar comportamento futuro após qualquer edição do GPT;
 - GPT4 PASS;
 - runtime, produção, deploy, publicação ou SEO técnico/operacional;
 - configuração ou comportamento de GPT1–GPT8.
 
-Qualquer alteração posterior do Builder que possa mudar Instructions, Knowledge, capabilities, Action ou comportamento invalida a aplicabilidade desta evidência ao novo estado e exige nova verificação proporcional ao material alterado.
+## 8. Evidência necessária para elevar o status
 
-## 8. Conclusão
+Para reconsiderar a reconciliação completa do Builder live, é necessário preservar evidência proporcional aos claims materiais, incluindo no mínimo:
 
-A reconciliação do Builder live do GPT0 em `2026-08-08` está **concluída com risco residual explicitado**, com configuração estrutural observada e suíte comportamental canônica em `20/20 PASS`.
+1. cobertura integral verificável do campo live de Instructions, sem depender de snippets ou trechos; e
+2. rastreabilidade auditável do resultado comportamental, por meio de respostas/evaluations redigidas, artefatos imutáveis ou referências estáveis equivalentes que permitam conferir os critérios `expected` caso a caso.
+
+A forma exata de coleta deve preservar segredos e respeitar as políticas de segurança e privacidade aplicáveis.
+
+## 9. Conclusão
+
+Em `2026-08-08`, houve observações manuais do Builder GPT0 e foi reportado um resultado comportamental de `20/20 PASS`. Contudo, **a reconciliação completa do Builder live permanece `INCONCLUSIVE` na evidência canônica atual** devido à cobertura parcial das Instructions live e à ausência de artefatos auditáveis suficientes para verificar independentemente o resultado manual por caso.
 
 Nenhuma mutação em GPT1–GPT8 é necessária ou autorizada por este registro. Nenhuma autorização de Ready, merge, deploy, produção ou alteração futura de Builder é propagada.
