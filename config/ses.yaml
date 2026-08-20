@@ -1,0 +1,54 @@
+api_version: blogs-sites-portais-seo/v1
+kind: SESAdoption
+metadata:
+  project_id: blogs-sites-portais-seo
+  status: adopted
+  authority: Wagner
+spec:
+  gateway:
+    project_identifier: blogs-sites-portais-seo
+    contract_version: v0.1
+    mutation_authorized: false
+  adopted_roles:
+    - role: documentation_audit
+      archetype_id: documentation-auditor
+      status: adopted
+      boundary: Cross-cutting documentation, evidence and claim audit. Does not replace GPT0 as the project-local SEO documentary/lifecycle gate.
+    - role: architecture
+      archetype_id: software-systems-architect
+      status: adopted
+      boundary: Software and technical platform architecture. Does not replace GPT1 for SEO ecosystem, domain, niche or editorial architecture.
+    - role: ux_ui
+      archetype_id: ux-ui-app-specialist
+      status: adopted
+      boundary: UX/UI for sites, portals, dashboards and application surfaces. Does not replace project-local SEO content or keyword strategy.
+    - role: backend_data
+      archetype_id: backend-data-platform-specialist
+      status: adopted
+      boundary: Backend, APIs, data stores, pipelines, integrations and analytics infrastructure. Does not replace GPT8 for SEO growth analysis or KPI interpretation.
+    - role: application_security
+      archetype_id: application-security-assurance-specialist
+      status: adopted
+      boundary: Application-security assurance for software, APIs, authentication, authorization and data boundaries. Does not replace GPT4 lifecycle/publication authority.
+  project_local_specialists:
+    registry: config/gpts.yaml
+    preserved: true
+    ids:
+      - gpt0
+      - gpt1
+      - gpt2
+      - gpt3
+      - gpt4
+      - gpt5
+      - gpt6
+      - gpt7
+      - gpt8
+    retirement_requires_explicit_validation_and_authorization: true
+  invariants:
+    gateway_role_matching_is_exact: true
+    semantic_or_fuzzy_role_translation_is_forbidden: true
+    project_local_truth_remains_authoritative: true
+    routable_does_not_mean_executed: true
+    routable_does_not_authorize_mutation: true
+    certified_for_any_project_does_not_equal_project_adoption: true
+    legacy_specialist_retirement_is_not_implied: true
