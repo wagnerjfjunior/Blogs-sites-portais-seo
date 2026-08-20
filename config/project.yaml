@@ -11,6 +11,9 @@ spec:
   default_branch: main
   write_mode: pull_request
   gpt_registry: config/gpts.yaml
+  ses:
+    adoption_manifest: config/ses.yaml
+    gateway_project_id: blogs-sites-portais-seo
   documentation_root: docs
   skills_root: .agents/skills
   builder_root: config/builder
