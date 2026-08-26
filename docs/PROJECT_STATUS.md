@@ -7,7 +7,7 @@
 
 ## Resultado pretendido
 
-Ecossistema digital com especialistas compartilhados pelo SES, governança versionada, adoção explícita por projeto e continuidade baseada em revisões verificáveis, bloqueios e máquina segura.
+Ecossistema digital com especialistas compartilhados pelo SES, governança versionada, adoção explícita por projeto, portfólio de ativos SEO gerenciados e continuidade baseada em revisões verificáveis, bloqueios e máquina segura.
 
 ## Estado por frente
 
@@ -20,7 +20,9 @@ Ecossistema digital com especialistas compartilhados pelo SES, governança versi
 | Lifecycle gate | SFJM project governance | `config/sfjm.yaml` | aplicar head+base | não há archetype substituto |
 | Action READ_ONLY | concluída | schema OpenAPI | preservar durante legado | mutações desabilitadas |
 | Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
-| Ativos | não iniciado em `main` | registro ausente | incorporar handoffs validados | dados ausentes |
+| Ativos SEO | iniciado | `docs/assets/morenumtegra-seo-handoff.md` | integrar handoff e iniciar baseline read-only | inventário geral ainda incompleto |
+| MoreNumTegra | candidato a primeiro ativo SEO gerenciado | handoff + repo consumidor | `architecture` / `seo_strategy` read-only após integração | implementação continua no repo consumidor |
+| Domínios | inventário parcial | `moreemumtegra.com.br` como `USER_REPORTED_PURCHASED` | verificar ownership/DNS somente em gate próprio | ownership e DNS não verificados |
 | Produção | bloqueada | restrições | planejar | ambiente não aprovado |
 
 ## Portfolio SES adotado
@@ -41,6 +43,19 @@ Explicitamente não adotado: `backend_data`.
 
 Ainda não adotáveis como archetype SES atual: Local SEO e Authority & Digital PR, enquanto permanecerem TARGET/certification pending/not registered. Authority/Digital PR mantém continuidade local controlada; monetização permanece exceção project-local sem equivalente SES canônico.
 
+## Decisões vigentes
+
+| Decisão | Estado | Fonte |
+|---|---|---|
+| `main` canônica | aprovada | governança |
+| Specialist identity SES | canônica | SES Canonical Specialist Framework |
+| Specialist adoption project-local | migração proposta | `config/specialists.yaml` |
+| Legacy GPT registry | continuidade/história | `config/gpts.yaml` |
+| MoreNumTegra como ativo SEO gerenciado | candidato até integração do handoff | `docs/assets/morenumtegra-seo-handoff.md` |
+| Código/release do MoreNumTegra permanece externo | preservado | `wagnerjfjunior/MoreNumTegra` |
+| Novos domínios exigem tese própria | definido no handoff | política do ativo |
+| Backlinks manipulativos/PBN não são estratégia autorizada | definido | política de autoridade |
+
 ## Decisões necessárias
 
 | Decisão | Autoridade | Condição |
@@ -51,12 +66,14 @@ Ainda não adotáveis como archetype SES atual: Local SEO e Authority & Digital 
 | Merge | Wagner | review atual, gates passando e autorização posterior head/base |
 | Builder retirement | Wagner | equivalência, testes/runtime proof e replacement elegível por Builder |
 | Builder externo change | Wagner | escopo/fingerprint/revalidação específicos |
+| Novo domínio | Wagner | tese, público, proposta de valor, owner, papel no portfólio e análise de canibalização |
+| Mutação no MoreNumTegra | autoridade do projeto consumidor | lifecycle e autorização próprios do ativo |
 
 ## Dependências e bloqueios
 
 Mudança de head invalida todos os gates/autorizações. Mudança só da base invalida lifecycle gate e autorizações de transição. `BLOCK` e `INCONCLUSIVE` impedem Ready/merge.
 
-PRs abertas anteriores à migração devem ser reconciliadas se puderem reintroduzir nomenclatura operacional GPT numerada.
+PRs abertas anteriores à migração devem ser reconciliadas se puderem reintroduzir nomenclatura operacional GPT numerada. O handoff SEO não propaga autorização para DNS, Green Sales, Vercel, analytics, Ads ou alterações no repositório consumidor.
 
 ## Riscos
 
@@ -69,6 +86,10 @@ PRs abertas anteriores à migração devem ser reconciliadas se puderem reintrod
 | Local/Authority target tratados como certificados | fail closed até registry/certification SES |
 | Monetização sem replacement | manter exceção project-local explícita |
 | GitHub–Builder divergência | verificar individualmente |
+| Governança SEO confundida com ownership de implementação | manter fronteira explícita por ativo |
+| Domínio reportado tratado como DNS/ownership verificado | separar estados de evidência |
+| Comprar domínios por volume sem tese | `architecture` + `seo_strategy` antes de aquisição |
+| Rede própria de backlinks degradar para PBN | proibir finalidade primária de manipulação de autoridade |
 
 ## Próxima ação segura
 
@@ -77,8 +98,10 @@ PRs abertas anteriores à migração devem ser reconciliadas se puderem reintrod
 
 ## Fora do escopo
 
-Builder externo live, retirement sem gate, domínios, DNS, hospedagem, deploy, produção, SEO operacional e avaliação experimental.
+Builder externo live, retirement sem gate, domínios/DNS, hospedagem, deploy, produção, campanhas, compra de backlinks, tracking/analytics sem gate e qualquer mutação em projeto consumidor.
+
+Pesquisa, arquitetura e planejamento SEO read-only podem ser executados pelas roles SES adotadas quando o contexto e a autoridade do ativo estiverem resolvidos.
 
 ## Atualização
 
-Somente por mudança durável de política, estrutura, specialist adoption, máquina, risco, bloqueio ou escopo; não por gate, metadata, autorização ou estado terminal.
+Somente por mudança durável de política, estrutura, specialist adoption, máquina, risco, bloqueio, escopo ou inventário de ativos; não por gate, metadata, autorização ou estado terminal.
