@@ -10,15 +10,15 @@
 
 ## 1. Decisão de handoff
 
-A estratégia SEO do MoreNumTegra passa a ser governada pelo **Ecossistema de Blogs, Sites, Portais e SEO**.
+O **Ecossistema de Blogs, Sites, Portais e SEO** passa a atuar como Search Center of Expertise / specialist-service provider do MoreNumTegra para as roles Search explicitamente registradas no SES. MoreNumTegra permanece Product Authority.
 
 Este handoff não move o código do MoreNumTegra para este repositório e não transfere autoridade de implementação, release ou produção.
 
 ```text
-SEO PORTFOLIO / SEARCH STRATEGY / TECHNICAL SEO / CONTENT / MEASUREMENT
+SEARCH STRATEGY / TECHNICAL SEO / CONTENT-SEMANTIC SEO / SEARCH ANALYTICS / PAID SEARCH
 -> wagnerjfjunior/Blogs-sites-portais-seo
 
-PRODUCT CODE / RELEASE / VERCEL / GREEN SALES
+PRODUCT / ARCHITECTURE / UX-UI / CODE / RELEASE / VERCEL / GREEN SALES / SPEND-PUBLICATION AUTHORITY
 -> wagnerjfjunior/MoreNumTegra
 ```
 
@@ -80,11 +80,7 @@ Qualquer número derivado desses arquivos deve registrar fonte, data, período e
 
 ## 5. Responsabilidades via SES
 
-Novo roteamento usa somente `ROLE -> ARCHETYPE_ID`, conforme `config/specialists.yaml` e Project Adapter SES.
-
-### `architecture -> software-systems-architect`
-
-Responsável pela arquitetura do ecossistema digital e do papel do MoreNumTegra no portfólio: propriedades, domínio, dependências, integrações, ownership boundaries, target state e ADRs. Não substitui Search Strategy.
+Novo roteamento usa somente `ROLE -> ARCHETYPE_ID`, conforme `config/specialists.yaml`, SES `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` e os Project Adapters aplicáveis. Para MoreNumTegra, as cinco roles abaixo usam `ADOPTED_VIA_CROSS_PROJECT_SERVICE` com `SERVICE_PROVIDER_PROJECT_ID: blogs-sites-portais-seo`.
 
 ### `seo_strategy -> seo-strategy-governance-specialist`
 
@@ -106,9 +102,9 @@ Responsável por GSC/GA4, integridade de KPIs, conversões, limites de atribuiç
 
 Responsável por estratégia/análise de Paid Search e overlap SEO/SEM quando explicitamente solicitado. Não autoriza spend, campanhas ou publicação.
 
-### `ux_ui -> ux-ui-app-specialist`
+### Handoffs fora do provider Search
 
-Responsável por UX/UI, IA, acessibilidade, mobile e conversion experience quando a questão ultrapassar Search puro.
+`architecture -> software-systems-architect` e `ux_ui -> ux-ui-app-specialist` permanecem roles diretas do MoreNumTegra. O projeto Blogs pode devolver findings/recomendações a essas roles, mas não as executa como parte deste serviço cross-project sem uma decisão posterior explícita.
 
 ### Targets ainda não adotáveis
 
@@ -155,14 +151,14 @@ Implementações propostas pelo ecossistema retornam ao projeto consumidor e seg
 Em modo read-only:
 
 ```text
-architecture
--> seo_strategy
+seo_strategy
 -> content_semantic_seo
 -> technical_seo
 -> seo_analytics_growth quando houver gate de mensuração
+-> paid_search_sem quando explicitamente aplicável
 ```
 
-`ux_ui` e `paid_search_sem` entram por necessidade explícita. Local SEO e Authority/Digital PR entram somente após elegibilidade SES + adoção explícita no projeto.
+`architecture` e `ux_ui` são handoffs de volta ao MoreNumTegra quando necessários. Local SEO e Authority/Digital PR entram somente após elegibilidade SES + ativação/adopção explícita posterior.
 
 ## 9. Critério de sucesso do handoff
 
@@ -173,4 +169,5 @@ O handoff está completo quando:
 - domínio mantém status de evidência correto, sem presumir DNS;
 - fontes de keyword research permanecem rastreáveis;
 - responsabilidades são expressas por roles/archetypes SES canônicos;
-- nenhuma autoridade de produção ou mutação é propagada implicitamente.
+- nenhuma autoridade de produção ou mutação é propagada implicitamente;
+- architecture/UX do MoreNumTegra não são apropriados pelo provider Search.
