@@ -27,7 +27,7 @@ Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ause
 5. `config/project.yaml`
 6. `config/specialists.yaml`
 
-Quando identidade/migração de especialista for material, resolver também SES live e ler o Project Adapter, o archetype exato e o ledger de certificação aplicável. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
+Quando identidade/migração de especialista ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato e o ledger de certificação aplicável. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
 
 ## Estado confirmado
 
@@ -40,10 +40,11 @@ Quando identidade/migração de especialista for material, resolver também SES 
 7. Ready e merge exigem autorizações separadas para head e base.
 8. O SFJM é operacional, sem scoring ou benchmark experimental.
 9. Builders legados não são aposentados por adoção SES; retirement exige equivalência, testes e autorização explícita.
+10. Este projeto é o Search Center of Expertise / provider de `morenumtegra` para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, sem adquirir autoridade sobre produto, código, deploy, orçamento, publicação ou risco do MoreNumTegra.
 
 ## Lacunas
 
-Builder live, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
+Builder live, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica. O serviço cross-project não é prova de execução runtime; cada tarefa MoreNumTegra exige contexto live e handoff com provenance de ambos os projetos. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
 
 ## Autorizações
 
