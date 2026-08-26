@@ -21,6 +21,9 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 7. Ready e merge são separados e exigem head/base atuais e autorizações separadas.
 8. Local SEO e Authority & Digital PR permanecem TARGET no SES; não podem ser tratados como archetypes ativos/adotados antes da certificação/registro.
 9. Monetização permanece capability project-local sem replacement SES canônico neste momento.
+10. MoreNumTegra está registrado em handoff candidato como primeiro ativo SEO gerenciado pelo ecossistema, sem transferência de código, release ou autoridade de produção.
+11. O repo `wagnerjfjunior/MoreNumTegra` permanece fonte canônica da implementação do ativo.
+12. `moreemumtegra.com.br` permanece `USER_REPORTED_PURCHASED`; ownership, DNS e conexão de produção não estão verificados por este registro.
 
 ## Decisões vigentes
 
@@ -33,30 +36,33 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 | SFJM operacional | aprovado | Product Authority |
 | Tabela e manifesto autoritativos | aprovado | `NEXT_SAFE_ACTION` e `sfjm.yaml` |
 | Estado volátil não versionado | aprovado | política SFJM |
+| MoreNumTegra SEO handoff | candidato até integração | `docs/assets/morenumtegra-seo-handoff.md` |
+| Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
 
 ## Entregas duráveis
 
-Framework local legado preservado como evidência, estrutura SFJM, evidência upstream, máquina de lifecycle, validador, testes adversariais e migração SES project-local.
+Framework local legado preservado como evidência, estrutura SFJM, evidência upstream, máquina de lifecycle, validador, testes adversariais, migração SES project-local e handoff SEO candidato do MoreNumTegra.
 
 ## Trabalho em andamento
 
-Concluir a normalização consumer-side para SES sem apagar história nem declarar Builder retirement. Calcular lifecycle live pela máquina; não declarar snapshot neste arquivo.
+Concluir a normalização consumer-side para SES sem apagar história nem declarar Builder retirement; integrar o handoff MoreNumTegra usando somente roles/archetypes canônicos; calcular lifecycle live pela máquina e não declarar snapshot neste arquivo.
 
 ## Lacunas
 
-Builder live, inventário de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização.
+Builder live, inventário completo de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização. Local SEO e Authority/Digital PR aguardam elegibilidade SES. O handoff MoreNumTegra não prova ownership/DNS nem tracking ativo.
 
 ## Riscos ativos
 
 | Risco | Controle |
 |---|---|
 | Nomenclatura GPT numerada voltar ao roteamento | `config/specialists.yaml` + testes de regressão |
-| PR antiga reintroduzir taxonomia legada | reconciliar PRs abertas antes do merge |
+| PR antiga reintroduzir taxonomia legada | reconciliar/encerrar PRs superseded e portar conteúdo útil para branches SES-aligned |
 | Gate ou autorização de outra revisão | exigir head/base exatos |
 | Merge ref confundido com head | checkout explícito do head |
 | Gate não passante avançar | transições de parada |
 | Estado terminal sem ação | transições merged/closed |
 | SES adoption confundida com Builder retirement | gate separado por Builder |
+| Handoff SEO confundido com autorização de implementação | fronteira de autoridade explícita por projeto |
 
 ## Próxima ação segura
 
@@ -65,7 +71,7 @@ Builder live, inventário de ativos, ambientes, métricas e produção precisam 
 
 ## Ações bloqueadas
 
-Mutações sem autorização, gate não passante, merge sem autorização, Builder retirement sem equivalência/autorização, deploy, produção e SFJM experimental.
+Mutações sem autorização, gate não passante, merge sem autorização, Builder retirement sem equivalência/autorização, deploy, produção, DNS, analytics, campanhas e SFJM experimental.
 
 ## Ordem de continuidade
 
