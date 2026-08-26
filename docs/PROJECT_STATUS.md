@@ -21,7 +21,7 @@ Ecossistema digital com especialistas compartilhados pelo SES, governança versi
 | Action READ_ONLY | concluída | schema OpenAPI | preservar durante legado | mutações desabilitadas |
 | Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
 | Ativos SEO | iniciado | `docs/assets/morenumtegra-seo-handoff.md` | integrar handoff e iniciar baseline read-only | inventário geral ainda incompleto |
-| MoreNumTegra | candidato a primeiro ativo SEO gerenciado | handoff + repo consumidor | `architecture` / `seo_strategy` read-only após integração | implementação continua no repo consumidor |
+| MoreNumTegra | Search consumer via cross-project service | SES adoption matrix + handoff + repo consumidor | executar somente as cinco roles Search provider após contexto/handoff válidos | architecture/UX/implementação/autoridade continuam no repo consumidor |
 | Domínios | inventário parcial | `moreemumtegra.com.br` como `USER_REPORTED_PURCHASED` | verificar ownership/DNS somente em gate próprio | ownership e DNS não verificados |
 | Produção | bloqueada | restrições | planejar | ambiente não aprovado |
 
@@ -51,7 +51,7 @@ Ainda não adotáveis como archetype SES atual: Local SEO e Authority & Digital 
 | Specialist identity SES | canônica | SES Canonical Specialist Framework |
 | Specialist adoption project-local | migração proposta | `config/specialists.yaml` |
 | Legacy GPT registry | continuidade/história | `config/gpts.yaml` |
-| MoreNumTegra como ativo SEO gerenciado | candidato até integração do handoff | `docs/assets/morenumtegra-seo-handoff.md` |
+| MoreNumTegra Search service | decisão SES vigente; registro local candidato até integração | SES current adoption matrix + `docs/assets/morenumtegra-seo-handoff.md` |
 | Código/release do MoreNumTegra permanece externo | preservado | `wagnerjfjunior/MoreNumTegra` |
 | Novos domínios exigem tese própria | definido no handoff | política do ativo |
 | Backlinks manipulativos/PBN não são estratégia autorizada | definido | política de autoridade |
@@ -100,7 +100,7 @@ PRs abertas anteriores à migração devem ser reconciliadas se puderem reintrod
 
 Builder externo live, retirement sem gate, domínios/DNS, hospedagem, deploy, produção, campanhas, compra de backlinks, tracking/analytics sem gate e qualquer mutação em projeto consumidor.
 
-Pesquisa, arquitetura e planejamento SEO read-only podem ser executados pelas roles SES adotadas quando o contexto e a autoridade do ativo estiverem resolvidos.
+Pesquisa, estratégia, Technical SEO, Content/Semantic SEO, Search Analytics e Paid Search read-only podem ser executados pelo provider quando o contexto e a autoridade do ativo estiverem resolvidos. Architecture e UX/UI permanecem roles diretas do MoreNumTegra e recebem handoffs quando necessário.
 
 ## Atualização
 
