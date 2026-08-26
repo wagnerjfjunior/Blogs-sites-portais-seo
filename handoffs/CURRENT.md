@@ -21,7 +21,7 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 7. Ready e merge são separados e exigem head/base atuais e autorizações separadas.
 8. Local SEO e Authority & Digital PR permanecem TARGET no SES; não podem ser tratados como archetypes ativos/adotados antes da certificação/registro.
 9. Monetização permanece capability project-local sem replacement SES canônico neste momento.
-10. MoreNumTegra está registrado em handoff candidato como primeiro ativo SEO gerenciado pelo ecossistema, sem transferência de código, release ou autoridade de produção.
+10. SES registra MoreNumTegra com `ADOPTED_VIA_CROSS_PROJECT_SERVICE` para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, tendo este projeto como provider, sem transferência de código, arquitetura, UX/UI, release, spend/publication ou autoridade de produção.
 11. O repo `wagnerjfjunior/MoreNumTegra` permanece fonte canônica da implementação do ativo.
 12. `moreemumtegra.com.br` permanece `USER_REPORTED_PURCHASED`; ownership, DNS e conexão de produção não estão verificados por este registro.
 
@@ -36,7 +36,7 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 | SFJM operacional | aprovado | Product Authority |
 | Tabela e manifesto autoritativos | aprovado | `NEXT_SAFE_ACTION` e `sfjm.yaml` |
 | Estado volátil não versionado | aprovado | política SFJM |
-| MoreNumTegra SEO handoff | candidato até integração | `docs/assets/morenumtegra-seo-handoff.md` |
+| MoreNumTegra Search service | decisão SES vigente; continuidade project-local candidata até integração desta PR | SES current adoption matrix + `docs/assets/morenumtegra-seo-handoff.md` |
 | Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
 
 ## Entregas duráveis
@@ -49,7 +49,7 @@ Concluir a normalização consumer-side para SES sem apagar história nem declar
 
 ## Lacunas
 
-Builder live, inventário completo de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização. Local SEO e Authority/Digital PR aguardam elegibilidade SES. O handoff MoreNumTegra não prova ownership/DNS nem tracking ativo.
+Builder live, inventário completo de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização. Local SEO e Authority/Digital PR aguardam elegibilidade SES. O handoff MoreNumTegra não prova provider runtime execution, ownership/DNS nem tracking ativo.
 
 ## Riscos ativos
 
