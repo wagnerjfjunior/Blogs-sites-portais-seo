@@ -107,6 +107,7 @@ spec:
     routing_authority: false
     delete_or_rename_automatically: false
   builder_policy:
+    status_manifest: config/builder/legacy-status.yaml
     legacy_manifests_root: config/builder
     legacy_instructions_root: docs/gpts
     external_builder_mutation_in_this_migration: false
