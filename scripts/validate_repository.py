@@ -1,4 +1,5 @@
 from pathlib import Path
+import hashlib
 import re
 import sys
 
@@ -67,6 +68,13 @@ def read(path):
         return ""
 
 
+def require_file(path, context):
+    if not path or not (ROOT / path).is_file():
+        fail(f"{context}: arquivo legado ausente: {path}")
+        return False
+    return True
+
+
 def numbered_paths(text, heading, path):
     match = re.search(rf"(?ms)^{re.escape(heading)}\s*$\n(?P<body>.*?)(?=^##\s|\Z)", text)
     if not match:
@@ -117,13 +125,51 @@ if observed != EXPECTED_ADOPTED:
 legacy = adoption.get("spec", {}).get("legacy_registry", {})
 if legacy.get("path") != "config/gpts.yaml" or legacy.get("routing_authority") is not False:
     fail("config/specialists.yaml: legacy registry não está fail-closed para routing")
-if adoption.get("spec", {}).get("builder_policy", {}).get("external_builder_mutation_in_this_migration") is not False:
+builder_policy = adoption.get("spec", {}).get("builder_policy", {})
+if builder_policy.get("external_builder_mutation_in_this_migration") is not False:
     fail("config/specialists.yaml: Builder externo não pode ser alterado por esta migração")
+if builder_policy.get("status_manifest") != "config/builder/legacy-status.yaml":
+    fail("config/specialists.yaml: status manifest de Builder legado ausente")
 
 legacy_registry = load("config/gpts.yaml")
-legacy_ids = [item.get("id") for item in legacy_registry.get("spec", {}).get("agents", [])]
+legacy_agents = legacy_registry.get("spec", {}).get("agents", [])
+legacy_ids = [item.get("id") for item in legacy_agents]
 if legacy_ids != [f"gpt{i}" for i in range(9)]:
     fail("config/gpts.yaml: artefatos legados devem permanecer addressable")
+
+# Preserve integrity of legacy Builder evidence without making it current routing authority.
+for agent in legacy_agents:
+    aid = agent.get("id", "unknown")
+    for key in ("skill", "canonical_document", "builder_manifest", "builder_instructions", "acceptance_tests"):
+        require_file(agent.get(key), f"{aid}/{key}")
+    ext_id = agent.get("external_gpt_id")
+    ext_url = agent.get("external_gpt_url")
+    if not re.fullmatch(r"g-[0-9a-f]{32}", ext_id or ""):
+        fail(f"{aid}: external_gpt_id legado inválido")
+    if not ext_url or ext_id not in ext_url:
+        fail(f"{aid}: external_gpt_url legado não corresponde ao ID")
+    manifest_path = agent.get("builder_manifest")
+    if manifest_path and (ROOT / manifest_path).is_file():
+        manifest = load(manifest_path)
+        m_spec = manifest.get("spec", {})
+        if m_spec.get("external_gpt_id") != ext_id or m_spec.get("external_gpt_url") != ext_url:
+            fail(f"{aid}: Builder manifest diverge do registry legado")
+        if m_spec.get("action_profile") != "github_read_only":
+            fail(f"{aid}: Builder legado perdeu action_profile READ_ONLY")
+        if m_spec.get("instructions_file") != agent.get("builder_instructions"):
+            fail(f"{aid}: Instructions divergentes entre registry e Builder manifest")
+        instructions = m_spec.get("instructions_file")
+        if instructions and (ROOT / instructions).is_file():
+            digest = hashlib.sha256((ROOT / instructions).read_bytes()).hexdigest()
+            if digest != m_spec.get("instructions_sha256"):
+                fail(f"{aid}: hash das Instructions legadas divergente")
+
+legacy_builder_status = load("config/builder/legacy-status.yaml")
+if legacy_builder_status.get("spec", {}).get("external_mutation_executed") is not False:
+    fail("config/builder/legacy-status.yaml: não pode declarar mutação externa executada")
+status_ids = [item.get("legacy_id") for item in legacy_builder_status.get("spec", {}).get("builders", [])]
+if status_ids != [f"gpt{i}" for i in range(9)]:
+    fail("config/builder/legacy-status.yaml: cobertura dos Builders legados incompleta")
 
 sfjm = load("config/sfjm.yaml")
 sfjm_spec = sfjm.get("spec", {})
@@ -181,4 +227,4 @@ if errors:
         print(f"- {item}")
     sys.exit(1)
 
-print("VALIDATION PASSED: SES role/archetype adoption, SFJM lifecycle, legacy continuity and Builder migration boundaries are coherent.")
+print("VALIDATION PASSED: SES role/archetype adoption, SFJM lifecycle, legacy Builder integrity and migration boundaries are coherent.")
