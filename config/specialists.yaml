@@ -72,7 +72,8 @@ spec:
     - consumer_project_id: morenumtegra
       domain: SEARCH_DISCOVERY_ACQUISITION
       status: PROJECT_LOCAL_SERVICE_PROVIDER_DECISION
-      adoption_mode_on_consumer: ADOPTED_VIA_CROSS_PROJECT_SERVICE
+      consumer_adoption_status: ADOPTED
+      execution_mode_on_consumer: PROJECT_LOCAL_CROSS_PROJECT_SERVICE
       current_roles:
         - seo_strategy
         - technical_seo
