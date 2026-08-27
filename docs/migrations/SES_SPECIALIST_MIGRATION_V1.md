@@ -8,7 +8,8 @@
 
 - Projeto consumidor: `wagnerjfjunior/Blogs-sites-portais-seo`
 - Base da migração: `main@8c7f3380582b9c2f2997600c746e9054978ff64d`
-- SES framework observado: `wagnerjfjunior/Specialist-Engineering-System@e61598ced19e0e846b85d369e692943fee4e3487`
+- SES effective ref reconciled for this migration revision: `wagnerjfjunior/Specialist-Engineering-System@06fd737f27b5b6ebb4f3ad229d23588eeae1e692`
+- Resolution rule: resolve SES `main` live again for every material gate; this ref is revision-bound evidence, not a perpetual current-state claim
 - Framework: `docs/architecture/CANONICAL_SPECIALIST_FRAMEWORK.md`
 - Política: `docs/migrations/LEGACY_SPECIALIST_IDENTITY_MIGRATION_PLAN.md`
 - Autoridade de preparação desta PR: Wagner
@@ -88,27 +89,34 @@ Todos os manifests em `config/builder/gpt*.yaml`, Instructions em `docs/gpts/*-b
 
 O plano detalhado de Builder está em `docs/migrations/LEGACY_BUILDER_MIGRATION_PLAN.md`.
 
-## PRs concorrentes observadas na base
+## Reconciliação de PRs concorrentes
 
-Na preparação desta migração foram observadas PRs abertas que ainda usam o modelo legado:
+Na preparação inicial desta migração foram observadas PRs que ainda usavam o modelo legado. O estado foi posteriormente reconciliado e deve ser preservado sem reescrever a história:
 
-- PR #5 — adoção SES anterior que preserva GPT0–GPT8 como modelo operacional;
-- PR #6 — handoff MoreNumTegra contendo responsabilidades por GPT1/GPT2/GPT3/GPT5/GPT6/GPT8;
-- PR #4 — evidência histórica de Builder GPT0.
+- PR #5 — **CLOSED / NOT_MERGED / SUPERSEDED_BY_PR_7**; a proposta anterior de adoção/Gateway não é routing authority atual;
+- PR #6 — **CLOSED / NOT_MERGED / SUPERSEDED_BY_PR_8**; o conteúdo útil do handoff MoreNumTegra foi portado para roles/archetypes SES;
+- PR #4 — permanece evidência histórica de Builder GPT0 e não recebe reclassificação retroativa.
 
-Esta PR não fecha nem reescreve essas PRs automaticamente. Antes de merge, qualquer PR concorrente que possa reintroduzir nomenclatura operacional antiga deve ser reconciliada/rebaseada ou explicitamente supersedida.
+```text
+SUPERSEDED != FAILED
+CLOSED_UNMERGED != HISTORICAL_EVIDENCE_ERASED
+CURRENT_MIGRATION != RETROACTIVE_PASS
+```
+
+A condição de conclusão relacionada a #5/#6 está satisfeita apenas no sentido de que ambas foram explicitamente supersedidas e fechadas sem merge. Qualquer nova PR concorrente que possa reintroduzir nomenclatura operacional antiga deve ser reconciliada antes da integração.
 
 ## Companion change no SES
 
-Após a integração consumer-side, o SES Project Adapter `projects/blogs-sites-portais-seo/PROJECT_ADAPTER.md` precisa de atualização coordenada para:
+O companion change SES **já está integrado** no ref efetivo observado desta revisão (`06fd737f27b5b6ebb4f3ad229d23588eeae1e692`). O Project Adapter `projects/blogs-sites-portais-seo/PROJECT_ADAPTER.md` é ref-aware e já representa:
 
-- usar `config/specialists.yaml` como project-local specialist adoption locator;
-- remover `config/gpts.yaml` como fonte de novo roteamento;
-- manter `config/gpts.yaml` apenas como legacy continuity/history locator;
-- refletir lifecycle project-local sem `GPT4` como identidade canônica;
-- preservar regras de retirement do SES.
+- `config/specialists.yaml` como locator project-local de adoption/routing quando presente no target ref;
+- `config/gpts.yaml` somente como continuidade/história no modelo migrado;
+- `ROLE -> ARCHETYPE_ID` canônico;
+- lifecycle project-local sem criar archetype fictício para GPT4;
+- retirement de Builder como gate separado;
+- relação MoreNumTegra/provider Search com autoridade preservada.
 
-Essa alteração pertence ao repositório SES e deve ocorrer em PR separada para manter a autoridade de cada repositório.
+O Adapter SES não substitui a verdade deste repositório. Gates posteriores devem resolver SES `main` live e verificar que essas condições continuam válidas no ref efetivo aplicável.
 
 ## Critérios de conclusão da migração
 
@@ -119,7 +127,7 @@ A migração de identidade consumer-side está pronta para merge somente se:
 3. validator e testes rejeitarem regressão para roteamento GPT numerado;
 4. os assets legados permanecerem addressable;
 5. nenhum Builder externo for declarado migrado sem prova;
-6. a PR #5/#6 for reconciliada para não reintroduzir drift;
+6. PRs #5 e #6 permanecerem reconciliadas como `CLOSED / NOT_MERGED / SUPERSEDED`, sem caminho ativo que reintroduza drift;
 7. gates e autorizações do head/base exatos forem satisfeitos.
 
 Builder retirement permanece uma fase posterior e separada.
