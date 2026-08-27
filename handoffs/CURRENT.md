@@ -31,7 +31,7 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 |---|---|---|
 | `main` canônica project-local | aprovada | governança |
 | Specialist identity SES | canônica | SES Canonical Specialist Framework |
-| Specialist adoption project-local | migração proposta | `config/specialists.yaml` |
+| Specialist adoption project-local | integrado em `main` pela PR #7 | `config/specialists.yaml` + merge `a2ef316933861a3aaffbee81fb8b73b76e2fd315` |
 | Legacy GPT registry | continuidade/história | `config/gpts.yaml` |
 | SFJM operacional | aprovado | Product Authority |
 | Tabela e manifesto autoritativos | aprovado | `NEXT_SAFE_ACTION` e `sfjm.yaml` |
