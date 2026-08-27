@@ -21,7 +21,7 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 7. Ready e merge são separados e exigem head/base atuais e autorizações separadas.
 8. Local SEO e Authority & Digital PR permanecem TARGET no SES; não podem ser tratados como archetypes ativos/adotados antes da certificação/registro.
 9. Monetização permanece capability project-local sem replacement SES canônico neste momento.
-10. SES registra MoreNumTegra com `ADOPTED_VIA_CROSS_PROJECT_SERVICE` para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, tendo este projeto como provider, sem transferência de código, arquitetura, UX/UI, release, spend/publication ou autoridade de produção.
+10. SES registra MoreNumTegra com as capabilities `ADOPTED` e execução project-local delegada para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, tendo este projeto como provider, sem transferência de código, arquitetura, UX/UI, release, spend/publication ou autoridade de produção.
 11. O repo `wagnerjfjunior/MoreNumTegra` permanece fonte canônica da implementação do ativo.
 12. `moreemumtegra.com.br` permanece `USER_REPORTED_PURCHASED`; ownership, DNS e conexão de produção não estão verificados por este registro.
 
