@@ -1,4 +1,4 @@
-api_version: blogs-sites-portais-seo/v1
+api_version: blogs-sites-portais-seo/v2
 kind: SFJMContinuity
 metadata:
   project_id: blogs-sites-portais-seo
@@ -33,7 +33,7 @@ spec:
     - docs/NEXT_SAFE_ACTION.md
     - docs/BLOCKED_ACTIONS.md
     - config/project.yaml
-    - config/gpts.yaml
+    - config/specialists.yaml
   transition_model:
     next_action_id: resolve-live-lifecycle-transition-v1
     state_source: github_live
@@ -61,38 +61,38 @@ spec:
       - id: require_successful_workflow
         when: latest_canonical_workflow_attempt_for_exact_head_is_not_completed_success
         action: wait_or_rerun_only_if_authorized
-      - id: run_gpt0_read_only
-        when: latest_canonical_workflow_attempt_for_exact_head_is_completed_success_and_no_current_gpt0_gate
+      - id: run_documentation_audit_read_only
+        when: latest_canonical_workflow_attempt_for_exact_head_is_completed_success_and_no_current_documentation_audit_gate
         action: execute_documentary_gate_without_mutation
-      - id: stop_on_gpt0_block
-        when: current_gpt0_gate_verdict_is_block
+      - id: stop_on_documentation_audit_block
+        when: current_documentation_audit_gate_verdict_is_block
         action: stop_and_require_material_remediation_authorization
-      - id: stop_on_gpt0_inconclusive
-        when: current_gpt0_gate_verdict_is_inconclusive
+      - id: stop_on_documentation_audit_inconclusive
+        when: current_documentation_audit_gate_verdict_is_inconclusive
         action: stop_and_require_missing_evidence_or_access
-      - id: run_gpt4_read_only
-        when: current_gpt0_gate_verdict_is_passing_and_no_current_gpt4_gate
+      - id: run_lifecycle_governance_read_only
+        when: current_documentation_audit_gate_verdict_is_passing_and_no_current_lifecycle_governance_gate
         action: execute_lifecycle_gate_without_mutation
-      - id: stop_on_gpt4_block
-        when: current_gpt4_gate_verdict_is_block
+      - id: stop_on_lifecycle_governance_block
+        when: current_lifecycle_governance_gate_verdict_is_block
         action: stop_and_require_material_remediation_authorization
-      - id: stop_on_gpt4_inconclusive
-        when: current_gpt4_gate_verdict_is_inconclusive
+      - id: stop_on_lifecycle_governance_inconclusive
+        when: current_lifecycle_governance_gate_verdict_is_inconclusive
         action: stop_and_require_missing_evidence_or_access
       - id: require_ready_authorization
-        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent
+        when: current_documentation_and_lifecycle_gates_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_absent
         action: require_explicit_ready_authorization_for_exact_head_and_base
       - id: execute_ready_transition
-        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present
+        when: current_documentation_and_lifecycle_gates_are_passing_pull_request_is_draft_and_exact_head_and_base_ready_authorization_is_present
         action: mark_pull_request_ready_only
       - id: recheck_ready_reviews
-        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck
+        when: current_documentation_and_lifecycle_gates_are_passing_pull_request_is_ready_and_review_state_changed_since_latest_eligible_gate_or_recheck
         action: adjudicate_material_findings_before_merge
       - id: require_merge_authorization
-        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_absent
+        when: current_documentation_and_lifecycle_gates_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_absent
         action: require_explicit_post_ready_merge_authorization_for_exact_head_and_base
       - id: execute_merge_and_verify_main
-        when: current_gpt0_and_gpt4_gate_verdicts_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_present
+        when: current_documentation_and_lifecycle_gates_are_passing_pull_request_is_ready_review_state_is_current_no_material_threads_remain_and_post_ready_exact_head_and_base_merge_authorization_is_present
         action: merge_exact_head_then_verify_merge_commit_and_main_without_propagating_authority
   invariants:
     exactly_one_authoritative_next_safe_action: true
@@ -120,11 +120,19 @@ spec:
     metadata_only_ready_transition_does_not_invalidate_head_bound_gates: true
     authorization_presence_advances_transition: true
     durable_records_not_rewritten_for_same_head_lifecycle: true
+    specialist_identity_uses_role_and_archetype: true
+    legacy_gpt_registry_is_not_routing_authority: true
   roles:
     product_authority: Wagner
-    documentary_gate: gpt0
-    lifecycle_gate: gpt4
-    specialist_registry: config/gpts.yaml
+    documentary_gate:
+      role: documentation_audit
+      archetype_id: documentation-auditor
+      source: config/specialists.yaml
+    lifecycle_gate:
+      owner: PROJECT_SFJM_GOVERNANCE
+      specialist_archetype_id: null
+    specialist_adoption: config/specialists.yaml
+    legacy_registry: config/gpts.yaml
   excluded_capabilities:
     - experimental_scoring
     - benchmark_adjudication
@@ -133,3 +141,4 @@ spec:
     - automatic_ready
     - automatic_merge
     - automatic_builder_update
+    - automatic_legacy_builder_retirement

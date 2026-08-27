@@ -12,7 +12,9 @@
 
 ## Regra de canonicalidade
 
-`main` aprovada é a fonte de verdade. Estado de PR, head, base, workflow, gates, autorizações, reviews, threads e pós-merge é resolvido live.
+`main` aprovada é a fonte de verdade project-local. Estado de PR, head, base, workflow, gates, autorizações, reviews, threads e pós-merge é resolvido live.
+
+A arquitetura universal de especialistas pertence ao SES. Para identidade, domínio, lifecycle de specialist e nomenclatura, usar o `CANONICAL_SPECIALIST_FRAMEWORK` do SES e o Project Adapter aplicável. Para adoção project-local, usar `config/specialists.yaml`.
 
 Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ausente não é inferida.
 
@@ -23,27 +25,30 @@ Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ause
 3. `docs/NEXT_SAFE_ACTION.md`
 4. `docs/BLOCKED_ACTIONS.md`
 5. `config/project.yaml`
-6. `config/gpts.yaml`
+6. `config/specialists.yaml`
 
-Para um GPT específico, leia também contrato, skill, Instructions, manifesto e testes.
+Quando identidade/migração de especialista ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato e o ledger de certificação aplicável. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
 
 ## Estado confirmado
 
-1. O projeto possui GPT0 a GPT8, totalizando nove GPTs privados.
-2. A Action GitHub inicial é `READ_ONLY`.
-3. Escrita direta em `main` é proibida.
-4. GPT0 é vinculado ao head; GPT4 ao head e à base.
-5. Ready e merge exigem autorizações separadas para head e base.
-6. O SFJM é operacional, sem scoring ou benchmark experimental.
-7. Adoção do SFJM é rastreada pela PR #2, cujo estado deve ser resolvido live.
+1. Novo roteamento usa `ROLE -> ARCHETYPE_ID` via SES/Project Adapter e `config/specialists.yaml`.
+2. `config/gpts.yaml` permanece preservado como registry legado, sem autoridade de novo roteamento.
+3. A Action GitHub project-local inicial é `READ_ONLY`.
+4. Escrita direta em `main` é proibida.
+5. O gate documental é `documentation_audit` / `documentation-auditor` e é head-bound.
+6. O gate de lifecycle pertence à governança SFJM project-local e é head+base-bound; não existe archetype fictício para substituir a antiga identidade de lifecycle.
+7. Ready e merge exigem autorizações separadas para head e base.
+8. O SFJM é operacional, sem scoring ou benchmark experimental.
+9. Builders legados não são aposentados por adoção SES; retirement exige equivalência, testes e autorização explícita.
+10. Este projeto é o Search Center of Expertise / provider de `morenumtegra` para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, sem adquirir autoridade sobre produto, código, deploy, orçamento, publicação ou risco do MoreNumTegra.
 
 ## Lacunas
 
-Builder, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica.
+Builder live, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica. O modo project-local cross-project não cria um novo status universal de adoção e não é prova de execução runtime; cada tarefa MoreNumTegra exige contexto live e handoff com provenance de ambos os projetos. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
 
 ## Autorizações
 
-Leitura, GPT0 e GPT4 `READ_ONLY` são permitidos quando forem a primeira transição. Correção, Ready, merge, Builder, deploy, publicação, domínio, DNS, campanha e compromissos exigem autorização explícita.
+Leitura e gates `READ_ONLY` são permitidos quando forem a primeira transição aplicável. Correção, Ready, merge, Builder, retirement de Builder, deploy, publicação, domínio, DNS, campanha e compromissos exigem autorização explícita.
 
 ## Próxima ação segura
 
@@ -58,11 +63,12 @@ Consulte `docs/BLOCKED_ACTIONS.md`. Ausência na lista não autoriza.
 
 1. Resolver PR, head e base live.
 2. Ler a ordem mínima.
-3. Confirmar workflow no head exato.
-4. Separar fatos e lacunas.
-5. Calcular a primeira transição.
-6. Parar diante de drift, gate não passante, review pendente ou falta de autoridade.
+3. Resolver role/archetype no SES quando houver trabalho de especialista.
+4. Confirmar workflow no head exato.
+5. Separar fatos e lacunas.
+6. Calcular a primeira transição.
+7. Parar diante de drift, gate não passante, review pendente ou falta de autoridade.
 
 ## Atualização
 
-Atualizar somente por mudança durável de fonte, política, ordem, máquina, autoridade ou bloqueio material; nunca por mero avanço de lifecycle.
+Atualizar somente por mudança durável de fonte, política, ordem, máquina, autoridade, specialist adoption ou bloqueio material; nunca por mero avanço de lifecycle.

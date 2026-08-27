@@ -4,7 +4,7 @@
 
 ## Base, branch e head esperado
 
-## Arquivos e GPTs afetados
+## Arquivos, roles e archetypes afetados
 
 ## Leitura integral
 
@@ -17,11 +17,18 @@
 - [ ] Estado volátil foi resolvido live
 - [ ] `Next action ID`, resumo, tabela e manifesto estão sincronizados
 - [ ] Workflow de PR faz checkout do head exato
-- [ ] GPT0 está vinculado ao head; GPT4 ao head e à base
+- [ ] `documentation_audit` está vinculado ao head; lifecycle governance ao head e à base
 - [ ] `BLOCK` e `INCONCLUSIVE` impedem Ready e merge
 - [ ] Estados closed e merged têm transições explícitas
 - [ ] Registros não foram reescritos por mero avanço de lifecycle
 - [ ] Divergências materiais foram reconciliadas antes do congelamento
+
+## SES / specialist routing
+
+- [ ] Role foi resolvida por `ROLE -> ARCHETYPE_ID` quando aplicável
+- [ ] `config/gpts.yaml` não foi usado como novo routing authority
+- [ ] `CERTIFIED_FOR_ANY_PROJECT != CONSUMER_PROJECT_ADOPTED`
+- [ ] Builder legado não foi aposentado sem equivalência, testes e autorização explícita
 
 ## Validação
 

@@ -1,4 +1,4 @@
-api_version: blogs-sites-portais-seo/v1
+api_version: blogs-sites-portais-seo/v2
 kind: Project
 metadata:
   id: blogs-sites-portais-seo
@@ -10,11 +10,12 @@ spec:
   canonical_repository: wagnerjfjunior/Blogs-sites-portais-seo
   default_branch: main
   write_mode: pull_request
-  gpt_registry: config/gpts.yaml
+  specialist_adoption: config/specialists.yaml
+  legacy_gpt_registry: config/gpts.yaml
   documentation_root: docs
-  skills_root: .agents/skills
-  builder_root: config/builder
-  tests_root: tests/gpts
+  legacy_skills_root: .agents/skills
+  legacy_builder_root: config/builder
+  legacy_tests_root: tests/gpts
   sfjm:
     manifest: config/sfjm.yaml
     bootstrap: bootstrap/BOOTSTRAP_CANONICO.md
@@ -28,6 +29,10 @@ spec:
     mutation_actions_enabled: false
   policies:
     canonical_source: github
+    specialist_identity_source: ses_canonical_framework_plus_project_adapter
+    new_specialist_routing_uses_role_to_archetype: true
+    legacy_gpt_labels_are_continuity_only: true
+    legacy_builder_retirement_requires_explicit_authorization: true
     direct_main_writes: false
     ready_requires_explicit_authorization: true
     merge_requires_separate_explicit_authorization: true

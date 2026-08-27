@@ -1,0 +1,69 @@
+api_version: blogs-sites-portais-seo/v2
+kind: LegacyBuilderStatus
+metadata:
+  project_id: blogs-sites-portais-seo
+  status: migration_control
+  authority: Wagner
+spec:
+  external_mutation_executed: false
+  builders:
+    - legacy_id: gpt0
+      manifest: config/builder/gpt0.yaml
+      canonical_route: documentation_audit
+      equivalence: PARTIAL
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt1
+      manifest: config/builder/gpt1.yaml
+      canonical_route: architecture + seo_strategy
+      equivalence: OVERLAPPING
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt2
+      manifest: config/builder/gpt2.yaml
+      canonical_route: seo_strategy + content_semantic_seo
+      equivalence: OVERLAPPING
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt3
+      manifest: config/builder/gpt3.yaml
+      canonical_route: technical_seo
+      equivalence: PARTIAL
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt4
+      manifest: config/builder/gpt4.yaml
+      canonical_route: PROJECT_SFJM_GOVERNANCE
+      equivalence: NO_EQUIVALENT
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt5
+      manifest: config/builder/gpt5.yaml
+      canonical_route: content_semantic_seo
+      equivalence: PARTIAL
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+    - legacy_id: gpt6
+      manifest: config/builder/gpt6.yaml
+      canonical_route: TARGET_AUTHORITY_DIGITAL_PR_NOT_YET_ADOPTABLE
+      equivalence: NOT_DETERMINED
+      routing_status: CONTINUITY_ONLY_PENDING_SES_TARGET
+      retirement_status: NOT_ELIGIBLE
+    - legacy_id: gpt7
+      manifest: config/builder/gpt7.yaml
+      canonical_route: PROJECT_LOCAL_MONETIZATION
+      equivalence: NO_EQUIVALENT
+      routing_status: PROJECT_LOCAL_ACTIVE_EXCEPTION
+      retirement_status: NOT_ELIGIBLE_NO_CANONICAL_REPLACEMENT
+    - legacy_id: gpt8
+      manifest: config/builder/gpt8.yaml
+      canonical_route: seo_analytics_growth
+      equivalence: PARTIAL
+      routing_status: LEGACY_CONTINUITY_ONLY
+      retirement_status: NOT_AUTHORIZED
+  invariants:
+    builder_config_declared_does_not_equal_builder_live_observed: true
+    adoption_does_not_equal_builder_retirement: true
+    rename_does_not_equal_behavioral_equivalence: true
+    retirement_is_per_builder: true
+    explicit_retirement_authorization_required: true

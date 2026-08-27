@@ -33,5 +33,5 @@ jobs:
         run: python -m unittest discover -s tests -p "test_*.py"
       - name: Revalidate canonical framework after tests
         run: python scripts/validate_repository.py
-      - name: Validate GPT Builder Action compatibility
+      - name: Validate legacy Builder Action compatibility
         run: python scripts/validate_builder_action.py

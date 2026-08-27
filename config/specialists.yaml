@@ -1,0 +1,148 @@
+api_version: blogs-sites-portais-seo/v2
+kind: SpecialistAdoption
+metadata:
+  project_id: blogs-sites-portais-seo
+  authority: Wagner
+  status: migration_candidate_v1
+spec:
+  ses:
+    repository: wagnerjfjunior/Specialist-Engineering-System
+    framework_path: docs/architecture/CANONICAL_SPECIALIST_FRAMEWORK.md
+    migration_policy_path: docs/migrations/LEGACY_SPECIALIST_IDENTITY_MIGRATION_PLAN.md
+    adoption_matrix_current_path: projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md
+    project_adapter_path: projects/blogs-sites-portais-seo/PROJECT_ADAPTER.md
+    resolution: project_registry_then_adapter_then_exact_role_to_archetype
+    mutation_authorized: false
+  adopted_roles:
+    - role: documentation_audit
+      archetype_id: documentation-auditor
+      adoption_status: ADOPTED
+      equivalence_to_legacy: PARTIAL
+      legacy_continuity: [gpt0]
+      boundary: Evidence and documentation audit. Project lifecycle rules remain project-local SFJM governance.
+    - role: architecture
+      archetype_id: software-systems-architect
+      adoption_status: ADOPTED
+      equivalence_to_legacy: PARTIAL
+      legacy_continuity: [gpt1]
+      boundary: Architecture of the digital ecosystem, platforms, properties, dependencies, integrations and target state; SEO search strategy remains with seo_strategy.
+    - role: ux_ui
+      archetype_id: ux-ui-app-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: NO_EQUIVALENT
+      legacy_continuity: []
+      boundary: UX/UI, IA, accessibility, mobile and conversion experience.
+    - role: application_security
+      archetype_id: application-security-assurance-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: NO_EQUIVALENT
+      legacy_continuity: []
+      boundary: Independent application-security assurance and privacy/security handoffs.
+    - role: seo_strategy
+      archetype_id: seo-strategy-governance-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: OVERLAPPING
+      legacy_continuity: [gpt1, gpt2]
+      boundary: Search opportunity, SERP/market diagnosis, macro keyword strategy, prioritization, SEO/GEO governance and cross-specialist coordination.
+    - role: technical_seo
+      archetype_id: technical-seo-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: PARTIAL
+      legacy_continuity: [gpt3]
+      boundary: Crawl, indexation, rendering, canonicals, sitemaps, structured data, performance and technical retrievability.
+    - role: content_semantic_seo
+      archetype_id: content-semantic-seo-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: OVERLAPPING
+      legacy_continuity: [gpt2, gpt5]
+      boundary: Search intent, entities, topical coverage, on-page, internal linking, answerability, citability and content-side GEO.
+    - role: seo_analytics_growth
+      archetype_id: seo-analytics-growth-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: PARTIAL
+      legacy_continuity: [gpt8]
+      boundary: GSC/GA4 measurement, KPI integrity, conversions, attribution limits, experiments and organic growth analysis.
+    - role: paid_search_sem
+      archetype_id: paid-search-sem-specialist
+      adoption_status: ADOPTED
+      equivalence_to_legacy: NO_EQUIVALENT
+      legacy_continuity: []
+      boundary: Paid Search/SEM strategy and analysis; spend/publication remains separately authorized.
+  service_provider_relationships:
+    - consumer_project_id: morenumtegra
+      domain: SEARCH_DISCOVERY_ACQUISITION
+      status: PROJECT_LOCAL_SERVICE_PROVIDER_DECISION
+      consumer_adoption_status: ADOPTED
+      execution_mode_on_consumer: PROJECT_LOCAL_CROSS_PROJECT_SERVICE
+      current_roles:
+        - seo_strategy
+        - technical_seo
+        - content_semantic_seo
+        - seo_analytics_growth
+        - paid_search_sem
+      future_service_intent_only:
+        - local_seo
+        - authority_digital_pr
+      authority_boundary: MoreNumTegra retains product, repository, implementation, deploy, budget, campaign-publication and risk-acceptance authority.
+      runtime_proof_implied: false
+      automatic_future_adoption: false
+  explicitly_not_adopted:
+    - role: backend_data
+      archetype_id: backend-data-platform-specialist
+      reason: No standalone backend/data-platform need is currently established for this project.
+  target_roles_not_yet_adoptable:
+    - role: local_seo
+      proposed_archetype_id: local-seo-specialist
+      ses_state: TARGET_CERTIFICATION_PENDING_NOT_YET_REGISTERED
+      current_project_route: NONE
+    - role: authority_digital_pr
+      proposed_archetype_id: authority-digital-pr-specialist
+      ses_state: TARGET_CERTIFICATION_PENDING_NOT_YET_REGISTERED
+      current_project_route: PROJECT_LOCAL_EXCEPTION
+      legacy_continuity: [gpt6]
+  project_local_exceptions:
+    - role: authority_digital_pr_legacy
+      legacy_identity: gpt6
+      status: CONTINUITY_ONLY_PENDING_SES_TARGET_CERTIFICATION
+      new_routing_allowed: false
+      retirement_status: NOT_AUTHORIZED
+    - role: monetization
+      legacy_identity: gpt7
+      status: PROJECT_LOCAL_ACTIVE_EXCEPTION_NO_SES_EQUIVALENT
+      new_routing_allowed: true
+      retirement_status: NOT_ELIGIBLE_NO_CANONICAL_REPLACEMENT
+  lifecycle:
+    documentation_gate:
+      owner: SES_SPECIALIST
+      role: documentation_audit
+      archetype_id: documentation-auditor
+      binding: exact_head
+    lifecycle_gate:
+      owner: PROJECT_SFJM_GOVERNANCE
+      binding: exact_head_and_base
+      specialist_archetype_id: null
+  legacy_registry:
+    path: config/gpts.yaml
+    status: CONTINUITY_AND_HISTORY_ONLY
+    routing_authority: false
+    delete_or_rename_automatically: false
+  builder_policy:
+    status_manifest: config/builder/legacy-status.yaml
+    legacy_manifests_root: config/builder
+    legacy_instructions_root: docs/gpts
+    external_builder_mutation_in_this_migration: false
+    builder_retirement_requires_equivalence_tests: true
+    builder_retirement_requires_explicit_authorization: true
+    historical_external_ids_and_urls_must_remain_addressable: true
+  invariants:
+    canonical_name_and_archetype_id_are_primary: true
+    legacy_label_is_continuity_pointer_only: true
+    exact_role_matching_required: true
+    fuzzy_legacy_translation_forbidden: true
+    certified_for_any_project_does_not_equal_project_adoption: true
+    adopted_does_not_equal_project_context_ready: true
+    project_context_ready_does_not_authorize_mutation: true
+    handoff_does_not_transfer_authority: true
+    cross_project_service_does_not_transfer_project_ownership: true
+    provider_specialist_work_does_not_authorize_consumer_mutation: true
+    project_local_cross_project_execution_does_not_equal_runtime_proof: true
