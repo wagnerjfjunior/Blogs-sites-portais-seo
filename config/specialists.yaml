@@ -145,4 +145,4 @@ spec:
     handoff_does_not_transfer_authority: true
     cross_project_service_does_not_transfer_project_ownership: true
     provider_specialist_work_does_not_authorize_consumer_mutation: true
-    adopted_via_cross_project_service_does_not_equal_runtime_proof: true
+    project_local_cross_project_execution_does_not_equal_runtime_proof: true
