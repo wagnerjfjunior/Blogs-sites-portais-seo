@@ -14,13 +14,14 @@ Ecossistema digital com especialistas compartilhados pelo SES, governança versi
 | Frente | Estado durável | Evidência | Próximo marco live | Bloqueio |
 |---|---|---|---|---|
 | Specialist framework | SES canônico | SES `CANONICAL_SPECIALIST_FRAMEWORK` | consumir via Adapter | nenhum de identidade |
-| Project specialist adoption | migração V1 em PR | `config/specialists.yaml` | validar e integrar | PRs antigas podem reintroduzir drift |
+| Project specialist adoption | integrado em `main` | `config/specialists.yaml` + PR #7 merged | consumir por ROLE -> ARCHETYPE_ID | nenhum blocker de identidade conhecido |
 | Legacy GPT0–GPT8 assets | preservados como continuidade/história | `config/gpts.yaml`, Builder/skills/tests | retirement por Builder quando elegível | equivalência/autorização ausentes |
 | Documentation gate | SES role definido | `documentation_audit -> documentation-auditor` | aplicar no head exato | gate não passante para |
 | Lifecycle gate | SFJM project governance | `config/sfjm.yaml` | aplicar head+base | não há archetype substituto |
 | Action READ_ONLY | concluída | schema OpenAPI | preservar durante legado | mutações desabilitadas |
 | Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
-| Ativos | não iniciado em `main` | registro ausente | incorporar handoffs validados | dados ausentes |
+| Ativos SEO | handoff MoreNumTegra candidato nesta PR | `docs/assets/morenumtegra-seo-handoff.md` | validar e integrar | inventário geral ainda incompleto |
+| MoreNumTegra | Search consumer via provider project-local | SES current adoption matrix + MoreNumTegra/Blogs adapters + handoff | executar somente após contexto/handoff válidos | implementação/autoridade permanecem no consumidor |
 | Produção | bloqueada | restrições | planejar | ambiente não aprovado |
 
 ## Portfolio SES adotado
@@ -40,6 +41,23 @@ Ativos/adotados para este projeto:
 Explicitamente não adotado: `backend_data`.
 
 Ainda não adotáveis como archetype SES atual: Local SEO e Authority & Digital PR, enquanto permanecerem TARGET/certification pending/not registered. Authority/Digital PR mantém continuidade local controlada; monetização permanece exceção project-local sem equivalente SES canônico.
+
+## MoreNumTegra Search service
+
+O SES central registra MoreNumTegra com as cinco capabilities Search como `ADOPTED`, usando metadata project-local de execução delegada ao provider `blogs-sites-portais-seo`:
+
+- `seo_strategy`;
+- `technical_seo`;
+- `content_semantic_seo`;
+- `seo_analytics_growth`;
+- `paid_search_sem`.
+
+Este projeto atua como Search Center of Expertise/provider. MoreNumTegra preserva Product Authority, architecture/UX ownership, repository/implementation, deploy, budget, campaign publication e risk acceptance. Local SEO e Authority & Digital PR continuam future intent/TARGET enquanto não houver elegibilidade SES + ativação explícita.
+
+```text
+PROVIDER_SPECIALIST_WORK != CONSUMER_PROJECT_MUTATION
+PROJECT_LOCAL_CROSS_PROJECT_SERVICE != PROJECT_OWNERSHIP_TRANSFER
+```
 
 ## Decisões necessárias
 
