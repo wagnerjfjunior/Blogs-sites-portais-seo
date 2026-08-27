@@ -21,6 +21,9 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 7. Ready e merge são separados e exigem head/base atuais e autorizações separadas.
 8. Local SEO e Authority & Digital PR permanecem TARGET no SES; não podem ser tratados como archetypes ativos/adotados antes da certificação/registro.
 9. Monetização permanece capability project-local sem replacement SES canônico neste momento.
+10. MoreNumTegra mantém as cinco capabilities Search `ADOPTED`; a execução project-local delega essas tarefas a este projeto como provider.
+11. O repo `wagnerjfjunior/MoreNumTegra` permanece fonte canônica da implementação e da autoridade do ativo.
+12. O handoff candidato desta PR não prova provider runtime execution, ownership/DNS, tracking ativo, spend ou publicação.
 
 ## Decisões vigentes
 
@@ -33,18 +36,20 @@ Retomada entre conversas e especialistas com fonte, revisões, lacunas, bloqueio
 | SFJM operacional | aprovado | Product Authority |
 | Tabela e manifesto autoritativos | aprovado | `NEXT_SAFE_ACTION` e `sfjm.yaml` |
 | Estado volátil não versionado | aprovado | política SFJM |
+| MoreNumTegra Search service | decisão SES vigente; handoff local candidato nesta PR | SES current adoption matrix + `docs/assets/morenumtegra-seo-handoff.md` |
+| Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
 
 ## Entregas duráveis
 
-Framework local legado preservado como evidência, estrutura SFJM, evidência upstream, máquina de lifecycle, validador, testes adversariais e migração SES project-local.
+Framework local legado preservado como evidência, estrutura SFJM, evidência upstream, máquina de lifecycle, validador, testes adversariais, migração SES project-local integrada e handoff MoreNumTegra candidato.
 
 ## Trabalho em andamento
 
-Concluir a normalização consumer-side para SES sem apagar história nem declarar Builder retirement. Calcular lifecycle live pela máquina; não declarar snapshot neste arquivo.
+Validar e integrar o handoff MoreNumTegra sem transferir autoridade ao provider. Calcular lifecycle live pela máquina; não declarar snapshot neste arquivo.
 
 ## Lacunas
 
-Builder live, inventário de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização.
+Builder live, inventário completo de ativos, ambientes, métricas e produção precisam de revalidação específica. Builders legados só podem ser aposentados individualmente após equivalência, runtime proof e autorização. Local SEO e Authority/Digital PR aguardam elegibilidade SES. O handoff MoreNumTegra não prova provider runtime execution, ownership/DNS nem tracking ativo.
 
 ## Riscos ativos
 
@@ -57,6 +62,7 @@ Builder live, inventário de ativos, ambientes, métricas e produção precisam 
 | Gate não passante avançar | transições de parada |
 | Estado terminal sem ação | transições merged/closed |
 | SES adoption confundida com Builder retirement | gate separado por Builder |
+| Handoff Search confundido com autoridade de implementação | fronteira de autoridade explícita por projeto |
 
 ## Próxima ação segura
 
