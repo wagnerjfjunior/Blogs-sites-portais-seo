@@ -80,7 +80,7 @@ Qualquer número derivado desses arquivos deve registrar fonte, data, período e
 
 ## 5. Responsabilidades via SES
 
-Novo roteamento usa somente `ROLE -> ARCHETYPE_ID`, conforme `config/specialists.yaml`, SES `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` e os Project Adapters aplicáveis. Para MoreNumTegra, as cinco roles abaixo usam `ADOPTED_VIA_CROSS_PROJECT_SERVICE` com `SERVICE_PROVIDER_PROJECT_ID: blogs-sites-portais-seo`.
+Novo roteamento usa somente `ROLE -> ARCHETYPE_ID`, conforme `config/specialists.yaml`, SES `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` e os Project Adapters aplicáveis. Para MoreNumTegra, as cinco roles abaixo permanecem `ADOPTED`; a execução usa metadata project-local `EXECUTION_MODE: PROJECT_LOCAL_CROSS_PROJECT_SERVICE` com `SERVICE_PROVIDER_PROJECT_ID: blogs-sites-portais-seo`.
 
 ### `seo_strategy -> seo-strategy-governance-specialist`
 
