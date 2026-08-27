@@ -44,7 +44,7 @@ Quando identidade/migração de especialista ou serviço cross-project for mater
 
 ## Lacunas
 
-Builder live, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica. O serviço cross-project não é prova de execução runtime; cada tarefa MoreNumTegra exige contexto live e handoff com provenance de ambos os projetos. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
+Builder live, ativos, domínios, métricas, tráfego, receita e produção exigem verificação específica. O modo project-local cross-project não cria um novo status universal de adoção e não é prova de execução runtime; cada tarefa MoreNumTegra exige contexto live e handoff com provenance de ambos os projetos. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
 
 ## Autorizações
 
