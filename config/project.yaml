@@ -11,6 +11,8 @@ spec:
   default_branch: main
   write_mode: pull_request
   specialist_adoption: config/specialists.yaml
+  portfolio_registry: config/assets.yaml
+  portfolio_strategy: docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md
   legacy_gpt_registry: config/gpts.yaml
   documentation_root: docs
   legacy_skills_root: .agents/skills
@@ -33,6 +35,9 @@ spec:
     new_specialist_routing_uses_role_to_archetype: true
     legacy_gpt_labels_are_continuity_only: true
     legacy_builder_retirement_requires_explicit_authorization: true
+    portfolio_fit_required_before_new_asset_or_domain: true
+    default_to_existing_asset_unless_independent_thesis_is_proven: true
+    manipulative_link_networks_forbidden: true
     direct_main_writes: false
     ready_requires_explicit_authorization: true
     merge_requires_separate_explicit_authorization: true
