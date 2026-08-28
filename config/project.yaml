@@ -13,6 +13,7 @@ spec:
   specialist_adoption: config/specialists.yaml
   portfolio_registry: config/assets.yaml
   portfolio_strategy: docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md
+  search_research_ledger: docs/research/SEARCH_RESEARCH_LEDGER.md
   legacy_gpt_registry: config/gpts.yaml
   documentation_root: docs
   legacy_skills_root: .agents/skills
@@ -38,6 +39,7 @@ spec:
     portfolio_fit_required_before_new_asset_or_domain: true
     default_to_existing_asset_unless_independent_thesis_is_proven: true
     manipulative_link_networks_forbidden: true
+    research_claims_require_evidence_class_and_revalidation_when_stale: true
     direct_main_writes: false
     ready_requires_explicit_authorization: true
     merge_requires_separate_explicit_authorization: true
