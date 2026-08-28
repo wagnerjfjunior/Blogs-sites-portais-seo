@@ -19,7 +19,8 @@ Cada nova propriedade deve ser posicionada no portfólio antes de implementaçã
 Fontes duráveis para esse objetivo:
 
 - estratégia mestra: `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`;
-- inventário/placement de ativos: `config/assets.yaml`.
+- inventário/placement de ativos: `config/assets.yaml`;
+- pesquisa e lacunas de evidência: `docs/research/SEARCH_RESEARCH_LEDGER.md`.
 
 `NEW_PROJECT != NEW_DOMAIN`
 
@@ -44,7 +45,7 @@ Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ause
 5. `config/project.yaml`
 6. `config/specialists.yaml`
 
-Quando posicionamento de novo projeto/domínio, arquitetura de portfólio ou estratégia do ecossistema for material, ler também `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md` e `config/assets.yaml`.
+Quando posicionamento de novo projeto/domínio, arquitetura de portfólio ou estratégia do ecossistema for material, ler também `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`, `config/assets.yaml` e, quando pesquisa anterior influenciar a decisão, `docs/research/SEARCH_RESEARCH_LEDGER.md`.
 
 Quando identidade/migração de especialista ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato e o ledger de certificação aplicável. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
 
@@ -64,6 +65,7 @@ Quando a tarefa envolver MoreNumTegra Search, resolver `wagnerjfjunior/MoreNumTe
 10. Este projeto é o Search Center of Expertise / provider de `morenumtegra` para `seo_strategy`, `technical_seo`, `content_semantic_seo`, `seo_analytics_growth` e `paid_search_sem`, sem adquirir autoridade sobre produto, código, deploy, orçamento, publicação ou risco do MoreNumTegra.
 11. MoreNumTegra é o ativo `P0` do ciclo atual e deve ser posicionado como `COMMERCIAL_CONVERSION_HUB`, sem ser confundido com a totalidade do ecossistema.
 12. Novos projetos devem passar pelo portfolio registry e pela tese de placement antes de receber domínio, arquitetura Search ou relacionamento de links.
+13. Pesquisa histórica/conversacional só pode influenciar decisão como evidência classificada; fatos atuais exigem revalidação quando a fonte estiver ausente ou stale.
 
 ## Lacunas
 
@@ -89,13 +91,14 @@ Consulte `docs/BLOCKED_ACTIONS.md`. Ausência na lista não autoriza.
 1. Resolver PR, head e base live.
 2. Ler a ordem mínima.
 3. Resolver strategy/portfolio registry quando placement de ativos for material.
-4. Resolver role/archetype no SES quando houver trabalho de especialista.
-5. Para MoreNumTegra, resolver consumer main + handoff Search live.
-6. Confirmar workflow no head exato.
-7. Separar fatos e lacunas.
-8. Calcular a primeira transição.
-9. Parar diante de drift, gate não passante, review pendente ou falta de autoridade.
+4. Resolver research ledger quando pesquisa histórica puder alterar a decisão.
+5. Resolver role/archetype no SES quando houver trabalho de especialista.
+6. Para MoreNumTegra, resolver consumer main + handoff Search live.
+7. Confirmar workflow no head exato.
+8. Separar fatos e lacunas.
+9. Calcular a primeira transição.
+10. Parar diante de drift, gate não passante, review pendente ou falta de autoridade.
 
 ## Atualização
 
-Atualizar somente por mudança durável de fonte, política, ordem, máquina, autoridade, specialist adoption, estratégia ou placement de portfólio; nunca por mero avanço de lifecycle.
+Atualizar somente por mudança durável de fonte, política, ordem, máquina, autoridade, specialist adoption, estratégia, pesquisa canônica ou placement de portfólio; nunca por mero avanço de lifecycle.
