@@ -1,0 +1,51 @@
+api_version: blogs-sites-portais-seo/v1
+kind: PortfolioRegistry
+metadata:
+  project_id: blogs-sites-portais-seo
+  authority: Wagner
+  status: candidate_in_pr
+spec:
+  strategy_path: docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md
+  intake_rule: portfolio_fit_before_implementation
+  default_domain_rule: prefer_existing_asset_unless_independent_thesis_is_proven
+  prohibited_primary_purpose:
+    - manipulative_link_network
+    - pbn
+    - duplicate_search_surface_without_user_value
+  assets:
+    - asset_id: morenumtegra
+      name: MoreNumTegra
+      lifecycle_status: CURRENT_PRIORITY_CANDIDATE
+      priority: P0
+      primary_role: COMMERCIAL_CONVERSION_HUB
+      consumer_repository: wagnerjfjunior/MoreNumTegra
+      commercial_domain: https://moretegra.com.br/
+      product_authority: MoreNumTegra project governance
+      search_provider_project_id: blogs-sites-portais-seo
+      search_service_domain: SEARCH_DISCOVERY_ACQUISITION
+      search_roles:
+        - seo_strategy
+        - technical_seo
+        - content_semantic_seo
+        - seo_analytics_growth
+        - paid_search_sem
+      target_audience: people evaluating Tegra residential properties in Sao Paulo
+      primary_business_goal: qualified commercial lead generation
+      architecture_intent: commercial hub with progressively justified project, region, stage, comparison and support-content pages
+      canonical_source_for_product_truth: wagnerjfjunior/MoreNumTegra
+      authority_boundary: provider may research, audit, recommend and measure Search; consumer retains product, implementation, deploy, DNS, publication, budget, spend and risk authority
+      current_search_handoff: docs/assets/morenumtegra-seo-handoff.md
+      current_provider_recommendation: docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md
+      evidence_status: BOUNDED_BY_CONSUMER_HANDOFF_AND_REPOSITORY_EVIDENCE
+      review_triggers:
+        - material_change_in_domain_or_canonical_surface
+        - introduction_of_project_detail_pages_or_new_content_system
+        - new_independent_property_or_domain_candidate
+        - analytics_or_paid_search_activation
+        - SES_activation_of_local_seo_or_authority_digital_pr
+  intake_outcomes:
+    - ATTACH_TO_EXISTING_ASSET
+    - CREATE_NEW_ASSET_CANDIDATE
+    - CREATE_CAMPAIGN_SURFACE
+    - DEFER_INSUFFICIENT_THESIS
+    - REJECT_MANIPULATIVE_OR_REDUNDANT
