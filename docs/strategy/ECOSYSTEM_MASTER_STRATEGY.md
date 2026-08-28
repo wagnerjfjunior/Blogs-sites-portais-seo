@@ -1,4 +1,4 @@
-# Estratégia Mestra — Ecossistema de Blogs, Sites, Portais e SEO/SEM
+# Estratégia Mestra — Ecossistema de Blogs, Sites, Portais e SEO
 
 ## Status
 
@@ -14,7 +14,7 @@ O objetivo de longo prazo é transformar o conjunto em uma plataforma de ativos 
 
 - aquisição orgânica e paga coordenadas;
 - SEO técnico e conteúdo orientado por demanda real;
-- Search, GEO/AEO e descoberta em mecanismos tradicionais e sistemas de IA;
+- Search, SEM, GEO/AEO e descoberta em mecanismos tradicionais e sistemas de IA;
 - autoridade editorial e Digital PR legítimos;
 - dados, mensuração, experimentação e aprendizado acumulado;
 - monetização compatível com cada ativo;
