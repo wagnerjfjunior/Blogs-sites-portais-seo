@@ -1,4 +1,4 @@
-# Ecossistema de Blogs, Sites, Portais e SEO/SEM
+# Ecossistema de Blogs, Sites, Portais e SEO
 
 - **ID técnico:** `blogs-sites-portais-seo`
 - **Repositório canônico:** `wagnerjfjunior/Blogs-sites-portais-seo`
@@ -21,7 +21,7 @@ NEW_PROJECT != NEW_DOMAIN
 KEYWORD_VOLUME != DOMAIN_JUSTIFICATION
 ```
 
-A estratégia mestra está em `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md` e o registry de ativos em `config/assets.yaml`.
+A estratégia mestra está em `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`, o registry de ativos em `config/assets.yaml` e o research ledger em `docs/research/SEARCH_RESEARCH_LEDGER.md`.
 
 ## Prioridade atual — MoreNumTegra
 
@@ -71,6 +71,7 @@ O antigo registry `config/gpts.yaml`, os manifests `config/builder/gpt*.yaml`, I
 - `config/specialists.yaml`: adoção project-local de specialists SES e relações de serviço.
 - `config/assets.yaml`: registry e placement dos ativos digitais.
 - `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`: tese e arquitetura mestra do ecossistema.
+- `docs/research/SEARCH_RESEARCH_LEDGER.md`: índice de pesquisa, evidência e lacunas.
 - `config/gpts.yaml`: registry legado preservado, sem autoridade de novo roteamento.
 - `config/sfjm.yaml`: manifesto e transições SFJM.
 - `bootstrap/BOOTSTRAP_CANONICO.md`: entrada e ordem.
