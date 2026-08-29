@@ -248,7 +248,68 @@ Provider guidance:
 
 `SOURCE_PROVENANCE != RANKING_GUARANTEE`
 
-## 11. Admission of future research
+## 11. MoreNumTegra — preço de conversão e condição à vista
+
+### Research question
+
+Como competir em BOFU quando portais/corretores anunciam valores condicionados a pagamento à vista inferiores ao preço promocional atualmente exibido pelo MoreNumTegra?
+
+### Evidence state
+
+Internal repository inventory:
+
+`LIVE_OBSERVATION_RECEIPT / CONSUMER_REPO_DIRECTORY_STRUCTURE`
+
+External market observation:
+
+`LIVE_WEB_OBSERVATION`
+
+Owner claim about `-8%` promotional pricing and cash conditions reaching approximately `-24,6%`:
+
+`USER_PROVIDED_EVIDENCE / UNIT_AND_MONTH_RECONCILIATION_PENDING`
+
+### Confirmed internal inventory
+
+Observed in MoreNumTegra:
+
+- `Tegra/Agosto/Tabela/`;
+- `Tegra/Agosto/Tabela_Coordenação/`;
+- `Tegra/Agosto/Espelho/`;
+- `Tegra/Agosto/Promocionais/`.
+
+The September directory was observed with only a placeholder at the time of this research.
+
+### Competitive observation
+
+OLX surfaced a 105 m² / 3-bedroom Lapa listing at `R$ 1.248.000`.
+
+Imovelweb also surfaced Nova Vivere 105 m² listings whose copy explicitly conditions the advertised value to payment `à vista`, including an observed result at `R$ 1.195.000`.
+
+### Search decision
+
+Price-to-convert is valid BOFU strategy when the exact condition is visible and evidence-bound.
+
+Do not apply a global `24,6%` discount formula.
+
+Prefer:
+
+`À vista a partir de R$ X*`
+
+with a nearby, legible condition note tied to the same unit and evidence month.
+
+Provider guidance:
+
+`docs/assets/morenumtegra-conversion-pricing-strategy-2026-08-29.md`
+
+### Boundary
+
+`COMPETITOR_PRICE != OUR_PRICE_AUTHORITY`
+
+`USER_PROVIDED_DISCOUNT != UNIT_LEVEL_PROOF`
+
+`AGGRESSIVE_COPY != HIDDEN_CONDITION`
+
+## 12. Admission of future research
 
 Quando uma pesquisa gerar decisão material, registrar:
 
