@@ -4,9 +4,9 @@
 
 `PROVIDER_SEARCH_GUIDANCE / CROSS_PROJECT / NO_CONSUMER_MUTATION_AUTHORITY`
 
-## 1. Scope
+## 1. Escopo
 
-This document records the Search/SEO interpretation of the 2026 Prêmio Master Imobiliário recognition for use by MoreNumTegra.
+Orientação Search/SEO para transformar os reconhecimentos do Prêmio Master Imobiliário 2026 em argumento de autoridade e conversão no MoreNumTegra, preservando precisão factual e sem retirar o usuário da página comercial.
 
 Consumer / Product Authority:
 
@@ -16,23 +16,23 @@ Search provider:
 
 `wagnerjfjunior/Blogs-sites-portais-seo`
 
-Consumer implementation observed for this assessment:
+Consumer implementation observado:
 
 - PR #32 — `feat: destacar Prêmio Master Imobiliário 2026`
 - base: `4202356b6199fef720919eb639168aa4158ae3d8`
-- head observed: `38a8c20de236c9fda75b0b57236df94592803c1a`
-- implementation surfaces: `src-greenn/blocks/01-html-inicial.html`, `src-greenn/moretegra.css`, `src-greenn/moretegra.js`
+- head observado: `38a8c20de236c9fda75b0b57236df94592803c1a`
+- superfícies: `src-greenn/blocks/01-html-inicial.html`, `src-greenn/moretegra.css`, `src-greenn/moretegra.js`
 
-PR lifecycle state is volatile and must be resolved live. This document does not authorize consumer mutation, Ready, merge, Vercel Production or Green publication.
+Estado de lifecycle é volátil e deve ser resolvido live. Este documento não autoriza mutação no consumer, Ready, merge, Vercel Production ou Green.
 
-## 2. Authoritative factual evidence
+## 2. Evidência factual
 
-Primary external source:
+Fonte externa primária:
 
 SECOVI-SP — Conheça os vencedores do Prêmio Master Imobiliário 2026  
 https://secovi.com.br/conheca-os-vencedores-do-premio-master-imobiliario-2026/
 
-Observed on 2026-08-29:
+Observado em 2026-08-29:
 
 1. `Profissional – Soluções Arquitetônicas`
    - Empresa: Tegra
@@ -44,170 +44,165 @@ Observed on 2026-08-29:
    - Case: `Caminhos da Lapa: redesenhando um bairro`
    - Localização: São Paulo/SP
 
-The second recognition is for the Caminhos da Lapa case/masterplan, not proof that each condominium/phase individually won a separate award.
+O segundo reconhecimento é do case/masterplan Caminhos da Lapa. Não prova que cada condomínio/fase recebeu individualmente um prêmio autônomo.
 
-## 3. Product/masterplan relationship evidence
+## 3. Relação entre masterplan e produtos do catálogo
 
-Official Tegra pages support a relationship between current MoreNumTegra catalog entries and the Caminhos da Lapa complex:
+Fontes oficiais Tegra sustentam o vínculo de:
 
-- Nova Vivere: official Tegra page describes it as a new address/project of the `complexo Caminhos da Lapa`.
-  - https://www.tegraincorporadora.com.br/sp/sao-paulo/oeste/lapa/novavivere
-- Garden Design: official Tegra page describes it as a project of the `complexo Caminhos da Lapa`.
-  - https://www.tegraincorporadora.com.br/sp/sao-paulo/oeste/lapa/gardendesignprivateparkresidence
-- Caminhos da Lapa Elo Duo: the official product name and legal text explicitly associate it with Caminhos da Lapa.
-  - https://www.tegraincorporadora.com.br/sp/sao-paulo/oeste/lapa/caminhos-da-lapa-elo-duo
-- Reserva Caminhos da Lapa: official Tegra product naming supports the relationship.
-  - https://www.tegraincorporadora.com.br/sp/sao-paulo/oeste/lapa/reserva-caminhos-da-lapa
+- Nova Vivere;
+- Garden Design;
+- Caminhos da Lapa Elo Duo;
+- Reserva Caminhos da Lapa;
 
-Therefore, MoreNumTegra may factually communicate that these projects are part of the award-winning Caminhos da Lapa masterplan/complex, provided the wording does not state or imply that each individual project independently received the 2026 award.
+com o complexo/masterplan Caminhos da Lapa.
 
-## 4. Search copy decision
+Portanto, é factual comunicar que esses empreendimentos fazem parte do Caminhos da Lapa premiado, desde que a copy não transforme o prêmio do masterplan em prêmio individual de cada torre.
 
-### Institutional block
+## 4. Regra de conversão
 
-Recommended primary heading:
+MoreNumTegra é uma página de conversão. O reconhecimento deve aumentar confiança e clique, não desviar tráfego.
 
-`Tegra recebe dois reconhecimentos no Prêmio Master Imobiliário 2026`
+### Decisão
 
-Recommended supporting copy:
+- NÃO colocar link outbound visível para SECOVI-SP no bloco comercial;
+- manter a URL/fonte no repositório e na evidência interna para auditabilidade;
+- usar o nome oficial do prêmio e das categorias na própria página;
+- CTA do bloco deve permanecer dentro do funil MoreNumTegra: filtros, cards, WhatsApp ou formulário.
 
-`Em 2026, o Prêmio Master Imobiliário reconheceu a Tegra em Soluções Arquitetônicas pelo RIIO by Piero Lissoni e premiou o case Caminhos da Lapa, desenvolvido por Helbor, Toledo Ferrari e Tegra, na categoria Qualificação Urbana.`
+`PROVENANCE_INTERNAL != OUTBOUND_CTA_REQUIRED`
 
-Why:
+## 5. Copy recomendada
 
-- uses the exact award/category entities;
-- separates the Tegra-only RIIO recognition from the joint Caminhos da Lapa recognition;
-- improves factual extractability for Search/AEO/GEO;
-- avoids implying that every Tegra development won an award.
+O termo `masterplan` sozinho tem baixa clareza para público geral. Ele pode aparecer como precisão técnica em texto de apoio, mas não deve ser o principal gatilho.
 
-### Award cards
+### Eyebrow
 
-Prefer exact labels over generic marketing abstractions:
+`PRÊMIO MASTER IMOBILIÁRIO 2026`
+
+### Headline preferida
+
+`Dois prêmios em 2026. Um deles está no seu próximo endereço.`
+
+### Supporting copy
+
+`A Tegra foi reconhecida em duas categorias do Prêmio Master Imobiliário 2026. Em São Paulo, o Caminhos da Lapa venceu em Qualificação Urbana — e você pode escolher entre empreendimentos que fazem parte desse complexo premiado.`
+
+### Alternativa mais direta
+
+`Caminhos da Lapa foi premiado. E você pode morar dentro desse projeto.`
+
+Supporting:
+
+`O complexo desenvolvido por Helbor, Toledo Ferrari e Tegra venceu o Prêmio Master Imobiliário 2026 em Qualificação Urbana. Conheça os empreendimentos disponíveis no MoreNumTegra.`
+
+### Regra
+
+Headline pode ser comercialmente forte. A precisão factual deve estar imediatamente no supporting copy.
+
+## 6. Cards institucionais
+
+Preferir:
 
 - `RIIO BY PIERO LISONI — Soluções Arquitetônicas`
 - `Caminhos da Lapa — Qualificação Urbana`
 
-The visible text `Excelência em arquitetura` is acceptable as marketing copy but should not replace the official category name if Search citability is the goal.
+Pode haver uma linha de impacto acima, como `Reconhecido pelo setor`, mas não substituir a categoria oficial por uma abstração que reduza Search/AEO/GEO citability.
 
-## 5. Badge / card rule
+## 7. Badge nos cards de Caminhos da Lapa
 
-For projects that are part of Caminhos da Lapa, the short badge should not read simply:
+Evitar o badge isolado:
 
 `PROJETO PREMIADO`
 
-because that can reasonably be interpreted as an individual award for the specific condominium.
+porque pode ser entendido como prêmio individual do empreendimento exibido.
 
-Preferred short variants:
+### Copy curta recomendada
 
-- `MASTERPLAN PREMIADO`
-- `CAMINHOS DA LAPA · MASTER 2026`
-- `PARTE DO MASTERPLAN PREMIADO`
+`CAMINHOS DA LAPA · PREMIADO 2026`
 
-Preferred accessible/expanded label:
+ou, se o espaço for muito restrito:
 
-`Parte do masterplan Caminhos da Lapa, vencedor do Prêmio Master Imobiliário 2026 na categoria Qualificação Urbana.`
+`MASTER 2026 · CAMINHOS DA LAPA`
 
-This preserves the commercial value of the visual badge while keeping the claim aligned to the source.
+### Copy expandida / accessible label
 
-## 6. Source/provenance recommendation
+`Empreendimento integrante do Caminhos da Lapa, vencedor do Prêmio Master Imobiliário 2026 na categoria Qualificação Urbana.`
 
-The institutional award block should include a visible editorial citation to the official SECOVI-SP source.
+A palavra `masterplan` pode existir no tooltip, aria-label ou corpo, mas não precisa ser a única mensagem comercial.
 
-Recommended anchor:
+## 8. Search / AEO / GEO
 
-`Fonte: SECOVI-SP — Prêmio Master Imobiliário 2026`
-
-This is not a link-building tactic and should not be treated as a ranking guarantee. Its purpose is factual provenance, trust and extractability.
-
-At the consumer head observed for this assessment, the award block did not contain a visible SECOVI URL in the final HTML source inspected.
-
-## 7. Consumer PR #32 reconciliation finding
-
-Observed inconsistency:
-
-- PR #32 body states that the corner badge applies to Nova Vivere, Caminhos da Lapa Elo Duo and Reserva Caminhos da Lapa;
-- the exact JavaScript head observed also applies the award badge to Garden Design.
-
-The Garden Design relationship itself is supported by the official Tegra page, so this is not a factual blocker by itself.
-
-However:
-
-`PR_DESCRIPTION != IMPLEMENTATION_DIFF`
-
-The consumer should reconcile the PR description with the actual four-card implementation before lifecycle completion.
-
-## 8. SEO / AEO / GEO use
-
-The award should be treated as a new factual entity relationship:
+Relações factuais a preservar:
 
 `Tegra -> Prêmio Master Imobiliário 2026 -> RIIO by Piero Lissoni -> Soluções Arquitetônicas`
 
-and:
-
 `Caminhos da Lapa -> Prêmio Master Imobiliário 2026 -> Qualificação Urbana -> Helbor + Toledo Ferrari + Tegra`
 
-For future stable Caminhos da Lapa/project pages, this evidence can support:
+Para futuras páginas estáveis de empreendimento/Caminhos da Lapa, essa evidência poderá sustentar:
 
-- concise factual award sections;
-- entity disambiguation;
-- provenance links;
-- internal linking between the masterplan and its component developments;
-- answerable FAQ/content only where useful to users;
-- structured data only when a suitable schema type and visible factual content are present.
+- seção factual curta sobre o prêmio;
+- relação entre masterplan e empreendimentos;
+- internal linking;
+- conteúdo de resposta quando útil;
+- structured data apenas quando houver tipo adequado e conteúdo visível correspondente.
 
-Do not create artificial award schema, reviews or ratings.
+Não criar schema artificial de prêmio, review ou rating.
 
-## 9. Homepage vs future project pages
+## 9. Finding de reconciliação da PR #32
 
-Homepage role:
+No head observado:
 
-- institutional proof of Tegra recognition;
-- concise summary;
-- direct relationship to Caminhos da Lapa inventory.
+- o corpo da PR #32 declara badge em Nova Vivere, Caminhos da Lapa Elo Duo e Reserva;
+- o JavaScript também aplica badge em Garden Design.
 
-Future project/detail page role:
+Garden Design tem vínculo factual com o complexo. Portanto, o problema não é elegibilidade factual; é a divergência documental:
 
-- explain that the specific project is part of the Caminhos da Lapa masterplan;
-- reference the masterplan award precisely;
-- avoid saying the individual tower/project won unless a source proves that exact claim.
+`PR_DESCRIPTION != IMPLEMENTATION_DIFF`
 
-This distinction supports BOFU product pages without contaminating product-level factual accuracy.
+A PR do consumer deve reconciliar a descrição com os quatro cards antes do fechamento de lifecycle.
 
-## 10. Ownership boundary
+## 10. Fronteira de autoridade
 
-### MoreNumTegra / Product Authority owns
+### MoreNumTegra / Product Authority
 
-- visual design;
-- badge geometry/color/placement;
-- catalog eligibility implementation;
+Responsável por:
+
+- design visual;
+- geometria/cor/posição do badge;
+- CTA;
 - HTML/CSS/JS;
-- Vercel Preview;
-- publication lifecycle;
-- Green publication;
-- final commercial risk acceptance.
+- Vercel;
+- Green;
+- risco comercial e publicação.
 
-### Search provider owns
+### Search provider
 
-- factual Search wording recommendation;
-- semantic precision;
-- source/provenance requirement;
-- SEO/AEO/GEO interpretation;
-- future information-architecture and structured-data recommendation;
-- validation that Search claims do not overstate the evidence.
+Responsável por:
+
+- precisão factual;
+- copy Search/AEO/GEO;
+- uso de entidades/categorias;
+- guardrail de claim;
+- estratégia de conversão Search;
+- evidência/provenance interna.
 
 `SEARCH_GUIDANCE != CONSUMER_IMPLEMENTATION_AUTHORITY`
 
-## 11. Provider verdict on the observed basic implementation
+## 11. Verdict Search sobre a implementação observada
 
-`PASS_WITH_REQUIRED_COPY_RECONCILIATION_BEFORE_PUBLICATION`
+`BLOCK`
 
-The concept is valid and the source evidence is strong.
+Escopo do BLOCK:
 
-Before Green publication, Search recommends:
+`SEARCH_APPROVAL_FOR_GREEN_PUBLICATION_OF_MORENUMTEGRA_PR32_AT_OBSERVED_HEAD`
 
-1. change the short per-project badge away from `PROJETO PREMIADO` to a masterplan-specific claim;
-2. expose the official category names in visible copy;
-3. add a visible SECOVI-SP source link;
-4. reconcile PR #32 body with the four projects actually carrying the badge.
+Motivos:
 
-No consumer mutation was performed by the provider.
+1. o badge curto `PROJETO PREMIADO` pode superestimar o prêmio do masterplan como prêmio individual;
+2. a copy deve ser ajustada para conversão sem depender de `masterplan` como mensagem principal;
+3. a descrição da PR deve refletir os quatro cards efetivamente marcados.
+
+Não é necessário adicionar link outbound para SECOVI-SP. A provenance permanece internamente versionada.
+
+Nenhuma mutação no consumer foi executada pelo provider.
