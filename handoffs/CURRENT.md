@@ -75,6 +75,31 @@ P0 canonicalidade / hostname / metadata / robots / sitemap / Search Console
 
 A superfície geral de web-fetch do provider não conseguiu recuperar a produção nesta execução. Claims HTTP/live são portanto atribuídas ao handoff consumer datado e devem ser rechecadas antes da aceitação da implementação.
 
+## MoreNumTegra — Prêmio Master Imobiliário 2026
+
+Novo provider result:
+
+`docs/assets/morenumtegra-master-imobiliario-2026-search-guidance-2026-08-29.md`
+
+Evidência externa confirmada em 2026-08-29:
+
+- Tegra / RIIO by Piero Lissoni — Prêmio Master Imobiliário 2026, categoria `Profissional – Soluções Arquitetônicas`;
+- Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — categoria `Empreendimento – Qualificação Urbana`.
+
+Boundary Search:
+
+- usar o prêmio como prova institucional/masterplan;
+- não afirmar que cada condomínio individual ganhou o prêmio;
+- badge recomendado deve explicitar `masterplan premiado` ou relação equivalente;
+- fonte SECOVI-SP deve ser visível no bloco institucional;
+- implementação visual e lifecycle permanecem no MoreNumTegra.
+
+Consumer implementation observed for this provider result:
+
+`wagnerjfjunior/MoreNumTegra PR #32 @ 38a8c20de236c9fda75b0b57236df94592803c1a`
+
+O provider não mutou o consumer.
+
 ## Trabalho em andamento
 
 Validar e integrar esta PR sem transferir autoridade ao provider. Após integração, MoreNumTegra deve adjudicar o provider result e decidir o escopo P0 de implementação no próprio lifecycle.
