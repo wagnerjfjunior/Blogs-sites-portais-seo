@@ -264,9 +264,9 @@ External market observation:
 
 `LIVE_WEB_OBSERVATION`
 
-Owner claim about `-8%` promotional pricing and cash conditions reaching approximately `-24,6%`:
+Nova Vivere unit 708 cash-offer evidence:
 
-`USER_PROVIDED_EVIDENCE / UNIT_AND_MONTH_RECONCILIATION_PENDING`
+`CONSUMER_VERSIONED_EVIDENCE / UNIT_BOUND / 2026-08-29`
 
 ### Confirmed internal inventory
 
@@ -281,9 +281,7 @@ The September directory was observed with only a placeholder at the time of this
 
 ### Competitive observation
 
-OLX surfaced a 105 m² / 3-bedroom Lapa listing at `R$ 1.248.000`.
-
-Imovelweb also surfaced Nova Vivere 105 m² listings whose copy explicitly conditions the advertised value to payment `à vista`, including an observed result at `R$ 1.195.000`.
+The consumer now versions Nova Vivere unit 708 at `105 m²` and `R$ 1.129.900 à vista`, with a preserved OLX visual/reference and a recorded `24,6%` discount relative to the same unit table value. The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is superseded.
 
 ### Search decision
 
@@ -305,11 +303,52 @@ Provider guidance:
 
 `COMPETITOR_PRICE != OUR_PRICE_AUTHORITY`
 
-`USER_PROVIDED_DISCOUNT != UNIT_LEVEL_PROOF`
+`UNIT_LEVEL_PROOF != GLOBAL_DISCOUNT_RULE`
 
 `AGGRESSIVE_COPY != HIDDEN_CONDITION`
 
-## 12. Admission of future research
+## 12. MoreNumTegra — metadata technical decision
+
+### Question
+
+Como transportar canonical, social metadata e JSON-LD no fluxo Green atual sem transformar Vercel em origem comercial nem criar sinais conflitantes?
+
+### Evidence state
+
+`OFFICIAL_GOOGLE_SEARCH_DOCUMENTATION + CONSUMER_ARCHITECTURE + PRODUCT_AUTHORITY_DECISION`
+
+Official Google sources consulted on 2026-08-29:
+
+- https://developers.google.com/search/docs/crawling-indexing/canonicalization
+- https://developers.google.com/search/updates
+- Google structured-data documentation referencing JavaScript generation support.
+
+### Decision
+
+`PASS_WITH_RESIDUAL_RISK`
+
+Approved for the bounded MoreNumTegra package:
+
+- stable title/meta description;
+- JS-created/updated commercial canonical `https://moretegra.com.br/` only if no conflicting initial canonical exists;
+- Vercel remains `noindex,nofollow`;
+- Open Graph/Twitter metadata;
+- conservative `WebSite + WebPage` JSON-LD;
+- no award/review/rating schema invention.
+
+Provider decision:
+
+`docs/assets/morenumtegra-technical-seo-metadata-decision-2026-08-29.md`
+
+### Boundary
+
+`JS_CANONICAL_ACCEPTED != STATIC_CANONICAL_PROVEN`
+
+`VALID_SCHEMA != RICH_RESULT_GRANTED`
+
+`COMMERCIAL_CANONICAL != VERCEL_INDEXABLE`
+
+## 13. Admission of future research
 
 Quando uma pesquisa gerar decisão material, registrar:
 
