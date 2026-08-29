@@ -19,8 +19,8 @@ Search provider:
 Consumer implementation observado:
 
 - PR #32 — `feat: destacar Prêmio Master Imobiliário 2026`
-- base: `4202356b6199fef720919eb639168aa4158ae3d8`
-- head observado: `38a8c20de236c9fda75b0b57236df94592803c1a`
+- base: `76f6d5c543173382803c42bba04d2e63554b2f14`
+- head observado: `287793959a1da8667f042b8177d4476ad43e6821`
 - superfícies: `src-greenn/blocks/01-html-inicial.html`, `src-greenn/moretegra.css`, `src-greenn/moretegra.js`
 
 Estado de lifecycle é volátil e deve ser resolvido live. Este documento não autoriza mutação no consumer, Ready, merge, Vercel Production ou Green.
@@ -119,11 +119,11 @@ porque pode ser entendido como prêmio individual do empreendimento exibido.
 
 ### Copy curta recomendada
 
-`CAMINHOS DA LAPA · PREMIADO 2026`
+`PRÊMIO MASTER IMOBILIÁRIO 2026`
 
-ou, se o espaço for muito restrito:
+com segunda camada visível:
 
-`MASTER 2026 · CAMINHOS DA LAPA`
+`Caminhos da Lapa · um bairro inteiro de opções`
 
 ### Copy expandida / accessible label
 
@@ -149,18 +149,17 @@ Para futuras páginas estáveis de empreendimento/Caminhos da Lapa, essa evidên
 
 Não criar schema artificial de prêmio, review ou rating.
 
-## 9. Finding de reconciliação da PR #32
+## 9. Estado reconciliado da PR #32
 
-No head observado:
+No head observado `287793959a1da8667f042b8177d4476ad43e6821`:
 
-- o corpo da PR #32 declara badge em Nova Vivere, Caminhos da Lapa Elo Duo e Reserva;
-- o JavaScript também aplica badge em Garden Design.
-
-Garden Design tem vínculo factual com o complexo. Portanto, o problema não é elegibilidade factual; é a divergência documental:
-
-`PR_DESCRIPTION != IMPLEMENTATION_DIFF`
-
-A PR do consumer deve reconciliar a descrição com os quatro cards antes do fechamento de lifecycle.
+- o bloco institucional usa o nome oficial `Prêmio Master Imobiliário 2026`;
+- o badge curto genérico `PROJETO PREMIADO` foi substituído pelo nome oficial completo do prêmio;
+- a segunda camada comunica `Caminhos da Lapa · um bairro inteiro de opções`;
+- Nova Vivere aparece em dois cards de conversão na mesma home: 72 m² no início e 105 m² no meio;
+- o card 105 m² usa `R$ 1.129.900 à vista*` com disclaimer próximo e CTA interno;
+- não há outbound link para SECOVI-SP no bloco comercial;
+- a descrição da PR foi reconciliada com o diff observado.
 
 ## 10. Fronteira de autoridade
 
@@ -191,18 +190,24 @@ Responsável por:
 
 ## 11. Verdict Search sobre a implementação observada
 
-`BLOCK`
+`PASS_WITH_RESIDUAL_RISK`
 
-Escopo do BLOCK:
+Escopo:
 
-`SEARCH_APPROVAL_FOR_GREEN_PUBLICATION_OF_MORENUMTEGRA_PR32_AT_OBSERVED_HEAD`
+`SEARCH_APPROVAL_FOR_PREVIEW_AND_LIFECYCLE_PROGRESS_OF_MORENUMTEGRA_PR32_AT_OBSERVED_HEAD`
 
-Motivos:
+Passa porque:
 
-1. o badge curto `PROJETO PREMIADO` pode superestimar o prêmio do masterplan como prêmio individual;
-2. a copy deve ser ajustada para conversão sem depender de `masterplan` como mensagem principal;
-3. a descrição da PR deve refletir os quatro cards efetivamente marcados.
+1. o nome oficial do prêmio está visível;
+2. a relação Caminhos da Lapa / Qualificação Urbana permanece factual;
+3. a headline é comercial, mas o supporting copy preserva precisão;
+4. o usuário não é enviado para fora do funil;
+5. a condição à vista está associada à unidade e ao disclaimer;
+6. a provenance está versionada no consumer.
 
-Não é necessário adicionar link outbound para SECOVI-SP. A provenance permanece internamente versionada.
+Risco residual:
 
-Nenhuma mutação no consumer foi executada pelo provider.
+- disponibilidade e condição comercial da unidade 708 são voláteis e precisam ser reconfirmadas antes da publicação Green;
+- Search approval não substitui Product Authority, lifecycle, merge ou publicação.
+
+Nenhuma autorização de merge ou Green é criada por este verdict.
