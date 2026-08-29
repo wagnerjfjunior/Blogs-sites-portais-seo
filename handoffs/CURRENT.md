@@ -91,7 +91,7 @@ Boundary Search:
 - usar o prêmio como prova institucional/masterplan;
 - não afirmar que cada condomínio individual ganhou o prêmio;
 - badge recomendado deve explicitar `masterplan premiado` ou relação equivalente;
-- fonte SECOVI-SP deve ser visível no bloco institucional;
+- fonte SECOVI-SP permanece evidence/provenance interna; não deve existir outbound link no bloco de conversão;
 - implementação visual e lifecycle permanecem no MoreNumTegra.
 
 Consumer implementation observed for this provider result:
@@ -100,7 +100,24 @@ Consumer implementation observed for this provider result:
 
 O provider não mutou o consumer.
 
-## Trabalho em andamento
+## MoreNumTegra — estratégia de preço de conversão
+
+Novo provider result:
+
+`docs/assets/morenumtegra-conversion-pricing-strategy-2026-08-29.md`
+
+Direção vigente:
+
+- usar condições à vista como gatilho BOFU quando houver prova por unidade/mês;
+- não aplicar desconto percentual global;
+- manter `à vista` imediatamente associado ao preço;
+- disclaimer pode ser secundário, mas deve ser legível e próximo;
+- preço competitivo deve converter para WhatsApp/Form 46, não retirar o usuário do site;
+- source-of-truth comercial permanece nos artefatos mensais do consumer.
+
+A informação do owner de desconto promocional em torno de 8% e condição à vista chegando a aproximadamente 24,6% permanece `USER_PROVIDED_EVIDENCE` até reconciliação contra unidade/tabela/condição do mês vigente.
+
+
 
 Validar e integrar esta PR sem transferir autoridade ao provider. Após integração, MoreNumTegra deve adjudicar o provider result e decidir o escopo P0 de implementação no próprio lifecycle.
 
