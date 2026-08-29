@@ -28,45 +28,38 @@ Em 2026-08-29, `Tegra/Setembro/` contém apenas o placeholder `Setembro.md`; por
 
 Os arquivos binários devem ser a prova por unidade/condição antes de publicar um preço derivado deles.
 
-## 3. Evidência competitiva observada
+## 3. Evidência comercial rastreável
 
-### OLX
+O consumer passou a versionar a condição no próprio repositório:
 
-O anúncio informado pelo Product Authority aparece na superfície de busca da OLX com:
+- `Tegra/Agosto/Anuncios/Anúncios.md`;
+- `Tegra/Agosto/Anuncios/Anuncio NovaVivere Olx valor a vista-29-08-26.png`.
 
-- título: `Imóvel para venda possui 105 metros quadrados com 3 quartos em Lapa - São Paulo - SP`;
-- preço observado: `R$ 1.248.000`;
-- área: `105 m²`;
-- 3 quartos.
+Registro reconciliado:
 
-URL fornecida pelo owner:
+- Nova Vivere;
+- unidade 708;
+- 105 m²;
+- valor à vista: `R$ 1.129.900,00`;
+- confirmação: 29/08/2026;
+- desconto informado: `24,6%` em relação ao valor de tabela da mesma unidade;
+- anúncio OLX preservado como evidência de mercado.
 
-`https://sp.olx.com.br/sao-paulo-e-regiao/imoveis/imovel-para-venda-possui-105-metros-quadrados-com-3-quartos-em-lapa-sao-paulo-sp-1479645971`
-
-### Imovelweb
-
-Também foram observados anúncios de Nova Vivere / Lapa usando explicitamente preço condicionado a pagamento à vista, inclusive um resultado de 105 m² por `R$ 1.195.000` com a frase `Valor referente ... para pagamento à vista`.
+A leitura anterior de `R$ 1.248.000` para esse anúncio estava incorreta e foi removida desta evidência.
 
 ### Interpretação
 
-Há evidência de mercado de que corretores/portais estão usando o preço à vista como principal âncora de aquisição.
+Há agora provenance interna suficiente para usar `R$ 1.129.900 à vista*` como claim de conversão da unidade 708 no Preview, desde que o disclaimer permaneça próximo e a condição seja reconfirmada antes da Green.
 
-Isso não prova que o mesmo preço ou desconto seja aplicável ao MoreNumTegra. Prova que a estratégia de apresentação é competitivamente relevante.
+`VERSIONED_EVIDENCE != PERMANENT_AVAILABILITY`
 
-## 4. Informação do Product Authority ainda a reconciliar
+## 4. Regra para o percentual de 24,6%
 
-O owner informou:
+Para a unidade 708, o percentual está registrado com provenance no consumer.
 
-- preço promocional atualmente usado: aproximadamente tabela menos 8%, conforme condição aplicável;
-- condição à vista pode chegar a aproximadamente 24,6% abaixo da tabela.
+Isso NÃO autoriza aplicar `-24,6%` genericamente ao empreendimento ou ao catálogo.
 
-Evidence class atual:
-
-`USER_PROVIDED_EVIDENCE / REQUIRES_UNIT_AND_MONTH_RECONCILIATION`
-
-Não aplicar `-24,6%` genericamente a todos os empreendimentos.
-
-O percentual só pode virar claim publicável quando houver:
+Qualquer outro percentual exige:
 
 - empreendimento;
 - unidade;
@@ -200,12 +193,15 @@ Isto é guardrail de informação, não aconselhamento jurídico.
 
 ## 12. Próximo proof obligation
 
-Antes de implementar preço à vista no MoreNumTegra:
+Para a unidade 708, o proof obligation de provenance foi atendido para Preview.
 
-1. selecionar uma ou mais unidades candidatas;
-2. reconciliar tabela-base + promoção + condição à vista no conjunto mensal vigente;
-3. calcular o percentual real apenas dessas unidades;
-4. registrar evidence path e validade;
-5. então entregar ao consumer a copy final e os valores publicáveis.
+Antes de Green:
 
-Nenhuma alteração de preço no consumer foi executada pelo provider.
+1. reconfirmar disponibilidade da unidade 708;
+2. reconfirmar que `R$ 1.129.900` continua sendo condição à vista vigente;
+3. preservar o disclaimer junto ao preço;
+4. se preço/condição mudar, atualizar a fonte canônica antes da publicação.
+
+Para novas unidades, repetir o mesmo modelo de evidência.
+
+O provider não adquire autoridade de publicação por esta recomendação.
