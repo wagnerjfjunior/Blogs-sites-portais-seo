@@ -96,7 +96,7 @@ Boundary Search:
 
 Consumer implementation observed for this provider result:
 
-`wagnerjfjunior/MoreNumTegra PR #32 @ 38a8c20de236c9fda75b0b57236df94592803c1a`
+`wagnerjfjunior/MoreNumTegra PR #32 @ 287793959a1da8667f042b8177d4476ad43e6821`
 
 O provider não mutou o consumer.
 
@@ -115,7 +115,7 @@ Direção vigente:
 - preço competitivo deve converter para WhatsApp/Form 46, não retirar o usuário do site;
 - source-of-truth comercial permanece nos artefatos mensais do consumer.
 
-A informação do owner de desconto promocional em torno de 8% e condição à vista chegando a aproximadamente 24,6% permanece `USER_PROVIDED_EVIDENCE` até reconciliação contra unidade/tabela/condição do mês vigente.
+A unidade 708 / 105 m² / R$ 1.129.900 à vista está agora versionada no consumer com evidência rastreável. O percentual de 24,6% permanece unit-bound e não pode ser generalizado ao catálogo.
 
 
 
