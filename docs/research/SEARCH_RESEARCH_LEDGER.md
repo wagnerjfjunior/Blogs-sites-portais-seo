@@ -196,7 +196,59 @@ Prioridades de pesquisa futura, sempre com evidência real:
 9. Local SEO quando a role SES for elegível/adotada;
 10. Authority/Digital PR quando a role SES for elegível/adotada.
 
-## 10. Admission of future research
+## 10. MoreNumTegra — Prêmio Master Imobiliário 2026
+
+### Research question
+
+Como usar os reconhecimentos da Tegra no Prêmio Master Imobiliário 2026 como prova factual de autoridade no MoreNumTegra sem transformar o prêmio do masterplan Caminhos da Lapa em alegação individual indevida para cada empreendimento?
+
+### Sources
+
+Primary:
+
+- SECOVI-SP — `Conheça os vencedores do Prêmio Master Imobiliário 2026`
+- https://secovi.com.br/conheca-os-vencedores-do-premio-master-imobiliario-2026/
+
+Relationship corroboration:
+
+- Tegra — Nova Vivere
+- Tegra — Garden Design Private Park Residence
+- Tegra — Caminhos da Lapa Elo Duo
+- Tegra — Caminhos da Lapa Reserva
+
+### Evidence state
+
+`LIVE_OBSERVATION_RECEIPT / OFFICIAL_INDUSTRY_SOURCE + OFFICIAL_DEVELOPER_CORROBORATION`
+
+Observed on 2026-08-29.
+
+### Result
+
+Confirmed:
+
+- Tegra / RIIO BY PIERO LISONI — `Profissional – Soluções Arquitetônicas`;
+- Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — `Empreendimento – Qualificação Urbana`;
+- Nova Vivere, Garden Design, Elo Duo and Reserva have official Tegra evidence linking them to the Caminhos da Lapa complex/masterplan.
+
+### Search decision
+
+Use the award as factual institutional and masterplan-level authority evidence.
+
+Do not state that each component project independently won the award unless an exact source proves that claim.
+
+Prefer explicit source attribution, exact category names and masterplan-specific badges.
+
+Provider guidance:
+
+`docs/assets/morenumtegra-master-imobiliario-2026-search-guidance-2026-08-29.md`
+
+### Boundary
+
+`AWARD_REFERENCE != INDIVIDUAL_PROJECT_AWARD_PROOF`
+
+`SOURCE_PROVENANCE != RANKING_GUARANTEE`
+
+## 11. Admission of future research
 
 Quando uma pesquisa gerar decisão material, registrar:
 
