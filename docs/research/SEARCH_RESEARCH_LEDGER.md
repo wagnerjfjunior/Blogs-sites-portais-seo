@@ -196,7 +196,165 @@ Prioridades de pesquisa futura, sempre com evidência real:
 9. Local SEO quando a role SES for elegível/adotada;
 10. Authority/Digital PR quando a role SES for elegível/adotada.
 
-## 10. Admission of future research
+## 10. MoreNumTegra — Prêmio Master Imobiliário 2026
+
+### Research question
+
+Como usar os reconhecimentos da Tegra no Prêmio Master Imobiliário 2026 como prova factual de autoridade no MoreNumTegra sem transformar o prêmio do masterplan Caminhos da Lapa em alegação individual indevida para cada empreendimento?
+
+### Sources
+
+Primary:
+
+- SECOVI-SP — `Conheça os vencedores do Prêmio Master Imobiliário 2026`
+- https://secovi.com.br/conheca-os-vencedores-do-premio-master-imobiliario-2026/
+
+Relationship corroboration:
+
+- Tegra — Nova Vivere
+- Tegra — Garden Design Private Park Residence
+- Tegra — Caminhos da Lapa Elo Duo
+- Tegra — Caminhos da Lapa Reserva
+
+### Evidence state
+
+`LIVE_OBSERVATION_RECEIPT / OFFICIAL_INDUSTRY_SOURCE + OFFICIAL_DEVELOPER_CORROBORATION`
+
+Observed on 2026-08-29.
+
+### Result
+
+Confirmed:
+
+- Tegra / RIIO by Piero Lissoni — `Profissional – Soluções Arquitetônicas`; o heading da fonte SECOVI-SP foi preservado como `LISONI` somente para provenance, não como grafia canônica da marca;
+- Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — `Empreendimento – Qualificação Urbana`;
+- Nova Vivere, Garden Design, Elo Duo and Reserva have official Tegra evidence linking them to the Caminhos da Lapa complex/masterplan.
+
+### Search decision
+
+Use the award as factual institutional and masterplan-level authority evidence.
+
+Do not state that each component project independently won the award unless an exact source proves that claim.
+
+Prefer explicit source attribution, exact category names and masterplan-specific badges.
+
+Provider guidance:
+
+`docs/assets/morenumtegra-master-imobiliario-2026-search-guidance-2026-08-29.md`
+
+### Boundary
+
+`AWARD_REFERENCE != INDIVIDUAL_PROJECT_AWARD_PROOF`
+
+`SOURCE_PROVENANCE != RANKING_GUARANTEE`
+
+## 11. MoreNumTegra — preço de conversão e condição à vista
+
+### Research question
+
+Como competir em BOFU quando portais/corretores anunciam valores condicionados a pagamento à vista inferiores ao preço promocional atualmente exibido pelo MoreNumTegra?
+
+### Evidence state
+
+Internal repository inventory:
+
+`LIVE_OBSERVATION_RECEIPT / CONSUMER_REPO_DIRECTORY_STRUCTURE`
+
+External market observation:
+
+`LIVE_WEB_OBSERVATION`
+
+Nova Vivere unit 708 cash-offer evidence:
+
+`CONSUMER_VERSIONED_EVIDENCE / UNIT_BOUND / 2026-08-29`
+
+### Confirmed internal inventory
+
+Observed in MoreNumTegra:
+
+- `Tegra/Agosto/Tabela/`;
+- `Tegra/Agosto/Tabela_Coordenação/`;
+- `Tegra/Agosto/Espelho/`;
+- `Tegra/Agosto/Promocionais/`.
+
+The September directory was observed with only a placeholder at the time of this research.
+
+### Competitive observation
+
+The consumer versions Nova Vivere unit 708 at `105 m²` and `R$ 1.129.900 à vista`, with a preserved OLX visual/reference. The absolute cash value is supported.
+
+The discount percentage is reconciled at unit level: `Tegra/Agosto/Anuncios/Anúncios.md` records `24,6%`, and `Tegra/Agosto/Valores_a_vista.md` records table value `R$ 1.498.000`, cash value `R$ 1.129.900` and `24,6%`. The arithmetic difference is ~24,57%, consistent with `24,6%` when rounded to one decimal place.
+
+The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is superseded.
+
+### Search decision
+
+Price-to-convert is valid BOFU strategy when the exact condition is visible and evidence-bound.
+
+Do not apply a global discount formula. The `24,6%` claim is valid only for the evidenced unit 708 / August 2026 comparison unless another exact unit-level source proves a different claim.
+
+Prefer:
+
+`À vista a partir de R$ X*`
+
+with a nearby, legible condition note tied to the same unit and evidence month.
+
+Provider guidance:
+
+`docs/assets/morenumtegra-conversion-pricing-strategy-2026-08-29.md`
+
+### Boundary
+
+`COMPETITOR_PRICE != OUR_PRICE_AUTHORITY`
+
+`UNIT_LEVEL_PROOF != GLOBAL_DISCOUNT_RULE`
+
+`UNIT_LEVEL_DISCOUNT_RECONCILED != GLOBAL_DISCOUNT_RULE`
+
+`AGGRESSIVE_COPY != HIDDEN_CONDITION`
+
+## 12. MoreNumTegra — metadata technical decision
+
+### Question
+
+Como transportar canonical, social metadata e JSON-LD no fluxo Green atual sem transformar Vercel em origem comercial nem criar sinais conflitantes?
+
+### Evidence state
+
+`OFFICIAL_GOOGLE_SEARCH_DOCUMENTATION + CONSUMER_ARCHITECTURE + PRODUCT_AUTHORITY_DECISION`
+
+Official Google sources consulted on 2026-08-29:
+
+- https://developers.google.com/search/docs/crawling-indexing/canonicalization
+- https://developers.google.com/search/updates
+- Google structured-data documentation referencing JavaScript generation support.
+
+### Decision
+
+`PASS_WITH_RESIDUAL_RISK`
+
+Approved for the bounded MoreNumTegra package:
+
+- stable title/meta description;
+- JS-created/updated commercial canonical `https://moretegra.com.br/` only if no conflicting initial canonical exists;
+- Vercel remains `noindex,nofollow`;
+- Open Graph/Twitter metadata;
+- conservative `WebSite + WebPage` JSON-LD;
+- no award/review/rating schema invention.
+
+Provider decision:
+
+`docs/assets/morenumtegra-technical-seo-metadata-decision-2026-08-29.md`
+
+### Boundary
+
+`JS_CANONICAL_ACCEPTED != STATIC_CANONICAL_PROVEN`
+
+`VALID_SCHEMA != RICH_RESULT_GRANTED`
+
+`COMMERCIAL_CANONICAL != VERCEL_INDEXABLE`
+
+## 13. Admission of future research
 
 Quando uma pesquisa gerar decisão material, registrar:
 

@@ -58,11 +58,19 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 
 ## MoreNumTegra — resultado devolvido pelo provider
 
-Consumer main observado na entrada do provider:
+Consumer main observado na entrada original do provider:
 
 ```text
 wagnerjfjunior/MoreNumTegra@b4cdbc1ac0be9a98112cb74a378571b64cf16e7f
 ```
+
+Consumer main revalidado durante a reconciliação documental em 2026-08-30:
+
+```text
+wagnerjfjunior/MoreNumTegra@37babca932c94a16b65482f05c9374b9f2325d82
+```
+
+O SFJM canônico do MoreNumTegra permanece no próprio consumer. Este provider produz evidência, auditoria e recomendações Search/SEM e devolve resultados ao consumer; não mantém SFJM ou dashboard paralelo para o MoreNumTegra.
 
 Prioridade recomendada:
 
@@ -75,7 +83,55 @@ P0 canonicalidade / hostname / metadata / robots / sitemap / Search Console
 
 A superfície geral de web-fetch do provider não conseguiu recuperar a produção nesta execução. Claims HTTP/live são portanto atribuídas ao handoff consumer datado e devem ser rechecadas antes da aceitação da implementação.
 
-## Trabalho em andamento
+## MoreNumTegra — Prêmio Master Imobiliário 2026
+
+Novo provider result:
+
+`docs/assets/morenumtegra-master-imobiliario-2026-search-guidance-2026-08-29.md`
+
+Evidência externa confirmada em 2026-08-29:
+
+- Tegra / RIIO by Piero Lissoni — Prêmio Master Imobiliário 2026, categoria `Profissional – Soluções Arquitetônicas`; o `LISONI` do heading SECOVI permanece apenas como transcrição de fonte;
+- Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — categoria `Empreendimento – Qualificação Urbana`.
+
+Boundary Search:
+
+- usar o prêmio como prova institucional/masterplan;
+- não afirmar que cada condomínio individual ganhou o prêmio;
+- badge recomendado deve explicitar `masterplan premiado` ou relação equivalente;
+- fonte SECOVI-SP permanece evidence/provenance interna; não deve existir outbound link no bloco de conversão;
+- implementação visual e lifecycle permanecem no MoreNumTegra.
+
+Consumer implementation observed for this provider result:
+
+`wagnerjfjunior/MoreNumTegra PR #32 @ 287793959a1da8667f042b8177d4476ad43e6821`
+
+O provider não mutou o consumer.
+
+## MoreNumTegra — estratégia de preço de conversão
+
+Novo provider result:
+
+`docs/assets/morenumtegra-conversion-pricing-strategy-2026-08-29.md`
+
+Direção vigente:
+
+- usar condições à vista como gatilho BOFU quando houver prova por unidade/mês;
+- não aplicar desconto percentual global;
+- manter `à vista` imediatamente associado ao preço;
+- disclaimer pode ser secundário, mas deve ser legível e próximo;
+- preço competitivo deve converter para WhatsApp/Form 46, não retirar o usuário do site;
+- source-of-truth comercial permanece nos artefatos mensais do consumer.
+
+A unidade 708 / 105 m² está versionada no consumer com evidência rastreável e reconciliada para:
+
+- valor de tabela Agosto/26: `R$ 1.498.000`;
+- valor à vista: `R$ 1.129.900`;
+- desconto à vista vs. tabela: `24,6%`.
+
+O percentual é unit-bound e não pode ser generalizado ao empreendimento ou catálogo sem nova evidência específica.
+
+
 
 Validar e integrar esta PR sem transferir autoridade ao provider. Após integração, MoreNumTegra deve adjudicar o provider result e decidir o escopo P0 de implementação no próprio lifecycle.
 
