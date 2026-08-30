@@ -67,7 +67,7 @@ wagnerjfjunior/MoreNumTegra@b4cdbc1ac0be9a98112cb74a378571b64cf16e7f
 Consumer main revalidado durante a reconciliação documental em 2026-08-30:
 
 ```text
-wagnerjfjunior/MoreNumTegra@5befb0efee8e4bd6ca96bb594c010afded24056e
+wagnerjfjunior/MoreNumTegra@37babca932c94a16b65482f05c9374b9f2325d82
 ```
 
 O SFJM canônico do MoreNumTegra permanece no próprio consumer. Este provider produz evidência, auditoria e recomendações Search/SEM e devolve resultados ao consumer; não mantém SFJM ou dashboard paralelo para o MoreNumTegra.
@@ -123,9 +123,13 @@ Direção vigente:
 - preço competitivo deve converter para WhatsApp/Form 46, não retirar o usuário do site;
 - source-of-truth comercial permanece nos artefatos mensais do consumer.
 
-A unidade 708 / 105 m² / R$ 1.129.900 à vista está versionada no consumer com evidência rastreável. O valor absoluto permanece suportado.
+A unidade 708 / 105 m² está versionada no consumer com evidência rastreável e reconciliada para:
 
-Os percentuais estão em conflito no consumer: `Anúncios.md` registra `24,6%`, enquanto `Valores_a_vista.md` registra `23,1%` para tabela de R$ 1.468.100 e valor à vista de R$ 1.129.900. Nenhum percentual deve ser promovido pelo provider até reconciliação no consumer.
+- valor de tabela Agosto/26: `R$ 1.498.000`;
+- valor à vista: `R$ 1.129.900`;
+- desconto à vista vs. tabela: `24,6%`.
+
+O percentual é unit-bound e não pode ser generalizado ao empreendimento ou catálogo sem nova evidência específica.
 
 
 

@@ -283,7 +283,7 @@ The September directory was observed with only a placeholder at the time of this
 
 The consumer versions Nova Vivere unit 708 at `105 m²` and `R$ 1.129.900 à vista`, with a preserved OLX visual/reference. The absolute cash value is supported.
 
-The discount percentage is not reconciled: `Tegra/Agosto/Anuncios/Anúncios.md` records `24,6%`, while `Tegra/Agosto/Valores_a_vista.md` records table value `R$ 1.468.100`, cash value `R$ 1.129.900` and `23,1%`. No percentage is promoted to current fact by this ledger.
+The discount percentage is reconciled at unit level: `Tegra/Agosto/Anuncios/Anúncios.md` records `24,6%`, and `Tegra/Agosto/Valores_a_vista.md` records table value `R$ 1.498.000`, cash value `R$ 1.129.900` and `24,6%`. The arithmetic difference is ~24,57%, consistent with `24,6%` when rounded to one decimal place.
 
 The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is superseded.
 
@@ -291,7 +291,7 @@ The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is super
 
 Price-to-convert is valid BOFU strategy when the exact condition is visible and evidence-bound.
 
-Do not apply a global discount formula. While the current consumer sources disagree, do not publish `24,6%`, `23,1%` or any derived percentage as a reconciled fact.
+Do not apply a global discount formula. The `24,6%` claim is valid only for the evidenced unit 708 / August 2026 comparison unless another exact unit-level source proves a different claim.
 
 Prefer:
 
@@ -309,7 +309,7 @@ Provider guidance:
 
 `UNIT_LEVEL_PROOF != GLOBAL_DISCOUNT_RULE`
 
-`ABSOLUTE_PRICE_SUPPORTED != DISCOUNT_PERCENTAGE_RECONCILED`
+`UNIT_LEVEL_DISCOUNT_RECONCILED != GLOBAL_DISCOUNT_RULE`
 
 `AGGRESSIVE_COPY != HIDDEN_CONDITION`
 
