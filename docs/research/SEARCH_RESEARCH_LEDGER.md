@@ -226,7 +226,7 @@ Observed on 2026-08-29.
 
 Confirmed:
 
-- Tegra / RIIO BY PIERO LISONI — `Profissional – Soluções Arquitetônicas`;
+- Tegra / RIIO by Piero Lissoni — `Profissional – Soluções Arquitetônicas`; o heading da fonte SECOVI-SP foi preservado como `LISONI` somente para provenance, não como grafia canônica da marca;
 - Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — `Empreendimento – Qualificação Urbana`;
 - Nova Vivere, Garden Design, Elo Duo and Reserva have official Tegra evidence linking them to the Caminhos da Lapa complex/masterplan.
 
@@ -281,13 +281,17 @@ The September directory was observed with only a placeholder at the time of this
 
 ### Competitive observation
 
-The consumer now versions Nova Vivere unit 708 at `105 m²` and `R$ 1.129.900 à vista`, with a preserved OLX visual/reference and a recorded `24,6%` discount relative to the same unit table value. The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is superseded.
+The consumer versions Nova Vivere unit 708 at `105 m²` and `R$ 1.129.900 à vista`, with a preserved OLX visual/reference. The absolute cash value is supported.
+
+The discount percentage is not reconciled: `Tegra/Agosto/Anuncios/Anúncios.md` records `24,6%`, while `Tegra/Agosto/Valores_a_vista.md` records table value `R$ 1.468.100`, cash value `R$ 1.129.900` and `23,1%`. No percentage is promoted to current fact by this ledger.
+
+The prior `R$ 1.248.000` reading for the cited OLX ad was incorrect and is superseded.
 
 ### Search decision
 
 Price-to-convert is valid BOFU strategy when the exact condition is visible and evidence-bound.
 
-Do not apply a global `24,6%` discount formula.
+Do not apply a global discount formula. While the current consumer sources disagree, do not publish `24,6%`, `23,1%` or any derived percentage as a reconciled fact.
 
 Prefer:
 
@@ -304,6 +308,8 @@ Provider guidance:
 `COMPETITOR_PRICE != OUR_PRICE_AUTHORITY`
 
 `UNIT_LEVEL_PROOF != GLOBAL_DISCOUNT_RULE`
+
+`ABSOLUTE_PRICE_SUPPORTED != DISCOUNT_PERCENTAGE_RECONCILED`
 
 `AGGRESSIVE_COPY != HIDDEN_CONDITION`
 

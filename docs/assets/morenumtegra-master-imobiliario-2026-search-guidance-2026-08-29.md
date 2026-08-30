@@ -36,8 +36,9 @@ Observado em 2026-08-29:
 
 1. `Profissional – Soluções Arquitetônicas`
    - Empresa: Tegra
-   - Case: `RIIO BY PIERO LISONI - O Rio com alma italiana`
+   - Case no heading da fonte SECOVI-SP: `RIIO BY PIERO LISONI - O Rio com alma italiana`
    - Localização: Rio de Janeiro/RJ
+   - Normalização de marca/copy: usar `RIIO by Piero Lissoni`; `LISONI` é preservado somente como transcrição do heading da fonte, não como grafia canônica da marca.
 
 2. `Empreendimento – Qualificação Urbana`
    - Empresas: `Helbor | Toledo Ferrari | Tegra`
@@ -104,7 +105,7 @@ Headline pode ser comercialmente forte. A precisão factual deve estar imediatam
 
 Preferir:
 
-- `RIIO BY PIERO LISONI — Soluções Arquitetônicas`
+- `RIIO BY PIERO LISSONI — Soluções Arquitetônicas`
 - `Caminhos da Lapa — Qualificação Urbana`
 
 Pode haver uma linha de impacto acima, como `Reconhecido pelo setor`, mas não substituir a categoria oficial por uma abstração que reduza Search/AEO/GEO citability.
@@ -136,6 +137,8 @@ A palavra `masterplan` pode existir no tooltip, aria-label ou corpo, mas não pr
 Relações factuais a preservar:
 
 `Tegra -> Prêmio Master Imobiliário 2026 -> RIIO by Piero Lissoni -> Soluções Arquitetônicas`
+
+`SOURCE_HEADING_TYPO_LISONI != CANONICAL_BRAND_SPELLING_LISSONI`
 
 `Caminhos da Lapa -> Prêmio Master Imobiliário 2026 -> Qualificação Urbana -> Helbor + Toledo Ferrari + Tegra`
 

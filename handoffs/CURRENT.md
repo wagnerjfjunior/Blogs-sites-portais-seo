@@ -58,11 +58,19 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 
 ## MoreNumTegra — resultado devolvido pelo provider
 
-Consumer main observado na entrada do provider:
+Consumer main observado na entrada original do provider:
 
 ```text
 wagnerjfjunior/MoreNumTegra@b4cdbc1ac0be9a98112cb74a378571b64cf16e7f
 ```
+
+Consumer main revalidado durante a reconciliação documental em 2026-08-30:
+
+```text
+wagnerjfjunior/MoreNumTegra@5befb0efee8e4bd6ca96bb594c010afded24056e
+```
+
+O SFJM canônico do MoreNumTegra permanece no próprio consumer. Este provider produz evidência, auditoria e recomendações Search/SEM e devolve resultados ao consumer; não mantém SFJM ou dashboard paralelo para o MoreNumTegra.
 
 Prioridade recomendada:
 
@@ -83,7 +91,7 @@ Novo provider result:
 
 Evidência externa confirmada em 2026-08-29:
 
-- Tegra / RIIO by Piero Lissoni — Prêmio Master Imobiliário 2026, categoria `Profissional – Soluções Arquitetônicas`;
+- Tegra / RIIO by Piero Lissoni — Prêmio Master Imobiliário 2026, categoria `Profissional – Soluções Arquitetônicas`; o `LISONI` do heading SECOVI permanece apenas como transcrição de fonte;
 - Caminhos da Lapa / Helbor | Toledo Ferrari | Tegra — categoria `Empreendimento – Qualificação Urbana`.
 
 Boundary Search:
@@ -115,7 +123,9 @@ Direção vigente:
 - preço competitivo deve converter para WhatsApp/Form 46, não retirar o usuário do site;
 - source-of-truth comercial permanece nos artefatos mensais do consumer.
 
-A unidade 708 / 105 m² / R$ 1.129.900 à vista está agora versionada no consumer com evidência rastreável. O percentual de 24,6% permanece unit-bound e não pode ser generalizado ao catálogo.
+A unidade 708 / 105 m² / R$ 1.129.900 à vista está versionada no consumer com evidência rastreável. O valor absoluto permanece suportado.
+
+Os percentuais estão em conflito no consumer: `Anúncios.md` registra `24,6%`, enquanto `Valores_a_vista.md` registra `23,1%` para tabela de R$ 1.468.100 e valor à vista de R$ 1.129.900. Nenhum percentual deve ser promovido pelo provider até reconciliação no consumer.
 
 
 

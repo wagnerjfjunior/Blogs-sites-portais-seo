@@ -35,17 +35,21 @@ O consumer passou a versionar a condição no próprio repositório:
 - `Tegra/Agosto/Anuncios/Anúncios.md`;
 - `Tegra/Agosto/Anuncios/Anuncio NovaVivere Olx valor a vista-29-08-26.png`.
 
-Registro reconciliado:
+Registro reconciliado para os valores absolutos:
 
 - Nova Vivere;
 - unidade 708;
 - 105 m²;
 - valor à vista: `R$ 1.129.900,00`;
 - confirmação: 29/08/2026;
-- desconto informado: `24,6%` em relação ao valor de tabela da mesma unidade;
+- valor de tabela versionado em `Tegra/Agosto/Valores_a_vista.md`: `R$ 1.468.100`;
 - anúncio OLX preservado como evidência de mercado.
 
+Há divergência material entre percentuais versionados no consumer: `Tegra/Agosto/Anuncios/Anúncios.md` registra `24,6%`, enquanto `Tegra/Agosto/Valores_a_vista.md` registra `23,1%` para os valores absolutos acima. Portanto, nenhum percentual é considerado reconciliado ou publicável por este provider result.
+
 A leitura anterior de `R$ 1.248.000` para esse anúncio estava incorreta e foi removida desta evidência.
+
+`ABSOLUTE_PRICE_SUPPORTED != DISCOUNT_PERCENTAGE_RECONCILED`
 
 ### Interpretação
 
@@ -53,13 +57,13 @@ Há agora provenance interna suficiente para usar `R$ 1.129.900 à vista*` como 
 
 `VERSIONED_EVIDENCE != PERMANENT_AVAILABILITY`
 
-## 4. Regra para o percentual de 24,6%
+## 4. Regra para percentual de desconto
 
-Para a unidade 708, o percentual está registrado com provenance no consumer.
+O percentual da unidade 708 está **bloqueado para uso factual/comercial** enquanto as fontes canônicas do consumer permanecerem divergentes.
 
-Isso NÃO autoriza aplicar `-24,6%` genericamente ao empreendimento ou ao catálogo.
+Não usar `24,6%`, `23,1%` ou qualquer outro percentual derivado como claim até reconciliação explícita da tabela-base, condição e cálculo no consumer.
 
-Qualquer outro percentual exige:
+Qualquer percentual futuro exige:
 
 - empreendimento;
 - unidade;
@@ -109,11 +113,7 @@ Preferência:
 
 `R$ X à vista*`
 
-antes de:
-
-`até 24,6% abaixo da tabela`
-
-Se o percentual for usado, exigir comparação reproduzível entre preço-base e preço à vista da mesma unidade/mesmo período.
+Percentual só pode ser uma segunda camada depois de reconciliação reproduzível entre preço-base e preço à vista da mesma unidade e do mesmo período. Enquanto a divergência atual permanecer, omitir percentual.
 
 Evitar:
 
@@ -193,14 +193,15 @@ Isto é guardrail de informação, não aconselhamento jurídico.
 
 ## 12. Próximo proof obligation
 
-Para a unidade 708, o proof obligation de provenance foi atendido para Preview.
+Para a unidade 708, o proof obligation de provenance está atendido apenas para os **valores absolutos** observados. O percentual de desconto permanece `UNRESOLVED_CONFLICT`.
 
-Antes de Green:
+Antes de qualquer nova publicação/atualização comercial:
 
 1. reconfirmar disponibilidade da unidade 708;
 2. reconfirmar que `R$ 1.129.900` continua sendo condição à vista vigente;
 3. preservar o disclaimer junto ao preço;
-4. se preço/condição mudar, atualizar a fonte canônica antes da publicação.
+4. não publicar percentual até reconciliar as fontes conflitantes no consumer;
+5. se preço/condição mudar, atualizar a fonte canônica antes da publicação.
 
 Para novas unidades, repetir o mesmo modelo de evidência.
 
