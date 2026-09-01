@@ -15,6 +15,9 @@ spec:
     - project_id: projetos-cyrela
       repository: wagnerjfjunior/ProjetosCyrela
       relationship: EVIDENCE_SOURCE
+      source_branch: sfjm/bootstrap-legacy-recovery-v1
+      source_pr: 1
+      source_commit: 193c5c3245019b99d3a3070b3e485f48796e7e37
       source_path: docs/architecture/resf-v1-origin
   principles:
     framework_is_truth: false
@@ -49,6 +52,7 @@ spec:
     - RESF-LEAD
     - RESF-ATTRIBUTION
     - RESF-CONSENT
+    - RESF-PAID
     - RESF-QA
   non_claims:
     guarantees_ranking: false
