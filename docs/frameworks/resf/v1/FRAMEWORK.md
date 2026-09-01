@@ -28,11 +28,15 @@ It does not prescribe a specific brand, CMS or commercial implementation and doe
 
 The initial Candidate was derived from a curated canonical reconstruction in `wagnerjfjunior/ProjetosCyrela`, not from a generic best-practice checklist.
 
-The source package is located at:
+The immutable source revision for this Candidate intake is:
+
+`wagnerjfjunior/ProjetosCyrela@193c5c3245019b99d3a3070b3e485f48796e7e37`
+
+Source package path at that revision:
 
 `docs/architecture/resf-v1-origin/`
 
-in the `ProjetosCyrela` repository/PR branch that produced the handoff.
+Human workflow context at intake time: branch `sfjm/bootstrap-legacy-recovery-v1`, PR `#1`.
 
 The provider must preserve provenance and must not copy consumer-specific facts or IDs into universal rules.
 
@@ -56,6 +60,7 @@ The Candidate is deliberately named **Search-to-Lead** because the initial sourc
 - `RESF-LEAD`
 - `RESF-ATTRIBUTION`
 - `RESF-CONSENT`
+- `RESF-PAID`
 - `RESF-QA`
 
 Modules may be adopted, partially adopted, overridden, deferred or rejected by a consumer project. Adoption is never implicit.
@@ -79,11 +84,12 @@ The initial Candidate gives strongest weight to:
 - internal linking by semantic relationship and journey rather than quota;
 - independent mobile validation and regression-safe changes;
 - one real business definition for lead semantics;
-- one logical event -> one event_id;
+- an explicit logical-event identity contract for deduplication, while treating the source implementation outcome as contradicted until revalidated;
 - destination allowlists and end-to-end tracking validation;
 - explicit conversion ownership;
 - attribution identifier persistence where closed-loop questions require it;
 - consent UI/enforcement separation;
+- search-term governance and qualified-conversion optimization for paid search;
 - explicit `DESIGNED / IMPLEMENTED / DEPLOYED / VALIDATED` states;
 - timestamped validation and preserved provenance.
 
@@ -93,11 +99,11 @@ The source project's Capri case is a reference implementation and empirical benc
 
 ## Pattern qualification
 
-Framework patterns may use these qualification states:
+Framework patterns use only these qualification states:
 
 `PROVEN`, `PROMISING`, `PAGE_SPECIFIC`, `SUPERSEDED`, `CONTRADICTED`, `UNVALIDATED`.
 
-Source-project evidence uses a separate evidence taxonomy and must not be silently collapsed into framework qualification.
+Source-project evidence uses a separate evidence taxonomy. Pattern records may therefore carry a framework qualification plus a distinct `source_evidence` note; source evidence must not be silently collapsed into framework qualification.
 
 ## Lifecycle
 
