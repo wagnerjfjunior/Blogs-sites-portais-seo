@@ -36,9 +36,11 @@ Status: `CANDIDATE`
 - `AP-TRK-002` Treat HTTP 200 as proof that event semantics are correct.
 - `AP-TRK-003` Send every analytics event to advertising destinations.
 
-## Attribution / Paid
+## Attribution
 - `AP-ATTR-001` Treat gclid observed on landing as closed-loop attribution.
 - `AP-ATTR-002` Create multiple Primary conversions for the same business outcome without explicit intent.
+
+## Paid Search (`RESF-PAID`)
 - `AP-PAID-001` Optimize by CTR while qualified lead outcome remains unknown.
 
 ## Consent / QA
