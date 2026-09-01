@@ -1,0 +1,63 @@
+api_version: blogs-sites-portais-seo/framework/v1
+kind: SelectableFramework
+metadata:
+  id: RESF
+  name: Real Estate Search Framework
+  version: 1
+  variant: Search-to-Lead
+  lifecycle_status: CANDIDATE
+  provider_project_id: blogs-sites-portais-seo
+spec:
+  type: VERSIONED_SELECTABLE_COMPOSABLE_FRAMEWORK
+  domain:
+    - real_estate
+  initial_evidence_sources:
+    - project_id: projetos-cyrela
+      repository: wagnerjfjunior/ProjetosCyrela
+      relationship: EVIDENCE_SOURCE
+      source_branch: sfjm/bootstrap-legacy-recovery-v1
+      source_pr: 1
+      source_commit: 193c5c3245019b99d3a3070b3e485f48796e7e37
+      source_path: docs/architecture/resf-v1-origin
+  principles:
+    framework_is_truth: false
+    framework_is_project_authority: false
+    mandatory_for_consumers: false
+    permanent_best_practice: false
+    consumer_owns_runtime: true
+    consumer_owns_business_facts: true
+    consumer_can_override: true
+    modules_are_selectable: true
+    adoption_is_explicit: true
+  lifecycle:
+    allowed_states:
+      - EXPERIMENTAL
+      - CANDIDATE
+      - RECOMMENDED
+      - STABLE
+      - DEPRECATED
+      - SUPERSEDED
+      - ARCHIVED
+    automatic_promotion_forbidden: true
+  modules:
+    - RESF-INTELLIGENCE
+    - RESF-IA
+    - RESF-SEO
+    - RESF-CONTENT
+    - RESF-SCHEMA
+    - RESF-LINKING
+    - RESF-UX
+    - RESF-CONVERSION
+    - RESF-TRACKING
+    - RESF-LEAD
+    - RESF-ATTRIBUTION
+    - RESF-CONSENT
+    - RESF-PAID
+    - RESF-QA
+  non_claims:
+    guarantees_ranking: false
+    guarantees_leads: false
+    guarantees_revenue: false
+    proves_search_to_revenue_closed_loop: false
+    prescribes_specific_cms: false
+    prescribes_specific_ad_platform_stack: false
