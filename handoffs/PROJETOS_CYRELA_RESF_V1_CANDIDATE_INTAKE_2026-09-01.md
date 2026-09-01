@@ -51,7 +51,7 @@ The provider-side candidate materializes:
 - `docs/frameworks/resf/v1/ANTI_PATTERN_REGISTRY.md`
 - `docs/frameworks/resf/v1/KNOWN_LIMITATIONS.md`
 
-The durable provider discovery pointer is `docs/PROJECT_STATUS.md`, which links to the RESF Candidate manifest.
+The durable provider discovery registry is `docs/frameworks/INDEX.md`, which points to the RESF Candidate manifest and preserves its lifecycle/evidence origin.
 
 These files are provider-local candidate abstractions, not consumer implementation instructions.
 
