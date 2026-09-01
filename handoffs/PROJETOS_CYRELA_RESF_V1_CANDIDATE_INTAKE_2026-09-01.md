@@ -20,13 +20,18 @@ Canonical source repository:
 
 `wagnerjfjunior/ProjetosCyrela`
 
+Immutable source revision used for this intake:
+
+`193c5c3245019b99d3a3070b3e485f48796e7e37`
+
 Source branch/PR context at handoff preparation:
 
 - branch: `sfjm/bootstrap-legacy-recovery-v1`
 - PR: `#1`
+- source commit: `193c5c3245019b99d3a3070b3e485f48796e7e37`
 - source package path: `docs/architecture/resf-v1-origin/`
 
-Expected source artifacts:
+Expected source artifacts at that exact revision:
 
 1. `01_CROSS_DISCIPLINE_CANONICAL_SYNTHESIS.md`
 2. `02_CAPRI_ZEN_EPIC_COMPARATIVE_EVIDENCE_MATRIX.md`
@@ -36,7 +41,7 @@ Expected source artifacts:
 
 The source project's historical recovery packets remain canonical there and should not be copied wholesale into this provider.
 
-## Intake result in this Draft PR
+## Intake result in this PR
 
 The provider-side candidate materializes:
 
@@ -45,6 +50,8 @@ The provider-side candidate materializes:
 - `docs/frameworks/resf/v1/PATTERN_REGISTRY.md`
 - `docs/frameworks/resf/v1/ANTI_PATTERN_REGISTRY.md`
 - `docs/frameworks/resf/v1/KNOWN_LIMITATIONS.md`
+
+The durable provider discovery pointer is `docs/PROJECT_STATUS.md`, which links to the RESF Candidate manifest.
 
 These files are provider-local candidate abstractions, not consumer implementation instructions.
 
@@ -85,6 +92,8 @@ The initial evidence does not establish:
 - AI citation/discovery effectiveness;
 - ranking causality from Capri, ZEN, EPIC or any isolated tactic.
 
+The tracking identity design is also explicitly separated from source runtime proof: one logical-event identity is retained only as a Candidate design invariant, while later source `event_id` observations remain contradicted implementation evidence until revalidated.
+
 These limitations are intentionally preserved.
 
 ## Provider adjudication requested
@@ -97,8 +106,7 @@ Future promotion should require provider-local review, pattern-record completion
 
 This intake does not authorize:
 
-- Ready transition;
-- merge;
+- merge without a current post-review authorization;
 - external publication;
 - mutation of Projetos Cyrela;
 - mutation of MoreNumTegra or any other consumer;
