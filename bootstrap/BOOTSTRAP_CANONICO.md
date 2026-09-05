@@ -47,13 +47,13 @@ Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ause
 
 Quando posicionamento de novo projeto/domínio, arquitetura de portfólio ou estratégia do ecossistema for material, ler também `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`, `config/assets.yaml` e, quando pesquisa anterior influenciar a decisão, `docs/research/SEARCH_RESEARCH_LEDGER.md`.
 
-Quando identidade/migração de especialista ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato e o ledger de certificação aplicável. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
+Quando identidade/migração de especialista, consulta manual ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato, o ledger de certificação aplicável e `core/protocols/MANUAL_SPECIALIST_HANDOFF_CONTRACT.md`. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
 
 Quando a tarefa envolver MoreNumTegra Search, resolver `wagnerjfjunior/MoreNumTegra` live e consumir o handoff project-local vigente antes de emitir recomendação.
 
 ## Estado confirmado
 
-1. Novo roteamento usa `ROLE -> ARCHETYPE_ID` via SES/Project Adapter e `config/specialists.yaml`.
+1. Novo roteamento usa `ROLE -> ARCHETYPE_ID` via SES/Project Adapter e `config/specialists.yaml`; em handoff manual, o destino humano usa obrigatoriamente o `CANONICAL_NAME` do archetype SES, nunca o label GPT legacy.
 2. `config/gpts.yaml` permanece preservado como registry legado, sem autoridade de novo roteamento.
 3. A Action GitHub project-local inicial é `READ_ONLY`.
 4. Escrita direta em `main` é proibida.
@@ -92,7 +92,7 @@ Consulte `docs/BLOCKED_ACTIONS.md`. Ausência na lista não autoriza.
 2. Ler a ordem mínima.
 3. Resolver strategy/portfolio registry quando placement de ativos for material.
 4. Resolver research ledger quando pesquisa histórica puder alterar a decisão.
-5. Resolver role/archetype no SES quando houver trabalho de especialista.
+5. Resolver role/archetype no SES quando houver trabalho de especialista e renderizar `SPECIALIST_TARGET_NAME = ARCHETYPE_REGISTRY.CANONICAL_NAME` para qualquer handoff manual.
 6. Para MoreNumTegra, resolver consumer main + handoff Search live.
 7. Confirmar workflow no head exato.
 8. Separar fatos e lacunas.
