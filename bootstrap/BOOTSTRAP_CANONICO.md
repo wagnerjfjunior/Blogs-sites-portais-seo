@@ -71,6 +71,22 @@ Quando a tarefa envolver MoreNumTegra Search, resolver `wagnerjfjunior/MoreNumTe
 
 Builder live, métricas, tráfego, receita e produção exigem verificação específica. O modo project-local cross-project não cria um novo status universal de adoção e não é prova de execução runtime; cada tarefa MoreNumTegra exige contexto live e handoff com provenance de ambos os projetos. Local SEO e Authority & Digital PR ainda não são roles SES adotáveis neste projeto enquanto permanecerem TARGET/certification pending no framework SES. Monetização permanece exceção project-local até existir replacement SES canônico.
 
+## Boundary — consumer consultation vs SES release lifecycle
+
+For an adopted SES role, this project must not interrupt its own lifecycle to certify a newer/noncurrent SES candidate unless the exact runtime fingerprint is explicitly required by the task or project authority.
+
+```text
+ADOPTED ROLE + ACTIVE ARCHETYPE + CURRENT SES LEDGER YES
+→ CONSULTATION ELIGIBLE
+
+NONCURRENT SES CANDIDATE EXISTS
+!= PROJECT BLOCKED
+
+CONSUMER_RECERTIFICATION_DETOUR_FORBIDDEN = YES
+```
+
+Project-local evidence/tool contracts remain separate from universal SES runtime certification.
+
 ## Autorizações
 
 Leitura e gates `READ_ONLY` são permitidos quando forem a primeira transição aplicável. Correção, Ready, merge, Builder, retirement de Builder, deploy, publicação, domínio, DNS, campanha e compromissos exigem autorização explícita.
