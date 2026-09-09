@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RESF Result Record",
+  "type": "object",
+  "required": [
+    "id",
+    "consumer",
+    "consumer_ref",
+    "observed_at",
+    "observation",
+    "causality"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^RES-[A-Z0-9-]+$"
+    },
+    "consumer": {
+      "type": "string"
+    },
+    "consumer_ref": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "observed_at": {
+      "type": "string"
+    },
+    "observation": {
+      "type": "string"
+    },
+    "causality": {
+      "enum": [
+        "NOT_ESTABLISHED",
+        "ESTABLISHED"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
