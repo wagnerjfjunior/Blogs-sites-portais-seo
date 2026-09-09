@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RESF Module Record",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "purpose",
+    "lifecycle",
+    "applicability",
+    "prerequisites",
+    "inputs",
+    "outputs",
+    "required_contracts",
+    "optional_contracts",
+    "patterns",
+    "anti_patterns",
+    "evidence_requirements",
+    "responsible_capability",
+    "validation_procedure",
+    "consumer_override_policy",
+    "known_limitations"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^RESF-[A-Z0-9-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "lifecycle": {
+      "enum": [
+        "EXPERIMENTAL",
+        "CANDIDATE",
+        "RECOMMENDED",
+        "STABLE",
+        "DEPRECATED",
+        "SUPERSEDED",
+        "ARCHIVED"
+      ]
+    },
+    "applicability": {
+      "type": "string"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "outputs": {
+      "type": "array"
+    },
+    "required_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optional_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "patterns": {
+      "type": "array"
+    },
+    "anti_patterns": {
+      "type": "array"
+    },
+    "evidence_requirements": {
+      "type": "array"
+    },
+    "responsible_capability": {
+      "type": "array"
+    },
+    "validation_procedure": {
+      "type": "string"
+    },
+    "consumer_override_policy": {
+      "type": "string"
+    },
+    "known_limitations": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}
