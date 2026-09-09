@@ -239,7 +239,7 @@
     },
     {
       "id": "AP-SEO-003",
-      "title": "Use hidden or invisible SEO content as a strategy",
+      "title": "Use hidden/invisible SEO content as a strategy",
       "target_source_ids": [],
       "status": "PRESERVED_COMPATIBILITY_RECORD"
     },
@@ -277,7 +277,7 @@
     },
     {
       "id": "AP-UX-001",
-      "title": "Treat a fixed patch label as proof of validation",
+      "title": "Treat a `FIXED` filename/patch as proof of validation",
       "target_source_ids": [],
       "status": "PRESERVED_COMPATIBILITY_RECORD"
     },
@@ -291,7 +291,7 @@
     },
     {
       "id": "AP-UX-003",
-      "title": "Accumulate CSS patches instead of diagnosing ownership and DOM structure",
+      "title": "Accumulate endless `!important` patches instead of diagnosing ownership/DOM structure",
       "target_source_ids": [],
       "status": "PRESERVED_COMPATIBILITY_RECORD"
     },
@@ -303,7 +303,7 @@
     },
     {
       "id": "AP-LEAD-001",
-      "title": "Treat a thank-you URL or page view as the lead identity",
+      "title": "Treat a thank-you URL/page view as the lead identity",
       "target_source_ids": [],
       "status": "PRESERVED_COMPATIBILITY_RECORD"
     },
@@ -345,7 +345,7 @@
     },
     {
       "id": "AP-ATTR-001",
-      "title": "Treat a landing click identifier as closed-loop attribution",
+      "title": "Treat gclid observed on landing as closed-loop attribution",
       "target_source_ids": [],
       "status": "PRESERVED_COMPATIBILITY_RECORD"
     },
