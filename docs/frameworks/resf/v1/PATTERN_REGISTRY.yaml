@@ -35,7 +35,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "established across source planning and later search-performance analysis."
     },
     {
       "id": "PAT-INT-002",
@@ -61,7 +62,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "demonstrated by paid-search leakage/failure evidence."
     },
     {
       "id": "PAT-IA-001",
@@ -87,7 +89,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "repeated cannibalization/ownership findings."
     },
     {
       "id": "PAT-IA-002",
@@ -113,7 +116,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "ZEN/product-guide architecture evidence."
     },
     {
       "id": "PAT-IA-003",
@@ -139,7 +143,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "approved design direction; not independently outcome-validated."
     },
     {
       "id": "PAT-SEO-001",
@@ -165,7 +170,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "Capri continuity is supportive but not causal proof."
     },
     {
       "id": "PAT-SEO-002",
@@ -191,7 +197,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "EPIC technical-score versus SERP outcome contrast."
     },
     {
       "id": "PAT-SEO-003",
@@ -217,7 +224,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "strongly supported design principle; no isolated causal test."
     },
     {
       "id": "PAT-CONTENT-001",
@@ -243,7 +251,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "Capri benchmark plus comparative source evidence."
     },
     {
       "id": "PAT-CONTENT-002",
@@ -269,7 +278,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "approved architecture across Signature/high-standard cases."
     },
     {
       "id": "PAT-SCHEMA-001",
@@ -295,7 +305,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "repeated schema-governance decisions and failure prevention."
     },
     {
       "id": "PAT-SCHEMA-002",
@@ -321,7 +332,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "duplicate FAQPage failure evidence."
     },
     {
       "id": "PAT-SCHEMA-003",
@@ -347,7 +359,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "established technical pattern; ranking causality not claimed."
     },
     {
       "id": "PAT-LINK-001",
@@ -373,7 +386,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "supported architecture rule; no isolated outcome proof."
     },
     {
       "id": "PAT-LINK-002",
@@ -399,7 +413,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "approved architecture direction."
     },
     {
       "id": "PAT-UX-001",
@@ -425,7 +440,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "repeated mobile defect/failure evidence."
     },
     {
       "id": "PAT-UX-002",
@@ -451,7 +467,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "Capri patch-chain learning."
     },
     {
       "id": "PAT-UX-003",
@@ -477,7 +494,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "exact-selector failure diagnosis."
     },
     {
       "id": "PAT-CONV-001",
@@ -503,7 +521,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "strongly supported by page/funnel design work."
     },
     {
       "id": "PAT-CONV-002",
@@ -529,7 +548,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "approved page-archetype strategy."
     },
     {
       "id": "PAT-CONV-003",
@@ -555,7 +575,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "source-project form-friction learning; universal effect not isolated."
     },
     {
       "id": "PAT-CONV-004",
@@ -581,7 +602,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "local Capri/Guia decision; explicitly non-universal."
     },
     {
       "id": "PAT-LEAD-001",
@@ -607,7 +629,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "tracking/thank-you-page contradiction and correction history."
     },
     {
       "id": "PAT-LEAD-002",
@@ -633,7 +656,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "required-for-maturity design conclusion."
     },
     {
       "id": "PAT-SCORE-001",
@@ -659,7 +683,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "model exists, but historical thresholds/classifications conflict and are not portable."
     },
     {
       "id": "PAT-TRK-001",
@@ -685,7 +710,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "desired invariant is coherent, but the source implementation/result is `CONTRADICTED` by later event_id observations and therefore is not treated as proven implementation evidence."
     },
     {
       "id": "PAT-TRK-002",
@@ -711,7 +737,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "demonstrated by broad-trigger failure/remediation evidence."
     },
     {
       "id": "PAT-TRK-003",
@@ -737,7 +764,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "HTTP-200-versus-semantic-correctness findings."
     },
     {
       "id": "PAT-TRK-004",
@@ -763,7 +791,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "approved measurement-contract direction."
     },
     {
       "id": "PAT-ATTR-001",
@@ -789,7 +818,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "required principle; persistence was not fully proven in CRM runtime."
     },
     {
       "id": "PAT-ATTR-002",
@@ -815,7 +845,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "duplicate-conversion architecture risk identified; closed-loop outcome remains unvalidated."
     },
     {
       "id": "PAT-CONSENT-001",
@@ -841,7 +872,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "platform/UI state was insufficient to establish destination gating."
     },
     {
       "id": "PAT-CONSENT-002",
@@ -867,7 +899,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "required-for-maturity design direction; full enforcement not validated."
     },
     {
       "id": "PAT-PAID-001",
@@ -893,7 +926,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "demonstrated by Capri paid-search leakage/failure evidence."
     },
     {
       "id": "PAT-PAID-002",
@@ -919,7 +953,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "high CTR with zero reported leads demonstrated metric insufficiency."
     },
     {
       "id": "PAT-QA-001",
@@ -945,7 +980,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "repeated historical-state ambiguity required this distinction."
     },
     {
       "id": "PAT-QA-002",
@@ -971,7 +1007,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "Green/rendered-output discrepancies."
     },
     {
       "id": "PAT-QA-003",
@@ -997,7 +1034,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "repeated patch-chain regressions."
     },
     {
       "id": "PAT-QA-004",
@@ -1023,7 +1061,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicit governance decision to distinguish time-bounded validation from current truth."
     },
     {
       "id": "PAT-GOV-001",
@@ -1049,7 +1088,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicitly approved governance invariant."
     },
     {
       "id": "PAT-GOV-002",
@@ -1075,7 +1115,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicitly approved governance invariant."
     },
     {
       "id": "PAT-GOV-003",
@@ -1101,7 +1142,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicitly approved governance invariant."
     },
     {
       "id": "PAT-GOV-004",
@@ -1127,7 +1169,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicitly approved governance invariant."
     },
     {
       "id": "PAT-GOV-005",
@@ -1153,7 +1196,8 @@
         "repository": "wagnerjfjunior/ProjetosCyrela",
         "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
         "source_path": "docs/architecture/resf-v1-origin/"
-      }
+      },
+      "source_evidence": "explicitly approved governance invariant."
     },
     {
       "id": "PAT-SEO-004",
@@ -1572,5 +1616,10 @@
       "source_repository": "wagnerjfjunior/ProjetosCyrela",
       "source_ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e"
     }
-  ]
+  ],
+  "compatibility_policy": {
+    "legacy_provider_pattern_ids_preserved": true,
+    "legacy_provider_source_evidence_preserved": true,
+    "note": "Legacy provider evidence notes are preserved for traceability; they remain evidence context, not causal proof or consumer truth."
+  }
 }
