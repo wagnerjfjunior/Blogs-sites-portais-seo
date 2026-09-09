@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "evidence": [
+    {
+      "id": "EVD-001",
+      "type": "ORIGIN_PACKAGE",
+      "repository": "wagnerjfjunior/ProjetosCyrela",
+      "ref": "193c5c3245019b99d3a3070b3e485f48796e7e37",
+      "path": "docs/architecture/resf-v1-origin/",
+      "classification": "PROVENANCE",
+      "causality": "NOT_APPLICABLE"
+    },
+    {
+      "id": "EVD-002",
+      "type": "OPERATIONAL_KNOWLEDGE_LAYER",
+      "repository": "wagnerjfjunior/ProjetosCyrela",
+      "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+      "path": "docs/knowledge/",
+      "classification": "CURRENT_CANONICAL_SOURCE_AT_2026-09-09",
+      "causality": "NOT_APPLICABLE"
+    },
+    {
+      "id": "EVD-003",
+      "type": "REFERENCE_RESULT",
+      "repository": "wagnerjfjunior/ProjetosCyrela",
+      "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+      "path": "docs/results/result-registry.yaml",
+      "classification": "CAPRI_HIGH_VALUE_REFERENCE_IMPLEMENTATION",
+      "observations": [
+        "OBSERVED_GOOGLE_VISIBILITY",
+        "OBSERVED_GEMINI_CITATION"
+      ],
+      "causality": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "EVD-004",
+      "type": "GREENFIELD_APPLICATION",
+      "repository": "wagnerjfjunior/ProjetosCyrela",
+      "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+      "path": "docs/products/vista-milano/RESF_IMPLEMENTATION_MANIFEST.yaml",
+      "classification": "CONTROLLED_PREVIEW_APPLICATION",
+      "production_status": "NOT_AUTHORIZED_NOT_PROVEN",
+      "revalidation_status": "PARTIAL"
+    }
+  ]
+}
