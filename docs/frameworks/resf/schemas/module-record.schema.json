@@ -16,10 +16,10 @@
     "patterns",
     "anti_patterns",
     "evidence_requirements",
-    "responsible_capability",
     "validation_procedure",
     "consumer_override_policy",
-    "known_limitations"
+    "responsible_specialist_capability",
+    "limitations"
   ],
   "properties": {
     "id": {
@@ -80,7 +80,11 @@
       "type": "array"
     },
     "responsible_capability": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "RESF v1 compatibility alias for responsible_specialist_capability."
     },
     "validation_procedure": {
       "type": "string"
@@ -89,7 +93,24 @@
       "type": "string"
     },
     "known_limitations": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "RESF v1 compatibility alias for limitations."
+    },
+    "responsible_specialist_capability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": true
