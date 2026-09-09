@@ -1,0 +1,16 @@
+product:
+  id: REQUIRED
+  consumer_project_id: REQUIRED
+  effective_date: REQUIRED
+claims:
+  - id: REQUIRED
+    statement: REQUIRED
+    classification: FACT
+    source:
+      repository: REQUIRED
+      ref: REQUIRED_IMMUTABLE_SHA
+      path: REQUIRED
+    effective_date: REQUIRED
+    status: GOVERNED
+contradictions: []
+unknowns: []
