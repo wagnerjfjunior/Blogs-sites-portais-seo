@@ -1,0 +1,534 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "allowed_qualifications": [
+    "PROVEN",
+    "PROMISING",
+    "PAGE_SPECIFIC",
+    "SUPERSEDED",
+    "CONTRADICTED",
+    "UNVALIDATED"
+  ],
+  "patterns": [
+    {
+      "id": "PAT-001",
+      "title": "Unique search-intent owner per commercial route",
+      "module": "RESF-SEARCH-CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Unique search-intent owner per commercial route",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-002",
+      "title": "Product page and neighborhood hub separation",
+      "module": "RESF-IA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Product page and neighborhood hub separation",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-003",
+      "title": "One business H1",
+      "module": "RESF-SEO",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "One business H1",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-004",
+      "title": "Single coherent canonical Schema graph",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Single coherent canonical Schema graph",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-005",
+      "title": "Visible FAQ equals structured FAQ",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Visible FAQ equals structured FAQ",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-006",
+      "title": "Governed product claim registry before build",
+      "module": "RESF-PRODUCT-TRUTH",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Governed product claim registry before build",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-007",
+      "title": "Preview-first build and review",
+      "module": "RESF-QA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Preview-first build and review",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-008",
+      "title": "Native platform form fallback when custom capture is unreliable",
+      "module": "RESF-CRM",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PAGE_SPECIFIC",
+      "rule": "Native platform form fallback when custom capture is unreliable",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "LIMITED",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-009",
+      "title": "One logical event equals one event_id",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "One logical event equals one event_id",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-010",
+      "title": "Primary valid form lead and qualified secondary intent",
+      "module": "RESF-CONVERSION",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Primary valid form lead and qualified secondary intent",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-011",
+      "title": "Single Primary conversion owner per business outcome",
+      "module": "RESF-ATTRIBUTION",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Single Primary conversion owner per business outcome",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-012",
+      "title": "Independent mobile regression gate",
+      "module": "RESF-UX",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Independent mobile regression gate",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-013",
+      "title": "P0 zero and P1 zero reference gate",
+      "module": "RESF-QA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "P0 zero and P1 zero reference gate",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-014",
+      "title": "Address visibility is product/page-specific",
+      "module": "RESF-CONSENT",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Address visibility is product/page-specific",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-015",
+      "title": "Reference architecture may transfer; product facts may not",
+      "module": "RESF-IA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Reference architecture may transfer; product facts may not",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-016",
+      "title": "Current state requires current evidence",
+      "module": "RESF-QA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Current state requires current evidence",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-017",
+      "title": "Factual dense AI-readable supporting content",
+      "module": "RESF-GEO-AEO",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Factual dense AI-readable supporting content",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-018",
+      "title": "Content completeness over arbitrary length",
+      "module": "RESF-CONTENT",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Content completeness over arbitrary length",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-019",
+      "title": "Destination allowlists and qualified event semantics",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Destination allowlists and qualified event semantics",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "HIGH",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "PAT-020",
+      "title": "Post-release observations feed learning without causal overclaim",
+      "module": "RESF-OBSERVABILITY",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROMISING",
+      "rule": "Post-release observations feed learning without causal overclaim",
+      "applies_when": [
+        "consumer adopts module and applicability matches"
+      ],
+      "does_not_mean": [
+        "ranking/lead/revenue guarantee",
+        "consumer business fact"
+      ],
+      "validation": [
+        "consumer-specific evidence required"
+      ],
+      "exceptions": [],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "MEDIUM",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/pattern-registry.yaml"
+      }
+    }
+  ]
+}
