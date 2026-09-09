@@ -210,5 +210,184 @@
         "source_registry": "docs/patterns/anti-pattern-registry.yaml"
       }
     }
+  ],
+  "id_policy": "Source-project IDs are canonical for the normalized source reconciliation; all pre-existing provider IDs are preserved below for backward compatibility.",
+  "legacy_provider_records": [
+    {
+      "id": "AP-INT-001",
+      "title": "Invent demand from intuition without observed evidence",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-IA-001",
+      "title": "Intentionally create multiple URLs for the same primary intent",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-001",
+      "title": "Treat Lighthouse SEO 100 as SEO completion",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-002",
+      "title": "Copy the highest-ranking page as a universal template",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-003",
+      "title": "Use hidden or invisible SEO content as a strategy",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONTENT-001",
+      "title": "Use the same copy model for every development",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-001",
+      "title": "Assume more schema automatically improves ranking",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-002",
+      "title": "Fabricate offers, reviews, ratings or availability",
+      "target_source_ids": [
+        "AP-004"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-003",
+      "title": "Treat FAQPage as mandatory on every SEO page",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-LINK-001",
+      "title": "Require every product to mechanically link to another product",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-001",
+      "title": "Treat a fixed patch label as proof of validation",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-002",
+      "title": "Treat desktop validation as sufficient mobile validation",
+      "target_source_ids": [
+        "AP-011"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-003",
+      "title": "Accumulate CSS patches instead of diagnosing ownership and DOM structure",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONV-001",
+      "title": "Assume more form complexity automatically increases lead quality",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-LEAD-001",
+      "title": "Treat a thank-you URL or page view as the lead identity",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCORE-001",
+      "title": "Copy source-project scoring thresholds into a different consumer",
+      "target_source_ids": [
+        "AP-016"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCORE-002",
+      "title": "Operate scoring without later business calibration",
+      "target_source_ids": [
+        "AP-016"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-001",
+      "title": "Regenerate an identifier server-side for the same logical event",
+      "target_source_ids": [
+        "AP-008"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-002",
+      "title": "Treat HTTP 200 as proof that event semantics are correct",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-003",
+      "title": "Send every analytics event to advertising destinations",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-ATTR-001",
+      "title": "Treat a landing click identifier as closed-loop attribution",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-ATTR-002",
+      "title": "Create multiple Primary conversions for the same business outcome without explicit intent",
+      "target_source_ids": [
+        "AP-015"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-PAID-001",
+      "title": "Optimize by CTR while qualified lead outcome remains unknown",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONSENT-001",
+      "title": "Treat a platform consent score as legal compliance",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONSENT-002",
+      "title": "Design tracking first and consent enforcement later",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-QA-001",
+      "title": "Treat documentation as runtime proof",
+      "target_source_ids": [
+        "AP-014"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-QA-002",
+      "title": "Treat a correction as proof that the problem is resolved",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    }
   ]
 }
