@@ -51,6 +51,10 @@
         }
       },
       "additionalProperties": true
+    },
+    "source_evidence": {
+      "type": "string",
+      "description": "Legacy/provider evidence context preserved for traceability; not causal proof."
     }
   },
   "additionalProperties": true
