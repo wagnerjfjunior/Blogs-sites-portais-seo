@@ -133,16 +133,31 @@ class RESFFrameworkTests(unittest.TestCase):
             self.assertIn(expected, ids)
         self.assertIn("PATTERN_REGISTRY.yaml", baseline)
 
+    def test_legacy_provider_pattern_evidence_is_preserved(self):
+        patterns = load_json_yaml(V1 / "PATTERN_REGISTRY.yaml")["patterns"]
+        legacy = [
+            item for item in patterns
+            if item.get("provenance", {}).get("ref")
+            == "193c5c3245019b99d3a3070b3e485f48796e7e37"
+        ]
+        self.assertEqual(len(legacy), 44)
+        for item in legacy:
+            self.assertTrue(item.get("source_evidence"), item["id"])
+
     def test_legacy_anti_pattern_ids_are_resolvable(self):
         anti = load_json_yaml(V1 / "ANTI_PATTERN_REGISTRY.yaml")
         legacy = {x["id"] for x in anti["legacy_provider_records"]}
-        for expected in [
-            "AP-INT-001", "AP-IA-001", "AP-SEO-001", "AP-CONTENT-001",
-            "AP-SCHEMA-001", "AP-LINK-001", "AP-UX-001", "AP-CONV-001",
-            "AP-LEAD-001", "AP-SCORE-001", "AP-TRK-001", "AP-ATTR-001",
-            "AP-PAID-001", "AP-CONSENT-001", "AP-QA-001",
-        ]:
-            self.assertIn(expected, legacy)
+        expected_ids = {
+            "AP-INT-001", "AP-IA-001",
+            "AP-SEO-001", "AP-SEO-002", "AP-SEO-003", "AP-CONTENT-001",
+            "AP-SCHEMA-001", "AP-SCHEMA-002", "AP-SCHEMA-003", "AP-LINK-001",
+            "AP-UX-001", "AP-UX-002", "AP-UX-003", "AP-CONV-001", "AP-LEAD-001",
+            "AP-SCORE-001", "AP-SCORE-002",
+            "AP-TRK-001", "AP-TRK-002", "AP-TRK-003",
+            "AP-ATTR-001", "AP-ATTR-002", "AP-PAID-001",
+            "AP-CONSENT-001", "AP-CONSENT-002", "AP-QA-001", "AP-QA-002",
+        }
+        self.assertEqual(expected_ids, legacy)
 
     def test_adoption_template_requires_immutable_provider_ref(self):
         template = yaml.safe_load((RESF / "templates" / "CONSUMER_ADOPTION_MANIFEST.template.yaml").read_text(encoding="utf-8"))
