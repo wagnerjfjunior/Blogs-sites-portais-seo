@@ -23,7 +23,10 @@
         "C03"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-INT-001",
+        "PAT-INT-002"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -58,8 +61,12 @@
         "C01"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-FACT-001"
+      ],
+      "anti_patterns": [
+        "AP-013"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -95,7 +102,12 @@
         "C05"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-IA-001",
+        "PAT-IA-002",
+        "PAT-IA-003",
+        "PAT-IA-004"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -167,8 +179,15 @@
         "C10"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-SEO-001",
+        "PAT-SEO-002",
+        "PAT-SEO-003",
+        "PAT-SEO-004"
+      ],
+      "anti_patterns": [
+        "AP-002"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -203,7 +222,10 @@
         "C06"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-CONTENT-001",
+        "PAT-CONTENT-002"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -239,8 +261,18 @@
         "C07"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-SCHEMA-001",
+        "PAT-SCHEMA-002",
+        "PAT-SCHEMA-003",
+        "PAT-SCHEMA-004"
+      ],
+      "anti_patterns": [
+        "AP-001",
+        "AP-003",
+        "AP-004",
+        "AP-005"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -277,7 +309,9 @@
         "C16"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-GEO-001"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -313,7 +347,10 @@
         "C08"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-LINK-001",
+        "PAT-LINK-002"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -348,8 +385,14 @@
         "C09"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-UX-001",
+        "PAT-UX-002",
+        "PAT-UX-003"
+      ],
+      "anti_patterns": [
+        "AP-011"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -419,7 +462,12 @@
         "C09"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-CONV-001",
+        "PAT-CONV-002",
+        "PAT-CONV-003",
+        "PAT-CONV-004"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -454,8 +502,17 @@
         "C11"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-TRK-001",
+        "PAT-TRK-002",
+        "PAT-TRK-003",
+        "PAT-TRK-004"
+      ],
+      "anti_patterns": [
+        "AP-006",
+        "AP-007",
+        "AP-008"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -491,8 +548,15 @@
         "C12"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-LEAD-001",
+        "PAT-LEAD-002",
+        "PAT-SCORE-001"
+      ],
+      "anti_patterns": [
+        "AP-009",
+        "AP-016"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -527,7 +591,9 @@
       ],
       "optional_contracts": [],
       "patterns": [],
-      "anti_patterns": [],
+      "anti_patterns": [
+        "AP-010"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -564,8 +630,13 @@
         "C16"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-ATTR-001",
+        "PAT-ATTR-002"
+      ],
+      "anti_patterns": [
+        "AP-015"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -599,8 +670,14 @@
         "C14"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-CONSENT-001",
+        "PAT-CONSENT-002",
+        "PAT-CONSENT-003"
+      ],
+      "anti_patterns": [
+        "AP-012"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -636,7 +713,10 @@
         "C13"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-PAID-001",
+        "PAT-PAID-002"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
@@ -675,8 +755,22 @@
         "C15"
       ],
       "optional_contracts": [],
-      "patterns": [],
-      "anti_patterns": [],
+      "patterns": [
+        "PAT-QA-001",
+        "PAT-QA-002",
+        "PAT-QA-003",
+        "PAT-QA-004",
+        "PAT-GOV-001",
+        "PAT-GOV-002",
+        "PAT-GOV-003",
+        "PAT-GOV-004",
+        "PAT-GOV-005",
+        "PAT-QA-005",
+        "PAT-QA-006"
+      ],
+      "anti_patterns": [
+        "AP-014"
+      ],
       "evidence_requirements": [
         "immutable source revision",
         "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
@@ -710,7 +804,9 @@
         "C16"
       ],
       "optional_contracts": [],
-      "patterns": [],
+      "patterns": [
+        "PAT-OBS-001"
+      ],
       "anti_patterns": [],
       "evidence_requirements": [
         "immutable source revision",
