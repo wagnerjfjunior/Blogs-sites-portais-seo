@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "anti_patterns": [
+    {
+      "id": "AP-001",
+      "title": "Duplicate FAQPage emission",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Duplicate FAQPage emission.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-002",
+      "title": "Multiple competing business H1s",
+      "module": "RESF-SEO",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Multiple competing business H1s.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-003",
+      "title": "Stale or duplicate structured-data emitters",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Stale or duplicate structured-data emitters.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-004",
+      "title": "Invented rating, review, offer, stock or availability",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Invented rating, review, offer, stock or availability.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-005",
+      "title": "Unsupported Schema properties",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Unsupported Schema properties.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-006",
+      "title": "False WhatsApp intent attribution",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: False WhatsApp intent attribution.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-007",
+      "title": "Duplicate click event names",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Duplicate click event names.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-008",
+      "title": "Server-generated replacement event_id",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Server-generated replacement event_id.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-009",
+      "title": "Generic click score inflation",
+      "module": "RESF-LEAD",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Generic click score inflation.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-010",
+      "title": "Custom form without validated lead capture",
+      "module": "RESF-CRM",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Custom form without validated lead capture.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-011",
+      "title": "Desktop-only mobile acceptance",
+      "module": "RESF-UX",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Desktop-only mobile acceptance.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-012",
+      "title": "Global address visibility rule",
+      "module": "RESF-CONSENT",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Global address visibility rule.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-013",
+      "title": "Copying reference-product facts",
+      "module": "RESF-PRODUCT-TRUTH",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Copying reference-product facts.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-014",
+      "title": "Historical documentation promoted to current truth",
+      "module": "RESF-QA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Historical documentation promoted to current truth.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-015",
+      "title": "Competing Primary conversion owners",
+      "module": "RESF-ATTRIBUTION",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Competing Primary conversion owners.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-016",
+      "title": "Canonicalizing contradictory scoring thresholds",
+      "module": "RESF-LEAD",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Canonicalizing contradictory scoring thresholds.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    }
+  ]
+}
