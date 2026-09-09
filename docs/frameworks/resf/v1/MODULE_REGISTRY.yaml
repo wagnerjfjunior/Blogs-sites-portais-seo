@@ -39,6 +39,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_strategy"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -77,6 +83,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "product_authority"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -120,6 +132,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "architecture"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -154,6 +172,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_strategy"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -199,6 +223,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -237,6 +267,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -284,6 +320,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -324,6 +366,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -362,6 +410,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -404,6 +458,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "ux_ui"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -438,6 +498,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -479,6 +545,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "ux_ui"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -524,6 +596,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -568,6 +646,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -604,6 +688,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -648,6 +738,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -689,6 +785,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "application_security"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -728,6 +830,12 @@
       "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "paid_search_sem"
+      ],
+      "limitations": [
         "Provider does not own consumer runtime or business facts."
       ]
     },
@@ -782,6 +890,12 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "documentation_audit"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     },
     {
@@ -819,7 +933,23 @@
       "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
       "known_limitations": [
         "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
       ]
     }
-  ]
+  ],
+  "field_semantics": {
+    "canonical": {
+      "responsible_specialist_capability": "Specialist capability/role accountable for validating or operating the module in consumer context.",
+      "limitations": "Known provider-level limitations that constrain module interpretation."
+    },
+    "compatibility_aliases": {
+      "responsible_capability": "Alias retained for RESF v1 backward compatibility; must equal responsible_specialist_capability.",
+      "known_limitations": "Alias retained for RESF v1 backward compatibility; must equal limitations."
+    }
+  }
 }
