@@ -1,0 +1,15 @@
+measurement:
+  consumer_project_id: REQUIRED
+  consumer_ref: REQUIRED_IMMUTABLE_SHA
+  release_ref: REQUIRED_IMMUTABLE_SHA
+  observed_at: REQUIRED
+observations:
+  search_console: []
+  ga4: []
+  google_ads: []
+  meta: []
+  geo_aeo_ai: []
+results: []
+causality: NOT_ESTABLISHED
+known_gaps: []
+framework_learning_candidate: false
