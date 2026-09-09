@@ -1,118 +1,52 @@
 # RESF v1 — Search-to-Lead
 
-Status: `CANDIDATE`
+Status: `CANDIDATE`  
 Provider: `blogs-sites-portais-seo`
-Initial evidence source: `projetos-cyrela`
 
-## Definition
+RESF v1 is the selectable, versioned real-estate framework for governing:
 
-RESF v1 — Search-to-Lead is a versioned, modular, selectable, evidence-oriented real-estate framework for designing and governing the chain between search demand, intent architecture, content, discovery, experience, conversion, measurement and lead generation.
+`DEMAND -> INTENT -> PRODUCT TRUTH -> IA -> PAGE/CONTENT -> SEO/SCHEMA/GEO-AEO -> UX/PERFORMANCE -> CONVERSION -> TRACKING -> VALID LEAD -> CRM HANDOFF -> ATTRIBUTION BOUNDARY -> QA -> MEASUREMENT -> LEARNING`
 
-It does not prescribe a specific brand, CMS or commercial implementation and does not claim to guarantee ranking, leads or revenue.
+Canonical machine definitions live in the registries referenced by `MANIFEST.yaml`. The human entrypoint is `../README.md`; deterministic agent instructions are in `../AI_INSTRUCTIONS.md`.
 
-## Governance invariants
+## Core invariants
 
-`FRAMEWORK != TRUTH`
+`FRAMEWORK != TRUTH`  
+`FRAMEWORK != PROJECT AUTHORITY`  
+`FRAMEWORK != MANDATORY STANDARD`  
+`REFERENCE IMPLEMENTATION != UNIVERSAL TEMPLATE`  
+`OBSERVED RESULT != PROVEN CAUSALITY`  
+`ADOPTION != IMPLEMENTATION`  
+`IMPLEMENTATION != DEPLOYMENT`  
+`DEPLOYMENT != VALIDATION`  
+`VALIDATED_AT_TIME_T != CURRENTLY_VALID`
 
-`FRAMEWORK != PROJECT AUTHORITY`
+## Authority boundary
 
-`FRAMEWORK != MANDATORY STANDARD`
+The provider owns only framework definitions and provider-local lifecycle. A consumer owns its product facts, commercial claims, brand, code, CMS, domain, DNS, deployments, analytics, CRM, campaigns, budget, consent/risk and release decisions.
 
-`FRAMEWORK != PERMANENT BEST PRACTICE`
+An override is a consumer decision. It does not mutate the provider framework.
 
-`FRAMEWORK = VERSIONED + SELECTABLE + COMPOSABLE STRATEGY`
+## Evidence boundary
 
-`RECOMMENDED_AT_TIME_T != RECOMMENDED_AT_TIME_T+1`
+The initial origin package is preserved at:
 
-## Evidence origin
+`wagnerjfjunior/ProjetosCyrela@193c5c3245019b99d3a3070b3e485f48796e7e37/docs/architecture/resf-v1-origin/`
 
-The initial Candidate was derived from a curated canonical reconstruction in `wagnerjfjunior/ProjetosCyrela`, not from a generic best-practice checklist.
+The operational knowledge layer used for this reconciliation is pinned at:
 
-The immutable source revision for this Candidate intake is:
+`wagnerjfjunior/ProjetosCyrela@60a8af63a94b86542c52f992d76bb5df1ca4ea2e`
 
-`wagnerjfjunior/ProjetosCyrela@193c5c3245019b99d3a3070b3e485f48796e7e37`
+Capri is a high-value reference implementation with observed Google visibility and observed Gemini citation. Those observations do not establish causal contribution by RESF or any isolated pattern.
 
-Source package path at that revision:
-
-`docs/architecture/resf-v1-origin/`
-
-Human workflow context at intake time: branch `sfjm/bootstrap-legacy-recovery-v1`, PR `#1`.
-
-The provider must preserve provenance and must not copy consumer-specific facts or IDs into universal rules.
-
-## Core system chain
-
-`SEARCH DEMAND -> SEARCH INTENT -> SERP -> INFORMATION ARCHITECTURE -> PAGE ARCHETYPE -> CONTENT -> TECHNICAL SEO / SCHEMA / GEO-AEO -> UX / MOBILE / PERFORMANCE -> CTA -> FORM / WHATSAPP -> LEAD VALIDATION -> TRACKING -> CRM -> ATTRIBUTION -> ADS OPTIMIZATION`
-
-The Candidate is deliberately named **Search-to-Lead** because the initial source evidence does not establish a complete Search-to-Revenue closed loop.
-
-## Modules
-
-- `RESF-INTELLIGENCE`
-- `RESF-IA`
-- `RESF-SEO`
-- `RESF-CONTENT`
-- `RESF-SCHEMA`
-- `RESF-LINKING`
-- `RESF-UX`
-- `RESF-CONVERSION`
-- `RESF-TRACKING`
-- `RESF-LEAD`
-- `RESF-ATTRIBUTION`
-- `RESF-CONSENT`
-- `RESF-PAID`
-- `RESF-QA`
-
-Modules may be adopted, partially adopted, overridden, deferred or rejected by a consumer project. Adoption is never implicit.
-
-## Consumer authority
-
-Consumer projects retain authority over product facts, commercial data, credentials, repository/code, CMS, deploy, DNS, analytics accounts, CRM, campaign publication, budget, risk acceptance and adoption decisions.
-
-`PROVIDER_SPECIALIST_WORK != CONSUMER_PROJECT_MUTATION`
-
-## Candidate rules with strongest source support
-
-The initial Candidate gives strongest weight to:
-
-- observed search demand before architecture;
-- one materially distinct dominant intent with a canonical owner;
-- guide/product separation when intent materially differs;
-- preserving performing canonical continuity where feasible;
-- technical SEO as an enabling layer, not a ranking guarantee;
-- factual schema only, with canonical emitter ownership;
-- internal linking by semantic relationship and journey rather than quota;
-- independent mobile validation and regression-safe changes;
-- one real business definition for lead semantics;
-- an explicit logical-event identity contract for deduplication, while treating the source implementation outcome as contradicted until revalidated;
-- destination allowlists and end-to-end tracking validation;
-- explicit conversion ownership;
-- attribution identifier persistence where closed-loop questions require it;
-- consent UI/enforcement separation;
-- search-term governance and qualified-conversion optimization for paid search;
-- explicit `DESIGNED / IMPLEMENTED / DEPLOYED / VALIDATED` states;
-- timestamped validation and preserved provenance.
-
-## Benchmark governance
-
-The source project's Capri case is a reference implementation and empirical benchmark, not a universal template or proof of ranking causality. ZEN and EPIC contribute independent evidence around intent architecture, schema/FAQ failure, page archetypes, technical SEO versus SERP outcome and mobile/implementation QA.
-
-## Pattern qualification
-
-Framework patterns use only these qualification states:
-
-`PROVEN`, `PROMISING`, `PAGE_SPECIFIC`, `SUPERSEDED`, `CONTRADICTED`, `UNVALIDATED`.
-
-Source-project evidence uses a separate evidence taxonomy. Pattern records may therefore carry a framework qualification plus a distinct `source_evidence` note; source evidence must not be silently collapsed into framework qualification.
+Vista Milano is a controlled preview application of RESF concepts. It is not production validation and does not satisfy the full promotion gate.
 
 ## Lifecycle
 
-Allowed framework lifecycle states are:
+Allowed states are `EXPERIMENTAL`, `CANDIDATE`, `RECOMMENDED`, `STABLE`, `DEPRECATED`, `SUPERSEDED`, `ARCHIVED`.
 
-`EXPERIMENTAL`, `CANDIDATE`, `RECOMMENDED`, `STABLE`, `DEPRECATED`, `SUPERSEDED`, `ARCHIVED`.
+This version remains `CANDIDATE`. Documentation completeness, Capri visibility or a preview application do not authorize promotion.
 
-This PR introduces only `CANDIDATE`. No automatic promotion to `RECOMMENDED` is authorized.
+## Scope boundary
 
-## Promotion requirement
-
-At minimum, promotion beyond Candidate should require reviewed pattern and anti-pattern registries, formal contracts, provenance, explicit limitations, a validated consumer adoption model, at least one controlled application/revalidation and no unclassified critical contradiction.
+v1 ends at Search-to-Lead. A future Search-to-Revenue version requires separate lifecycle and evidence for CRM opportunity/sale feedback, revenue attribution and applicable offline-conversion loops.
