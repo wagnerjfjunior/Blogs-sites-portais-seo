@@ -1,0 +1,25 @@
+release:
+  consumer_project_id: REQUIRED
+  consumer_ref: REQUIRED_IMMUTABLE_SHA
+  route: REQUIRED
+  evidence_date: REQUIRED
+severity_counts:
+  P0: REQUIRED
+  P1: REQUIRED
+  P2: REQUIRED
+  P3: REQUIRED
+qa:
+  facts: NOT_VALIDATED
+  search: NOT_VALIDATED
+  content: NOT_VALIDATED
+  schema: NOT_VALIDATED
+  mobile: NOT_VALIDATED
+  performance: NOT_VALIDATED
+  cta: NOT_VALIDATED
+  form: NOT_VALIDATED
+  tracking: NOT_VALIDATED
+  lead_delivery: NOT_VALIDATED
+  consent: NOT_VALIDATED
+  security: NOT_VALIDATED
+  regression: NOT_VALIDATED
+release_decision: NOT_AUTHORIZED
