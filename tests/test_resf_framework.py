@@ -77,6 +77,31 @@ class RESFFrameworkTests(unittest.TestCase):
             self.assertTrue(set(module["anti_patterns"]) <= anti_patterns, module["id"])
             self.assertTrue(set(module["prerequisites"]) <= module_ids, module["id"])
 
+    def test_module_records_include_canonical_operational_fields(self):
+        modules = load_json_yaml(V1 / "MODULE_REGISTRY.yaml")["modules"]
+        required = {
+            "applicability", "prerequisites", "inputs", "outputs",
+            "required_contracts", "optional_contracts", "patterns", "anti_patterns",
+            "evidence_requirements", "responsible_specialist_capability",
+            "validation_procedure", "consumer_override_policy", "limitations",
+        }
+        for module in modules:
+            self.assertTrue(required <= set(module), module["id"])
+            self.assertEqual(
+                module["responsible_specialist_capability"],
+                module["responsible_capability"],
+                module["id"],
+            )
+            self.assertEqual(module["limitations"], module["known_limitations"], module["id"])
+
+    def test_module_schema_requires_canonical_operational_fields(self):
+        schema = json.loads((RESF / "schemas" / "module-record.schema.json").read_text(encoding="utf-8"))
+        required = set(schema["required"])
+        self.assertIn("responsible_specialist_capability", required)
+        self.assertIn("limitations", required)
+        self.assertNotIn("responsible_capability", required)
+        self.assertNotIn("known_limitations", required)
+
     def test_playbook_references_resolve(self):
         modules = {x["id"] for x in load_json_yaml(V1 / "MODULE_REGISTRY.yaml")["modules"]}
         contracts = {x["id"] for x in load_json_yaml(V1 / "CONTRACT_REGISTRY.yaml")["contracts"]}
