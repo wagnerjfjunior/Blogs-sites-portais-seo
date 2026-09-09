@@ -1,0 +1,15 @@
+contract:
+  id: REQUIRED
+  framework_contract: C05
+page:
+  id: REQUIRED
+  page_type: REQUIRED
+  entity_owner: REQUIRED
+  funnel_stage: REQUIRED
+  business_h1: REQUIRED
+actions:
+  primary: REQUIRED
+  secondary: []
+responsive:
+  mobile_validation_required: true
+status: DESIGNED
