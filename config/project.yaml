@@ -19,6 +19,14 @@ spec:
   legacy_skills_root: .agents/skills
   legacy_builder_root: config/builder
   legacy_tests_root: tests/gpts
+  framework_registry: docs/frameworks/INDEX.md
+  resf:
+    human_entrypoint: docs/frameworks/resf/README.md
+    ai_entrypoint: docs/frameworks/resf/AI_INSTRUCTIONS.md
+    current: docs/frameworks/resf/CURRENT.md
+    current_manifest: docs/frameworks/resf/v1/MANIFEST.yaml
+    lifecycle: CANDIDATE
+    domain: real_estate
   sfjm:
     manifest: config/sfjm.yaml
     bootstrap: bootstrap/BOOTSTRAP_CANONICO.md
@@ -40,6 +48,10 @@ spec:
     default_to_existing_asset_unless_independent_thesis_is_proven: true
     manipulative_link_networks_forbidden: true
     research_claims_require_evidence_class_and_revalidation_when_stale: true
+    resf_requires_real_estate_applicability: true
+    resf_consumer_adoption_is_explicit: true
+    resf_consumer_must_pin_provider_commit: true
+    resf_provider_does_not_own_consumer_runtime_or_facts: true
     direct_main_writes: false
     ready_requires_explicit_authorization: true
     merge_requires_separate_explicit_authorization: true
