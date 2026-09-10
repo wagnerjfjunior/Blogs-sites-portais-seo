@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RESF Consumer Adoption Manifest",
+  "type": "object",
+  "required": [
+    "framework",
+    "consumer",
+    "applicability",
+    "adoption",
+    "overrides",
+    "deferred_modules",
+    "rejected_modules",
+    "consumer_facts_source",
+    "runtime_authority",
+    "known_gaps"
+  ],
+  "properties": {
+    "framework": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "lifecycle_at_adoption",
+        "provider",
+        "provider_ref"
+      ],
+      "properties": {
+        "id": {
+          "const": "RESF"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "lifecycle_at_adoption": {
+          "enum": [
+            "EXPERIMENTAL",
+            "CANDIDATE",
+            "RECOMMENDED",
+            "STABLE",
+            "DEPRECATED",
+            "SUPERSEDED",
+            "ARCHIVED"
+          ]
+        },
+        "provider": {
+          "const": "wagnerjfjunior/Blogs-sites-portais-seo"
+        },
+        "provider_ref": {
+          "type": "string",
+          "pattern": "^(REQUIRED_IMMUTABLE_SHA|[0-9a-f]{40})$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "consumer": {
+      "type": "object",
+      "required": [
+        "project_id",
+        "repository",
+        "adoption_authority",
+        "adoption_date"
+      ],
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adoption_authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adoption_date": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "applicability": {
+      "type": "object",
+      "required": [
+        "domain",
+        "project_type",
+        "status"
+      ],
+      "properties": {
+        "domain": {
+          "const": "real_estate"
+        },
+        "project_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "APPLICABLE",
+            "NOT_APPLICABLE"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "adoption": {
+      "type": "object",
+      "required": [
+        "mode",
+        "modules"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "SELECTIVE",
+            "FULL"
+          ]
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "object"
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "overrides": {
+      "type": "array"
+    },
+    "deferred_modules": {
+      "type": "array"
+    },
+    "rejected_modules": {
+      "type": "array"
+    },
+    "consumer_facts_source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_authority": {
+      "const": "CONSUMER"
+    },
+    "known_gaps": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,31 +1,18 @@
 # RESF v1 — Known Limitations
 
-Status: `CANDIDATE`
+Canonical machine registry: `LIMITATION_REGISTRY.yaml`.
 
-The initial RESF v1 evidence base does **not** establish the following as validated framework outcomes:
+Material limitations include:
 
-- AI discovery/citation effectiveness;
-- closed-loop CRM attribution;
-- offline-conversion feedback to ad platforms;
-- complete consent enforcement across all destinations;
-- universal lead-scoring thresholds;
-- ranking causality from any isolated tactic;
-- universal CMS implementation profile;
-- universal ad-platform implementation profile.
+- ranking causality is not established from Capri or any isolated tactic;
+- Gemini/AI citation is dynamic and not guaranteed;
+- closed-loop CRM/offline-conversion attribution is not validated;
+- Search-to-Revenue is outside RESF v1;
+- browser/server event-id dedup requires current consumer runtime evidence;
+- destination-specific consent enforcement is not universally validated;
+- universal lead-scoring thresholds are not established;
+- heatmap/session-replay has no recovered evidence baseline;
+- numeric performance budgets remain consumer/context-specific;
+- reference implementations are not universal templates.
 
-## Source-project contradictions intentionally preserved
-
-The initial source package also contains unresolved or contradicted historical evidence that must not be normalized into universal rules, including:
-
-- historical lead-event dedup claims contradicted by later event_id observations;
-- scoring thresholds versus observed runtime classifications;
-- unresolved ZEN product facts;
-- unresolved Capri address / 246-vs-247 historical fact conflicts;
-- historical GA4 ↔ Google Ads linkage contradiction;
-- current live consent-gating state not fully established.
-
-## Consequence
-
-These limitations do not prevent a `CANDIDATE` framework intake because they are explicitly bounded. They do prevent claims that RESF v1 is a proven Search-to-Revenue system or that its source cases establish ranking causality.
-
-Any provider-local promotion beyond `CANDIDATE` must either preserve these limitations, revalidate them with new evidence, or explicitly replace them through a new version/pattern lifecycle decision.
+These limitations are compatible with lifecycle `CANDIDATE`, but they block any claim that v1 is a proven Search-to-Revenue system or a guaranteed ranking/lead methodology.

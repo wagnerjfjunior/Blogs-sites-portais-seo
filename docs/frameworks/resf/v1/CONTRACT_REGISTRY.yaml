@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "contracts": [
+    {
+      "id": "C01",
+      "title": "Product Fact Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "PRODUCT_TRUTH",
+      "requirements": [
+        "every material claim has governed source",
+        "temporal fact has effective_date",
+        "fact/hypothesis/inference/target state separated",
+        "reference-page facts never inherited"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C02",
+      "title": "Market Intelligence Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "MARKET_INTELLIGENCE",
+      "requirements": [
+        "demand/market evidence source and date recorded",
+        "historical and current evidence separated"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C03",
+      "title": "Search Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "SEARCH_CONTRACT",
+      "requirements": [
+        "unique primary intent owner",
+        "query families and page role explicit",
+        "canonical target explicit",
+        "cannibalization risks recorded"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C04",
+      "title": "Information Architecture Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "INFORMATION_ARCHITECTURE",
+      "requirements": [
+        "hierarchy and relationships explicit",
+        "hub/product roles do not silently compete"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C05",
+      "title": "Page Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "PAGE_ARCHITECTURE",
+      "requirements": [
+        "page type/entity owner/funnel stage explicit",
+        "one business H1",
+        "primary and secondary actions explicit"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C06",
+      "title": "Content Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "CONTENT_ARCHITECTURE",
+      "requirements": [
+        "content serves user decision before machine optimization",
+        "facts source-governed",
+        "headings reflect intent",
+        "redundancy bounded"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C07",
+      "title": "Schema Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "SCHEMA_STRUCTURED_DATA",
+      "requirements": [
+        "single canonical emission ownership",
+        "visible-content consistency",
+        "FAQPage matches visible FAQ",
+        "no invented rating/review/stock/availability"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C08",
+      "title": "Internal Linking Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "INTERNAL_LINKING",
+      "requirements": [
+        "links are semantic/journey relevant",
+        "no quota/manipulative cross-property linking"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C09",
+      "title": "UX and Conversion Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "CRO",
+      "requirements": [
+        "primary business action declared",
+        "CTA label equals actual action",
+        "mobile action accessible",
+        "secondary actions classified"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C10",
+      "title": "Performance Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "PERFORMANCE",
+      "requirements": [
+        "LCP candidate/media strategy explicit",
+        "target context measured",
+        "no universal numeric budget without consumer evidence"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C11",
+      "title": "Tracking Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "EVENT_TAXONOMY",
+      "requirements": [
+        "event semantics/route/product/funnel/destinations declared",
+        "lead validity defined before lead event",
+        "one logical event uses one event_id when dedup applies",
+        "semantic payload validation required"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C12",
+      "title": "Form and CRM Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "CRM_HANDOFF",
+      "requirements": [
+        "capture success and handoff fields declared",
+        "CRM destination explicit",
+        "thank-you page alone is not lead proof",
+        "vendor constraints consumer-specific"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C13",
+      "title": "Paid Media Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "ATTRIBUTION",
+      "requirements": [
+        "primary conversion owner declared",
+        "platform destinations separated",
+        "campaign identifiers documented where applicable",
+        "duplicate bidding conversions require explicit exception"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C14",
+      "title": "Privacy and Consent Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "CONSENT",
+      "requirements": [
+        "destination-specific consent dependencies declared",
+        "PII minimized",
+        "consent UI does not prove enforcement",
+        "legal compliance not inferred"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C15",
+      "title": "Release Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "RELEASE_GATE",
+      "requirements": [
+        "technical/content/schema/mobile/tracking/lead/regression QA",
+        "reference criteria P0=0 and P1=0",
+        "publish requires consumer authorization"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    },
+    {
+      "id": "C16",
+      "title": "Post-release Measurement Contract",
+      "type": "CONTRACT",
+      "lifecycle": "CANDIDATE",
+      "capability": "OBSERVABILITY",
+      "requirements": [
+        "runtime observations timestamped",
+        "result separate from causal claim",
+        "learning update requires provider evidence intake"
+      ],
+      "consumer_override_policy": "Explicit consumer override only.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/contracts/contract-registry.yaml"
+      }
+    }
+  ]
+}

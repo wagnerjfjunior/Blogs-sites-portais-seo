@@ -1,0 +1,21 @@
+contract:
+  id: REQUIRED
+  framework_contract: C11
+page_identity: REQUIRED
+product_identity: REQUIRED
+route: REQUIRED
+funnel_stage: REQUIRED
+events:
+  - event_name: REQUIRED
+    semantic_definition: REQUIRED
+    primary_conversion: false
+    secondary_conversion: false
+    lead_validity_rule: REQUIRED_IF_LEAD
+    event_id_policy: REUSE_FOR_ONE_LOGICAL_EVENT_WHEN_DEDUP_APPLIES
+    destinations: []
+attribution:
+  utms: []
+  click_identifiers: []
+consent_dependencies: []
+validation:
+  status: NOT_VALIDATED

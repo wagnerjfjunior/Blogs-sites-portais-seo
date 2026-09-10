@@ -1,0 +1,14 @@
+contract:
+  id: REQUIRED
+  framework_contract: C09
+page_id: REQUIRED
+primary_business_action:
+  label: REQUIRED
+  destination: REQUIRED
+secondary_actions: []
+mobile:
+  independent_validation_required: true
+  status: NOT_VALIDATED
+accessibility:
+  status: NOT_VALIDATED
+status: DESIGNED

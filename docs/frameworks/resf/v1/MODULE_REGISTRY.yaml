@@ -1,0 +1,955 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "variant": "Search-to-Lead",
+  "lifecycle": "CANDIDATE",
+  "modules": [
+    {
+      "id": "RESF-INTELLIGENCE",
+      "name": "Market and search intelligence",
+      "purpose": "Market and search intelligence",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C02",
+        "C03"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-INT-001",
+        "PAT-INT-002"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_strategy"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_strategy"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-PRODUCT-TRUTH",
+      "name": "Governed product facts and claims",
+      "purpose": "Governed product facts and claims",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-INTELLIGENCE"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C01"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-FACT-001"
+      ],
+      "anti_patterns": [
+        "AP-013"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "product_authority"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "product_authority"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-IA",
+      "name": "Information architecture and intent ownership",
+      "purpose": "Information architecture and intent ownership",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-INTELLIGENCE",
+        "RESF-PRODUCT-TRUTH"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C04",
+        "C05"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-IA-001",
+        "PAT-IA-002",
+        "PAT-IA-003",
+        "PAT-IA-004"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "architecture"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "architecture"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-SEARCH-CONTRACT",
+      "name": "Search intent/query ownership",
+      "purpose": "Search intent/query ownership",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-INTELLIGENCE"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C03"
+      ],
+      "optional_contracts": [],
+      "patterns": [],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_strategy"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_strategy"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-SEO",
+      "name": "Technical and on-page search controls",
+      "purpose": "Technical and on-page search controls",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-SEARCH-CONTRACT"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C03",
+        "C05",
+        "C10"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-SEO-001",
+        "PAT-SEO-002",
+        "PAT-SEO-003",
+        "PAT-SEO-004"
+      ],
+      "anti_patterns": [
+        "AP-002"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "technical_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-CONTENT",
+      "name": "Decision-useful content architecture",
+      "purpose": "Decision-useful content architecture",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-PRODUCT-TRUTH",
+        "RESF-SEARCH-CONTRACT"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C06"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-CONTENT-001",
+        "PAT-CONTENT-002"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "content_semantic_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-SCHEMA",
+      "name": "Factual structured-data graph",
+      "purpose": "Factual structured-data graph",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-PRODUCT-TRUTH",
+        "RESF-CONTENT"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C07"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-SCHEMA-001",
+        "PAT-SCHEMA-002",
+        "PAT-SCHEMA-003",
+        "PAT-SCHEMA-004"
+      ],
+      "anti_patterns": [
+        "AP-001",
+        "AP-003",
+        "AP-004",
+        "AP-005"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "technical_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-GEO-AEO",
+      "name": "Answerability/entity/AI discoverability readiness",
+      "purpose": "Answerability/entity/AI discoverability readiness",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-CONTENT",
+        "RESF-SCHEMA"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C06",
+        "C07",
+        "C16"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-GEO-001"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "content_semantic_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-LINKING",
+      "name": "Semantic internal linking",
+      "purpose": "Semantic internal linking",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-IA",
+        "RESF-SEARCH-CONTRACT"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C08"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-LINK-001",
+        "PAT-LINK-002"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "content_semantic_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "content_semantic_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-UX",
+      "name": "Mobile/accessibility/interaction quality",
+      "purpose": "Mobile/accessibility/interaction quality",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-IA"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C09"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-UX-001",
+        "PAT-UX-002",
+        "PAT-UX-003"
+      ],
+      "anti_patterns": [
+        "AP-011"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "ux_ui"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "ux_ui"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-PERFORMANCE",
+      "name": "Performance and media strategy",
+      "purpose": "Performance and media strategy",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-UX"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C10"
+      ],
+      "optional_contracts": [],
+      "patterns": [],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "technical_seo"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "technical_seo"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-CONVERSION",
+      "name": "Primary and secondary conversion architecture",
+      "purpose": "Primary and secondary conversion architecture",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-UX",
+        "RESF-PRODUCT-TRUTH"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C09"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-CONV-001",
+        "PAT-CONV-002",
+        "PAT-CONV-003",
+        "PAT-CONV-004"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "ux_ui"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "ux_ui"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-TRACKING",
+      "name": "Event semantics/destinations/dedup",
+      "purpose": "Event semantics/destinations/dedup",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-CONVERSION"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C11"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-TRK-001",
+        "PAT-TRK-002",
+        "PAT-TRK-003",
+        "PAT-TRK-004"
+      ],
+      "anti_patterns": [
+        "AP-006",
+        "AP-007",
+        "AP-008"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_analytics_growth"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-LEAD",
+      "name": "Business-valid lead semantics",
+      "purpose": "Business-valid lead semantics",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-CONVERSION",
+        "RESF-TRACKING"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C11",
+        "C12"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-LEAD-001",
+        "PAT-LEAD-002",
+        "PAT-SCORE-001"
+      ],
+      "anti_patterns": [
+        "AP-009",
+        "AP-016"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_analytics_growth"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-CRM",
+      "name": "Lead handoff contract",
+      "purpose": "Lead handoff contract",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-LEAD"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C12"
+      ],
+      "optional_contracts": [],
+      "patterns": [],
+      "anti_patterns": [
+        "AP-010"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_analytics_growth"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-ATTRIBUTION",
+      "name": "Identifier persistence and attribution boundaries",
+      "purpose": "Identifier persistence and attribution boundaries",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-TRACKING",
+        "RESF-CRM"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C11",
+        "C13",
+        "C16"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-ATTR-001",
+        "PAT-ATTR-002"
+      ],
+      "anti_patterns": [
+        "AP-015"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_analytics_growth"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-CONSENT",
+      "name": "Consent/privacy gating",
+      "purpose": "Consent/privacy gating",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-TRACKING"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C14"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-CONSENT-001",
+        "PAT-CONSENT-002",
+        "PAT-CONSENT-003"
+      ],
+      "anti_patterns": [
+        "AP-012"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "application_security"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "application_security"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-PAID",
+      "name": "Paid Search/media contract",
+      "purpose": "Paid Search/media contract",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-SEARCH-CONTRACT",
+        "RESF-CONVERSION",
+        "RESF-TRACKING"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C13"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-PAID-001",
+        "PAT-PAID-002"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "paid_search_sem"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "paid_search_sem"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-QA",
+      "name": "Preview/regression/release evidence",
+      "purpose": "Preview/regression/release evidence",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-SEO",
+        "RESF-SCHEMA",
+        "RESF-UX",
+        "RESF-TRACKING",
+        "RESF-LEAD"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C15"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-QA-001",
+        "PAT-QA-002",
+        "PAT-QA-003",
+        "PAT-QA-004",
+        "PAT-GOV-001",
+        "PAT-GOV-002",
+        "PAT-GOV-003",
+        "PAT-GOV-004",
+        "PAT-GOV-005",
+        "PAT-QA-005",
+        "PAT-QA-006"
+      ],
+      "anti_patterns": [
+        "AP-014"
+      ],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "documentation_audit"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "documentation_audit"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    },
+    {
+      "id": "RESF-OBSERVABILITY",
+      "name": "Post-release measurement/learning loop",
+      "purpose": "Post-release measurement/learning loop",
+      "lifecycle": "CANDIDATE",
+      "applicability": "REAL_ESTATE / SELECTIVE_BY_CONSUMER",
+      "prerequisites": [
+        "RESF-QA"
+      ],
+      "inputs": [
+        "consumer adoption manifest",
+        "consumer facts/evidence as applicable"
+      ],
+      "outputs": [
+        "consumer-specific contract/artifact/evidence"
+      ],
+      "required_contracts": [
+        "C16"
+      ],
+      "optional_contracts": [],
+      "patterns": [
+        "PAT-OBS-001"
+      ],
+      "anti_patterns": [],
+      "evidence_requirements": [
+        "immutable source revision",
+        "timestamp for CURRENT/DEPLOYED/VALIDATED claims"
+      ],
+      "responsible_capability": [
+        "seo_analytics_growth"
+      ],
+      "validation_procedure": "Validate consumer artifact against adopted contracts and current evidence.",
+      "consumer_override_policy": "Explicit consumer override required; override does not modify provider framework.",
+      "known_limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ],
+      "responsible_specialist_capability": [
+        "seo_analytics_growth"
+      ],
+      "limitations": [
+        "Provider does not own consumer runtime or business facts."
+      ]
+    }
+  ],
+  "field_semantics": {
+    "canonical": {
+      "responsible_specialist_capability": "Specialist capability/role accountable for validating or operating the module in consumer context.",
+      "limitations": "Known provider-level limitations that constrain module interpretation."
+    },
+    "compatibility_aliases": {
+      "responsible_capability": "Alias retained for RESF v1 backward compatibility; must equal responsible_specialist_capability.",
+      "known_limitations": "Alias retained for RESF v1 backward compatibility; must equal limitations."
+    }
+  }
+}

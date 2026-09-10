@@ -1,0 +1,16 @@
+contract:
+  id: REQUIRED
+  framework_contract: C03
+page:
+  id: REQUIRED
+  page_type: REQUIRED
+  funnel_stage: REQUIRED
+search:
+  intent_cluster: REQUIRED
+  dominant_intent: REQUIRED
+  primary_query: REQUIRED
+  secondary_queries: []
+  canonical_owner: REQUIRED
+  evidence_sources: []
+cannibalization_risks: []
+status: DESIGNED

@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "playbooks": [
+    {
+      "id": "PB-NEW-PRODUCT",
+      "name": "NEW_REAL_ESTATE_PRODUCT_PAGE",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-PRODUCT-TRUTH",
+        "RESF-INTELLIGENCE",
+        "RESF-SEARCH-CONTRACT",
+        "RESF-IA",
+        "RESF-CONTENT",
+        "RESF-SCHEMA",
+        "RESF-LINKING",
+        "RESF-UX",
+        "RESF-PERFORMANCE",
+        "RESF-CONVERSION",
+        "RESF-TRACKING",
+        "RESF-LEAD",
+        "RESF-CRM",
+        "RESF-CONSENT",
+        "RESF-QA"
+      ],
+      "contracts": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C14",
+        "C15"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-REMEDIATE",
+      "name": "EXISTING_PAGE_REMEDIATION",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-PRODUCT-TRUTH",
+        "RESF-SEO",
+        "RESF-CONTENT",
+        "RESF-SCHEMA",
+        "RESF-UX",
+        "RESF-CONVERSION",
+        "RESF-TRACKING",
+        "RESF-QA"
+      ],
+      "contracts": [
+        "C01",
+        "C03",
+        "C05",
+        "C06",
+        "C07",
+        "C09",
+        "C11",
+        "C15"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-CANNIBALIZATION",
+      "name": "SEARCH_INTENT_AND_CANNIBALIZATION_REVIEW",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-INTELLIGENCE",
+        "RESF-SEARCH-CONTRACT",
+        "RESF-IA",
+        "RESF-LINKING"
+      ],
+      "contracts": [
+        "C02",
+        "C03",
+        "C04",
+        "C08"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-SCHEMA",
+      "name": "SCHEMA_AND_ENTITY_REVIEW",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-PRODUCT-TRUTH",
+        "RESF-SCHEMA",
+        "RESF-GEO-AEO"
+      ],
+      "contracts": [
+        "C01",
+        "C07"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-MOBILE",
+      "name": "MOBILE_PERFORMANCE_REVIEW",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-UX",
+        "RESF-PERFORMANCE",
+        "RESF-QA"
+      ],
+      "contracts": [
+        "C09",
+        "C10",
+        "C15"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-TRACKING",
+      "name": "TRACKING_AND_LEAD_VALIDATION",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-CONVERSION",
+        "RESF-TRACKING",
+        "RESF-LEAD",
+        "RESF-CRM",
+        "RESF-ATTRIBUTION",
+        "RESF-CONSENT"
+      ],
+      "contracts": [
+        "C09",
+        "C11",
+        "C12",
+        "C14"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-REGRESSION",
+      "name": "PRE_RELEASE_REGRESSION",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-QA"
+      ],
+      "contracts": [
+        "C15"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-MEASUREMENT",
+      "name": "POST_RELEASE_MEASUREMENT",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-OBSERVABILITY",
+        "RESF-GEO-AEO",
+        "RESF-ATTRIBUTION"
+      ],
+      "contracts": [
+        "C16"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    },
+    {
+      "id": "PB-PROMOTION",
+      "name": "PATTERN_PROMOTION_REVIEW",
+      "lifecycle": "CANDIDATE",
+      "modules": [
+        "RESF-OBSERVABILITY",
+        "RESF-QA"
+      ],
+      "contracts": [
+        "C16"
+      ],
+      "procedure": "Load adopted modules/contracts; collect required evidence; stop on a material unresolved blocker; record observed results separately from causal claims.",
+      "consumer_mutation_authority": "CONSUMER_ONLY",
+      "provider_update_authority": "SEPARATE_PROVIDER_PR_REQUIRED"
+    }
+  ]
+}

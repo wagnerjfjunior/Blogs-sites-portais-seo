@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RESF Contract Record",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "type",
+    "lifecycle",
+    "capability",
+    "requirements",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^C[0-9]{2}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "const": "CONTRACT"
+    },
+    "lifecycle": {
+      "const": "CANDIDATE"
+    },
+    "capability": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "repository",
+        "ref"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,393 @@
+{
+  "version": 1,
+  "framework": "RESF",
+  "anti_patterns": [
+    {
+      "id": "AP-001",
+      "title": "Duplicate FAQPage emission",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Duplicate FAQPage emission.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-002",
+      "title": "Multiple competing business H1s",
+      "module": "RESF-SEO",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Multiple competing business H1s.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-003",
+      "title": "Stale or duplicate structured-data emitters",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Stale or duplicate structured-data emitters.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-004",
+      "title": "Invented rating, review, offer, stock or availability",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Invented rating, review, offer, stock or availability.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-005",
+      "title": "Unsupported Schema properties",
+      "module": "RESF-SCHEMA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Unsupported Schema properties.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-006",
+      "title": "False WhatsApp intent attribution",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: False WhatsApp intent attribution.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-007",
+      "title": "Duplicate click event names",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Duplicate click event names.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-008",
+      "title": "Server-generated replacement event_id",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Server-generated replacement event_id.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-009",
+      "title": "Generic click score inflation",
+      "module": "RESF-LEAD",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Generic click score inflation.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-010",
+      "title": "Custom form without validated lead capture",
+      "module": "RESF-CRM",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Custom form without validated lead capture.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-011",
+      "title": "Desktop-only mobile acceptance",
+      "module": "RESF-UX",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Desktop-only mobile acceptance.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-012",
+      "title": "Global address visibility rule",
+      "module": "RESF-CONSENT",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Global address visibility rule.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-013",
+      "title": "Copying reference-product facts",
+      "module": "RESF-PRODUCT-TRUTH",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Copying reference-product facts.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-014",
+      "title": "Historical documentation promoted to current truth",
+      "module": "RESF-QA",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Historical documentation promoted to current truth.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-015",
+      "title": "Competing Primary conversion owners",
+      "module": "RESF-ATTRIBUTION",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Competing Primary conversion owners.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    },
+    {
+      "id": "AP-016",
+      "title": "Canonicalizing contradictory scoring thresholds",
+      "module": "RESF-LEAD",
+      "lifecycle": "CANDIDATE",
+      "qualification": "PROVEN",
+      "rule": "Avoid: Canonicalizing contradictory scoring thresholds.",
+      "provenance": {
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_registry": "docs/patterns/anti-pattern-registry.yaml"
+      }
+    }
+  ],
+  "id_policy": "Source-project IDs are canonical for the normalized source reconciliation; all pre-existing provider IDs are preserved below for backward compatibility.",
+  "legacy_provider_records": [
+    {
+      "id": "AP-INT-001",
+      "title": "Invent demand from intuition without observed evidence",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-IA-001",
+      "title": "Intentionally create multiple URLs for the same primary intent",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-001",
+      "title": "Treat Lighthouse SEO 100 as SEO completion",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-002",
+      "title": "Copy the highest-ranking page as a universal template",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SEO-003",
+      "title": "Use hidden/invisible SEO content as a strategy",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONTENT-001",
+      "title": "Use the same copy model for every development",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-001",
+      "title": "Assume more schema automatically improves ranking",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-002",
+      "title": "Fabricate offers, reviews, ratings or availability",
+      "target_source_ids": [
+        "AP-004"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCHEMA-003",
+      "title": "Treat FAQPage as mandatory on every SEO page",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-LINK-001",
+      "title": "Require every product to mechanically link to another product",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-001",
+      "title": "Treat a `FIXED` filename/patch as proof of validation",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-002",
+      "title": "Treat desktop validation as sufficient mobile validation",
+      "target_source_ids": [
+        "AP-011"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-UX-003",
+      "title": "Accumulate endless `!important` patches instead of diagnosing ownership/DOM structure",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONV-001",
+      "title": "Assume more form complexity automatically increases lead quality",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-LEAD-001",
+      "title": "Treat a thank-you URL/page view as the lead identity",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCORE-001",
+      "title": "Copy source-project scoring thresholds into a different consumer",
+      "target_source_ids": [
+        "AP-016"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-SCORE-002",
+      "title": "Operate scoring without later business calibration",
+      "target_source_ids": [
+        "AP-016"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-001",
+      "title": "Regenerate an identifier server-side for the same logical event",
+      "target_source_ids": [
+        "AP-008"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-002",
+      "title": "Treat HTTP 200 as proof that event semantics are correct",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-TRK-003",
+      "title": "Send every analytics event to advertising destinations",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-ATTR-001",
+      "title": "Treat gclid observed on landing as closed-loop attribution",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-ATTR-002",
+      "title": "Create multiple Primary conversions for the same business outcome without explicit intent",
+      "target_source_ids": [
+        "AP-015"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-PAID-001",
+      "title": "Optimize by CTR while qualified lead outcome remains unknown",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONSENT-001",
+      "title": "Treat a platform consent score as legal compliance",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-CONSENT-002",
+      "title": "Design tracking first and consent enforcement later",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-QA-001",
+      "title": "Treat documentation as runtime proof",
+      "target_source_ids": [
+        "AP-014"
+      ],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    },
+    {
+      "id": "AP-QA-002",
+      "title": "Treat a correction as proof that the problem is resolved",
+      "target_source_ids": [],
+      "status": "PRESERVED_COMPATIBILITY_RECORD"
+    }
+  ]
+}

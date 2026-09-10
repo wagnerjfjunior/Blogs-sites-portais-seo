@@ -51,6 +51,14 @@ Quando identidade/migração de especialista, consulta manual ou serviço cross-
 
 Quando a tarefa envolver MoreNumTegra Search, resolver `wagnerjfjunior/MoreNumTegra` live e consumir o handoff project-local vigente antes de emitir recomendação.
 
+Quando a tarefa envolver um ativo digital do domínio imobiliário (`real_estate`), ler `docs/frameworks/resf/README.md`, resolver a versão em `docs/frameworks/resf/CURRENT.md`, resolver o consumer live e localizar seu manifesto de adoção. O RESF permanece disponível, não automaticamente adotado; executar somente módulos explicitamente adotados e preservar a autoridade provider/consumer. Para instruções determinísticas de agentes, usar `docs/frameworks/resf/AI_INSTRUCTIONS.md`.
+
+`REAL_ESTATE_TASK -> RESF_DISCOVERY`
+
+`RESF_DISCOVERY != CONSUMER_ADOPTION`
+
+`MISSING_ADOPTION_MANIFEST -> AVAILABLE_NOT_ADOPTED`
+
 ## Estado confirmado
 
 1. Novo roteamento usa `ROLE -> ARCHETYPE_ID` via SES/Project Adapter e `config/specialists.yaml`; em handoff manual, o destino humano usa obrigatoriamente o `CANONICAL_NAME` do archetype SES, nunca o label GPT legacy.

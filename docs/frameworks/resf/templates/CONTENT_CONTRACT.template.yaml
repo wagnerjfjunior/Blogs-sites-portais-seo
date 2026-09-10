@@ -1,0 +1,11 @@
+contract:
+  id: REQUIRED
+  framework_contract: C06
+page_id: REQUIRED
+dominant_intent: REQUIRED
+decision_questions: []
+fact_registry: REQUIRED
+sections: []
+redundancy_policy: BOUNDED
+machine_only_hidden_copy: NOT_ALLOWED
+status: DESIGNED

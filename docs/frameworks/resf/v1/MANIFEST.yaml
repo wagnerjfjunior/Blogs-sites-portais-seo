@@ -1,63 +1,121 @@
-api_version: blogs-sites-portais-seo/framework/v1
-kind: SelectableFramework
-metadata:
-  id: RESF
-  name: Real Estate Search Framework
-  version: 1
-  variant: Search-to-Lead
-  lifecycle_status: CANDIDATE
-  provider_project_id: blogs-sites-portais-seo
-spec:
-  type: VERSIONED_SELECTABLE_COMPOSABLE_FRAMEWORK
-  domain:
-    - real_estate
-  initial_evidence_sources:
-    - project_id: projetos-cyrela
-      repository: wagnerjfjunior/ProjetosCyrela
-      relationship: EVIDENCE_SOURCE
-      source_branch: sfjm/bootstrap-legacy-recovery-v1
-      source_pr: 1
-      source_commit: 193c5c3245019b99d3a3070b3e485f48796e7e37
-      source_path: docs/architecture/resf-v1-origin
-  principles:
-    framework_is_truth: false
-    framework_is_project_authority: false
-    mandatory_for_consumers: false
-    permanent_best_practice: false
-    consumer_owns_runtime: true
-    consumer_owns_business_facts: true
-    consumer_can_override: true
-    modules_are_selectable: true
-    adoption_is_explicit: true
-  lifecycle:
-    allowed_states:
-      - EXPERIMENTAL
-      - CANDIDATE
-      - RECOMMENDED
-      - STABLE
-      - DEPRECATED
-      - SUPERSEDED
-      - ARCHIVED
-    automatic_promotion_forbidden: true
-  modules:
-    - RESF-INTELLIGENCE
-    - RESF-IA
-    - RESF-SEO
-    - RESF-CONTENT
-    - RESF-SCHEMA
-    - RESF-LINKING
-    - RESF-UX
-    - RESF-CONVERSION
-    - RESF-TRACKING
-    - RESF-LEAD
-    - RESF-ATTRIBUTION
-    - RESF-CONSENT
-    - RESF-PAID
-    - RESF-QA
-  non_claims:
-    guarantees_ranking: false
-    guarantees_leads: false
-    guarantees_revenue: false
-    proves_search_to_revenue_closed_loop: false
-    prescribes_specific_cms: false
-    prescribes_specific_ad_platform_stack: false
+{
+  "api_version": "blogs-sites-portais-seo/framework/v1",
+  "kind": "SelectableFramework",
+  "metadata": {
+    "id": "RESF",
+    "name": "Real Estate Search Framework",
+    "version": 1,
+    "variant": "Search-to-Lead",
+    "lifecycle_status": "CANDIDATE",
+    "provider_project_id": "blogs-sites-portais-seo"
+  },
+  "spec": {
+    "type": "VERSIONED_SELECTABLE_COMPOSABLE_FRAMEWORK",
+    "domain": [
+      "real_estate"
+    ],
+    "human_entrypoint": "docs/frameworks/resf/README.md",
+    "ai_entrypoint": "docs/frameworks/resf/AI_INSTRUCTIONS.md",
+    "current_pointer": "docs/frameworks/resf/CURRENT.md",
+    "registries": {
+      "modules": "docs/frameworks/resf/v1/MODULE_REGISTRY.yaml",
+      "patterns": "docs/frameworks/resf/v1/PATTERN_REGISTRY.yaml",
+      "anti_patterns": "docs/frameworks/resf/v1/ANTI_PATTERN_REGISTRY.yaml",
+      "contracts": "docs/frameworks/resf/v1/CONTRACT_REGISTRY.yaml",
+      "playbooks": "docs/frameworks/resf/v1/PLAYBOOK_REGISTRY.yaml",
+      "evidence": "docs/frameworks/resf/v1/EVIDENCE_REGISTRY.yaml",
+      "limitations": "docs/frameworks/resf/v1/LIMITATION_REGISTRY.yaml"
+    },
+    "adoption_schema": "docs/frameworks/resf/schemas/adoption-manifest.schema.json",
+    "adoption_template": "docs/frameworks/resf/templates/CONSUMER_ADOPTION_MANIFEST.template.yaml",
+    "principles": {
+      "framework_is_truth": false,
+      "framework_is_project_authority": false,
+      "mandatory_for_consumers": false,
+      "permanent_best_practice": false,
+      "consumer_owns_runtime": true,
+      "consumer_owns_business_facts": true,
+      "consumer_can_override": true,
+      "modules_are_selectable": true,
+      "adoption_is_explicit": true,
+      "reference_implementation_is_universal_template": false,
+      "observed_result_proves_causality": false
+    },
+    "lifecycle": {
+      "allowed_states": [
+        "EXPERIMENTAL",
+        "CANDIDATE",
+        "RECOMMENDED",
+        "STABLE",
+        "DEPRECATED",
+        "SUPERSEDED",
+        "ARCHIVED"
+      ],
+      "current": "CANDIDATE",
+      "automatic_promotion_forbidden": true,
+      "promotion_criteria": "docs/frameworks/resf/v1/PROMOTION_CRITERIA.md"
+    },
+    "evidence_sources": [
+      {
+        "project_id": "projetos-cyrela",
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "relationship": "ORIGIN_PROVENANCE",
+        "source_commit": "193c5c3245019b99d3a3070b3e485f48796e7e37",
+        "source_path": "docs/architecture/resf-v1-origin/"
+      },
+      {
+        "project_id": "projetos-cyrela",
+        "repository": "wagnerjfjunior/ProjetosCyrela",
+        "relationship": "OPERATIONALIZATION_SOURCE",
+        "source_commit": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
+        "source_path": "docs/knowledge/"
+      }
+    ],
+    "reference_implementations": {
+      "capri": {
+        "classification": "HIGH_VALUE_REFERENCE_IMPLEMENTATION",
+        "observed_google_visibility": true,
+        "observed_gemini_citation": true,
+        "causality": "NOT_ESTABLISHED"
+      },
+      "vista_milano": {
+        "classification": "CONTROLLED_PREVIEW_APPLICATION",
+        "production_validated": false,
+        "revalidation": "PARTIAL"
+      }
+    },
+    "modules": [
+      "RESF-INTELLIGENCE",
+      "RESF-PRODUCT-TRUTH",
+      "RESF-IA",
+      "RESF-SEARCH-CONTRACT",
+      "RESF-SEO",
+      "RESF-CONTENT",
+      "RESF-SCHEMA",
+      "RESF-GEO-AEO",
+      "RESF-LINKING",
+      "RESF-UX",
+      "RESF-PERFORMANCE",
+      "RESF-CONVERSION",
+      "RESF-TRACKING",
+      "RESF-LEAD",
+      "RESF-CRM",
+      "RESF-ATTRIBUTION",
+      "RESF-CONSENT",
+      "RESF-PAID",
+      "RESF-QA",
+      "RESF-OBSERVABILITY"
+    ],
+    "scope": "SEARCH_TO_LEAD",
+    "future_scope_boundary": "SEARCH_TO_REVENUE_REQUIRES_SEPARATE_VERSION_LIFECYCLE_AND_EVIDENCE",
+    "non_claims": {
+      "guarantees_ranking": false,
+      "guarantees_traffic": false,
+      "guarantees_leads": false,
+      "guarantees_revenue": false,
+      "proves_search_to_revenue_closed_loop": false,
+      "prescribes_specific_cms": false,
+      "prescribes_specific_ad_platform_stack": false
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RESF Evidence Record",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "repository",
+    "ref",
+    "path",
+    "classification",
+    "causality"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EVD-[0-9]{3}$"
+    },
+    "type": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "ref": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "path": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "causality": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "NOT_ESTABLISHED",
+        "ESTABLISHED"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

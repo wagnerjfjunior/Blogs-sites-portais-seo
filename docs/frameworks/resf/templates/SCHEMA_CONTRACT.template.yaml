@@ -1,0 +1,17 @@
+contract:
+  id: REQUIRED
+  framework_contract: C07
+page_id: REQUIRED
+canonical_emitter: REQUIRED
+entities: []
+visible_content_consistency: REQUIRED
+faq:
+  enabled: false
+  visible_matches_structured: REQUIRED_IF_ENABLED
+forbidden_inventions:
+  - rating
+  - review
+  - stock
+  - availability
+validation:
+  status: NOT_VALIDATED
