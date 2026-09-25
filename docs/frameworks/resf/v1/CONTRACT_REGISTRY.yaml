@@ -194,7 +194,9 @@
         "event semantics/route/product/funnel/destinations declared",
         "lead validity defined before lead event",
         "one logical event uses one event_id when dedup applies",
-        "semantic payload validation required"
+        "semantic payload validation required",
+        "adopted tracked page/entity context supports stable consumer-governed audience or segment classification without requiring page-specific tracking administration",
+        "audience-capable segmentation uses governed non-PII semantic context and preserves separation among measurement event identity, audience classification, acquisition attribution and CRM/person identity"
       ],
       "consumer_override_policy": "Explicit consumer override only.",
       "provenance": {
@@ -232,7 +234,8 @@
         "primary conversion owner declared",
         "platform destinations separated",
         "campaign identifiers documented where applicable",
-        "duplicate bidding conversions require explicit exception"
+        "duplicate bidding conversions require explicit exception",
+        "audience readiness or audience creation does not authorize export, remarketing, suppression, bidding or other paid-media activation"
       ],
       "consumer_override_policy": "Explicit consumer override only.",
       "provenance": {
@@ -251,7 +254,9 @@
         "destination-specific consent dependencies declared",
         "PII minimized",
         "consent UI does not prove enforcement",
-        "legal compliance not inferred"
+        "legal compliance not inferred",
+        "audience readiness does not bypass destination-specific consent or advertising-personalization controls",
+        "audience readiness must not require or use as fallback PII, hashed PII, fingerprint-derived identity, CRM identity or equivalent identity enrichment"
       ],
       "consumer_override_policy": "Explicit consumer override only.",
       "provenance": {
@@ -287,7 +292,8 @@
       "requirements": [
         "runtime observations timestamped",
         "result separate from causal claim",
-        "learning update requires provider evidence intake"
+        "learning update requires provider evidence intake",
+        "audience-readiness observations record intended coverage, unintended exclusions, classifier drift and known gaps without treating configuration as current runtime proof"
       ],
       "consumer_override_policy": "Explicit consumer override only.",
       "provenance": {

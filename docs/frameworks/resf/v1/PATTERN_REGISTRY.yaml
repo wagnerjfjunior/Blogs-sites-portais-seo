@@ -1432,6 +1432,41 @@
         "ref": "60a8af63a94b86542c52f992d76bb5df1ca4ea2e",
         "source_registry": "docs/patterns/pattern-registry.yaml"
       }
+    },
+    {
+      "id": "PAT-TRK-005",
+      "title": "Stable class-based audience readiness without page-by-page audience administration",
+      "module": "RESF-TRACKING",
+      "lifecycle": "CANDIDATE",
+      "qualification": "UNVALIDATED",
+      "rule": "A consumer may use a stable governed page/entity classifier so newly published conforming pages are audience-ready without page-by-page audience administration; required tracking instrumentation and validation obligations remain applicable.",
+      "applies_when": [
+        "consumer adopts RESF-TRACKING and applicability matches",
+        "consumer has a stable governed page/entity classifier with positive and negative validation"
+      ],
+      "does_not_mean": [
+        "a GA4 or other platform audience must be created",
+        "publication automatically creates or activates an audience",
+        "consumer-specific route namespaces, audience names or membership windows are framework defaults",
+        "guaranteed ranking, lead, revenue or causal lift"
+      ],
+      "validation": [
+        "consumer-specific evidence must prove intended-page coverage and unintended-page exclusion",
+        "a newly published conforming page should remain classifiable without changing the generic audience classification rule",
+        "required tracking instrumentation and semantic validation remain applicable and are not waived by audience readiness",
+        "classifier drift returns readiness to NOT_VALIDATED until reconciled"
+      ],
+      "exceptions": [
+        "page-specific audiences may be created under explicit consumer analytical, commercial or activation need"
+      ],
+      "portability": "REAL_ESTATE_GENERIC",
+      "confidence": "LOW",
+      "provenance": {
+        "repository": "wagnerjfjunior/MoreNumTegra",
+        "ref": "1fd475a41841792de9fcbe50e6d5b19b5d85d069",
+        "source_path": "docs/attribution/MNT_GA4_AUDIENCE_MANUAL_RUNBOOK_V1_2026-09-22.md"
+      },
+      "source_evidence": "At MoreNumTegra@1fd475a41841792de9fcbe50e6d5b19b5d85d069, docs/attribution/MNT_GA4_AUDIENCE_MANUAL_RUNBOOK_V1_2026-09-22.md documents the generic-sounding Project visitors audience as a three-route allowlist, while sitemap.xml at the same immutable ref documents a fourth canonical exact-project route, /empreendimentos/dsg-itaim/. This demonstrates maintenance/semantic drift in one consumer; it is not causal or cross-consumer validation."
     }
   ],
   "source_reconciliation": [

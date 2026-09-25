@@ -47,6 +47,22 @@ Allowed states are `EXPERIMENTAL`, `CANDIDATE`, `RECOMMENDED`, `STABLE`, `DEPREC
 
 This version remains `CANDIDATE`. Documentation completeness, Capri visibility or a preview application do not authorize promotion.
 
+
+## Audience readiness boundary
+
+For consumers that adopt `RESF-TRACKING`, audience readiness is a measurement/classification capability, not a platform asset requirement.
+
+```text
+AUDIENCE_READY != AUDIENCE_CREATED
+AUDIENCE_CREATED != AUDIENCE_MEMBERSHIP
+AUDIENCE_MEMBERSHIP != AUDIENCE_ACTIVATED
+AUDIENCE_MEMBERSHIP != ACQUISITION_ATTRIBUTION
+```
+
+A conforming implementation uses a stable, governed, consumer-owned classifier and governed non-PII semantic page/event context so intended page/entity classes can be segmented without page-specific tracking rework. The provider does not prescribe GA4, a URL namespace, a membership window, a universal audience catalog, or automatic creation of page-specific audiences.
+
+Audience creation, membership windows, platform configuration, activation and archival remain consumer-owned. Consent/privacy requirements remain controlling. Post-release evidence must distinguish documented configuration from current runtime/platform proof.
+
 ## Scope boundary
 
 v1 ends at Search-to-Lead. A future Search-to-Revenue version requires separate lifecycle and evidence for CRM opportunity/sale feedback, revenue attribution and applicable offline-conversion loops.

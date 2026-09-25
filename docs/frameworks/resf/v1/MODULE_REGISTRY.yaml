@@ -578,7 +578,8 @@
         "PAT-TRK-001",
         "PAT-TRK-002",
         "PAT-TRK-003",
-        "PAT-TRK-004"
+        "PAT-TRK-004",
+        "PAT-TRK-005"
       ],
       "anti_patterns": [
         "AP-006",

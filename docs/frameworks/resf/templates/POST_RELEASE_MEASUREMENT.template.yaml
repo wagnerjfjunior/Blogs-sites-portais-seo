@@ -9,6 +9,11 @@ observations:
   google_ads: []
   meta: []
   geo_aeo_ai: []
+  audience_readiness:
+    intended_coverage: []
+    unintended_exclusions: []
+    classifier_drift: []
+    runtime_or_platform_proof: NOT_OBSERVED
 results: []
 causality: NOT_ESTABLISHED
 known_gaps: []

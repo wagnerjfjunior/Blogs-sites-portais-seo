@@ -17,5 +17,17 @@ attribution:
   utms: []
   click_identifiers: []
 consent_dependencies: []
+audience_readiness:
+  status: NOT_APPLICABLE
+  classifier:
+    type: REQUIRED_IF_APPLICABLE
+    value_or_namespace: REQUIRED_IF_APPLICABLE
+  specific_audience_required: false
+  privacy_boundary: GOVERNED_NON_PII_SEMANTIC_CONTEXT
+  validation:
+    positive_cases: []
+    negative_cases: []
+    canonical_scope: REQUIRED_IF_APPLICABLE
+    status: NOT_VALIDATED
 validation:
   status: NOT_VALIDATED
