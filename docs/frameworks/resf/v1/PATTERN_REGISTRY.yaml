@@ -1439,7 +1439,7 @@
       "module": "RESF-TRACKING",
       "lifecycle": "CANDIDATE",
       "qualification": "UNVALIDATED",
-      "rule": "A consumer may use a stable governed page/entity classifier so newly published conforming pages are audience-ready without page-specific tracking administration or automatic audience creation.",
+      "rule": "A consumer may use a stable governed page/entity classifier so newly published conforming pages are audience-ready without page-by-page audience administration; required tracking instrumentation and validation obligations remain applicable.",
       "applies_when": [
         "consumer adopts RESF-TRACKING and applicability matches",
         "consumer has a stable governed page/entity classifier with positive and negative validation"
@@ -1452,7 +1452,8 @@
       ],
       "validation": [
         "consumer-specific evidence must prove intended-page coverage and unintended-page exclusion",
-        "a newly published conforming page should remain classifiable without changing the generic classification rule",
+        "a newly published conforming page should remain classifiable without changing the generic audience classification rule",
+        "required tracking instrumentation and semantic validation remain applicable and are not waived by audience readiness",
         "classifier drift returns readiness to NOT_VALIDATED until reconciled"
       ],
       "exceptions": [
@@ -1465,7 +1466,7 @@
         "ref": "1fd475a41841792de9fcbe50e6d5b19b5d85d069",
         "source_path": "docs/attribution/MNT_GA4_AUDIENCE_MANUAL_RUNBOOK_V1_2026-09-22.md"
       },
-      "source_evidence": "MoreNumTegra documented a generic-sounding Project visitors audience as a three-route allowlist; a later canonical fourth exact-project route (DSG Itaim) demonstrated maintenance/semantic drift. This is single-consumer evidence for a classification pattern candidate, not causal or cross-consumer validation."
+      "source_evidence": "At MoreNumTegra@1fd475a41841792de9fcbe50e6d5b19b5d85d069, docs/attribution/MNT_GA4_AUDIENCE_MANUAL_RUNBOOK_V1_2026-09-22.md documents the generic-sounding Project visitors audience as a three-route allowlist, while sitemap.xml at the same immutable ref documents a fourth canonical exact-project route, /empreendimentos/dsg-itaim/. This demonstrates maintenance/semantic drift in one consumer; it is not causal or cross-consumer validation."
     }
   ],
   "source_reconciliation": [
