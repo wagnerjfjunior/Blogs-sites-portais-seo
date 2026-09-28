@@ -22,7 +22,7 @@ RESF v1 is a selective real-estate Search-to-Lead framework. The consumer owns i
 | 13 | Consent/privacy review | destination gating/PII policy | material privacy/security gap | application_security | C14 satisfied | consumer/risk authority |
 | 14 | Paid media contract when applicable | conversion owner/query/attribution map | conversion not validated or spend not authorized | paid_search_sem | C13 satisfied | separate spend/publication authority |
 | 15 | Build | consumer implementation | design contracts incomplete | consumer engineering/CMS | implementation artifact | mutation authority |
-| 16 | Preview | bounded review surface | unsafe/global side effects | consumer | preview evidence | deploy/preview authority |
+| 16 | Branch validation surface | hosted Preview or governed Local Live Sync at an exact branch/head | unsafe/global side effects or unverifiable source ref | consumer | branch-level validation evidence labelled PREVIEW or LOCAL | consumer validation authority |
 | 17 | Technical/content QA | canonical/content/schema checks | P0/P1 defect | technical/content owners | evidence recorded | read-only QA |
 | 18 | Mobile QA | independent target-device validation | P0/P1 mobile defect | ux_ui | mobile evidence | read-only QA |
 | 19 | Tracking/lead QA | valid event + lead delivery evidence | semantic/delivery failure | analytics/consumer | end-to-end evidence | runtime test authority |
@@ -41,3 +41,10 @@ RESF v1 is a selective real-estate Search-to-Lead framework. The consumer owns i
 - `P3`: future evolution.
 
 For an implementation to become a validated reference, recommended provider gate is `P0=0` and `P1=0`. A consumer may adopt a different release gate only by explicit documented deviation; that does not change provider reference criteria.
+
+
+## Local Live Sync alternative to hosted Preview
+
+Step 16 is transport-neutral. A hosted Preview is one valid surface, but it is not mandatory when the consumer has explicitly prohibited/unavailable Preview and provides a governed Local Live Sync tied to the canonical repository and an immutable branch head.
+
+Local Live Sync can support pre-merge visual/mobile/interaction/schema/static-runtime review. It cannot by itself prove Production deployment, canonical-host behavior, real CRM/analytics delivery, DNS, Search Console/indexation, CDN behavior or Production performance. Those remain downstream consumer gates.

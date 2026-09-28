@@ -9,3 +9,11 @@
 - Added adoption schemas/templates and structural tests.
 - Preserved Capri as reference/evidence, not universal template or causal proof.
 - Preserved the Search-to-Lead boundary and explicit Search-to-Revenue gap.
+
+
+## 2026-09-28 — Local Live Sync validation clarification
+
+- Clarified that RESF Step 16 is transport-neutral.
+- Added governed exact-head Local Live Sync as a valid pre-merge validation surface when hosted Preview is unavailable, prohibited, rate-limited or intentionally avoided by the consumer.
+- Preserved the distinction between LOCAL validation, deployment evidence and Production-only verification.
+- Preserved consumer merge/publish authority and all downstream Production gates.

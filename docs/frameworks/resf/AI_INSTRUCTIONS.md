@@ -20,6 +20,7 @@ These instructions govern AI consumption of the provider framework. They do not 
 14. Validate artifacts against schemas/contracts.
 15. Preserve implementation states: `DESIGNED`, `IMPLEMENTED`, `DEPLOYED`, `VALIDATED`.
 15a. For dedicated real-estate project/entity pages where RESF-QA is adopted, load C17 and perform an exact-project readiness/parity check before describing the page as release-ready.
+15b. A consumer-approved Local Live Sync may be used as branch-level validation evidence when hosted Preview is unavailable, prohibited, rate-limited or intentionally avoided, provided the exact consumer branch/head SHA is recorded and Production-only claims are not inferred.
 16. Respect consumer lifecycle, release gates and authorization.
 17. Never assume a reference implementation is a template.
 18. Never treat an observed result as causal proof.
@@ -73,3 +74,18 @@ When the consumer is building a dedicated project/entity page and adopts RESF-QA
 8. Validate consent persistence and a reopen/change path when the consumer exposes persistent consent UI.
 9. Validate local structured data connectivity and postal/geo completeness only when those facts are governed.
 10. Preserve consumer release authority.
+
+
+## Local validation transport
+
+RESF does not require a hosted Preview as the only valid pre-release review surface. When the consumer explicitly governs a Local Live Sync workflow, it may be used for eligible branch-level visual, mobile, interaction, DOM/schema and non-production smoke evidence.
+
+Required semantics:
+
+- GitHub/consumer canonical repository remains source of truth;
+- exact branch and immutable head SHA must be known;
+- local sync must consume repository content rather than a manually reconstructed copy;
+- local evidence must be labelled LOCAL;
+- local validation must not be reported as DEPLOYED or Production VALIDATED;
+- Production-domain, CRM, analytics, DNS, indexation, CDN and performance gates remain separate when required by the consumer;
+- local validation does not transfer merge, publish or deploy authority.
