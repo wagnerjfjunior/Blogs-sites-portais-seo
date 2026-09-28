@@ -66,3 +66,26 @@ Audience creation, membership windows, platform configuration, activation and ar
 ## Scope boundary
 
 v1 ends at Search-to-Lead. A future Search-to-Revenue version requires separate lifecycle and evidence for CRM opportunity/sale feedback, revenue attribution and applicable offline-conversion loops.
+
+
+## Exact-project page readiness
+
+For consumers that publish dedicated project/entity pages, RESF-QA now requires `C17 — Exact Project Page Readiness Contract`.
+
+The contract closes a recurring gap between isolated module compliance and a genuinely release-ready exact-project page. A conforming consumer readiness review considers, as applicable:
+
+`SEARCH OWNER -> PRODUCT TRUTH -> PAGE/CONTENT -> CONVERSION -> LOCAL/SCHEMA -> CONSENT -> INTERNAL LINKING -> MEDIA/PERFORMANCE -> QA/RELEASE`
+
+The provider does not prescribe a universal visual template, price display, exact-address visibility policy, map vendor, CTA set, CRM, consent storage technology or consumer URL namespace.
+
+Reference pages may be used to detect omission of adopted recurring capabilities, but product facts never transfer from a reference implementation.
+
+```text
+REFERENCE PARITY CHECK != TEMPLATE CLONING
+REFERENCE CAPABILITY != REFERENCE FACT
+PAGE MODULE PASS != RELEASE-READY PAGE
+VISIBLE PRICE != STRUCTURED OFFER
+CONSENT PERSISTENCE != IRREVERSIBLE CONSENT
+```
+
+The initial evidence for this extension comes from the MoreNumTegra Ledge Brooklin implementation and correction cycle. That evidence supports a candidate readiness control and omission-detection pattern; it does not establish ranking causality or universalize MoreNumTegra's UX.

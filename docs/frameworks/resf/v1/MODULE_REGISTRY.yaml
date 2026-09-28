@@ -301,7 +301,8 @@
         "PAT-SCHEMA-001",
         "PAT-SCHEMA-002",
         "PAT-SCHEMA-003",
-        "PAT-SCHEMA-004"
+        "PAT-SCHEMA-004",
+        "PAT-SCHEMA-005"
       ],
       "anti_patterns": [
         "AP-001",
@@ -770,7 +771,8 @@
       "patterns": [
         "PAT-CONSENT-001",
         "PAT-CONSENT-002",
-        "PAT-CONSENT-003"
+        "PAT-CONSENT-003",
+        "PAT-CONSENT-004"
       ],
       "anti_patterns": [
         "AP-012"
@@ -861,7 +863,8 @@
         "consumer-specific contract/artifact/evidence"
       ],
       "required_contracts": [
-        "C15"
+        "C15",
+        "C17"
       ],
       "optional_contracts": [],
       "patterns": [
@@ -875,7 +878,9 @@
         "PAT-GOV-004",
         "PAT-GOV-005",
         "PAT-QA-005",
-        "PAT-QA-006"
+        "PAT-QA-006",
+        "PAT-QA-007",
+        "PAT-QA-008"
       ],
       "anti_patterns": [
         "AP-014"
