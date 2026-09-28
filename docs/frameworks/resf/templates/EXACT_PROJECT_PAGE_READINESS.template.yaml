@@ -1,0 +1,60 @@
+{
+  "template": "RESF_EXACT_PROJECT_PAGE_READINESS",
+  "version": 1,
+  "framework_contract": "C17",
+  "consumer": {
+    "project_id": "REQUIRED",
+    "repository": "REQUIRED",
+    "immutable_ref": "REQUIRED",
+    "canonical_route": "REQUIRED",
+    "reference_family": "OPTIONAL_CONSUMER_OWNED"
+  },
+  "search": {
+    "primary_owner": "REQUIRED",
+    "query_families": [],
+    "canonical": "REQUIRED",
+    "cannibalization_checked": false
+  },
+  "product_truth": {
+    "fact_pack": "REQUIRED",
+    "source_conflicts": [],
+    "price_reference": "OPTIONAL_GOVERNED",
+    "availability_claim": "OPTIONAL_GOVERNED"
+  },
+  "page_parity": {
+    "persistent_conditions_action": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "persistent_whatsapp_or_contact": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "commercial_truth_surface": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "gallery_media": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "location_section": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "exact_location_handoff": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "lead_form": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "consent_preferences": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING",
+    "commercial_footer": "PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT|MISSING"
+  },
+  "structured_data": {
+    "coherent_graph": false,
+    "visible_faq_matches_faqpage": false,
+    "postal_address_when_governed": false,
+    "postal_code_when_governed": false,
+    "geo_when_governed": false,
+    "invented_offer_or_availability": false
+  },
+  "integration": {
+    "internal_link_owner": false,
+    "sitemap": false,
+    "canonical": false,
+    "social_metadata": false,
+    "measurement_classifier": false
+  },
+  "quality": {
+    "mobile_smoke": false,
+    "cross_browser_smoke": false,
+    "performance_evidence": "REQUIRED_BY_CONSUMER_GATE",
+    "accessibility_review": "REQUIRED_BY_CONSUMER_GATE"
+  },
+  "release": {
+    "missing_required_capabilities": [],
+    "verdict": "NOT_READY|READY_FOR_CONSUMER_RELEASE_DECISION"
+  }
+}
