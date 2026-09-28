@@ -319,7 +319,8 @@
         "consent choice is persistent but remains reopenable/reversible through a visible preferences control when consent UI is adopted",
         "reference-page parity review checks for omission of adopted recurring elements before release without inheriting reference-page product facts",
         "route, canonical, sitemap, internal-link owner, social metadata, favicon, form/CRM contract and measurement classifier are validated before release",
-        "mobile/browser smoke and consumer performance evidence are required before a page is described as release-ready"
+        "mobile/browser smoke and consumer performance evidence are required before a page is described as release-ready",
+        "hosted Preview is not mandatory when the consumer governs an exact-head Local Live Sync; local evidence must be labelled LOCAL and cannot substitute for Production-only verification"
       ],
       "consumer_override_policy": "Explicit consumer override only.",
       "provenance": {
