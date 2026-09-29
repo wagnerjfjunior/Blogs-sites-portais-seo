@@ -45,7 +45,7 @@ Divergência material, `BLOCK` ou `INCONCLUSIVE` exige parada. Informação ause
 5. `config/project.yaml`
 6. `config/specialists.yaml`
 
-Quando posicionamento de novo projeto/domínio, arquitetura de portfólio ou estratégia do ecossistema for material, ler também `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`, `config/assets.yaml` e, quando pesquisa anterior influenciar a decisão, `docs/research/SEARCH_RESEARCH_LEDGER.md`.
+Quando posicionamento de novo projeto/domínio, arquitetura de portfólio ou estratégia do ecossistema for material, ler também `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`, `config/assets.yaml` e, quando pesquisa anterior influenciar a decisão, `docs/research/SEARCH_RESEARCH_LEDGER.md`. Quando o ativo tiver entity/context owner durável separado de current commercial owner, ler também `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md`.
 
 Quando identidade/migração de especialista, consulta manual ou serviço cross-project for material, resolver também SES live e ler `projects/SPECIALIST_ADOPTION_MATRIX_CURRENT.md` -> versão corrente, o Project Adapter do projeto consumidor/provider, o archetype exato, o ledger de certificação aplicável e `core/protocols/MANUAL_SPECIALIST_HANDOFF_CONTRACT.md`. `config/gpts.yaml`, `docs/gpts/`, `.agents/skills/`, `config/builder/` e `tests/gpts/` são fontes legadas de continuidade/evidência e só devem ser lidas quando a tarefa exigir compatibilidade, histórico ou retirement.
 
@@ -74,6 +74,9 @@ Quando a tarefa envolver um ativo digital do domínio imobiliário (`real_estate
 11. MoreNumTegra é o ativo `P0` do ciclo atual e deve ser posicionado como `COMMERCIAL_CONVERSION_HUB`, sem ser confundido com a totalidade do ecossistema.
 12. Novos projetos devem passar pelo portfolio registry e pela tese de placement antes de receber domínio, arquitetura Search ou relacionamento de links.
 13. Pesquisa histórica/conversacional só pode influenciar decisão como evidência classificada; fatos atuais exigem revalidação quando a fonte estiver ausente ou stale.
+14. `caminhosdalapategra.com.br` está registrado como `CREATE_NEW_ASSET_CANDIDATE`, irmão do MoreNumTegra, com papel primário `EDITORIAL_AUTHORITY_PROPERTY` e secundário `LOCAL_DISCOVERY_PROPERTY`; seu placement e lifecycle não autorizam implementação automática.
+15. Para ativos imobiliários com entidade durável e comercialização temporária, `DURABLE_ENTITY_PROPERTY != ACTIVE_COMMERCIAL_OWNER`; lifecycle comercial, estado físico e disposição técnica de URL são decisões separadas.
+16. `caminhosdalapaoficial.com.br` é referência oficial/institucional externa ao portfólio; não é ativo do ecossistema nem owner operacional interno.
 
 ## Lacunas
 
