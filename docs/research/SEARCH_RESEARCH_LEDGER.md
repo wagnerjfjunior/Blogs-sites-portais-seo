@@ -368,3 +368,74 @@ Quando uma pesquisa gerar decisão material, registrar:
 - próximo proof obligation.
 
 Isso permite crescer o ecossistema sem depender de memória de conversa e sem transformar notas históricas em fatos atuais.
+
+## 14. Caminhos da Lapa — portfolio placement, Search history and lifecycle ownership
+
+### Research question
+
+Como posicionar `caminhosdalapategra.com.br` no ecossistema sem duplicar o papel comercial do MoreNumTegra nem se apresentar como a superfície oficial/institucional do Caminhos da Lapa?
+
+### Evidence state
+
+Mixed, explicitly classified:
+
+- `USER_PROVIDED_EVIDENCE`: ownership/age context for `caminhosdalapategra.com.br` and the external official domain;
+- `LIVE_OBSERVATION_RECEIPT`: Windsor/Search Console property `sc-domain:caminhosdalapategra.com.br` and recent query/page observations;
+- `CANONICAL_EVIDENCE`: MoreNumTegra Search/entity contracts and current exact-project surfaces;
+- `SPECIALIST_REVIEW`: Software Systems Architect and Content & Semantic SEO lifecycle rechecks, both `PASS_WITH_RESIDUAL_RISK`;
+- `LIVE_WEB_OBSERVATION`: `caminhosdalapaoficial.com.br` operates as an external official/institutional surface and is not part of this portfolio.
+
+### Durable conclusion
+
+`caminhosdalapategra.com.br` has an independent portfolio thesis and is admitted as a `CREATE_NEW_ASSET_CANDIDATE` with:
+
+- primary role `EDITORIAL_AUTHORITY_PROPERTY`;
+- secondary role `LOCAL_DISCOVERY_PROPERTY`;
+- durable responsibility for Caminhos da Lapa complex/constituent context;
+- no authority to impersonate the official Tegra/Helbor property;
+- no requirement to duplicate current commercial product detail.
+
+MoreNumTegra remains the `COMMERCIAL_CONVERSION_HUB` for governed current developer-commercial intent.
+
+The external official property is evidence/reference only and is not a portfolio asset.
+
+### Lifecycle decision
+
+The specialist reviews support separating durable entity/context ownership from current commercial ownership.
+
+Key invariants:
+
+```text
+DURABLE_ENTITY_PROPERTY != ACTIVE_COMMERCIAL_OWNER
+COMMERCIAL_STATE != PHYSICAL_ENTITY_STATE
+SOLD_OUT != AUTOMATIC_PAGE_RETIREMENT
+DELIVERED != ACTIVE_INVENTORY
+LIFECYCLE_TRANSITION != AUTOMATIC_SEARCH_OR_RUNTIME_MUTATION
+```
+
+Canonical contract candidate:
+
+`docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md`
+
+Portfolio placement:
+
+`docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md`
+
+### Search methodology boundary
+
+The older Caminhos domain and the newer MoreNumTegra domain have materially different age/history. Lifetime clicks, impressions and average position must not be used as a naive head-to-head authority test.
+
+Matched-window comparisons may be used to study query ownership, URL overlap, semantic role and owner switching, provided date/country/device/query-family comparability is preserved.
+
+### Technical boundary
+
+No redirect, noindex, canonical change, sitemap mutation, deletion, DNS change, tracking change, deploy or production action follows automatically from this research or from a lifecycle state change.
+
+### RESF
+
+Because the asset is `real_estate`, RESF discovery applies. Current state is:
+
+`AVAILABLE_NOT_ADOPTED`
+
+A consumer adoption manifest is required before any RESF module is treated as adopted.
+
