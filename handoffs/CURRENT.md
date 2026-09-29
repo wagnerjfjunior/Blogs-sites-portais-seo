@@ -30,6 +30,9 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 12. MoreNumTegra é o ativo `P0` do ciclo atual, classificado no portfolio candidate como `COMMERCIAL_CONVERSION_HUB`.
 13. Novos projetos/domínios devem passar por portfolio-fit antes de implementação.
 14. O handoff `wagnerjfjunior/MoreNumTegra/handoffs/SEARCH_PROVIDER_HANDOFF_2026-08-28.md` foi consumido e recebeu uma recomendação provider versionada nesta PR.
+15. `caminhosdalapategra.com.br` foi classificado como novo asset candidate independente, irmão do MoreNumTegra, com papel primário `EDITORIAL_AUTHORITY_PROPERTY` e secundário `LOCAL_DISCOVERY_PROPERTY`.
+16. A fronteira validada para o cluster Caminhos separa propriedade durável de entidade/contexto de ownership comercial ativo; mudanças de lifecycle não executam mutações Search/runtime automaticamente.
+17. `caminhosdalapaoficial.com.br` é fonte oficial/institucional externa ao portfólio e não deve ser tratada como ativo, owner operacional ou dependência interna do ecossistema.
 
 ## Decisões vigentes
 
@@ -46,6 +49,8 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 | Portfolio registry | candidato nesta PR | `config/assets.yaml` |
 | MoreNumTegra Search service | decisão SES vigente; handoff local candidato nesta PR | SES adoption matrix + handoff local |
 | MoreNumTegra placement | `P0 / COMMERCIAL_CONVERSION_HUB` candidato | portfolio registry |
+| Caminhos da Lapa Tegra placement | `CREATE_NEW_ASSET_CANDIDATE / PARTIAL_OPERATIONAL_INTAKE / EDITORIAL_AUTHORITY_PROPERTY + LOCAL_DISCOVERY_PROPERTY` | `config/assets.yaml` + `docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md` |
+| Real-estate lifecycle ownership | contrato candidato: durable entity/context != active commercial owner | `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md` |
 | Provider Search recommendation | produzida nesta PR | `docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md` |
 | Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
 
@@ -54,7 +59,9 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 - estratégia mestra do ecossistema, incluindo domínio/asset intake e regra anti-retrabalho;
 - registry de ativos com MoreNumTegra como primeira prioridade operacional;
 - recomendação Search versionada para canonical, `www`, metadata, robots, sitemap, Search Console, JSON-LD, arquitetura, conteúdo, mensuração e SEM;
-- atualização do bootstrap/status/handoff para tornar objetivo e placement reconstruíveis sem depender da conversa.
+- atualização do bootstrap/status/handoff para tornar objetivo e placement reconstruíveis sem depender da conversa;
+- placement do `caminhosdalapategra.com.br` como ativo especialista durável independente;
+- contrato transversal de lifecycle para separar entidade durável, estado comercial, estado físico e disposição de URL.
 
 ## MoreNumTegra — resultado devolvido pelo provider
 
@@ -156,6 +163,9 @@ Validar e integrar esta PR sem transferir autoridade ao provider. Após integra�
 | gate ou autorização de outra revisão | exigir head/base exatos |
 | SES adoption confundida com Builder retirement | gate separado por Builder |
 | Authority/Digital PR ser antecipado | fail closed até role SES elegível/adotada |
+| Caminhos virar duplicata comercial do MoreNumTegra | lifecycle contract + responsabilidade por intenção |
+| ativo independente se apresentar como oficial | external official source boundary explícita |
+| SOLD_OUT/DELIVERED disparar redirect/delete automático | lifecycle transition != runtime/Search mutation |
 
 ## Próxima ação segura
 
@@ -179,10 +189,11 @@ Sem autorização específica: merge, Builder retirement, mutação no MoreNumTe
 Quando portfolio/placement for material, ler também:
 
 - `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`;
-- `config/assets.yaml`.
+- `config/assets.yaml`;
+- `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md` quando houver owner durável de entidade/contexto separado de owner comercial ativo.
 
 Quando MoreNumTegra Search for material, resolver o consumer live e ler o handoff/provider result vigente.
 
 ## Prompt curto
 
-> Reconstrua SFJM + portfolio strategy + asset registry. Se a tarefa envolver MoreNumTegra, resolva consumer e provider live, consuma o handoff Search vigente, preserve a fronteira de autoridade e execute somente a primeira transição segura.
+> Reconstrua SFJM + portfolio strategy + asset registry. Para ativos imobiliários com owner durável separado de owner comercial, carregue também o lifecycle ownership contract. Se a tarefa envolver MoreNumTegra, resolva consumer e provider live, consuma o handoff Search vigente, preserve a fronteira de autoridade e execute somente a primeira transição segura.

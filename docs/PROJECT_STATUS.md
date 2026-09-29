@@ -25,6 +25,8 @@ Ecossistema profissional de ativos digitais com papéis claros, audiência próp
 | Action READ_ONLY | concluída | schema OpenAPI | preservar durante legado | mutações desabilitadas |
 | Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
 | MoreNumTegra | ativo `P0` / `COMMERCIAL_CONVERSION_HUB` candidato nesta PR | registry + handoff + provider recommendation | concluir gate e devolver resultado ao consumer | implementação permanece no consumer |
+| Caminhos da Lapa Tegra | `CREATE_NEW_ASSET_CANDIDATE`; intake operacional `PARTIAL`; `EDITORIAL_AUTHORITY_PROPERTY` + `LOCAL_DISCOVERY_PROPERTY` | registry + placement ADR + lifecycle contract + versioned Search receipt | definir consumer repo, resolver RESF e então IA/implementação | sem implementação/runtime autorizada |
+| Real-estate lifecycle ownership | contrato candidato | Architecture + Content/Semantic SEO rechecks `PASS_WITH_RESIDUAL_RISK` | Product Authority acceptance | commercial-closure predicate ainda precisa regra |
 | Search provider result | produzido nesta PR | `docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md` | consumer adjudicar P0 | provider não tem mutation authority no consumer |
 
 ## Portfolio SES adotado
@@ -95,6 +97,20 @@ Resultados permitidos de intake:
 
 MoreNumTegra é a prioridade operacional atual, mas não é sinônimo do ecossistema inteiro. A arquitetura deve continuar apta a receber propriedades editoriais, locais, comparadores, diretórios/data products e campanhas quando houver tese independente.
 
+### Caminhos da Lapa Tegra
+
+`caminhosdalapategra.com.br` passa a ser registrado como candidato de ativo irmão do MoreNumTegra, com tese independente e durável:
+
+- `EDITORIAL_AUTHORITY_PROPERTY` como papel primário;
+- `LOCAL_DISCOVERY_PROPERTY` como papel secundário;
+- foco em Caminhos da Lapa como complexo/microbairro, evolução e entidades constituintes;
+- MoreNumTegra preserva current commercial intent enquanto houver comercialização governada;
+- o site oficial/institucional externo é fonte de evidência, não ativo do portfólio;
+- lifecycle Search/runtime segue `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md`;
+- RESF atual: `CONSUMER_UNRESOLVED`; somente após resolver o consumer live é permitido classificar `AVAILABLE_NOT_ADOPTED` ou outra adoção.
+
+A criação de páginas, migração de conteúdo, redirect, noindex, canonical, DNS, tracking ou deploy não é autorizada por este placement.
+
 ## Decisões necessárias
 
 | Decisão | Autoridade | Condição |
@@ -104,6 +120,9 @@ MoreNumTegra é a prioridade operacional atual, mas não é sinônimo do ecossis
 | Ready | Wagner | gates passando e autorização head/base |
 | Merge | Wagner | review atual, gates passando e autorização posterior head/base |
 | Implementar recomendação Search no MoreNumTegra | MoreNumTegra Product Authority | adjudicação do provider result + escopo exato |
+| Aceitar placement candidato do Caminhos da Lapa Tegra | Wagner / Product Authority | registry + ADR + lifecycle contract revisados; intake operacional pode permanecer parcial desde que implementação continue bloqueada |
+| Criar consumer repo / implementar Caminhos | Wagner / Product Authority | placement aceito + consumer lifecycle + escopo explícito |
+| Adotar RESF no Caminhos | Caminhos Product Authority | manifesto seletivo pinando provider commit |
 | Search Console / DNS verification | MoreNumTegra Product Authority | gate próprio |
 | Analytics/tracking | MoreNumTegra Product Authority | consent/privacy + measurement gate |
 | SEM spend/publication | MoreNumTegra Product Authority | conversion/tracking + budget authorization |
@@ -125,6 +144,9 @@ Mudança de portfólio ou novo projeto não autoriza automaticamente novo domín
 | canibalização entre propriedades | mapear público/intenção/canonical role antes da criação |
 | rede própria degradar para PBN | cada ativo exige valor próprio; links editoriais/contextuais apenas |
 | MoreNumTegra dominar arquitetura do ecossistema | tratá-lo como `P0 COMMERCIAL_CONVERSION_HUB`, não como modelo único |
+| Caminhos duplicar current commercial intent | durable/context role + active commercial owner separados |
+| domínio independente parecer oficial | declarar boundary e usar official source apenas como evidência externa |
+| estado comercial disparar mudança técnica automática | lifecycle transition != runtime/Search mutation |
 | provider assumir autoridade do consumer | handoff + boundaries explícitos |
 | HTTP/canonical sobreafirmado | recheck live antes da aceitação |
 | Local/Authority target tratados como certificados | fail closed até registry/certification SES |

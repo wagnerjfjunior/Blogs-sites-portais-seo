@@ -43,6 +43,52 @@ spec:
         - new_independent_property_or_domain_candidate
         - analytics_or_paid_search_activation
         - SES_activation_of_local_seo_or_authority_digital_pr
+
+    - asset_id: caminhosdalapategra
+      name: Caminhos da Lapa Tegra
+      lifecycle_status: PLACEMENT_CANDIDATE
+      priority: P1_CANDIDATE
+      intake_outcome: CREATE_NEW_ASSET_CANDIDATE
+      operational_intake_status: PARTIAL
+      primary_role: EDITORIAL_AUTHORITY_PROPERTY
+      secondary_roles:
+        - LOCAL_DISCOVERY_PROPERTY
+      domain: real_estate
+      public_domain: https://caminhosdalapategra.com.br/
+      consumer_repository: null
+      consumer_repository_status: UNRESOLVED
+      product_authority: Wagner
+      search_provider_project_id: blogs-sites-portais-seo
+      search_service_domain: SEARCH_DISCOVERY_ACQUISITION
+      search_roles:
+        - seo_strategy
+        - technical_seo
+        - content_semantic_seo
+        - seo_analytics_growth
+      target_audience: residents, buyers, researchers and people evaluating the Caminhos da Lapa complex and its constituent condominiums
+      primary_business_goal: build durable topical and local authority around Caminhos da Lapa, preserve constituent-condominium entity coverage and route active commercial intent to the appropriate current commercial surface
+      architecture_intent: specialist durable property for the Caminhos da Lapa complex and its constituent condominiums, distinct from current-inventory conversion surfaces
+      relationship_to_morenumtegra: sibling_asset; Caminhos owns durable complex/constituent context while MoreNumTegra owns governed current commercial intent during active developer commercialization
+      external_official_reference: https://www.caminhosdalapaoficial.com.br/
+      external_official_reference_boundary: external first-party/institutional source; not owned by this portfolio and not a portfolio navigation or authority dependency
+      lifecycle_contract: docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md
+      placement_decision: docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md
+      resf_resolution_status: CONSUMER_UNRESOLVED
+      evidence_status: PRODUCT_AUTHORITY_INPUT_PLUS_VERSIONED_SEARCH_RECEIPT_PLUS_UNVERSIONED_SPECIALIST_CONTEXT
+      search_evidence_receipt: docs/evidence/caminhosdalapategra-search-console-receipt-2026-09-29.md
+      measurement_model: PROPOSED_GSC_QUERY_OWNERSHIP_ENGAGEMENT_AND_CONTEXTUAL_HANDOFF; NOT_YET_ADOPTED
+      maintenance_model: PROPOSED_PRODUCT_AUTHORITY_PLUS_FUTURE_CONSUMER_REPOSITORY; NOT_YET_ADOPTED
+      monetization_model: PROPOSED_CONTEXTUAL_QUALIFIED_LEAD_HANDOFF_WHEN_COMMERCIAL_OWNER_IS_ACTIVE; NOT_YET_ADOPTED
+      authority_boundary: this asset is independent and must not present itself as the official Tegra/Helbor property; external official sources may validate institutional facts, while current commercial facts require governed current evidence
+      link_policy: contextual user-journey links only; no reciprocal exact-match network or authority-transfer scheme
+      review_triggers:
+        - commercial_activation_or_closure_of_a_constituent_project
+        - material_change_in_masterplan_or_constituent_set
+        - launch_of_a_new_constituent_project
+        - evidence_of_material_query_ownership_overlap
+        - proposal_for_redirect_noindex_canonical_or_url_retirement
+        - change_in_relationship_with_morenumtegra
+        - RESF_adoption_or_material_tracking_activation
   intake_outcomes:
     - ATTACH_TO_EXISTING_ASSET
     - CREATE_NEW_ASSET_CANDIDATE
