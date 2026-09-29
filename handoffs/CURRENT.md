@@ -49,7 +49,7 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 | Portfolio registry | candidato nesta PR | `config/assets.yaml` |
 | MoreNumTegra Search service | decisão SES vigente; handoff local candidato nesta PR | SES adoption matrix + handoff local |
 | MoreNumTegra placement | `P0 / COMMERCIAL_CONVERSION_HUB` candidato | portfolio registry |
-| Caminhos da Lapa Tegra placement | `CREATE_NEW_ASSET_CANDIDATE / EDITORIAL_AUTHORITY_PROPERTY + LOCAL_DISCOVERY_PROPERTY` | `config/assets.yaml` + `docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md` |
+| Caminhos da Lapa Tegra placement | `CREATE_NEW_ASSET_CANDIDATE / PARTIAL_OPERATIONAL_INTAKE / EDITORIAL_AUTHORITY_PROPERTY + LOCAL_DISCOVERY_PROPERTY` | `config/assets.yaml` + `docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md` |
 | Real-estate lifecycle ownership | contrato candidato: durable entity/context != active commercial owner | `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md` |
 | Provider Search recommendation | produzida nesta PR | `docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md` |
 | Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
@@ -189,10 +189,11 @@ Sem autorização específica: merge, Builder retirement, mutação no MoreNumTe
 Quando portfolio/placement for material, ler também:
 
 - `docs/strategy/ECOSYSTEM_MASTER_STRATEGY.md`;
-- `config/assets.yaml`.
+- `config/assets.yaml`;
+- `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md` quando houver owner durável de entidade/contexto separado de owner comercial ativo.
 
 Quando MoreNumTegra Search for material, resolver o consumer live e ler o handoff/provider result vigente.
 
 ## Prompt curto
 
-> Reconstrua SFJM + portfolio strategy + asset registry. Se a tarefa envolver MoreNumTegra, resolva consumer e provider live, consuma o handoff Search vigente, preserve a fronteira de autoridade e execute somente a primeira transição segura.
+> Reconstrua SFJM + portfolio strategy + asset registry. Para ativos imobiliários com owner durável separado de owner comercial, carregue também o lifecycle ownership contract. Se a tarefa envolver MoreNumTegra, resolva consumer e provider live, consuma o handoff Search vigente, preserve a fronteira de autoridade e execute somente a primeira transição segura.
