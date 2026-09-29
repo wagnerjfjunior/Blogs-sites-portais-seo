@@ -13,7 +13,7 @@
 
 ## Decision
 
-Admit `caminhosdalapategra.com.br` as an independent sibling asset in the ecosystem rather than as a MoreNumTegra section, campaign surface or backlink satellite.
+Classify `caminhosdalapategra.com.br` as an independent sibling **asset candidate** rather than as a MoreNumTegra section, campaign surface or backlink satellite. This classification is a portfolio-placement decision, not a build/release admission.
 
 Its durable thesis is to represent Caminhos da Lapa as a specialist subject and place: the complex/master development, its evolution, constituent condominiums, durable project identity, local context and post-commercial history.
 
@@ -21,7 +21,7 @@ It is not the official Tegra/Helbor property and must not present itself as such
 
 ## Portfolio fit
 
-The asset satisfies the independent-thesis gate because it has:
+The independent thesis is sufficiently supported for `CREATE_NEW_ASSET_CANDIDATE` classification because the asset has:
 
 - a durable subject that survives individual sales cycles;
 - a distinct information job from the MoreNumTegra current-commercial portfolio;
@@ -30,7 +30,30 @@ The asset satisfies the independent-thesis gate because it has:
 - a scalable constituent-entity graph;
 - user value that does not depend on cross-linking for ranking.
 
-`NEW_PROJECT != NEW_DOMAIN` remains valid: this admission is based on an already-existing domain with a distinct durable role, not on a policy to create a domain for every project.
+`NEW_PROJECT != NEW_DOMAIN` remains valid: this candidate classification concerns an already-existing domain with a distinct durable role, not a policy to create a domain for every project.
+
+`CANDIDATE_CLASSIFICATION != IMPLEMENTATION_AUTHORIZATION`
+
+## Intake status
+
+The strategic intake is **PARTIAL**, with the following explicit answers/statuses:
+
+| Intake question | Current answer/status |
+|---|---|
+| Problem / intent | durable understanding of Caminhos da Lapa as a complex and of its constituent condominiums |
+| Audience | residents, buyers, researchers and people evaluating Caminhos da Lapa |
+| Distinct value proposition | specialist durable context/history/entity coverage distinct from current-inventory sales detail |
+| Portfolio/funnel role | `EDITORIAL_AUTHORITY_PROPERTY` + `LOCAL_DISCOVERY_PROPERTY`; contextual bridge to active commercial owner |
+| Why not a MoreNumTegra section | lifecycle and durable information job are distinct from the current commercial catalog |
+| Product/code/publication/risk authority | Product Authority = Wagner; consumer repository/code/publication authority = `UNRESOLVED` |
+| Search specialists | SEO strategy, technical SEO, content/semantic SEO and SEO analytics/growth are expected provider roles |
+| Cannibalization control | durable/context role vs lifecycle-bound commercial role; duplicate current-sales propositions forbidden |
+| Measurement | **PROPOSED, NOT ADOPTED**: GSC query ownership, engagement and contextual handoff measurement |
+| Maintenance | **PROPOSED, NOT ADOPTED**: Product Authority + future consumer repository with lifecycle-triggered factual review |
+| Monetization | **PROPOSED, NOT ADOPTED**: contextual qualified-lead handoff while an active commercial owner exists; no link-selling model |
+| Review triggers | lifecycle changes, new constituents, material query overlap, destructive URL proposals, RESF/tracking activation |
+
+The unresolved consumer repository prevents build/runtime execution under this record, but does not erase the independent-thesis candidate classification.
 
 ## Role boundary
 
@@ -137,20 +160,20 @@ Forbidden:
 
 The asset is in the real-estate vertical, therefore RESF discovery applies.
 
-Current state:
+Current resolution state:
 
-`AVAILABLE_NOT_ADOPTED`
+`CONSUMER_UNRESOLVED`
 
-No RESF module is considered adopted until a consumer adoption manifest is explicitly created and pinned to a provider commit.
+RESF applicability discovery is required because the asset is `real_estate`, but adoption status must not be declared until the consumer repository is identified, resolved live and searched for an adoption manifest. No RESF module is considered adopted by this record.
 
 ## Evidence and reviews
 
 The placement is informed by:
 
 - Product Authority description of Caminhos da Lapa as a multi-condominium complex/micro-neighborhood with ongoing phases;
-- live/first-party Search Console evidence for `sc-domain:caminhosdalapategra.com.br`;
-- SES Software Systems Architect lifecycle recheck: `PASS_WITH_RESIDUAL_RISK`;
-- SES Content & Semantic SEO lifecycle recheck: `PASS_WITH_RESIDUAL_RISK`;
+- versioned Search Console receipt: `docs/evidence/caminhosdalapategra-search-console-receipt-2026-09-29.md`;
+- Software Systems Architect lifecycle recheck supplied in conversation: `PASS_WITH_RESIDUAL_RISK` — **not versioned as an independent repository artifact**;
+- Content & Semantic SEO lifecycle recheck supplied in conversation: `PASS_WITH_RESIDUAL_RISK` — **not versioned as an independent repository artifact**;
 - current MoreNumTegra architecture and Search ownership contracts;
 - external official/institutional surfaces used only as evidence sources.
 
@@ -167,7 +190,7 @@ The placement is informed by:
 Before implementation:
 
 1. define the consumer repository/canonical source for the Caminhos asset;
-2. create a selective RESF adoption manifest if RESF modules will be used;
+2. resolve that consumer live and only then classify RESF adoption state; create a selective RESF adoption manifest if RESF modules will be used;
 3. inventory current URLs and classify each by durable/context/commercial job;
 4. validate current commercial states from governed sources;
 5. design IA/content architecture from the placement and lifecycle contract;
