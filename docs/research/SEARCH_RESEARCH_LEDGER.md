@@ -380,14 +380,14 @@ Como posicionar `caminhosdalapategra.com.br` no ecossistema sem duplicar o papel
 Mixed, explicitly classified:
 
 - `USER_PROVIDED_EVIDENCE`: ownership/age context for `caminhosdalapategra.com.br` and the external official domain;
-- `LIVE_OBSERVATION_RECEIPT`: Windsor/Search Console property `sc-domain:caminhosdalapategra.com.br` and recent query/page observations;
-- `CANONICAL_EVIDENCE`: MoreNumTegra Search/entity contracts and current exact-project surfaces;
-- `SPECIALIST_REVIEW`: Software Systems Architect and Content & Semantic SEO lifecycle rechecks, both `PASS_WITH_RESIDUAL_RISK`;
-- `LIVE_WEB_OBSERVATION`: `caminhosdalapaoficial.com.br` operates as an external official/institutional surface and is not part of this portfolio.
+- `LIVE_OBSERVATION_RECEIPT / VERSIONED`: Windsor/Search Console property `sc-domain:caminhosdalapategra.com.br`, window 2026-06-28 through 2026-09-27, preserved at `docs/evidence/caminhosdalapategra-search-console-receipt-2026-09-29.md`;
+- `CANONICAL_EVIDENCE`: MoreNumTegra Search/entity contracts and current exact-project surfaces where repository evidence exists;
+- `CONVERSATION_DERIVED_CONTEXT / REVIEW_OUTPUT_NOT_VERSIONED`: Software Systems Architect and Content & Semantic SEO lifecycle rechecks were supplied in conversation with `PASS_WITH_RESIDUAL_RISK`; they are not treated as independently versioned specialist artifacts;
+- `USER_PROVIDED_EVIDENCE / EXTERNAL_OFFICIAL_RELATIONSHIP`: the external official/institutional domain relationship was supplied by Product Authority and must be revalidated live when materially relied upon.
 
 ### Durable conclusion
 
-`caminhosdalapategra.com.br` has an independent portfolio thesis and is admitted as a `CREATE_NEW_ASSET_CANDIDATE` with:
+`caminhosdalapategra.com.br` has an independent portfolio thesis sufficient for `CREATE_NEW_ASSET_CANDIDATE` classification, while operational intake remains partial, with:
 
 - primary role `EDITORIAL_AUTHORITY_PROPERTY`;
 - secondary role `LOCAL_DISCOVERY_PROPERTY`;
@@ -433,9 +433,11 @@ No redirect, noindex, canonical change, sitemap mutation, deletion, DNS change, 
 
 ### RESF
 
-Because the asset is `real_estate`, RESF discovery applies. Current state is:
+Because the asset is `real_estate`, RESF discovery applies. The consumer repository is currently unresolved, therefore the adoption state is not yet classifiable.
 
-`AVAILABLE_NOT_ADOPTED`
+Current resolution state:
 
-A consumer adoption manifest is required before any RESF module is treated as adopted.
+`CONSUMER_UNRESOLVED`
+
+Only after identifying and resolving the consumer live may the project search for an adoption manifest and, if absent, classify the consumer as `AVAILABLE_NOT_ADOPTED`.
 
