@@ -25,7 +25,7 @@ Ecossistema profissional de ativos digitais com papéis claros, audiência próp
 | Action READ_ONLY | concluída | schema OpenAPI | preservar durante legado | mutações desabilitadas |
 | Lifecycle | definido | governança | aplicar máquina | gates não passantes param |
 | MoreNumTegra | ativo `P0` / `COMMERCIAL_CONVERSION_HUB` candidato nesta PR | registry + handoff + provider recommendation | concluir gate e devolver resultado ao consumer | implementação permanece no consumer |
-| Caminhos da Lapa Tegra | `CREATE_NEW_ASSET_CANDIDATE`; intake operacional `PARTIAL`; `EDITORIAL_AUTHORITY_PROPERTY` + `LOCAL_DISCOVERY_PROPERTY` | registry + placement ADR + lifecycle contract + versioned Search receipt | definir consumer repo, resolver RESF e então IA/implementação | sem implementação/runtime autorizada |
+| Caminhos da Lapa Tegra | `CREATE_NEW_ASSET_CANDIDATE`; consumer `wagnerjfjunior/CaminhosdaLapaTegra` resolvido; RESF `SELECTIVE` | registry + consumer repo + `resf-adoption.yaml` + lifecycle contract + Search receipt | manter lifecycle do consumer e evoluir IA/Search por gates próprios | mutações continuam sob autoridade do consumer |
 | Real-estate lifecycle ownership | contrato candidato | Architecture + Content/Semantic SEO rechecks `PASS_WITH_RESIDUAL_RISK` | Product Authority acceptance | commercial-closure predicate ainda precisa regra |
 | Search provider result | produzido nesta PR | `docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md` | consumer adjudicar P0 | provider não tem mutation authority no consumer |
 
@@ -107,7 +107,8 @@ MoreNumTegra é a prioridade operacional atual, mas não é sinônimo do ecossis
 - MoreNumTegra preserva current commercial intent enquanto houver comercialização governada;
 - o site oficial/institucional externo é fonte de evidência, não ativo do portfólio;
 - lifecycle Search/runtime segue `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md`;
-- RESF atual: `CONSUMER_UNRESOLVED`; somente após resolver o consumer live é permitido classificar `AVAILABLE_NOT_ADOPTED` ou outra adoção.
+- consumer resolvido: `wagnerjfjunior/CaminhosdaLapaTegra`;
+- RESF adotado em modo `SELECTIVE` pelo manifesto `resf-adoption.yaml`, com provider pinado em `4b10e63179acc17572c96aafe679dadd2b9d6c79`.
 
 A criação de páginas, migração de conteúdo, redirect, noindex, canonical, DNS, tracking ou deploy não é autorizada por este placement.
 
@@ -121,7 +122,7 @@ A criação de páginas, migração de conteúdo, redirect, noindex, canonical, 
 | Merge | Wagner | review atual, gates passando e autorização posterior head/base |
 | Implementar recomendação Search no MoreNumTegra | MoreNumTegra Product Authority | adjudicação do provider result + escopo exato |
 | Aceitar placement candidato do Caminhos da Lapa Tegra | Wagner / Product Authority | registry + ADR + lifecycle contract revisados; intake operacional pode permanecer parcial desde que implementação continue bloqueada |
-| Criar consumer repo / implementar Caminhos | Wagner / Product Authority | placement aceito + consumer lifecycle + escopo explícito |
+| Evoluir implementação do Caminhos | Wagner / Product Authority | consumer lifecycle + escopo explícito + gates aplicáveis |
 | Adotar RESF no Caminhos | Caminhos Product Authority | manifesto seletivo pinando provider commit |
 | Search Console / DNS verification | MoreNumTegra Product Authority | gate próprio |
 | Analytics/tracking | MoreNumTegra Product Authority | consent/privacy + measurement gate |
