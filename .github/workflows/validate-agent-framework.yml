@@ -5,6 +5,12 @@ on:
   pull_request:
   push:
     branches: [main]
+    paths:
+      - ".github/workflows/validate-agent-framework.yml"
+
+concurrency:
+  group: validate-agent-framework-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
