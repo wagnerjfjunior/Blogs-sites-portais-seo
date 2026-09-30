@@ -33,6 +33,7 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 15. `caminhosdalapategra.com.br` foi classificado como novo asset candidate independente, irmão do MoreNumTegra, com papel primário `EDITORIAL_AUTHORITY_PROPERTY` e secundário `LOCAL_DISCOVERY_PROPERTY`.
 16. A fronteira validada para o cluster Caminhos separa propriedade durável de entidade/contexto de ownership comercial ativo; mudanças de lifecycle não executam mutações Search/runtime automaticamente.
 17. `caminhosdalapaoficial.com.br` é fonte oficial/institucional externa ao portfólio e não deve ser tratada como ativo, owner operacional ou dependência interna do ecossistema.
+18. O consumer do Caminhos está resolvido como `wagnerjfjunior/CaminhosdaLapaTegra`; o ativo possui `resf-adoption.yaml` em `main` com adoção `SELECTIVE` do RESF.
 
 ## Decisões vigentes
 
@@ -49,7 +50,7 @@ A continuidade entre conversas/especialistas deve reconstruir não apenas lifecy
 | Portfolio registry | candidato nesta PR | `config/assets.yaml` |
 | MoreNumTegra Search service | decisão SES vigente; handoff local candidato nesta PR | SES adoption matrix + handoff local |
 | MoreNumTegra placement | `P0 / COMMERCIAL_CONVERSION_HUB` candidato | portfolio registry |
-| Caminhos da Lapa Tegra placement | `CREATE_NEW_ASSET_CANDIDATE / PARTIAL_OPERATIONAL_INTAKE / EDITORIAL_AUTHORITY_PROPERTY + LOCAL_DISCOVERY_PROPERTY` | `config/assets.yaml` + `docs/assets/caminhosdalapategra-portfolio-placement-2026-09-29.md` |
+| Caminhos da Lapa Tegra placement | `CREATE_NEW_ASSET_CANDIDATE / RESOLVED_CONSUMER / RESF_SELECTIVE / EDITORIAL_AUTHORITY_PROPERTY + LOCAL_DISCOVERY_PROPERTY` | `config/assets.yaml` + consumer `resf-adoption.yaml` |
 | Real-estate lifecycle ownership | contrato candidato: durable entity/context != active commercial owner | `docs/governance/REAL_ESTATE_ASSET_LIFECYCLE_OWNERSHIP_CONTRACT.md` |
 | Provider Search recommendation | produzida nesta PR | `docs/assets/morenumtegra-search-provider-recommendation-2026-08-28.md` |
 | Implementação MoreNumTegra | permanece no repo consumidor | `wagnerjfjunior/MoreNumTegra` |
