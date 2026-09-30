@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Preserve the regression-detection value of the canonical GitHub Actions gate while reducing redundant runner consumption in the private repository.
+Preserve the regression-detection value of the canonical GitHub Actions gate while reducing redundant runner consumption.
 
 ## Canonical behavior
 
@@ -17,7 +17,7 @@ The workflow `.github/workflows/validate-agent-framework.yml`:
 - can be started manually with `workflow_dispatch`;
 - cancels an older in-progress PR validation when a newer head supersedes it.
 
-The workflow does **not** run the full validation again on every push to `main`. That execution was redundant with the PR gate and consumed additional Actions quota.
+The workflow does **not** run the full validation again on every push to `main`. That execution is redundant with the PR gate and consumes additional runner time.
 
 A narrow `push/main` trigger remains only when the workflow file itself changes, so a workflow-policy modification is still exercised after merge.
 
@@ -50,6 +50,8 @@ If GitHub Actions is unavailable, quota-exhausted, billing-blocked, runner-block
 - the result is not treated as PASS;
 - it remains INCONCLUSIVE/BLOCKED according to the applicable SFJM transition;
 - no Ready or merge follows from an unavailable check.
+
+Repository visibility is an external operational property and must be resolved live; this policy does not assume private or public visibility.
 
 ## Scope
 
