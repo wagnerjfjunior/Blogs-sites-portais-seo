@@ -35,9 +35,17 @@ A página de cada empreendimento deve responder, por conta própria, às buscas 
 
 **Situação original observada:** H1 duplicando “Brooklin”, saída para `/regioes/brooklin/` no canto superior, hero descritivo em `<p>` genérico, frases explicando a “página regional” e “galeria ampliada”, justificativa “material oficial” e seção de localização sem argumento comercial.
 
-**Correção proposta:** consumidor `wagnerjfjunior/MoreNumTegra` **PR #389 (Draft)**, branch `feat/ampere-brooklin-seo-commercial-copy-20261011`, empilhada sobre a PR #388 (também Draft). H1 “Ampère Brooklin”; H2 orientado à busca “Apartamento no Brooklin com 262 m² privativos, 4 suítes e 4 vagas em torre única”; link regional deslocado à localização; descrições de planta, galeria, dois terraços, lazer e localização reescritas para o comprador. Preservar JSON-LD de 18 nós, Form46, projeto e preço de referência sem extrapolar fatos.
+**Evolução proposta:** consumidor `wagnerjfjunior/MoreNumTegra` **PR #389 (Draft)**, branch `feat/ampere-brooklin-seo-commercial-copy-20261011`, empilhada sobre a PR #388. Após nova revisão editorial, H1: “Tegra Ampère Brooklin — apartamentos em construção”; H2: “Apartamentos no Brooklin de 262 m² privativos, com 4 suítes, 4 vagas e dois terraços em torre única”. O estágio *em construção* é factual; não substituir por “pronto para morar” só para captar a expressão.
 
-**Estado correto da evidência:** alterações propostas na branch/PR; não estão publicadas na main. O FAQ SEO de 12 perguntas da PR #387 não é incluído automaticamente. CI e revisão humana necessários antes de homologação final.
+**Keywords:** cobrir, quando fizer sentido editorial e houver produto correspondente, singular (“apartamento no Brooklin”) e plural (“apartamentos no Brooklin”) em seções diferentes, sem repetição artificial. Inserir marca Tegra em H1, title, meta description, seções e respostas, preservando o nome próprio Ampère Brooklin.
+
+**Meta description:** resumo objetivo, único e persuasivo que antecipe atributos verificáveis, estágio e caminho comercial; não é atributo `meta keywords` nem promessa de ranking. Manter em paridade com a descrição da entidade `WebPage` quando aplicável.
+
+**FAQ e conversão:** incorporar na própria branch de copy **12 perguntas visíveis e 12 respostas idênticas em `FAQPage`**, integrando assuntos de preço vinculado à unidade 0121, 262 m², quatro suítes/vagas, living com dois terraços, torre única, lazer, localização, visita e possibilidade de financiamento. Isso integra semanticamente o escopo antes separado na PR #387, cuja reconciliação formal deve ser resolvida antes do merge. Nunca criar condições financeiras, percentuais, cronogramas ou estoque fictícios.
+
+**Visita e pagamento:** novas seções específicas com CTA para Form 46. Empreendimento em construção: visita/acesso sob confirmação prévia. Financiamento pode ser estudado dependendo de unidade, tabela, estágio e banco, sem taxas nem aprovação garantidas. É incorreto copiar do Ária a entrada indicativa de 10–20% ou a condição de empreendimento entregue.
+
+**Evidência e estado:** PR #389 permanece Draft, sem integração à main ou publicação. A versão editorial ampliada passou **10/10 checks automáticos** no SHA `b01372985058660d7aad97db3ba9ac92f21316a1`, incluindo paridade FAQ HTML/JSON-LD, inventário de 18 nós, imagens, footer, Form 46 e endereços. Revisão visual mobile/desktop, decisão sobre PR #387 e aprovação humana continuam pendentes. O responsável informou que havia validado Schema.org e GSC para o estado anterior; isso não valida automaticamente esta nova versão antes de publicação.
 
 ## 5. Gates mínimos para aprovação do requisito 06
 
