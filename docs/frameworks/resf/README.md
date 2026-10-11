@@ -55,15 +55,21 @@ Capri remains a high-value reference implementation with observed Google visibil
 
 **Do not treat this candidate as C07/C17 promotion or automatic adoption of `RESF-SCHEMA`.** The consumer remains authoritative for facts, deployment, validation and module adoption.
 
-## Padrão Único RESF de construção de páginas de empreendimentos — requisitos 01 a 06
+## Padrão único RESF de construção de páginas de empreendimentos — requisitos 01 a 06
 
-Entrada canônica proposta: `v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.md`.
+**Estado documental:** publicado na `main` do provider via PR #23, merge SHA `f9b6bfb1f92f49aa9e49a47f9b1c7e3157beeccf`. **Piloto integrado:** Ampère Brooklin / MoreNumTegra PRs #388 e #389; production `READY` no SHA `b6497954e45d77cf37dd639dbea3c18bd29a4040`. Isso não representa promoção geral do ciclo RESF v1 nem adoção automática em outros projetos.
 
-1. **Item 01 — JSON-LD:** `v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md`; estrutura factual do grafo, conexões, teste Schema.org e Google Rich Results com evidência Bem Moema + Ampère Brooklin.
-2. **Item 02 — Imagens para busca/SERP:** `v1/EXACT_PROJECT_SERP_IMAGE_OWNERSHIP_V1_2026-10-11.md`; coerência entre hero, `og:image`, `twitter:image`, `WebPage.image`, `primaryImageOfPage`, dois `ImageObject` e prioridade do hero. A SERP não garante miniatura escolhida.
-3. **Item 03 — FAQ estratégico de SEO:** `v1/EXACT_PROJECT_SEO_FAQ_INTENT_V1_2026-10-11.md`; seleção de perguntas por intenção de busca, respostas reais e úteis, HTML visível, paridade literal com `FAQPage`. Ária tem 12 perguntas estruturadas como referência editorial; Ampère FAQ 6→12 foi também integrado à branch da PR de consumidor #389 **Draft**, além de existir na PR #387 **Draft**; reconciliar as duas mudanças antes do merge. Sem publicação ou homologação Google pós-mudança. Não impor 12 como mínimo universal.
-4. **Requisito 04 — UX/CSS formulário e footer:** `v1/EXACT_PROJECT_FORM_FOOTER_UX_V1_2026-10-11.md`; referência Ária Higienópolis para cartão branco, inputs e botão amarelo mobile-first, footer escuro, identidade e campos legais. Ampère tem implementação proposta em PR de consumidor #388 **Draft**; preservar Form 46, tracking e dados comerciais.
-5. **Requisito 05 — Hero e faixa facts:** `v1/EXACT_PROJECT_HERO_FACTS_UX_V1_2026-10-11.md`; remover hero-meta duplicado; quatro quadros factuais de metragem, vagas, região/diferencial e estágio, mobile 2×2 e desktop 4 colunas; aplicação Ampère na PR #388 **Draft** com 9/9 CI, sem evidência visual/produção ainda.
-6. **Requisito 06 — SEO editorial e copy de vendas:** `v1/EXACT_PROJECT_SEO_COMMERCIAL_COPY_V1_2026-10-11.md`; página como autoridade do empreendimento, H1 único, H2 de intenção de busca, argumentos comerciais factuais sem texto metalinguístico, links regionais contextuais e CTA de conversão. Implementação Ampère na PR #389 **Draft**, dependente da #388: H1 Tegra + estágio em construção, singular/plural apartamento(s) no Brooklin, copy de venda, 12 FAQs em paridade HTML/JSON-LD, seções de visita e negociação com financiamento condicional; 10/10 CI aprovados no SHA b01372985058660d7aad97db3ba9ac92f21316a1. Sem publicação.
+**[Ler o padrão único](v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.md)** · **[Handoff completo do release e da conversa](v1/RESF_EXACT_PROJECT_RELEASE_CLOSURE_2026-10-11.md)**.
 
-**Fase candidata:** estes seis requisitos do mesmo padrão ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
+| Requisito | Documento e função |
+|---|---|
+| 01 — JSON-LD | [Perfil factual](v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md) — entidades, fatos, propriedades compatíveis e teste |
+| 02 — Imagens principais de busca | [Ownership SERP](v1/EXACT_PROJECT_SERP_IMAGE_OWNERSHIP_V1_2026-10-11.md) — hero, OG/Twitter, imagens e JSON-LD |
+| 03 — FAQ SEO | [Perguntas por intenção](v1/EXACT_PROJECT_SEO_FAQ_INTENT_V1_2026-10-11.md) — HTML visível e `FAQPage` literal |
+| 04 — Formulário/footer | [UX/CSS de conversão](v1/EXACT_PROJECT_FORM_FOOTER_UX_V1_2026-10-11.md) — referência Ária, Form 46 governado |
+| 05 — Hero/facts | [Abertura de quatro quadros](v1/EXACT_PROJECT_HERO_FACTS_UX_V1_2026-10-11.md) — sem dados duplicados |
+| 06 — SEO editorial/copy/local | [Conteúdo comercial](v1/EXACT_PROJECT_SEO_COMMERCIAL_COPY_V1_2026-10-11.md) — busca, marca, visita, negociação, imagens do bairro e link regional |
+
+**Reconciliado:** PR #387 de FAQ encerrada **sem merge**; seu objetivo foi absorvido pela versão final de 12 FAQs na PR #389 mergeada. A PR #388 e a #389 também foram mergeadas. CI do consumidor: 9/9 e 10/10, respectivamente. A Vercel confirmou READY no domínio comercial. A validação externa de imagens, teste manual mobile/formulário, Rich Results/Schema.org e observação GSC **após** o novo release não foram novamente comprovados aqui.
+
+**Retomada:** começar pelo [handoff](v1/RESF_EXACT_PROJECT_RELEASE_CLOSURE_2026-10-11.md), depois resolver novamente fatos live, branch e governança do consumidor. Nunca reutilizar preços ou atributos do Ampère na próxima página nem concluir por contagem de palavras que haverá ranking.

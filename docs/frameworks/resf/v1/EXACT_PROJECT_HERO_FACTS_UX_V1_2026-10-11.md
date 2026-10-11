@@ -1,5 +1,7 @@
 # RESF — Requisito 05 do padrão único: hero sem duplicação + faixa facts — V1
 
+> **Atualização de fechamento (11/10/2026):** este requisito integra o **padrão único RESF publicado no provedor** (PR #23, merge `f9b6bfb1f92f49aa9e49a47f9b1c7e3157beeccf`). Ampère Brooklin foi publicado no consumer por PRs #388/#389, Vercel `READY` no SHA `b6497954e45d77cf37dd639dbea3c18bd29a4040`. Eventuais referências abaixo a PRs Draft ou “não publicado” são **evidência histórica do período de implementação**, não o estado corrente. Veja o [fechamento com matriz, evidências e pendências](RESF_EXACT_PROJECT_RELEASE_CLOSURE_2026-10-11.md). A especificação como requisito documentado não promove automaticamente módulos gerais do framework nem dispensa testes pós-release. A PR #387 foi fechada sem merge; o FAQ final de 12 perguntas foi integrado pela PR #389.
+
 **Estado:** CANDIDATE/DRAFT · 11/10/2026  
 **Escopo:** arquitetura visual/UX da abertura de páginas comerciais de empreendimentos; é **um requisito do padrão único RESF**, não um padrão separado.
 
