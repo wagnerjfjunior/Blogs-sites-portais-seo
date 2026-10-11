@@ -54,3 +54,12 @@ Capri remains a high-value reference implementation with observed Google visibil
 - `v1/EVIDENCE_REGISTRY.yaml` entry `EVD-005` — captures provenance, exact consumer SHA and limitations.
 
 **Do not treat this candidate as C07/C17 promotion or automatic adoption of `RESF-SCHEMA`.** The consumer remains authoritative for facts, deployment, validation and module adoption.
+
+## Padrão de construção de páginas de empreendimentos — itens 01 e 02
+
+Entrada canônica proposta: `v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.md`.
+
+1. **Item 01 — JSON-LD:** `v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md`; estrutura factual do grafo, conexões, teste Schema.org e Google Rich Results com evidência Bem Moema + Ampère Brooklin.
+2. **Item 02 — Imagens para busca/SERP:** `v1/EXACT_PROJECT_SERP_IMAGE_OWNERSHIP_V1_2026-10-11.md`; coerência entre hero, `og:image`, `twitter:image`, `WebPage.image`, `primaryImageOfPage`, dois `ImageObject` e prioridade do hero. A SERP não garante miniatura escolhida.
+
+**Fase candidata:** estes dois itens ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
