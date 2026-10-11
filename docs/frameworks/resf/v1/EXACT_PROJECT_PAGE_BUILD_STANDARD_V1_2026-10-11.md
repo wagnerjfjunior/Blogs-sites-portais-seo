@@ -1,8 +1,8 @@
-# RESF — Padrão Único RESF de construção de páginas de empreendimentos — V1 (candidato)
+# RESF — Padrão único de construção de páginas de empreendimentos — V1
 
-**Escopo atual:** somente os **seis primeiros requisitos** do padrão de construção. O conteúdo editorial neste ciclo limita-se ao FAQ estratégico do requisito 03; UX/CSS cobre captação/rodapé do requisito 04 e hero/faixa facts do requisito 05; SEO editorial e copy de conversão são o requisito 06. Não implica padronizar agora todo o SEO editorial, tracking, CRM ou desempenho geral.
+**Escopo:** seis requisitos de um único padrão: dados estruturados, imagens de busca, FAQ, formulário/rodapé, hero/facts e SEO editorial/copy/conversão/localização. O padrão publicado no provedor **não autoriza** mutação automática de tracking, CRM, performance ou páginas além do piloto.
 
-**Governança:** especificação no provedor `wagnerjfjunior/Blogs-sites-portais-seo`; aplicação e homologação são decisões do consumidor. Estado `CANDIDATE / DRAFT` até revisão, gates e integração da PR do provedor. A adoção de módulos anteriormente diferidos no consumer exige decisão posterior.
+**Governança:** especificação integrada à `main` do provedor via PR #23 (`f9b6bfb1f92f49aa9e49a47f9b1c7e3157beeccf`); Ampère integrado ao consumidor via PRs #388/#389, com Vercel `READY` no SHA `b6497954e45d77cf37dd639dbea3c18bd29a4040`. Adoção de módulos de RESF em outros consumidores/páginas continua sujeita a autorização, validações e fatos específicos.
 
 | Requisito | Nome acessível | O que será padronizado | Especificação |
 |---|---|---|---|
@@ -49,5 +49,9 @@ Fonte da medição: **capturas fornecidas pela Product Authority** após publica
 - Não aplicar automaticamente aos demais empreendimentos: fazer intake, diagnosticar e criar PR por escopo autorizado.
 - **Requisitos 01, 02, 03, 04, 05 e 06 compõem o mesmo padrão único**: JSON-LD organiza entidades; imagens para busca coordenam sinais em HTML/metadata e JSON-LD; FAQ SEO seleciona perguntas relevantes e respostas reais. O requisito 01 representa o FAQ visível em `FAQPage` quando aplicável. O requisito 04 cuida do UX/CSS do formulário e do rodapé, sem mudar captação ou dados comerciais; o requisito 05 cuida da não duplicação de dados do hero e da faixa facts responsiva.
 - O provedor não altera a produção do consumidor. A homologação da imagem na SERP real permanece evidência separada.
-- **Ampère FAQ 6 → 12** é evidência da PR #387 em Draft no consumidor; não afirmar que esteja em produção ou validado no Google antes de merge e novos testes.
+- **Ampère FAQ 6 → 12** está integrado na PR #389, mergeada; a PR #387 foi encerrada sem merge para evitar duplicação. A paridade FAQ visível/JSON-LD teve CI positivo. Não equivale a validação Google pós-release.
 - Próximos itens do padrão geral podem ser adicionados posteriormente com aprovação de escopo.
+
+## Encerramento e aplicação futura
+
+**Handoff canônico completo:** [RESF_EXACT_PROJECT_RELEASE_CLOSURE_2026-10-11.md](RESF_EXACT_PROJECT_RELEASE_CLOSURE_2026-10-11.md). Contém evidência das PRs, SHA de produção Vercel, checklist de construção da próxima página, limites e testes pós-release ainda pendentes. A integração do provider e o deployment consumer foram confirmados; testes visuais e operacionais independentes exigem evidência própria.
