@@ -55,7 +55,7 @@ Capri remains a high-value reference implementation with observed Google visibil
 
 **Do not treat this candidate as C07/C17 promotion or automatic adoption of `RESF-SCHEMA`.** The consumer remains authoritative for facts, deployment, validation and module adoption.
 
-## Padrão Único RESF de construção de páginas de empreendimentos — requisitos 01 a 05
+## Padrão Único RESF de construção de páginas de empreendimentos — requisitos 01 a 06
 
 Entrada canônica proposta: `v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.md`.
 
@@ -64,5 +64,6 @@ Entrada canônica proposta: `v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.
 3. **Item 03 — FAQ estratégico de SEO:** `v1/EXACT_PROJECT_SEO_FAQ_INTENT_V1_2026-10-11.md`; seleção de perguntas por intenção de busca, respostas reais e úteis, HTML visível, paridade literal com `FAQPage`. Ária tem 12 perguntas estruturadas como referência editorial; Ampère FAQ 6→12 está em PR de consumidor #387 **Draft**, sem publicação/homologação Google pós-mudança. Não impor 12 como mínimo universal.
 4. **Requisito 04 — UX/CSS formulário e footer:** `v1/EXACT_PROJECT_FORM_FOOTER_UX_V1_2026-10-11.md`; referência Ária Higienópolis para cartão branco, inputs e botão amarelo mobile-first, footer escuro, identidade e campos legais. Ampère tem implementação proposta em PR de consumidor #388 **Draft**; preservar Form 46, tracking e dados comerciais.
 5. **Requisito 05 — Hero e faixa facts:** `v1/EXACT_PROJECT_HERO_FACTS_UX_V1_2026-10-11.md`; remover hero-meta duplicado; quatro quadros factuais de metragem, vagas, região/diferencial e estágio, mobile 2×2 e desktop 4 colunas; aplicação Ampère na PR #388 **Draft** com 9/9 CI, sem evidência visual/produção ainda.
+6. **Requisito 06 — SEO editorial e copy de vendas:** `v1/EXACT_PROJECT_SEO_COMMERCIAL_COPY_V1_2026-10-11.md`; página como autoridade do empreendimento, H1 único, H2 de intenção de busca, argumentos comerciais factuais sem texto metalinguístico, links regionais contextuais e CTA de conversão. Implementação Ampère proposta na PR #389 **Draft**, dependente da #388.
 
-**Fase candidata:** estes cinco requisitos do mesmo padrão ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
+**Fase candidata:** estes seis requisitos do mesmo padrão ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
