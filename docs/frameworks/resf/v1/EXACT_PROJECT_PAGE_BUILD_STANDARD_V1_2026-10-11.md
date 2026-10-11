@@ -9,6 +9,17 @@
 | **01** | **JSON-LD para o Google** | Informações reais do empreendimento, entidades, propriedades compatíveis, ligações entre elas, testes do Schema.org e Google | [JSON-LD](EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md) |
 | **02** | **Imagens principal e secundária para busca** | Prioridade e coerência entre hero visível, HTML, Open Graph, Twitter e JSON-LD, preservando as duas imagens distintas | [Imagens para busca](EXACT_PROJECT_SERP_IMAGE_OWNERSHIP_V1_2026-10-11.md) |
 
+## Distinção obrigatória — coleta de fatos vs. FAQ de SEO
+
+**Não confundir os dois tipos de perguntas:**
+
+- **Coleta interna de fatos:** perguntas que a equipe faz para obter dados autorizados e montar corretamente o JSON-LD. A ferramenta é `templates/EXACT_PROJECT_JSONLD_INTAKE.template.yaml`. **Não é um FAQ público, nem é um recurso de SEO por si só.**
+- **FAQ de SEO da página:** perguntas formuladas para responder necessidades e intenções reais de pesquisa sobre o empreendimento. Integram conteúdo público indexável, precisam ter respostas úteis, específicas e comprovadas, e só então podem aparecer no `FAQPage` com correspondência exata ao conteúdo visível.
+
+**Referência observada:** Ária Higienópolis possui **12 perguntas e respostas estruturadas** no `FAQPage` (`MoreNumTegra` main em 11/10/2026), cobrindo estágio/entrega, metragens e tipologias, valor de referência, lazer, salas comerciais, localização, disponibilidade, visitas, entrada e financiamento. **Não são perguntas aleatórias para completar uma contagem.** A seleção deve considerar intenção de busca, características verificadas do produto e dúvidas reais de compra.
+
+Por ora, o RESF documenta a exigência de **paridade de FAQ visível ↔ FAQPage no Item 01 (JSON-LD)**. O planejamento editorial completo de FAQ/perguntas de SEO não é automaticamente um terceiro item deste ciclo e exige escopo próprio. Não assumir que FAQPage garante rich result no Google.
+
 ## Método para cada nova página
 
 1. **Levantar fatos e ativos reais**. Perguntar o que falta: nome/endereço/CEP, marca/organização/agente, unidade e preço de referência *somente se existirem*, fotos oficiais, plantas e FAQ realmente visível. Determinar explicitamente qual mídia é a principal e qual a secundária.
