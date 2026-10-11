@@ -55,12 +55,13 @@ Capri remains a high-value reference implementation with observed Google visibil
 
 **Do not treat this candidate as C07/C17 promotion or automatic adoption of `RESF-SCHEMA`.** The consumer remains authoritative for facts, deployment, validation and module adoption.
 
-## Padrão de construção de páginas de empreendimentos — itens 01, 02 e 03
+## Padrão Único RESF de construção de páginas de empreendimentos — requisitos 01 a 04
 
 Entrada canônica proposta: `v1/EXACT_PROJECT_PAGE_BUILD_STANDARD_V1_2026-10-11.md`.
 
 1. **Item 01 — JSON-LD:** `v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md`; estrutura factual do grafo, conexões, teste Schema.org e Google Rich Results com evidência Bem Moema + Ampère Brooklin.
 2. **Item 02 — Imagens para busca/SERP:** `v1/EXACT_PROJECT_SERP_IMAGE_OWNERSHIP_V1_2026-10-11.md`; coerência entre hero, `og:image`, `twitter:image`, `WebPage.image`, `primaryImageOfPage`, dois `ImageObject` e prioridade do hero. A SERP não garante miniatura escolhida.
 3. **Item 03 — FAQ estratégico de SEO:** `v1/EXACT_PROJECT_SEO_FAQ_INTENT_V1_2026-10-11.md`; seleção de perguntas por intenção de busca, respostas reais e úteis, HTML visível, paridade literal com `FAQPage`. Ária tem 12 perguntas estruturadas como referência editorial; Ampère FAQ 6→12 está em PR de consumidor #387 **Draft**, sem publicação/homologação Google pós-mudança. Não impor 12 como mínimo universal.
+4. **Requisito 04 — UX/CSS formulário e footer:** `v1/EXACT_PROJECT_FORM_FOOTER_UX_V1_2026-10-11.md`; referência Ária Higienópolis para cartão branco, inputs e botão amarelo mobile-first, footer escuro, identidade e campos legais. Ampère tem implementação proposta em PR de consumidor #388 **Draft**; preservar Form 46, tracking e dados comerciais.
 
-**Fase candidata:** estes três itens ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
+**Fase candidata:** estes quatro requisitos do mesmo padrão ainda dependem de revisão, gates, merge do provider e adoção explícita pelo consumer. Não criam obrigação retroativa nem autorizam mudanças fora de cada escopo aprovado.
