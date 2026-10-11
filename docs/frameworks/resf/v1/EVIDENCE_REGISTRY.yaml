@@ -42,6 +42,29 @@
       "classification": "CONTROLLED_PREVIEW_APPLICATION",
       "production_status": "NOT_AUTHORIZED_NOT_PROVEN",
       "revalidation_status": "PARTIAL"
+    },
+    {
+      "id": "EVD-005",
+      "type": "CONSUMER_PRODUCTION_SCHEMA_VALIDATION",
+      "repository": "wagnerjfjunior/MoreNumTegra",
+      "ref": "7e5e2297c21eb6a01cad52c829a0533f5c1b7214",
+      "path": "src-greenn/empreendimentos/bem-moema/index.html",
+      "provider_candidate_contract": "docs/frameworks/resf/v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md",
+      "date": "2026-10-11",
+      "classification": "CONSUMER_GOOGLE_AND_SCHEMA_ORG_USER_OBSERVED",
+      "observations": [
+        "SCHEMA_ORG_VALIDATOR_0_ERRORS_0_WARNINGS_5_TOP_LEVEL_ITEMS",
+        "GOOGLE_RICH_RESULTS_6_VALID_ITEMS_5_CATEGORIES",
+        "PRODUCT_SNIPPET_1",
+        "MERCHANT_LISTING_1",
+        "BREADCRUMB_1",
+        "LOCAL_BUSINESS_1",
+        "ORGANIZATION_2"
+      ],
+      "evidence_carrier": "User-provided screenshots in 2026-10-11 conversation, not copied into provider repo",
+      "causality": "NOT_ESTABLISHED",
+      "reproduction_scope": "Single factual MoreNumTegra exact-project page; no general six-result guarantee",
+      "consumer_adoption": "RESF_SCHEMA_DEFERRED_UNCHANGED"
     }
   ]
 }
