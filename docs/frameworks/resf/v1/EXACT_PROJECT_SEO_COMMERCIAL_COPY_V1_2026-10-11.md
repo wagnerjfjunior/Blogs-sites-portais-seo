@@ -47,6 +47,18 @@ A página de cada empreendimento deve responder, por conta própria, às buscas 
 
 **Evidência e estado:** PR #389 permanece Draft, sem integração à main ou publicação. A versão editorial ampliada passou **10/10 checks automáticos** no SHA `b01372985058660d7aad97db3ba9ac92f21316a1`, incluindo paridade FAQ HTML/JSON-LD, inventário de 18 nós, imagens, footer, Form 46 e endereços. Revisão visual mobile/desktop, decisão sobre PR #387 e aprovação humana continuam pendentes. O responsável informou que havia validado Schema.org e GSC para o estado anterior; isso não valida automaticamente esta nova versão antes de publicação.
 
+## 4.1. Localização com prova visual e link regional complementar
+
+O padrão único RESF deve equilibrar **copy comercial, material visual real do bairro e CTA útil**. Se a localização ficar excessivamente textual, apresentar uma galeria factual de imagens autorizadas diretamente do acervo do empreendimento/bairro, com `alt` descritivo, legenda identificadora, largura/altura declaradas, `loading="lazy"` e CSS responsivo sem dependência de hover.
+
+**Referência de aplicação:** Ampère Brooklin, PR #389 (Draft), introduz três imagens do próprio acervo Tegra: Ponte Estaiada, Brooklin e entorno da Marginal Pinheiros, usando a origem direta `stracctegra.blob.core.windows.net` em lugar do proxy `tegraincorporadora.com.br/_next/image`. Faixa de três colunas em desktop e uma coluna mobile; preservar mapa e CTA de localização exata.
+
+Usar título comercial convidativo, sem afirmar tempo de trajeto não medido. A menção a **Avenida Berrini** e ambiente arborizado contextualiza o bairro, mas não deve virar promessa de distância, trajeto, condições de trânsito ou atrativo imediatamente adjacente sem evidência. Evitar inserir endereço completo fora do rodapé governado.
+
+A página continua como autoridade do empreendimento. O link `/regioes/brooklin/` aparece **na própria seção de localização**, depois do argumento comercial e da galeria, não no cabeçalho. Isso também melhora a navegação interna sem afastar o lead na abertura.
+
+Gates adicionais: 3 URLs e origem autorizadas; disponibilidade/HTTP de cada arquivo a verificar quando houver acesso de rede; alternativas textuais e dimensões; lazy-loading; mobile sem overflow; imagens reais que representem o bairro; preservação de `og:image`, imagem principal e secundária do projeto, Form46 e JSON-LD. **Não qualificar imagem como entregue por CDN responsiva sem derivados de largura efetivamente disponíveis e verificados.**
+
 ## 5. Gates mínimos para aprovação do requisito 06
 
 - `SEO_EDITORIAL`: H1 único e não redundante, H2 natural e semanticamente correto, narrativa de intenção de busca.
