@@ -1,0 +1,96 @@
+# RESF — Exact project JSON-LD factual intake template
+# Status: PROVIDER_CANDIDATE. Consumer supplies factual values, sources and approvals.
+contract:
+  name: EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1
+  scope: JSON_LD_ONLY
+  framework_contracts: [C01, C07, C17]
+  lifecycle: CANDIDATE
+consumer:
+  project_id: REQUIRED
+  repository: REQUIRED
+  source_commit_sha: REQUIRED
+  source_html_path: REQUIRED
+  canonical_url: REQUIRED
+  approver: REQUIRED
+page:
+  type: EXACT_PROJECT
+  project_name: REQUIRED
+  slug: REQUIRED
+  canonical_url: REQUIRED
+  location_neighborhood: REQUIRED
+  project_stage: REQUIRED_GOVERNED
+  site_name: REQUIRED
+  organization_name: REQUIRED_GOVERNED
+  brand_name: REQUIRED_GOVERNED
+sources:
+  project_fact_pack: REQUIRED
+  official_media_registry: REQUIRED
+  current_commercial_table: OPTIONAL_IF_NO_OFFER
+  professional_credentials: OPTIONAL_IF_AGENT
+  faq_visible_source: OPTIONAL_IF_FAQ
+location:
+  street_address: REQUIRED_GOVERNED
+  locality: REQUIRED_GOVERNED
+  region: REQUIRED_GOVERNED
+  postal_code: REQUIRED_GOVERNED
+  country: BR
+  geo: OPTIONAL_VERIFIED
+contact:
+  person_name: OPTIONAL_VERIFIED
+  professional_license: OPTIONAL_VERIFIED
+  approved_person_photo: OPTIONAL_VERIFIED
+  phone: OPTIONAL_VERIFIED
+  service_type: OPTIONAL_VERIFIED
+  on_site_service: REQUIRED_BOOLEAN
+  onsite_agent_address_equals_project: REQUIRED_IF_ON_SITE
+images:
+  primary: REQUIRED_VERIFIED
+  secondary_distinct: REQUIRED_VERIFIED_WHEN_PRESENT
+  additional: []
+  require_unique_urls: true
+floorplans:
+  status: REQUIRED_CLASSIFICATION
+  entries: [] # each: name, sqm, unit_code MTK, image_url, evidence
+  forbid_fabricated_typologies: true
+commercial_unit:
+  status: PRESENT|NOT_APPLICABLE|BLOCKED_BY_MISSING_FACT
+  identifier: OPTIONAL_VERIFIED
+  floor_area_sqm: OPTIONAL_VERIFIED
+  price_currency: BRL_IF_OFFER
+  price_reference: OPTIONAL_VERIFIED
+  price_source_date: OPTIONAL_VERIFIED
+  public_visible_price_parity: REQUIRED_IF_OFFER
+  product_offer_relationship: REQUIRED_IF_OFFER
+  linked_project_id: REQUIRED_IF_PRODUCT
+  availability: OMIT_UNLESS_VERIFIED
+  aggregate_rating: OMIT_UNLESS_VERIFIED
+  reviews: OMIT_UNLESS_VERIFIED
+  shipping_details: OMIT_UNLESS_APPLICABLE_AND_VERIFIED
+  merchant_return_policy: OMIT_UNLESS_APPLICABLE_AND_VERIFIED
+faq:
+  status: PRESENT|NOT_APPLICABLE
+  visible_question_answer_parity: REQUIRED_IF_PRESENT
+schema:
+  canonical_emitter: REQUIRED_SINGLE_JSON_LD
+  id_resolution: REQUIRED
+  valid_type_property_domains: REQUIRED
+  apartment_complex_brand: FORBIDDEN
+  organization_brand: ALLOWED_WHEN_GOVERNED
+  product_brand: ALLOWED_WHEN_GOVERNED
+  project_specific_agent_address: REQUIRED_IF_ON_SITE
+validation:
+  schema_org:
+    errors: TARGET_0
+    warnings: TARGET_0
+    top_level_items: OBSERVE_NOT_FORCE
+  google_rich_results:
+    categories: OBSERVE_PER_ELIGIBILITY
+    validated_item_count: OBSERVE
+    six_item_reference_profile: CONDITIONAL_IF_ALL_FACTS_ELIGIBLE
+    per_entity_expansion_review: REQUIRED
+  exact_head_ci: REQUIRED
+  production_retest: REQUIRED_AFTER_APPROVED_DEPLOY
+  rollback_reference: REQUIRED_IF_DEPLOY
+missing_facts: []
+product_authority_decision: PENDING
+provider_adoption_status: CANDIDATE_NOT_AUTOMATICALLY_ADOPTED
