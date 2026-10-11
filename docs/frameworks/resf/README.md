@@ -46,3 +46,11 @@ Legacy Markdown registries remain compatibility/navigation aliases only. Machine
 Initial origin: `ProjetosCyrela@193c5c3245019b99d3a3070b3e485f48796e7e37/docs/architecture/resf-v1-origin/`.
 Current operationalization source consumed for this version reconciliation: `ProjetosCyrela@60a8af63a94b86542c52f992d76bb5df1ca4ea2e`.
 Capri remains a high-value reference implementation with observed Google visibility and Gemini citation; causality is not established. Vista Milano is a controlled preview application, not production validation.
+
+## Candidate — Exact-project JSON-LD validation (2026-10-11)
+
+- `v1/EXACT_PROJECT_JSONLD_GRAPH_PROFILE_V1_2026-10-11.md` — **candidate**, factual graph architecture, field-level validation, and consumer-observed Google Rich Results 6 valid items / Schema.org 0 errors and 0 warnings for the Bem Moema pilot; not a universal six-item guarantee.
+- `templates/EXACT_PROJECT_JSONLD_INTAKE.template.yaml` — question-based facts intake before generating any exact-project JSON-LD.
+- `v1/EVIDENCE_REGISTRY.yaml` entry `EVD-005` — captures provenance, exact consumer SHA and limitations.
+
+**Do not treat this candidate as C07/C17 promotion or automatic adoption of `RESF-SCHEMA`.** The consumer remains authoritative for facts, deployment, validation and module adoption.
