@@ -1,6 +1,6 @@
 # RESF — Padrão Único RESF de construção de páginas de empreendimentos — V1 (candidato)
 
-**Escopo atual:** somente os **cinco primeiros requisitos** do padrão de construção. O conteúdo editorial neste ciclo limita-se ao FAQ estratégico do requisito 03; UX/CSS cobre captação/rodapé do requisito 04 e hero/faixa facts do requisito 05. Não implica padronizar agora todo o SEO editorial, tracking, CRM ou desempenho geral.
+**Escopo atual:** somente os **seis primeiros requisitos** do padrão de construção. O conteúdo editorial neste ciclo limita-se ao FAQ estratégico do requisito 03; UX/CSS cobre captação/rodapé do requisito 04 e hero/faixa facts do requisito 05; SEO editorial e copy de conversão são o requisito 06. Não implica padronizar agora todo o SEO editorial, tracking, CRM ou desempenho geral.
 
 **Governança:** especificação no provedor `wagnerjfjunior/Blogs-sites-portais-seo`; aplicação e homologação são decisões do consumidor. Estado `CANDIDATE / DRAFT` até revisão, gates e integração da PR do provedor. A adoção de módulos anteriormente diferidos no consumer exige decisão posterior.
 
@@ -11,6 +11,7 @@
 | **03** | **FAQ estratégico de SEO** | Seleção de dúvidas reais de busca e compra, respostas factuais publicadas no HTML, paridade literal de `FAQPage` e revisão de relevância/qualidade | [FAQ orientado à intenção de busca](EXACT_PROJECT_SEO_FAQ_INTENT_V1_2026-10-11.md) |
 | **04** | **Formulário e rodapé — UX/CSS** | Referência Ária para apresentação responsiva do Form 46 e footer, preservando atributos, comportamento, identidade e informações do próprio empreendimento | [Formulário e rodapé](EXACT_PROJECT_FORM_FOOTER_UX_V1_2026-10-11.md) |
 | **05** | **Hero e faixa `.facts` — UX/CSS** | Hero sem metadados duplicados, quatro quadros comerciais factuais, grid mobile 2×2 e desktop 4 colunas, mantendo título/CTA e sem inventar dados | [Hero e facts](EXACT_PROJECT_HERO_FACTS_UX_V1_2026-10-11.md) |
+| **06** | **SEO editorial e copy de vendas** | H1 único, H2 de intenção de busca, conteúdo de autoridade própria e argumentos factuais orientados ao comprador, link regional contextual e CTAs úteis | [SEO e copy comercial](EXACT_PROJECT_SEO_COMMERCIAL_COPY_V1_2026-10-11.md) |
 
 ## Distinção obrigatória — coleta de fatos vs. FAQ de SEO
 
@@ -46,7 +47,7 @@ Fonte da medição: **capturas fornecidas pela Product Authority** após publica
 
 - Não criar preço, disponibilidade, reviews, rating, plantas, endereço, agentes ou imagens para completar contagens.
 - Não aplicar automaticamente aos demais empreendimentos: fazer intake, diagnosticar e criar PR por escopo autorizado.
-- **Requisitos 01, 02, 03, 04 e 05 compõem o mesmo padrão único**: JSON-LD organiza entidades; imagens para busca coordenam sinais em HTML/metadata e JSON-LD; FAQ SEO seleciona perguntas relevantes e respostas reais. O requisito 01 representa o FAQ visível em `FAQPage` quando aplicável. O requisito 04 cuida do UX/CSS do formulário e do rodapé, sem mudar captação ou dados comerciais; o requisito 05 cuida da não duplicação de dados do hero e da faixa facts responsiva.
+- **Requisitos 01, 02, 03, 04, 05 e 06 compõem o mesmo padrão único**: JSON-LD organiza entidades; imagens para busca coordenam sinais em HTML/metadata e JSON-LD; FAQ SEO seleciona perguntas relevantes e respostas reais. O requisito 01 representa o FAQ visível em `FAQPage` quando aplicável. O requisito 04 cuida do UX/CSS do formulário e do rodapé, sem mudar captação ou dados comerciais; o requisito 05 cuida da não duplicação de dados do hero e da faixa facts responsiva.
 - O provedor não altera a produção do consumidor. A homologação da imagem na SERP real permanece evidência separada.
 - **Ampère FAQ 6 → 12** é evidência da PR #387 em Draft no consumidor; não afirmar que esteja em produção ou validado no Google antes de merge e novos testes.
 - Próximos itens do padrão geral podem ser adicionados posteriormente com aprovação de escopo.
